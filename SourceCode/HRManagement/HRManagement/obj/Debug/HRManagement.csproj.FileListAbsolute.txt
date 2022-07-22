@@ -1,0 +1,10 @@
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\HRManagement.exe.config
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\HRManagement.exe
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\HRManagement.pdb
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.csproj.AssemblyReference.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.csproj.SuggestedBindingRedirects.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Properties.Resources.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.csproj.GenerateResource.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.csproj.CoreCompileInputs.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.exe
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.pdb
