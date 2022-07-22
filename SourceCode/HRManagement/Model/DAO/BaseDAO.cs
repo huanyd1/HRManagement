@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.EF;
+﻿using Model.EF;
 
 namespace Model.DAO
 {
     public class BaseDAO
     {
+        //The new Cascadia Code font includes Cascade Mono
         protected HRManagementEntities _db;
         public BaseDAO()
         {
