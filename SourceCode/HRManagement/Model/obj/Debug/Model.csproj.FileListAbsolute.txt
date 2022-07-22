@@ -1,0 +1,13 @@
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\bin\Debug\Model.exe.config
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\bin\Debug\Model.exe
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\bin\Debug\Model.pdb
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\bin\Debug\EntityFramework.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\bin\Debug\EntityFramework.xml
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.csproj.SuggestedBindingRedirects.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.Properties.Resources.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.csproj.GenerateResource.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.csproj.CopyComplete
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.exe
+D:\SourceCode\HRManagement\SourceCode\HRManagement\Model\obj\Debug\Model.pdb

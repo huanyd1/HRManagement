@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d280158373e4dd48bfd1a8358b52ce1" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="HRManagementModel.Contract" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.ContractType" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Course" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Department" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Insurance" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Position" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Salary" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Staff" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.sysdiagram" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.UserCourse" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Timekeeping" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="HRManagementModel.FK_Contract_ContractType" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Staff_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_UserCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Staff_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Staff_Insurance" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Staff_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Staff_Salary" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Staff_UserCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Timekeeping_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_UserCourse_Staff" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
