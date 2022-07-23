@@ -56,7 +56,14 @@
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ContractDAO.cs" />
     <Compile Include="DAO\ContractTypeDAO.cs" />
+    <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\DepartmentDAO.cs" />
+    <Compile Include="DAO\InsuranceDAO.cs" />
+    <Compile Include="DAO\PositionDAO.cs" />
+    <Compile Include="DAO\SalaryDAO.cs" />
+    <Compile Include="DAO\StaffDAO.cs" />
+    <Compile Include="DAO\TimekeepingDAO.cs" />
+    <Compile Include="DAO\UserCourseDAO.cs" />
     <Compile Include="EF\Contract.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
