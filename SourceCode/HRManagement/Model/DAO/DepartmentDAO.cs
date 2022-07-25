@@ -13,6 +13,18 @@ namespace Model.DAO
         {
             List<Department> list = _db.Departments.ToList();
 
+            foreach(var department in list)
+            {
+                if(department.Status == "1")
+                {
+                    department.Status = "Hoạt động";
+                }
+                else
+                {
+                    department.Status = "Ngừng hoạt động";
+                }  
+            }
+
             return list;
         }
 
@@ -21,6 +33,28 @@ namespace Model.DAO
             Department department = _db.Departments.Where(x => x.IDDepartment == id).FirstOrDefault();
 
             return department;
+        }
+
+        public List<Department> GetDepartmentByFilter(string idDepartment, string departmentName, string status)
+        {
+            List<Department> list = _db.Departments.ToList();
+
+            if (!string.IsNullOrEmpty(idDepartment))
+            {
+                list.Where(x => x.IDDepartment == idDepartment);
+            }
+
+            if (!string.IsNullOrEmpty(departmentName))
+            {
+                list.Where(x => x.DepartmentName == departmentName);
+            }
+
+            if (!string.IsNullOrEmpty(status) && status != "Tất cả")
+            {
+                list.Where(x => x.Status == status);
+            }
+
+            return list.ToList();
         }
 
         public bool Add(Department department)

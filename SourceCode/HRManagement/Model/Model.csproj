@@ -53,64 +53,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionCommon.cs" />
+    <Compile Include="CheckVariableCommon.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ContractDAO.cs" />
     <Compile Include="DAO\ContractTypeDAO.cs" />
     <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\DepartmentDAO.cs" />
     <Compile Include="DAO\InsuranceDAO.cs" />
+    <Compile Include="DAO\InsuranceTypeDAO.cs" />
     <Compile Include="DAO\PositionDAO.cs" />
     <Compile Include="DAO\SalaryDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\TimekeepingDAO.cs" />
     <Compile Include="DAO\UserCourseDAO.cs" />
+    <Compile Include="EF\Account.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ALL_CONTRACT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ALL_INSURANCE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Contract.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\ContractType.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Course.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Department.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Insurance.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model.Context.cs">
+    <Compile Include="EF\InsuranceType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model.cs">
+    <Compile Include="EF\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model.Designer.cs">
+    <Compile Include="EF\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\Position.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Salary.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Staff.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Timekeeping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\UserCourse.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -118,6 +133,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxCommon.cs" />
     <Compile Include="NotificationCommon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,12 +146,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="EF\Model.edmx">
+    <EntityDeploy Include="EF\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EF\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <None Include="EF\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -152,20 +168,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EF\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="EF\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="EF\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

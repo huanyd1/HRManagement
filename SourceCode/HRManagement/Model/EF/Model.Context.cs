@@ -25,11 +25,13 @@ namespace Model.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<ContractType> ContractTypes { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Insurance> Insurances { get; set; }
+        public DbSet<InsuranceType> InsuranceTypes { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Staff> Staffs { get; set; }

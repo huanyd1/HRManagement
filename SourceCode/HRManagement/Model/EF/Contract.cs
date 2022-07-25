@@ -21,13 +21,9 @@ namespace Model.EF
     
         public string IDContract { get; set; }
         public string ContractName { get; set; }
-        public string ContractType { get; set; }
         public string IDType { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<System.DateTime> EndDate { get; set; }
-        public string IDStaff { get; set; }
     
-        public virtual ContractType ContractType1 { get; set; }
+        public virtual ContractType ContractType { get; set; }
         public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

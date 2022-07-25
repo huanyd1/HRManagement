@@ -16,23 +16,29 @@ namespace Model.EF
     {
         public Staff()
         {
+            this.Accounts = new HashSet<Account>();
             this.UserCourses = new HashSet<UserCourse>();
         }
     
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
+        public string Sex { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
         public string Place { get; set; }
         public string CCCD { get; set; }
         public string Numberphone { get; set; }
-        public string IDSalary { get; set; }
+        public string Email { get; set; }
         public string IDDepartment { get; set; }
-        public string IDInsurance { get; set; }
         public string IDContract { get; set; }
+        public string IDSalary { get; set; }
+        public string IDInsurance { get; set; }
         public string IDStaffCource { get; set; }
         public string IDPosition { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public string Status { get; set; }
     
+        public virtual ICollection<Account> Accounts { get; set; }
         public virtual Contract Contract { get; set; }
         public virtual Department Department { get; set; }
         public virtual Insurance Insurance { get; set; }

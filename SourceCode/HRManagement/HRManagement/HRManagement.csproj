@@ -39,6 +39,9 @@
     <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,10 +67,76 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\UCLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\UCLogin.Designer.cs">
+      <DependentUpon>UCLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\Contract\UCContract.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Contract\UCContract.Designer.cs">
+      <DependentUpon>UCContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Department\ChangeDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Department\ChangeDepartment.Designer.cs">
+      <DependentUpon>ChangeDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Department\UCDepartment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Department\UCDepartment.Designer.cs">
+      <DependentUpon>UCDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Insurance\ChangeInsurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Insurance\ChangeInsurance.Designer.cs">
+      <DependentUpon>ChangeInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Insurance\ChangeInsuranceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Insurance\ChangeInsuranceType.Designer.cs">
+      <DependentUpon>ChangeInsuranceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Insurance\UCInsurance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Insurance\UCInsurance.Designer.cs">
+      <DependentUpon>UCInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Position\ChangePosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Position\ChangePosition.Designer.cs">
+      <DependentUpon>ChangePosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Position\UCPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Position\UCPosition.Designer.cs">
+      <DependentUpon>UCPosition.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\UCLogin.resx">
+      <DependentUpon>UCLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -78,7 +147,32 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Screens\Contract\UCContract.resx">
+      <DependentUpon>UCContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Department\ChangeDepartment.resx">
+      <DependentUpon>ChangeDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Department\UCDepartment.resx">
+      <DependentUpon>UCDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Insurance\ChangeInsurance.resx">
+      <DependentUpon>ChangeInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Insurance\ChangeInsuranceType.resx">
+      <DependentUpon>ChangeInsuranceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Insurance\UCInsurance.resx">
+      <DependentUpon>UCInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Position\ChangePosition.resx">
+      <DependentUpon>ChangePosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Position\UCPosition.resx">
+      <DependentUpon>UCPosition.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,5 +192,12 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\Icon\contract.ico" />
+    <Content Include="Resource\Icon\department.ico" />
+    <Content Include="Resource\Icon\insurance.ico" />
+    <Content Include="Resource\Images\department.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

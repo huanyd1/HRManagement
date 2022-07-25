@@ -16,11 +16,40 @@ namespace Model.DAO
             return list;
         }
 
+        public List<ALL_INSURANCE> GetAllInfoInsurance()
+        {
+            List<ALL_INSURANCE> list = _db.ALL_INSURANCE.ToList();
+
+            return list;
+        }
+
         public Insurance GetSingleByID(string id)
         {
             Insurance insurance = _db.Insurances.Where(x => x.IDInsurance == id).FirstOrDefault();
 
             return insurance;
+        }
+
+        public List<ALL_INSURANCE> GetInsuranceByFilter(string idInsurance, string insuranceName, string idType)
+        {
+            List<ALL_INSURANCE> list = _db.ALL_INSURANCE.ToList();
+
+            if (!string.IsNullOrEmpty(idInsurance))
+            {
+                list.Where(x => x.IDInsurance.Contains(idInsurance));
+            }
+
+            if (!string.IsNullOrEmpty(insuranceName))
+            {
+                list.Where(x => x.InsuranceName.Contains(insuranceName));
+            }
+
+            if (!string.IsNullOrEmpty(idType))
+            {
+                list.Where(x => x.IDInsuranceType == idType);
+            }
+
+            return list.ToList();
         }
 
         public bool Add(Insurance insurance)

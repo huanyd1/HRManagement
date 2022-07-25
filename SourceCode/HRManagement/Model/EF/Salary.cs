@@ -20,7 +20,7 @@ namespace Model.EF
         }
     
         public string IDSalary { get; set; }
-        public Nullable<int> Salary1 { get; set; }
+        public Nullable<int> SalaryAmount { get; set; }
         public Nullable<int> Allowance { get; set; }
         public Nullable<int> Tax { get; set; }
     

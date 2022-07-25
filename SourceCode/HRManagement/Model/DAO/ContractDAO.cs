@@ -14,6 +14,13 @@ namespace Model.DAO
             return list;
         }
 
+        public List<ALL_CONTRACT> GetAllInfoContract()
+        {
+            List<ALL_CONTRACT> list = _db.ALL_CONTRACT.ToList();
+
+            return list;
+        }
+
         public Contract GetSingleByID(string id)
         {
             Contract contract = _db.Contracts.Where(x => x.IDContract == id).FirstOrDefault();
@@ -52,8 +59,6 @@ namespace Model.DAO
                 currentContract.ContractName = contract.ContractName;
                 currentContract.ContractType = contract.ContractType;
                 currentContract.IDType = contract.IDType;
-                currentContract.StartDate = contract.StartDate;
-                currentContract.EndDate = contract.EndDate;
                 _db.SaveChanges();
             }
             catch (Exception ex)

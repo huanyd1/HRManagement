@@ -17,5 +17,10 @@ namespace HRManagement
         {
             InitializeComponent();
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(new Login.UCLogin());
+        }
     }
 }

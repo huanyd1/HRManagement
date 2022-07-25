@@ -44,7 +44,7 @@ namespace Model.DAO
             {
                 Salary currentSalary = GetSingleByID(salary.IDSalary);
 
-                currentSalary.Salary1 = salary.Salary1;
+                currentSalary.SalaryAmount = salary.SalaryAmount;
                 currentSalary.Allowance = salary.Allowance;
                 currentSalary.Tax = salary.Tax;
                 _db.SaveChanges();
@@ -76,7 +76,7 @@ namespace Model.DAO
 
         public bool IsExitSalary(int salary)
         {
-            var result = _db.Salaries.Where(x => x.Salary1 == salary).Any();
+            var result = _db.Salaries.Where(x => x.SalaryAmount == salary).Any();
 
             return result;
         }

@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="HRManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IDAccount" />
+          </Key>
+          <Property Name="IDAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDStaff" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Contract">
           <Key>
             <PropertyRef Name="IDContract" />
@@ -46,7 +55,15 @@
           </Key>
           <Property Name="IDInsurance" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="InsuranceName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDInsuranceType" Type="varchar" MaxLength="50" />
           <Property Name="Amount" Type="int" />
+        </EntityType>
+        <EntityType Name="InsuranceType">
+          <Key>
+            <PropertyRef Name="IDInsuranceType" />
+          </Key>
+          <Property Name="IDInsuranceType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -61,7 +78,8 @@
             <PropertyRef Name="IDSalary" />
           </Key>
           <Property Name="IDSalary" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Salary" Type="int" />
+          <Property Name="IDStaff" Type="varchar" MaxLength="50" />
+          <Property Name="SalaryAmount" Type="int" />
           <Property Name="Allowance" Type="int" />
           <Property Name="Tax" Type="int" />
         </EntityType>
@@ -75,6 +93,7 @@
           <Property Name="Place" Type="nvarchar" MaxLength="100" />
           <Property Name="CCCD" Type="varchar" MaxLength="20" />
           <Property Name="Numberphone" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="IDSalary" Type="varchar" MaxLength="50" />
           <Property Name="IDDepartment" Type="varchar" MaxLength="50" />
           <Property Name="IDInsurance" Type="varchar" MaxLength="50" />
@@ -111,6 +130,18 @@ warning 6002: The table/view 'HRManagement.dbo.Timekeeping' does not have a prim
           <Property Name="IDStaff" Type="varchar" MaxLength="50" />
           <Property Name="IDCourse" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Account_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IDStaff" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="IDStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Contract_ContractType">
           <End Role="ContractType" Type="Self.ContractType" Multiplicity="0..1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
@@ -120,6 +151,30 @@ warning 6002: The table/view 'HRManagement.dbo.Timekeeping' does not have a prim
             </Principal>
             <Dependent Role="Contract">
               <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insurance_InsuranceType">
+          <End Role="InsuranceType" Type="Self.InsuranceType" Multiplicity="0..1" />
+          <End Role="Insurance" Type="Self.Insurance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuranceType">
+              <PropertyRef Name="IDInsuranceType" />
+            </Principal>
+            <Dependent Role="Insurance">
+              <PropertyRef Name="IDInsuranceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salary_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IDStaff" />
+            </Principal>
+            <Dependent Role="Salary">
+              <PropertyRef Name="IDStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -232,11 +287,13 @@ warning 6002: The table/view 'HRManagement.dbo.Timekeeping' does not have a prim
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HRManagementModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContractType" EntityType="Self.ContractType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Insurance" EntityType="Self.Insurance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsuranceType" EntityType="Self.InsuranceType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
@@ -249,9 +306,21 @@ warning 6002: The table/view 'HRManagement.dbo.Timekeeping' does not have a prim
 [Timekeeping].[Checkoout] AS [Checkoout]
 FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_Account_Staff" Association="Self.FK_Account_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Contract_ContractType" Association="Self.FK_Contract_ContractType">
             <End Role="ContractType" EntitySet="ContractType" />
             <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
+            <End Role="InsuranceType" EntitySet="InsuranceType" />
+            <End Role="Insurance" EntitySet="Insurance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Salary" EntitySet="Salary" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Contract" Association="Self.FK_Staff_Contract">
             <End Role="Contract" EntitySet="Contract" />
@@ -295,6 +364,16 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IDAccount" />
+          </Key>
+          <Property Name="IDAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Account_Staff" FromRole="Account" ToRole="Staff" />
+        </EntityType>
         <EntityType Name="Contract">
           <Key>
             <PropertyRef Name="IDContract" />
@@ -341,8 +420,18 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           </Key>
           <Property Name="IDInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="InsuranceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDInsuranceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Amount" Type="Int32" />
+          <NavigationProperty Name="InsuranceType" Relationship="Self.FK_Insurance_InsuranceType" FromRole="Insurance" ToRole="InsuranceType" />
           <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Insurance" FromRole="Insurance" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="InsuranceType">
+          <Key>
+            <PropertyRef Name="IDInsuranceType" />
+          </Key>
+          <Property Name="IDInsuranceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Insurances" Relationship="Self.FK_Insurance_InsuranceType" FromRole="InsuranceType" ToRole="Insurance" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -358,9 +447,11 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
             <PropertyRef Name="IDSalary" />
           </Key>
           <Property Name="IDSalary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Salary1" Type="Int32" />
+          <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryAmount" Type="Int32" />
           <Property Name="Allowance" Type="Int32" />
           <Property Name="Tax" Type="Int32" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Salary_Staff" FromRole="Salary" ToRole="Staff" />
           <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Salary" FromRole="Salary" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Staff">
@@ -373,6 +464,7 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           <Property Name="Place" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CCCD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Numberphone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDSalary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -380,10 +472,12 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           <Property Name="IDStaffCource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Staff" FromRole="Staff" ToRole="Account" />
           <NavigationProperty Name="Contract" Relationship="Self.FK_Staff_Contract" FromRole="Staff" ToRole="Contract" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
           <NavigationProperty Name="Insurance" Relationship="Self.FK_Staff_Insurance" FromRole="Staff" ToRole="Insurance" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
+          <NavigationProperty Name="Salaries" Relationship="Self.FK_Salary_Staff" FromRole="Staff" ToRole="Salary" />
           <NavigationProperty Name="Salary" Relationship="Self.FK_Staff_Salary" FromRole="Staff" ToRole="Salary" />
           <NavigationProperty Name="UserCourse" Relationship="Self.FK_Staff_UserCourse" FromRole="Staff" ToRole="UserCourse" />
           <NavigationProperty Name="Timekeeping" Relationship="Self.FK_Timekeeping_Staff" FromRole="Staff" ToRole="Timekeeping" />
@@ -419,6 +513,18 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           <Property Name="Checkoout" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
         </EntityType>
+        <Association Name="FK_Account_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IDStaff" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="IDStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Contract_ContractType">
           <End Role="ContractType" Type="Self.ContractType" Multiplicity="0..1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
@@ -467,6 +573,18 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Insurance_InsuranceType">
+          <End Role="InsuranceType" Type="Self.InsuranceType" Multiplicity="0..1" />
+          <End Role="Insurance" Type="Self.Insurance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuranceType">
+              <PropertyRef Name="IDInsuranceType" />
+            </Principal>
+            <Dependent Role="Insurance">
+              <PropertyRef Name="IDInsuranceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_Insurance">
           <End Role="Insurance" Type="Self.Insurance" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -488,6 +606,18 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
             </Principal>
             <Dependent Role="Staff">
               <PropertyRef Name="IDPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salary_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IDStaff" />
+            </Principal>
+            <Dependent Role="Salary">
+              <PropertyRef Name="IDStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -540,17 +670,23 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HRManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Contracts" EntityType="Self.Contract" />
           <EntitySet Name="ContractTypes" EntityType="Self.ContractType" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Insurances" EntityType="Self.Insurance" />
+          <EntitySet Name="InsuranceTypes" EntityType="Self.InsuranceType" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
           <EntitySet Name="Salaries" EntityType="Self.Salary" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="UserCourses" EntityType="Self.UserCourse" />
           <EntitySet Name="Timekeepings" EntityType="Self.Timekeeping" />
+          <AssociationSet Name="FK_Account_Staff" Association="Self.FK_Account_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
           <AssociationSet Name="FK_Contract_ContractType" Association="Self.FK_Contract_ContractType">
             <End Role="ContractType" EntitySet="ContractTypes" />
             <End Role="Contract" EntitySet="Contracts" />
@@ -567,6 +703,10 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
             <End Role="Department" EntitySet="Departments" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
+          <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
+            <End Role="InsuranceType" EntitySet="InsuranceTypes" />
+            <End Role="Insurance" EntitySet="Insurances" />
+          </AssociationSet>
           <AssociationSet Name="FK_Staff_Insurance" Association="Self.FK_Staff_Insurance">
             <End Role="Insurance" EntitySet="Insurances" />
             <End Role="Staff" EntitySet="Staffs" />
@@ -574,6 +714,10 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
           <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
             <End Role="Position" EntitySet="Positions" />
             <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Salary" EntitySet="Salaries" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Salary" Association="Self.FK_Staff_Salary">
             <End Role="Salary" EntitySet="Salaries" />
@@ -598,6 +742,16 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HRManagementModelStoreContainer" CdmEntityContainer="HRManagementEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="HRManagementModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="IDAccount" ColumnName="IDAccount" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Contracts">
             <EntityTypeMapping TypeName="HRManagementModel.Contract">
               <MappingFragment StoreEntitySet="Contract">
@@ -642,7 +796,16 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
               <MappingFragment StoreEntitySet="Insurance">
                 <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
                 <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+                <ScalarProperty Name="IDInsuranceType" ColumnName="IDInsuranceType" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsuranceTypes">
+            <EntityTypeMapping TypeName="HRManagementModel.InsuranceType">
+              <MappingFragment StoreEntitySet="InsuranceType">
+                <ScalarProperty Name="IDInsuranceType" ColumnName="IDInsuranceType" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -659,7 +822,8 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
             <EntityTypeMapping TypeName="HRManagementModel.Salary">
               <MappingFragment StoreEntitySet="Salary">
                 <ScalarProperty Name="IDSalary" ColumnName="IDSalary" />
-                <ScalarProperty Name="Salary1" ColumnName="Salary" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
                 <ScalarProperty Name="Allowance" ColumnName="Allowance" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
               </MappingFragment>
@@ -674,6 +838,7 @@ FROM [dbo].[Timekeeping] AS [Timekeeping]</DefiningQuery>
                 <ScalarProperty Name="Place" ColumnName="Place" />
                 <ScalarProperty Name="CCCD" ColumnName="CCCD" />
                 <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="IDSalary" ColumnName="IDSalary" />
                 <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
                 <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />

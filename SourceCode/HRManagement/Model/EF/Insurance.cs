@@ -21,8 +21,10 @@ namespace Model.EF
     
         public string IDInsurance { get; set; }
         public string InsuranceName { get; set; }
+        public string IDInsuranceType { get; set; }
         public Nullable<int> Amount { get; set; }
     
+        public virtual InsuranceType InsuranceType { get; set; }
         public virtual ICollection<Staff> Staffs { get; set; }
     }
 }
