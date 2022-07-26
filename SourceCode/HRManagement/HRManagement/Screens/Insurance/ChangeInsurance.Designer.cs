@@ -56,7 +56,7 @@
             this.cbInsuranceType.FormattingEnabled = true;
             this.cbInsuranceType.Location = new System.Drawing.Point(138, 135);
             this.cbInsuranceType.Name = "cbInsuranceType";
-            this.cbInsuranceType.Size = new System.Drawing.Size(210, 23);
+            this.cbInsuranceType.Size = new System.Drawing.Size(210, 26);
             this.cbInsuranceType.TabIndex = 23;
             // 
             // txtInsuranceName
@@ -64,7 +64,7 @@
             this.txtInsuranceName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInsuranceName.Location = new System.Drawing.Point(138, 82);
             this.txtInsuranceName.Name = "txtInsuranceName";
-            this.txtInsuranceName.Size = new System.Drawing.Size(241, 20);
+            this.txtInsuranceName.Size = new System.Drawing.Size(241, 23);
             this.txtInsuranceName.TabIndex = 22;
             // 
             // txtIDInsurance
@@ -72,7 +72,7 @@
             this.txtIDInsurance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDInsurance.Location = new System.Drawing.Point(138, 33);
             this.txtIDInsurance.Name = "txtIDInsurance";
-            this.txtIDInsurance.Size = new System.Drawing.Size(241, 20);
+            this.txtIDInsurance.Size = new System.Drawing.Size(241, 23);
             this.txtIDInsurance.TabIndex = 21;
             // 
             // label3
@@ -81,7 +81,7 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 138);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 15);
+            this.label3.Size = new System.Drawing.Size(120, 18);
             this.label3.TabIndex = 18;
             this.label3.Text = "Loại bảo hiểm:";
             // 
@@ -91,7 +91,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 15);
+            this.label2.Size = new System.Drawing.Size(112, 18);
             this.label2.TabIndex = 17;
             this.label2.Text = "Tên bảo hiểm:";
             // 
@@ -101,7 +101,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 15);
+            this.label1.Size = new System.Drawing.Size(104, 18);
             this.label1.TabIndex = 16;
             this.label1.Text = "Mã bảo hiểm:";
             // 
@@ -119,10 +119,9 @@
             this.txtAmount.Location = new System.Drawing.Point(138, 192);
             this.txtAmount.MaxLength = 12;
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(210, 20);
+            this.txtAmount.Size = new System.Drawing.Size(210, 23);
             this.txtAmount.TabIndex = 25;
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label4
@@ -131,7 +130,7 @@
             this.label4.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(20, 195);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 15);
+            this.label4.Size = new System.Drawing.Size(72, 18);
             this.label4.TabIndex = 24;
             this.label4.Text = "Số tiền:";
             // 
@@ -141,7 +140,7 @@
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(354, 195);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 15);
+            this.label5.Size = new System.Drawing.Size(32, 18);
             this.label5.TabIndex = 26;
             this.label5.Text = "VNĐ";
             // 

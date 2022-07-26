@@ -14,11 +14,33 @@ namespace Model.DAO
             return list;
         }
 
-        public List<ALL_CONTRACT> GetAllInfoContract()
+        public List<AllInfoContract> GetAllInfoContract()
         {
-            List<ALL_CONTRACT> list = _db.ALL_CONTRACT.ToList();
+            List<AllInfoContract> list = _db.AllInfoContracts.ToList();
 
             return list;
+        }
+
+        public List<AllInfoContract> GetContractByFilter(string idContract, string contractName, string idType)
+        {
+            List<AllInfoContract> list = _db.AllInfoContracts.ToList();
+
+            if (!string.IsNullOrEmpty(idContract))
+            {
+                list.Where(x => x.IDContract.Contains(idContract));
+            }
+
+            if (!string.IsNullOrEmpty(contractName))
+            {
+                list.Where(x => x.ContractName.Contains(contractName));
+            }
+
+            if (!string.IsNullOrEmpty(idType))
+            {
+                list.Where(x => x.IDType == idType);
+            }
+
+            return list.ToList();
         }
 
         public Contract GetSingleByID(string id)

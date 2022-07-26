@@ -10,15 +10,14 @@
 namespace Model.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ALL_CONTRACT
+    public partial class GetTimekeepingByMonth_Result
     {
-        public string IDContract { get; set; }
-        public string ContractName { get; set; }
-        public string IDType { get; set; }
-        public string TypeName { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<System.DateTime> EndDate { get; set; }
+        public string IDDepartment { get; set; }
+        public string DepartmentName { get; set; }
+        public string IDStaff { get; set; }
+        public string StaffName { get; set; }
+        public Nullable<int> Month { get; set; }
+        public Nullable<int> TotalTime { get; set; }
     }
 }

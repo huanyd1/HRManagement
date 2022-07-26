@@ -4,31 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2c95d1e0f808457d90a68748601359d3" Name="Diagram1">
-        <EntityTypeShape EntityType="HRManagementModel.Account" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Contract" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.ContractType" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Course" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Department" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Insurance" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.InsuranceType" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Position" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Salary" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Staff" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Timekeeping" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.UserCourse" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.ALL_CONTRACT" Width="1.5" PointX="5.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.ALL_INSURANCE" Width="1.5" PointX="7.75" PointY="9.5" IsExpanded="true" />
+      <Diagram DiagramId="42fa62ddeec24c859363c478ef3c171f" Name="Diagram1">
+        <EntityTypeShape EntityType="HRManagementModel.Account" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Contract" Width="1.5" PointX="12" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.ContractType" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Course" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Department" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Insurance" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.InsuranceType" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Position" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Salary" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Staff" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Timekeeping" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.UserCourse" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoContract" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoInsurance" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoSalary" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
         <AssociationConnector Association="HRManagementModel.FK_Account_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Contract_ContractType" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Contract" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_UserCourse_Course" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Department" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Insurance_InsuranceType" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Insurance" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Position" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Salary" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Salary_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Staff_UserCourse" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Timekeeping_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_UserCourse_Staff" ManuallyRouted="false" />

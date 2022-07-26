@@ -41,17 +41,17 @@ namespace Model.DAO
 
             if (!string.IsNullOrEmpty(idDepartment))
             {
-                list.Where(x => x.IDDepartment == idDepartment);
+                list = list.Where(x => x.IDDepartment == idDepartment).ToList();
             }
 
             if (!string.IsNullOrEmpty(departmentName))
             {
-                list.Where(x => x.DepartmentName == departmentName);
+                list =  list.Where(x => x.DepartmentName == departmentName).ToList();
             }
 
             if (!string.IsNullOrEmpty(status) && status != "Tất cả")
             {
-                list.Where(x => x.Status == status);
+                list = list.Where(x => x.Status == status).ToList();
             }
 
             return list.ToList();

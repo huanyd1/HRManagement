@@ -16,9 +16,9 @@ namespace Model.DAO
             return list;
         }
 
-        public List<ALL_INSURANCE> GetAllInfoInsurance()
+        public List<AllInfoInsurance> GetAllInfoInsurance()
         {
-            List<ALL_INSURANCE> list = _db.ALL_INSURANCE.ToList();
+            List<AllInfoInsurance> list = _db.AllInfoInsurances.ToList();
 
             return list;
         }
@@ -30,9 +30,9 @@ namespace Model.DAO
             return insurance;
         }
 
-        public List<ALL_INSURANCE> GetInsuranceByFilter(string idInsurance, string insuranceName, string idType)
+        public List<AllInfoInsurance> GetInsuranceByFilter(string idInsurance, string insuranceName, string idType)
         {
-            List<ALL_INSURANCE> list = _db.ALL_INSURANCE.ToList();
+            List<AllInfoInsurance> list = _db.AllInfoInsurances.ToList();
 
             if (!string.IsNullOrEmpty(idInsurance))
             {

@@ -1,6 +1,6 @@
-﻿namespace HRManagement.Screens.Position
+﻿namespace HRManagement.Screens.Course
 {
-    partial class UCPosition
+    partial class UCCourse
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,38 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPosition));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCCourse));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbInsuranceType = new System.Windows.Forms.ComboBox();
-            this.txtInsuranceName = new System.Windows.Forms.TextBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.txtDepartmentName = new System.Windows.Forms.TextBox();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIDInsurance = new System.Windows.Forms.TextBox();
+            this.txtIDDepartment = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gInsurance = new DevExpress.XtraGrid.GridControl();
-            this.gvInsurance = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IDInsurance = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.InsuranceName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.IDInsuranceType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TypeName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Amount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gCourse = new DevExpress.XtraGrid.GridControl();
+            this.gvCourse = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IDCourse = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CourseName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnInfo = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddDepartment = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gInsurance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvInsurance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCourse)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -84,37 +82,37 @@
             // panel3
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
-            this.panel3.Controls.Add(this.cbInsuranceType);
-            this.panel3.Controls.Add(this.txtInsuranceName);
+            this.panel3.Controls.Add(this.cbStatus);
+            this.panel3.Controls.Add(this.txtDepartmentName);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtIDInsurance);
+            this.panel3.Controls.Add(this.txtIDDepartment);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(2, 70);
+            this.panel3.Location = new System.Drawing.Point(3, 88);
             this.panel3.Name = "panel3";
             this.tablePanel1.SetRow(this.panel3, 1);
-            this.panel3.Size = new System.Drawing.Size(721, 63);
+            this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
-            // cbInsuranceType
+            // cbStatus
             // 
-            this.cbInsuranceType.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbInsuranceType.FormattingEnabled = true;
-            this.cbInsuranceType.Location = new System.Drawing.Point(450, 44);
-            this.cbInsuranceType.Name = "cbInsuranceType";
-            this.cbInsuranceType.Size = new System.Drawing.Size(190, 20);
-            this.cbInsuranceType.TabIndex = 12;
+            this.cbStatus.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(450, 44);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(190, 23);
+            this.cbStatus.TabIndex = 12;
             // 
-            // txtInsuranceName
+            // txtDepartmentName
             // 
-            this.txtInsuranceName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuranceName.Location = new System.Drawing.Point(240, 44);
-            this.txtInsuranceName.Name = "txtInsuranceName";
-            this.txtInsuranceName.Size = new System.Drawing.Size(190, 20);
-            this.txtInsuranceName.TabIndex = 10;
+            this.txtDepartmentName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartmentName.Location = new System.Drawing.Point(240, 44);
+            this.txtDepartmentName.Name = "txtDepartmentName";
+            this.txtDepartmentName.Size = new System.Drawing.Size(190, 23);
+            this.txtDepartmentName.TabIndex = 10;
             // 
             // btnSearch
             // 
@@ -144,9 +142,9 @@
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(447, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 17);
+            this.label6.Size = new System.Drawing.Size(110, 22);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Loại bảo hiểm";
+            this.label6.Text = "Trạng thái";
             // 
             // label5
             // 
@@ -154,17 +152,17 @@
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(237, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 17);
+            this.label5.Size = new System.Drawing.Size(130, 22);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Tên bảo hiểm";
+            this.label5.Text = "Tên khóa học";
             // 
-            // txtIDInsurance
+            // txtIDDepartment
             // 
-            this.txtIDInsurance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDInsurance.Location = new System.Drawing.Point(29, 44);
-            this.txtIDInsurance.Name = "txtIDInsurance";
-            this.txtIDInsurance.Size = new System.Drawing.Size(190, 20);
-            this.txtIDInsurance.TabIndex = 3;
+            this.txtIDDepartment.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDDepartment.Location = new System.Drawing.Point(29, 44);
+            this.txtIDDepartment.Name = "txtIDDepartment";
+            this.txtIDDepartment.Size = new System.Drawing.Size(190, 23);
+            this.txtIDDepartment.TabIndex = 3;
             // 
             // label2
             // 
@@ -172,102 +170,87 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.Size = new System.Drawing.Size(120, 22);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã bảo hiểm";
+            this.label2.Text = "Mã khóa học";
             // 
             // panel2
             // 
             this.tablePanel1.SetColumn(this.panel2, 0);
-            this.panel2.Controls.Add(this.gInsurance);
+            this.panel2.Controls.Add(this.gCourse);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(2, 138);
+            this.panel2.Location = new System.Drawing.Point(3, 173);
             this.panel2.Name = "panel2";
             this.tablePanel1.SetRow(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(721, 410);
+            this.panel2.Size = new System.Drawing.Size(901, 512);
             this.panel2.TabIndex = 1;
             // 
-            // gInsurance
+            // gCourse
             // 
-            this.gInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gInsurance.Location = new System.Drawing.Point(0, 0);
-            this.gInsurance.MainView = this.gvInsurance;
-            this.gInsurance.Name = "gInsurance";
-            this.gInsurance.Size = new System.Drawing.Size(721, 410);
-            this.gInsurance.TabIndex = 4;
-            this.gInsurance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvInsurance});
+            this.gCourse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gCourse.EmbeddedNavigator.Buttons.CancelEdit.Enabled = false;
+            this.gCourse.EmbeddedNavigator.Buttons.Edit.Enabled = false;
+            this.gCourse.Location = new System.Drawing.Point(0, 0);
+            this.gCourse.MainView = this.gvCourse;
+            this.gCourse.Name = "gCourse";
+            this.gCourse.Size = new System.Drawing.Size(901, 512);
+            this.gCourse.TabIndex = 5;
+            this.gCourse.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvCourse});
             // 
-            // gvInsurance
+            // gvCourse
             // 
-            this.gvInsurance.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDInsurance,
-            this.InsuranceName,
-            this.IDInsuranceType,
-            this.TypeName,
-            this.Amount});
-            this.gvInsurance.GridControl = this.gInsurance;
-            this.gvInsurance.Name = "gvInsurance";
-            this.gvInsurance.OptionsView.ShowGroupPanel = false;
+            this.gvCourse.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.IDCourse,
+            this.CourseName,
+            this.Status});
+            this.gvCourse.GridControl = this.gCourse;
+            this.gvCourse.Name = "gvCourse";
+            this.gvCourse.OptionsView.ShowGroupPanel = false;
+            this.gvCourse.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvCourse_CustomColumnDisplayText);
             // 
-            // IDInsurance
+            // IDCourse
             // 
-            this.IDInsurance.Caption = "Mã Bảo Hiểm";
-            this.IDInsurance.FieldName = "IDInsurance";
-            this.IDInsurance.MinWidth = 25;
-            this.IDInsurance.Name = "IDInsurance";
-            this.IDInsurance.Visible = true;
-            this.IDInsurance.VisibleIndex = 0;
-            this.IDInsurance.Width = 94;
+            this.IDCourse.Caption = "Mã Khóa Học";
+            this.IDCourse.FieldName = "IDCourse";
+            this.IDCourse.MinWidth = 25;
+            this.IDCourse.Name = "IDCourse";
+            this.IDCourse.Visible = true;
+            this.IDCourse.VisibleIndex = 0;
+            this.IDCourse.Width = 440;
             // 
-            // InsuranceName
+            // CourseName
             // 
-            this.InsuranceName.Caption = "Tên Bảo Hiểm";
-            this.InsuranceName.FieldName = "InsuranceName";
-            this.InsuranceName.MinWidth = 25;
-            this.InsuranceName.Name = "InsuranceName";
-            this.InsuranceName.Visible = true;
-            this.InsuranceName.VisibleIndex = 1;
-            this.InsuranceName.Width = 94;
+            this.CourseName.Caption = "Tên Khóa Học";
+            this.CourseName.FieldName = "CourseName";
+            this.CourseName.MinWidth = 25;
+            this.CourseName.Name = "CourseName";
+            this.CourseName.Visible = true;
+            this.CourseName.VisibleIndex = 1;
+            this.CourseName.Width = 251;
             // 
-            // IDInsuranceType
+            // Status
             // 
-            this.IDInsuranceType.Caption = "Loại Bảo Hiểm";
-            this.IDInsuranceType.DisplayFormat.FormatString = "fe";
-            this.IDInsuranceType.FieldName = "IDInsuranceType";
-            this.IDInsuranceType.MinWidth = 25;
-            this.IDInsuranceType.Name = "IDInsuranceType";
-            this.IDInsuranceType.Width = 94;
-            // 
-            // TypeName
-            // 
-            this.TypeName.Caption = "Loại Bảo Hiểm";
-            this.TypeName.FieldName = "TypeName";
-            this.TypeName.Name = "TypeName";
-            this.TypeName.Visible = true;
-            this.TypeName.VisibleIndex = 2;
-            // 
-            // Amount
-            // 
-            this.Amount.Caption = "Số Tiền";
-            this.Amount.DisplayFormat.FormatString = "#,### VNĐ";
-            this.Amount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Amount.FieldName = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.Visible = true;
-            this.Amount.VisibleIndex = 3;
+            this.Status.Caption = "Trạng Thái";
+            this.Status.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.Status.FieldName = "Status";
+            this.Status.MinWidth = 25;
+            this.Status.Name = "Status";
+            this.Status.Visible = true;
+            this.Status.VisibleIndex = 2;
+            this.Status.Width = 94;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnInfo);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnEdit);
-            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.btnAddDepartment);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1126, 99);
+            this.panel1.Size = new System.Drawing.Size(1408, 124);
             this.panel1.TabIndex = 0;
             // 
             // btnInfo
@@ -280,6 +263,7 @@
             this.btnInfo.Size = new System.Drawing.Size(115, 35);
             this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Xem CT";
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnDelete
             // 
@@ -291,6 +275,7 @@
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -302,17 +287,19 @@
             this.btnEdit.Size = new System.Drawing.Size(115, 35);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Chỉnh sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnAdd
+            // btnAddDepartment
             // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(541, 41);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(115, 35);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm mới";
+            this.btnAddDepartment.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDepartment.Appearance.Options.UseFont = true;
+            this.btnAddDepartment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDepartment.ImageOptions.Image")));
+            this.btnAddDepartment.Location = new System.Drawing.Point(541, 41);
+            this.btnAddDepartment.Name = "btnAddDepartment";
+            this.btnAddDepartment.Size = new System.Drawing.Size(115, 35);
+            this.btnAddDepartment.TabIndex = 3;
+            this.btnAddDepartment.Text = "Thêm mới";
+            this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
             // 
             // label1
             // 
@@ -320,28 +307,30 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 21);
+            this.label1.Size = new System.Drawing.Size(204, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Quản lý Vị trí";
+            this.label1.Text = "Quản lý Khóa học";
             // 
             // gridView1
             // 
             this.gridView1.Name = "gridView1";
             // 
-            // UCPosition
+            // UCCourse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tablePanel1);
-            this.Name = "UCPosition";
+            this.Name = "UCCourse";
             this.Size = new System.Drawing.Size(907, 688);
+            this.Load += new System.EventHandler(this.UCCourse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gInsurance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvInsurance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCourse)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -353,27 +342,25 @@
 
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox cbInsuranceType;
-        private System.Windows.Forms.TextBox txtInsuranceName;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.TextBox txtDepartmentName;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIDInsurance;
+        private System.Windows.Forms.TextBox txtIDDepartment;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private DevExpress.XtraGrid.GridControl gInsurance;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvInsurance;
-        private DevExpress.XtraGrid.Columns.GridColumn IDInsurance;
-        private DevExpress.XtraGrid.Columns.GridColumn InsuranceName;
-        private DevExpress.XtraGrid.Columns.GridColumn IDInsuranceType;
-        private DevExpress.XtraGrid.Columns.GridColumn TypeName;
-        private DevExpress.XtraGrid.Columns.GridColumn Amount;
+        private DevExpress.XtraGrid.GridControl gCourse;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCourse;
+        private DevExpress.XtraGrid.Columns.GridColumn IDCourse;
+        private DevExpress.XtraGrid.Columns.GridColumn CourseName;
+        private DevExpress.XtraGrid.Columns.GridColumn Status;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnInfo;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.SimpleButton btnAddDepartment;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }

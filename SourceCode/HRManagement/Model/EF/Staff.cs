@@ -30,7 +30,6 @@ namespace Model.EF
         public string Email { get; set; }
         public string IDDepartment { get; set; }
         public string IDContract { get; set; }
-        public string IDSalary { get; set; }
         public string IDInsurance { get; set; }
         public string IDStaffCource { get; set; }
         public string IDPosition { get; set; }
@@ -39,10 +38,6 @@ namespace Model.EF
         public string Status { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
-        public virtual Contract Contract { get; set; }
-        public virtual Department Department { get; set; }
-        public virtual Insurance Insurance { get; set; }
-        public virtual Position Position { get; set; }
         public virtual Salary Salary { get; set; }
         public virtual UserCourse UserCourse { get; set; }
         public virtual Timekeeping Timekeeping { get; set; }

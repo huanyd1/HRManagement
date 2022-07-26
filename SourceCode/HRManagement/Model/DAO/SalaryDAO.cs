@@ -18,9 +18,16 @@ namespace Model.DAO
 
         public Salary GetSingleByID(string id)
         {
-            Salary salary = _db.Salaries.Where(x => x.IDSalary == id).FirstOrDefault();
+            Salary salary = _db.Salaries.Where(x => x.IDStaff == id).FirstOrDefault();
 
             return salary;
+        }
+
+        public List<AllInfoSalary> GetAllInfoSalaries()
+        {
+            List<AllInfoSalary> list = _db.AllInfoSalaries.ToList();
+
+            return list;
         }
 
         public bool Add(Salary salary)
@@ -42,7 +49,7 @@ namespace Model.DAO
         {
             try
             {
-                Salary currentSalary = GetSingleByID(salary.IDSalary);
+                Salary currentSalary = GetSingleByID(salary.IDStaff);
 
                 currentSalary.SalaryAmount = salary.SalaryAmount;
                 currentSalary.Allowance = salary.Allowance;

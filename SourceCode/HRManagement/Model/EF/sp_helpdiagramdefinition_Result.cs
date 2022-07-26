@@ -10,14 +10,10 @@
 namespace Model.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ALL_INSURANCE
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public string IDInsurance { get; set; }
-        public string InsuranceName { get; set; }
-        public string IDInsuranceType { get; set; }
-        public string TypeName { get; set; }
-        public Nullable<int> Amount { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

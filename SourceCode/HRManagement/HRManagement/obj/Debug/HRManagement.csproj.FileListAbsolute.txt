@@ -104,7 +104,13 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\ru\Dev
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Department.ChangeDepartment.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Insurance.UCInsurance.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Insurance.ChangeInsurance.resources
-D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Position.ChangePosition.resources
-D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Position.UCPosition.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Insurance.ChangeInsuranceType.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Contract.UCContract.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Contract.ChangeContract.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Contract.ChangeContractType.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Salary.UCSalary.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Salary.ChangeSalary.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Course.UCCourse.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Course.ChangeCourse.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Timekeeping.UCTimekeeping.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Timekeeping.FormInfoTimekeeping.resources

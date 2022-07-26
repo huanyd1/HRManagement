@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCContract));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnAddDepartment = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.txtDepartmentName = new System.Windows.Forms.TextBox();
+            this.cbContractType = new System.Windows.Forms.ComboBox();
+            this.txtContractName = new System.Windows.Forms.TextBox();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIDDepartment = new System.Windows.Forms.TextBox();
+            this.txtIDContract = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnInfo = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -47,12 +47,12 @@
             this.ContractName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.IDContract = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvContract = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TypeName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gContract = new DevExpress.XtraGrid.GridControl();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.TypeName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvContract)).BeginInit();
@@ -67,27 +67,28 @@
             // 
             this.gridView1.Name = "gridView1";
             // 
-            // btnAddDepartment
+            // btnAdd
             // 
-            this.btnAddDepartment.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDepartment.Appearance.Options.UseFont = true;
-            this.btnAddDepartment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDepartment.ImageOptions.Image")));
-            this.btnAddDepartment.Location = new System.Drawing.Point(541, 41);
-            this.btnAddDepartment.Name = "btnAddDepartment";
-            this.btnAddDepartment.Size = new System.Drawing.Size(115, 35);
-            this.btnAddDepartment.TabIndex = 3;
-            this.btnAddDepartment.Text = "Thêm mới";
+            this.btnAdd.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(541, 41);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(115, 35);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel3
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
-            this.panel3.Controls.Add(this.cbStatus);
-            this.panel3.Controls.Add(this.txtDepartmentName);
+            this.panel3.Controls.Add(this.cbContractType);
+            this.panel3.Controls.Add(this.txtContractName);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtIDDepartment);
+            this.panel3.Controls.Add(this.txtIDContract);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 88);
@@ -96,22 +97,22 @@
             this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
-            // cbStatus
+            // cbContractType
             // 
-            this.cbStatus.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(450, 44);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(190, 23);
-            this.cbStatus.TabIndex = 12;
+            this.cbContractType.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbContractType.FormattingEnabled = true;
+            this.cbContractType.Location = new System.Drawing.Point(450, 44);
+            this.cbContractType.Name = "cbContractType";
+            this.cbContractType.Size = new System.Drawing.Size(190, 23);
+            this.cbContractType.TabIndex = 12;
             // 
-            // txtDepartmentName
+            // txtContractName
             // 
-            this.txtDepartmentName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartmentName.Location = new System.Drawing.Point(240, 44);
-            this.txtDepartmentName.Name = "txtDepartmentName";
-            this.txtDepartmentName.Size = new System.Drawing.Size(190, 23);
-            this.txtDepartmentName.TabIndex = 10;
+            this.txtContractName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContractName.Location = new System.Drawing.Point(240, 44);
+            this.txtContractName.Name = "txtContractName";
+            this.txtContractName.Size = new System.Drawing.Size(190, 23);
+            this.txtContractName.TabIndex = 10;
             // 
             // btnSearch
             // 
@@ -123,6 +124,7 @@
             this.btnSearch.Size = new System.Drawing.Size(115, 35);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnExport
             // 
@@ -134,6 +136,7 @@
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label6
             // 
@@ -155,13 +158,13 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Tên hợp đồng";
             // 
-            // txtIDDepartment
+            // txtIDContract
             // 
-            this.txtIDDepartment.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDDepartment.Location = new System.Drawing.Point(29, 44);
-            this.txtIDDepartment.Name = "txtIDDepartment";
-            this.txtIDDepartment.Size = new System.Drawing.Size(190, 23);
-            this.txtIDDepartment.TabIndex = 3;
+            this.txtIDContract.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDContract.Location = new System.Drawing.Point(29, 44);
+            this.txtIDContract.Name = "txtIDContract";
+            this.txtIDContract.Size = new System.Drawing.Size(190, 23);
+            this.txtIDContract.TabIndex = 3;
             // 
             // label2
             // 
@@ -183,6 +186,7 @@
             this.btnInfo.Size = new System.Drawing.Size(115, 35);
             this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Xem CT";
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnDelete
             // 
@@ -194,6 +198,8 @@
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -205,6 +211,7 @@
             this.btnEdit.Size = new System.Drawing.Size(115, 35);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Chỉnh sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // IDType
             // 
@@ -212,8 +219,6 @@
             this.IDType.FieldName = "IDType";
             this.IDType.MinWidth = 25;
             this.IDType.Name = "IDType";
-            this.IDType.Visible = true;
-            this.IDType.VisibleIndex = 2;
             this.IDType.Width = 94;
             // 
             // ContractName
@@ -246,6 +251,16 @@
             this.gvContract.GridControl = this.gContract;
             this.gvContract.Name = "gvContract";
             this.gvContract.OptionsView.ShowGroupPanel = false;
+            // 
+            // TypeName
+            // 
+            this.TypeName.Caption = "Loại Hợp Đồng";
+            this.TypeName.FieldName = "TypeName";
+            this.TypeName.MinWidth = 25;
+            this.TypeName.Name = "TypeName";
+            this.TypeName.Visible = true;
+            this.TypeName.VisibleIndex = 2;
+            this.TypeName.Width = 94;
             // 
             // gContract
             // 
@@ -284,7 +299,7 @@
             this.panel1.Controls.Add(this.btnInfo);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnEdit);
-            this.panel1.Controls.Add(this.btnAddDepartment);
+            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
@@ -309,20 +324,9 @@
             this.tablePanel1.Size = new System.Drawing.Size(907, 688);
             this.tablePanel1.TabIndex = 1;
             // 
-            // TypeName
-            // 
-            this.TypeName.Caption = "Loại Hợp Đồng";
-            this.TypeName.FieldName = "TypeName";
-            this.TypeName.MinWidth = 25;
-            this.TypeName.Name = "TypeName";
-            this.TypeName.Visible = true;
-            this.TypeName.VisibleIndex = 3;
-            this.TypeName.Width = 94;
-            // 
             // UCContract
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCContract";
@@ -345,7 +349,7 @@
         #endregion
 
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnAddDepartment;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel2;
@@ -359,13 +363,13 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.TextBox txtDepartmentName;
+        private System.Windows.Forms.ComboBox cbContractType;
+        private System.Windows.Forms.TextBox txtContractName;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIDDepartment;
+        private System.Windows.Forms.TextBox txtIDContract;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn TypeName;
     }

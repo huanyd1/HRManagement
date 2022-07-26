@@ -14,16 +14,11 @@ namespace Model.EF
     
     public partial class Salary
     {
-        public Salary()
-        {
-            this.Staffs = new HashSet<Staff>();
-        }
-    
-        public string IDSalary { get; set; }
+        public string IDStaff { get; set; }
         public Nullable<int> SalaryAmount { get; set; }
         public Nullable<int> Allowance { get; set; }
         public Nullable<int> Tax { get; set; }
     
-        public virtual ICollection<Staff> Staffs { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

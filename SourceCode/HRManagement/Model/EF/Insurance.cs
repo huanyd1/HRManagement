@@ -14,17 +14,11 @@ namespace Model.EF
     
     public partial class Insurance
     {
-        public Insurance()
-        {
-            this.Staffs = new HashSet<Staff>();
-        }
-    
         public string IDInsurance { get; set; }
         public string InsuranceName { get; set; }
         public string IDInsuranceType { get; set; }
         public Nullable<int> Amount { get; set; }
     
         public virtual InsuranceType InsuranceType { get; set; }
-        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

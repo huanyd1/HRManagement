@@ -76,7 +76,7 @@
     <EntitySetMapping Name="Salaries">
       <EntityTypeMapping TypeName="HRManagementModel.Salary">
         <MappingFragment StoreEntitySet="Salary">
-          <ScalarProperty Name="IDSalary" ColumnName="IDSalary" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
           <ScalarProperty Name="Allowance" ColumnName="Allowance" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
@@ -96,7 +96,6 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
           <ScalarProperty Name="IDContract" ColumnName="IDContract" />
-          <ScalarProperty Name="IDSalary" ColumnName="IDSalary" />
           <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
           <ScalarProperty Name="IDStaffCource" ColumnName="IDStaffCource" />
           <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
@@ -122,7 +121,7 @@
         <MappingFragment StoreEntitySet="Timekeeping">
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="Checkin" ColumnName="Checkin" />
-          <ScalarProperty Name="Checkoout" ColumnName="Checkoout" />
+          <ScalarProperty Name="Checkout" ColumnName="Checkout" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -135,21 +134,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ALL_CONTRACT">
-      <EntityTypeMapping TypeName="HRManagementModel.ALL_CONTRACT">
-        <MappingFragment StoreEntitySet="ALL_CONTRACT">
+    <EntitySetMapping Name="AllInfoContracts">
+      <EntityTypeMapping TypeName="HRManagementModel.AllInfoContract">
+        <MappingFragment StoreEntitySet="AllInfoContract">
           <ScalarProperty Name="IDContract" ColumnName="IDContract" />
           <ScalarProperty Name="ContractName" ColumnName="ContractName" />
           <ScalarProperty Name="IDType" ColumnName="IDType" />
           <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ALL_INSURANCE">
-      <EntityTypeMapping TypeName="HRManagementModel.ALL_INSURANCE">
-        <MappingFragment StoreEntitySet="ALL_INSURANCE">
+    <EntitySetMapping Name="AllInfoInsurances">
+      <EntityTypeMapping TypeName="HRManagementModel.AllInfoInsurance">
+        <MappingFragment StoreEntitySet="AllInfoInsurance">
           <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
           <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
           <ScalarProperty Name="IDInsuranceType" ColumnName="IDInsuranceType" />
@@ -158,5 +155,52 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AllInfoSalaries">
+      <EntityTypeMapping TypeName="HRManagementModel.AllInfoSalary">
+        <MappingFragment StoreEntitySet="AllInfoSalary">
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetTimekeepingByMonth" FunctionName="HRManagementModel.Store.GetTimekeepingByMonth">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.GetTimekeepingByMonth_Result">
+          <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HRManagementModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HRManagementModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HRManagementModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HRManagementModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HRManagementModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HRManagementModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HRManagementModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>

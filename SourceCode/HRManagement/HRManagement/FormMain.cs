@@ -39,5 +39,20 @@ namespace HRManagement
         {
             AddToScreen(new Screens.Contract.UCContract());
         }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Salary.UCSalary());
+        }
+
+        private void btnCourse_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Course.UCCourse());
+        }
+
+        private void btnTimekeeping_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Timekeeping.UCTimekeeping());
+        }
     }
 }

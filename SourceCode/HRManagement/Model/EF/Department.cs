@@ -14,15 +14,8 @@ namespace Model.EF
     
     public partial class Department
     {
-        public Department()
-        {
-            this.Staffs = new HashSet<Staff>();
-        }
-    
         public string IDDepartment { get; set; }
         public string DepartmentName { get; set; }
         public string Status { get; set; }
-    
-        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

@@ -23,6 +23,13 @@ namespace Model.DAO
             return staff;
         }
 
+        public string GetStaffNameByID(string idStaff)
+        {
+            string name = _db.Staffs.Where(x => x.IDStaff == idStaff).Select(x => x.StaffName).FirstOrDefault();
+
+            return name;
+        }
+
         public List<Staff> GetStaffByFilter(string idStaff, string idDepartment)
         {
             List<Staff> list = GetAll();
@@ -68,7 +75,6 @@ namespace Model.DAO
                 currentStaff.Place = staff.Place;
                 currentStaff.CCCD = staff.CCCD;
                 currentStaff.Numberphone = staff.Numberphone;
-                currentStaff.IDSalary = staff.IDSalary;
                 currentStaff.IDDepartment = staff.IDDepartment;
                 currentStaff.IDInsurance = staff.IDInsurance;
                 currentStaff.IDContract = staff.IDContract;

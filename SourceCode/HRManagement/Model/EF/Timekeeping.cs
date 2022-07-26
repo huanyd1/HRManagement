@@ -16,7 +16,7 @@ namespace Model.EF
     {
         public string IDStaff { get; set; }
         public Nullable<System.DateTime> Checkin { get; set; }
-        public Nullable<System.DateTime> Checkoout { get; set; }
+        public Nullable<System.DateTime> Checkout { get; set; }
     
         public virtual Staff Staff { get; set; }
     }

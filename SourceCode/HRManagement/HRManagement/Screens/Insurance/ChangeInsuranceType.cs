@@ -103,12 +103,12 @@ namespace HRManagement.Screens.Insurance
 
             if (_isSave)
             {
-                Model.NotificationCommon.AddSuccess("Thêm mới", "Bảo hiểm");
+                Model.NotificationCommon.AddSuccess("Thêm mới", "Loại bảo hiểm");
                 this.Close();
             }
             else
             {
-                Model.NotificationCommon.AddFaild("Thêm mới", "Bảo hiểm");
+                Model.NotificationCommon.AddFaild("Thêm mới", "Loại bảo hiểm");
             }
         }
 
