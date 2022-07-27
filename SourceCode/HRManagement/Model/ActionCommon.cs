@@ -22,5 +22,10 @@ namespace Model
         {
             return string.Format("Chỉnh sửa thông tin " + variable);
         }
+
+        public static string DeleteAction(string variable)
+        {
+            return string.Format("Xóa thông tin " + variable);
+        }
     }
 }

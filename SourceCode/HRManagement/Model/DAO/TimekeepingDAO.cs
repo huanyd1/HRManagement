@@ -24,10 +24,21 @@ namespace Model.DAO
             return time;
         }
 
-        public bool IsExistTimekeeping(string idStaff, DateTime checkin)
+        public IsExistCheckTime_Result IsExistTimekeeping(string idStaff, DateTime checkin)
         {
-            var date = checkin.Date;
-            return _db.Timekeepings.Where(t => t.IDStaff == idStaff && t.Checkin.Value.Date == date).Any();
+            return _db.IsExistCheckTime(idStaff, checkin).FirstOrDefault();
+        }
+
+        public List<GetTimekeepingByMonth_Result> GetInfoTimeByFilter(string idDepartment, string staffName, int month)
+        {
+            List<GetTimekeepingByMonth_Result> timekeeping = _db.GetTimekeepingByMonth(idDepartment, month).ToList();
+
+            if (!string.IsNullOrEmpty(staffName))
+            {
+                timekeeping = timekeeping.Where(t => t.StaffName.Contains(staffName)).ToList();
+            }
+
+            return timekeeping;
         }
 
         public List<GetTimekeepingByMonth_Result> GetAllInfoTimekeeping(string idDepartment, int month)
@@ -58,6 +69,7 @@ namespace Model.DAO
             {
                 Timekeeping currentTime = GetTimeByIDStaff(time.IDStaff);
 
+                currentTime.IDTime = time.IDTime;
                 currentTime.Checkin = time.Checkin;
                 currentTime.Checkout = time.Checkout;
                 _db.SaveChanges();

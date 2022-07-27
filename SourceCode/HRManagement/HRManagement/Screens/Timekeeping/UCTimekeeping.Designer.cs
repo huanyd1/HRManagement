@@ -45,13 +45,15 @@
             this.DepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Month = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TotalTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
-            this.txtIDInsurance = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbMonth = new System.Windows.Forms.ComboBox();
+            this.lbMonth = new System.Windows.Forms.Label();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -83,18 +85,19 @@
             // 
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Enabled = false;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Location = new System.Drawing.Point(783, 41);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Appearance.Options.UseFont = true;
+            this.btnEdit.Enabled = false;
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
             this.btnEdit.Location = new System.Drawing.Point(662, 41);
             this.btnEdit.Name = "btnEdit";
@@ -106,13 +109,13 @@
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Enabled = false;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Location = new System.Drawing.Point(541, 41);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(115, 35);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel1
             // 
@@ -133,9 +136,9 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 27);
+            this.label1.Size = new System.Drawing.Size(216, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Quản lý Lương";
+            this.label1.Text = "Quản lý Chấm công";
             // 
             // StaffName
             // 
@@ -233,19 +236,19 @@
             this.TotalTime.VisibleIndex = 5;
             this.TotalTime.Width = 94;
             // 
-            // textBox1
+            // txtStaffName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(264, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 23);
-            this.textBox1.TabIndex = 11;
+            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffName.Location = new System.Drawing.Point(242, 44);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(190, 23);
+            this.txtStaffName.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(261, 15);
+            this.label3.Location = new System.Drawing.Point(239, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 22);
             this.label3.TabIndex = 10;
@@ -256,30 +259,23 @@
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(511, 32);
+            this.btnSearch.Location = new System.Drawing.Point(662, 32);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(115, 35);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnExport
             // 
             this.btnExport.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Appearance.Options.UseFont = true;
             this.btnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.ImageOptions.Image")));
-            this.btnExport.Location = new System.Drawing.Point(632, 32);
+            this.btnExport.Location = new System.Drawing.Point(783, 32);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
-            // 
-            // txtIDInsurance
-            // 
-            this.txtIDInsurance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDInsurance.Location = new System.Drawing.Point(29, 44);
-            this.txtIDInsurance.Name = "txtIDInsurance";
-            this.txtIDInsurance.Size = new System.Drawing.Size(190, 23);
-            this.txtIDInsurance.TabIndex = 3;
             // 
             // label2
             // 
@@ -287,18 +283,20 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 22);
+            this.label2.Size = new System.Drawing.Size(100, 22);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã nhân viên";
+            this.label2.Text = "Phòng ban";
             // 
             // panel3
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.cbMonth);
+            this.panel3.Controls.Add(this.lbMonth);
+            this.panel3.Controls.Add(this.cbDepartment);
+            this.panel3.Controls.Add(this.txtStaffName);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
-            this.panel3.Controls.Add(this.txtIDInsurance);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 88);
@@ -306,6 +304,34 @@
             this.tablePanel1.SetRow(this.panel3, 1);
             this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
+            // 
+            // cbMonth
+            // 
+            this.cbMonth.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Location = new System.Drawing.Point(463, 43);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(189, 24);
+            this.cbMonth.TabIndex = 14;
+            // 
+            // lbMonth
+            // 
+            this.lbMonth.AutoSize = true;
+            this.lbMonth.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMonth.Location = new System.Drawing.Point(459, 15);
+            this.lbMonth.Name = "lbMonth";
+            this.lbMonth.Size = new System.Drawing.Size(60, 22);
+            this.lbMonth.TabIndex = 13;
+            this.lbMonth.Text = "Tháng";
+            // 
+            // cbDepartment
+            // 
+            this.cbDepartment.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(30, 43);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(189, 24);
+            this.cbDepartment.TabIndex = 12;
             // 
             // tablePanel1
             // 
@@ -359,11 +385,10 @@
         private System.Windows.Forms.Panel panel2;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStaffName;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
-        private System.Windows.Forms.TextBox txtIDInsurance;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.GridControl gTimekeeping;
         private DevExpress.XtraGrid.Views.Grid.GridView gvTimekeeping;
@@ -371,5 +396,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn DepartmentName;
         private DevExpress.XtraGrid.Columns.GridColumn TotalTime;
         private DevExpress.XtraGrid.Columns.GridColumn Month;
+        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.ComboBox cbMonth;
+        private System.Windows.Forms.Label lbMonth;
     }
 }

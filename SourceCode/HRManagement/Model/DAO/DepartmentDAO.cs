@@ -13,18 +13,6 @@ namespace Model.DAO
         {
             List<Department> list = _db.Departments.ToList();
 
-            foreach(var department in list)
-            {
-                if(department.Status == "1")
-                {
-                    department.Status = "Hoạt động";
-                }
-                else
-                {
-                    department.Status = "Ngừng hoạt động";
-                }  
-            }
-
             return list;
         }
 
@@ -55,6 +43,15 @@ namespace Model.DAO
             }
 
             return list.ToList();
+        }
+
+        public string GetDepartmentNameByIDStaff(string idStaff)
+        {
+            string idDepartment = _db.Staffs.Where(t => t.IDStaff == idStaff).Select(t => t.IDDepartment).FirstOrDefault();
+
+            string departmentName = _db.Departments.Where(t => t.IDDepartment == idDepartment).Select(t => t.DepartmentName).FirstOrDefault();
+
+            return departmentName;
         }
 
         public bool Add(Department department)

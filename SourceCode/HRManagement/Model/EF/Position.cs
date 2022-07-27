@@ -14,8 +14,15 @@ namespace Model.EF
     
     public partial class Position
     {
+        public Position()
+        {
+            this.Staffs = new HashSet<Staff>();
+        }
+    
         public string IDPosition { get; set; }
         public string PositionName { get; set; }
         public string Status { get; set; }
+    
+        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

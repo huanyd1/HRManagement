@@ -14,6 +14,16 @@ namespace Model
             return string.Format("{0} đã có trong Cơ sở dữ liệu, vẫn muốn thêm?", variable);
         }
 
+        public static string IsExistTime()
+        {
+            return string.Format("Ngày công này đã tồn tại trong Cơ sở dữ liệu, vui lòng kiểm tra lại");
+        }
+
+        public static string IsNotExistTime()
+        {
+            return string.Format("Không thể xóa ngày công này do chưa tồn tại trong Cơ sở dữ liệu, vui lòng kiểm tra lại");
+        }
+
         public static string ExitForm()
         {
             return string.Format("Dữ liệu chưa được lưu lại, vẫn muốn thoát");

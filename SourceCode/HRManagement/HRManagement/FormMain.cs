@@ -54,5 +54,15 @@ namespace HRManagement
         {
             AddToScreen(new Screens.Timekeeping.UCTimekeeping());
         }
+
+        private void btnExplanation_Click(object sender, EventArgs e)
+        {
+            //giải trình
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Staff.UCStaff());
+        }
     }
 }

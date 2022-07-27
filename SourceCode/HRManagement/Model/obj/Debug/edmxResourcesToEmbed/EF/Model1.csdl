@@ -18,6 +18,7 @@
     <Property Name="ContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IDType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ContractType" Relationship="Self.FK_Contract_ContractType" FromRole="Contract" ToRole="ContractType" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Contract" FromRole="Contract" ToRole="Staff" />
   </EntityType>
   <EntityType Name="ContractType">
     <Key>
@@ -43,6 +44,7 @@
     <Property Name="IDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Department" FromRole="Department" ToRole="Staff" />
   </EntityType>
   <EntityType Name="Insurance">
     <Key>
@@ -53,6 +55,7 @@
     <Property Name="IDInsuranceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Amount" Type="Int32" />
     <NavigationProperty Name="InsuranceType" Relationship="Self.FK_Insurance_InsuranceType" FromRole="Insurance" ToRole="InsuranceType" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Insurance" FromRole="Insurance" ToRole="Staff" />
   </EntityType>
   <EntityType Name="InsuranceType">
     <Key>
@@ -69,6 +72,7 @@
     <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
   </EntityType>
   <EntityType Name="Salary">
     <Key>
@@ -95,15 +99,19 @@
     <Property Name="IDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IDContract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IDInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="IDStaffCource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDStaffCoursce" Type="Int32" />
     <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="StartDate" Type="DateTime" Precision="0" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Staff" FromRole="Staff" ToRole="Account" />
+    <NavigationProperty Name="Contract" Relationship="Self.FK_Staff_Contract" FromRole="Staff" ToRole="Contract" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
+    <NavigationProperty Name="Insurance" Relationship="Self.FK_Staff_Insurance" FromRole="Staff" ToRole="Insurance" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
     <NavigationProperty Name="Salary" Relationship="Self.FK_Salary_Staff" FromRole="Staff" ToRole="Salary" />
     <NavigationProperty Name="UserCourse" Relationship="Self.FK_Staff_UserCourse" FromRole="Staff" ToRole="UserCourse" />
-    <NavigationProperty Name="Timekeeping" Relationship="Self.FK_Timekeeping_Staff" FromRole="Staff" ToRole="Timekeeping" />
+    <NavigationProperty Name="Timekeepings" Relationship="Self.FK_Timekeeping_Staff" FromRole="Staff" ToRole="Timekeeping" />
     <NavigationProperty Name="UserCourses" Relationship="Self.FK_UserCourse_Staff" FromRole="Staff" ToRole="UserCourse" />
   </EntityType>
   <EntityType Name="sysdiagram">
@@ -118,18 +126,20 @@
   </EntityType>
   <EntityType Name="Timekeeping">
     <Key>
-      <PropertyRef Name="IDStaff" />
+      <PropertyRef Name="IDTime" />
     </Key>
+    <Property Name="IDTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Checkin" Type="DateTime" Precision="3" />
     <Property Name="Checkout" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
   </EntityType>
   <EntityType Name="UserCourse">
     <Key>
-      <PropertyRef Name="IDStaffCource" />
+      <PropertyRef Name="IDStaffCoursce" />
     </Key>
-    <Property Name="IDStaffCource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDStaffCoursce" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IDCourse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Course" Relationship="Self.FK_UserCourse_Course" FromRole="UserCourse" ToRole="Course" />
@@ -189,6 +199,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Staff_Contract">
+    <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="IDContract" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDContract" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserCourse_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
     <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
@@ -201,6 +223,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Staff_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="IDDepartment" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDDepartment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Insurance_InsuranceType">
     <End Role="InsuranceType" Type="Self.InsuranceType" Multiplicity="1" />
     <End Role="Insurance" Type="Self.Insurance" Multiplicity="*" />
@@ -210,6 +244,30 @@
       </Principal>
       <Dependent Role="Insurance">
         <PropertyRef Name="IDInsuranceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Insurance">
+    <End Role="Insurance" Type="Self.Insurance" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insurance">
+        <PropertyRef Name="IDInsurance" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDInsurance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="IDPosition" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDPosition" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -230,16 +288,16 @@
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserCourse">
-        <PropertyRef Name="IDStaffCource" />
+        <PropertyRef Name="IDStaffCoursce" />
       </Principal>
       <Dependent Role="Staff">
-        <PropertyRef Name="IDStaffCource" />
+        <PropertyRef Name="IDStaffCoursce" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Timekeeping_Staff">
     <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-    <End Role="Timekeeping" Type="Self.Timekeeping" Multiplicity="0..1" />
+    <End Role="Timekeeping" Type="Self.Timekeeping" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Staff">
         <PropertyRef Name="IDStaff" />
@@ -286,13 +344,29 @@
       <End Role="ContractType" EntitySet="ContractTypes" />
       <End Role="Contract" EntitySet="Contracts" />
     </AssociationSet>
+    <AssociationSet Name="FK_Staff_Contract" Association="Self.FK_Staff_Contract">
+      <End Role="Contract" EntitySet="Contracts" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserCourse_Course" Association="Self.FK_UserCourse_Course">
       <End Role="Course" EntitySet="Courses" />
       <End Role="UserCourse" EntitySet="UserCourses" />
     </AssociationSet>
+    <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
     <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
       <End Role="InsuranceType" EntitySet="InsuranceTypes" />
       <End Role="Insurance" EntitySet="Insurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Insurance" Association="Self.FK_Staff_Insurance">
+      <End Role="Insurance" EntitySet="Insurances" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Staff" EntitySet="Staffs" />
     </AssociationSet>
     <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
       <End Role="Staff" EntitySet="Staffs" />
@@ -313,6 +387,10 @@
     <FunctionImport Name="GetTimekeepingByMonth" ReturnType="Collection(HRManagementModel.GetTimekeepingByMonth_Result)">
       <Parameter Name="IDDepartment" Mode="In" Type="String" />
       <Parameter Name="Month" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IsExistCheckTime" ReturnType="Collection(HRManagementModel.IsExistCheckTime_Result)">
+      <Parameter Name="IDStaff" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -352,6 +430,13 @@
     <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="Month" Nullable="true" />
     <Property Type="Int32" Name="TotalTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="IsExistCheckTime_Result">
+    <Property Type="Int32" Name="IDTime" Nullable="false" />
+    <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+    <Property Type="Time" Name="Checkin" Nullable="true" />
+    <Property Type="Time" Name="Checkout" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
   </ComplexType>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />

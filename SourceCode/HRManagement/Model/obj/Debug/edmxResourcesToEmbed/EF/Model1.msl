@@ -97,7 +97,7 @@
           <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
           <ScalarProperty Name="IDContract" ColumnName="IDContract" />
           <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
-          <ScalarProperty Name="IDStaffCource" ColumnName="IDStaffCource" />
+          <ScalarProperty Name="IDStaffCoursce" ColumnName="IDStaffCoursce" />
           <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -119,16 +119,18 @@
     <EntitySetMapping Name="Timekeepings">
       <EntityTypeMapping TypeName="HRManagementModel.Timekeeping">
         <MappingFragment StoreEntitySet="Timekeeping">
+          <ScalarProperty Name="IDTime" ColumnName="IDTime" />
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="Checkin" ColumnName="Checkin" />
           <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserCourses">
       <EntityTypeMapping TypeName="HRManagementModel.UserCourse">
         <MappingFragment StoreEntitySet="UserCourse">
-          <ScalarProperty Name="IDStaffCource" ColumnName="IDStaffCource" />
+          <ScalarProperty Name="IDStaffCoursce" ColumnName="IDStaffCoursce" />
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="IDCourse" ColumnName="IDCourse" />
         </MappingFragment>
@@ -175,6 +177,17 @@
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="Month" ColumnName="Month" />
           <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IsExistCheckTime" FunctionName="HRManagementModel.Store.IsExistCheckTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.IsExistCheckTime_Result">
+          <ScalarProperty Name="IDTime" ColumnName="IDTime" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="Checkin" ColumnName="Checkin" />
+          <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

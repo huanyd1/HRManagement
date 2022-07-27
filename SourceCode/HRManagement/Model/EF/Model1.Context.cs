@@ -58,6 +58,19 @@ namespace Model.EF
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTimekeepingByMonth_Result>("GetTimekeepingByMonth", iDDepartmentParameter, monthParameter);
         }
     
+        public virtual ObjectResult<IsExistCheckTime_Result> IsExistCheckTime(string iDStaff, Nullable<System.DateTime> date)
+        {
+            var iDStaffParameter = iDStaff != null ?
+                new ObjectParameter("IDStaff", iDStaff) :
+                new ObjectParameter("IDStaff", typeof(string));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<IsExistCheckTime_Result>("IsExistCheckTime", iDStaffParameter, dateParameter);
+        }
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?

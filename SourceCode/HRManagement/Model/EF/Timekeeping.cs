@@ -14,9 +14,11 @@ namespace Model.EF
     
     public partial class Timekeeping
     {
+        public int IDTime { get; set; }
         public string IDStaff { get; set; }
         public Nullable<System.DateTime> Checkin { get; set; }
         public Nullable<System.DateTime> Checkout { get; set; }
+        public string Description { get; set; }
     
         public virtual Staff Staff { get; set; }
     }

@@ -42,6 +42,9 @@
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core.Desktop, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -153,6 +156,24 @@
     <Compile Include="Screens\Salary\UCSalary.Designer.cs">
       <DependentUpon>UCSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Staff\FormChangeStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Staff\FormChangeStaff.Designer.cs">
+      <DependentUpon>FormChangeStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Staff\UCStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Staff\UCStaff.Designer.cs">
+      <DependentUpon>UCStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Timekeeping\FormChangeTimekeeping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Timekeeping\FormChangeTimekeeping.Designer.cs">
+      <DependentUpon>FormChangeTimekeeping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Timekeeping\FormInfoTimekeeping.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +242,15 @@
     <EmbeddedResource Include="Screens\Salary\UCSalary.resx">
       <DependentUpon>UCSalary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Staff\FormChangeStaff.resx">
+      <DependentUpon>FormChangeStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Staff\UCStaff.resx">
+      <DependentUpon>UCStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Timekeeping\FormChangeTimekeeping.resx">
+      <DependentUpon>FormChangeTimekeeping.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Timekeeping\FormInfoTimekeeping.resx">
       <DependentUpon>FormInfoTimekeeping.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,11 +278,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\Icon\clock.ico" />
+    <None Include="Resources\Cover-400x514.jpg" />
     <Content Include="Resource\Icon\contract.ico" />
     <Content Include="Resource\Icon\course.ico" />
     <Content Include="Resource\Icon\department.ico" />
     <Content Include="Resource\Icon\insurance.ico" />
     <Content Include="Resource\Icon\salary.ico" />
+    <Content Include="Resource\Icon\staff.ico" />
     <Content Include="Resource\Images\department.png" />
   </ItemGroup>
   <ItemGroup />

@@ -30,6 +30,13 @@ namespace Model.DAO
             return name;
         }
 
+        public List<Staff> GetStaffByIDDepartment(string idDepartment)
+        {
+            List<Staff> list = _db.Staffs.Where(x => x.IDDepartment == idDepartment).ToList();
+
+            return list;
+        }
+
         public List<Staff> GetStaffByFilter(string idStaff, string idDepartment)
         {
             List<Staff> list = GetAll();
@@ -78,7 +85,7 @@ namespace Model.DAO
                 currentStaff.IDDepartment = staff.IDDepartment;
                 currentStaff.IDInsurance = staff.IDInsurance;
                 currentStaff.IDContract = staff.IDContract;
-                currentStaff.IDStaffCource = staff.IDStaffCource;
+                currentStaff.IDStaffCoursce = staff.IDStaffCoursce;
                 currentStaff.IDPosition = staff.IDPosition;
                 currentStaff.Status = staff.Status;
                 _db.SaveChanges();

@@ -17,6 +17,7 @@ namespace HRManagement.Screens.Department
         public UCDepartment()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
         }
 
         private void LoadAllDepartment()

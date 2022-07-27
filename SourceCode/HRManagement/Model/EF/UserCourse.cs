@@ -19,7 +19,7 @@ namespace Model.EF
             this.Staffs = new HashSet<Staff>();
         }
     
-        public string IDStaffCource { get; set; }
+        public int IDStaffCoursce { get; set; }
         public string IDStaff { get; set; }
         public string IDCourse { get; set; }
     

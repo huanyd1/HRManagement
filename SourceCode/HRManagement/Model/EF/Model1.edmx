@@ -93,7 +93,7 @@
           <Property Name="IDDepartment" Type="varchar" MaxLength="50" />
           <Property Name="IDContract" Type="varchar" MaxLength="50" />
           <Property Name="IDInsurance" Type="varchar" MaxLength="50" />
-          <Property Name="IDStaffCource" Type="varchar" MaxLength="50" />
+          <Property Name="IDStaffCoursce" Type="int" />
           <Property Name="IDPosition" Type="varchar" MaxLength="50" />
           <Property Name="StartDate" Type="date" />
           <Property Name="EndDate" Type="date" />
@@ -111,17 +111,19 @@
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
-            <PropertyRef Name="IDStaff" />
+            <PropertyRef Name="IDTime" />
           </Key>
+          <Property Name="IDTime" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Checkin" Type="datetime" />
           <Property Name="Checkout" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="UserCourse">
           <Key>
-            <PropertyRef Name="IDStaffCource" />
+            <PropertyRef Name="IDStaffCoursce" />
           </Key>
-          <Property Name="IDStaffCource" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDStaffCoursce" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDStaff" Type="varchar" MaxLength="50" />
           <Property Name="IDCourse" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -208,21 +210,69 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Staff_Contract">
+          <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contract">
+              <PropertyRef Name="IDContract" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDContract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IDDepartment" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Insurance">
+          <End Role="Insurance" Type="Self.Insurance" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insurance">
+              <PropertyRef Name="IDInsurance" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDInsurance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="IDPosition" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_UserCourse">
           <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCourse">
-              <PropertyRef Name="IDStaffCource" />
+              <PropertyRef Name="IDStaffCoursce" />
             </Principal>
             <Dependent Role="Staff">
-              <PropertyRef Name="IDStaffCource" />
+              <PropertyRef Name="IDStaffCoursce" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Timekeeping_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Timekeeping" Type="Self.Timekeeping" Multiplicity="0..1" />
+          <End Role="Timekeeping" Type="Self.Timekeeping" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="IDStaff" />
@@ -260,6 +310,10 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
         <Function Name="GetTimekeepingByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
           <Parameter Name="Month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsExistCheckTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDStaff" Type="varchar" Mode="In" />
+          <Parameter Name="date" Type="datetime" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -347,6 +401,22 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
             <End Role="Staff" EntitySet="Staff" />
             <End Role="Salary" EntitySet="Salary" />
           </AssociationSet>
+          <AssociationSet Name="FK_Staff_Contract" Association="Self.FK_Staff_Contract">
+            <End Role="Contract" EntitySet="Contract" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Insurance" Association="Self.FK_Staff_Insurance">
+            <End Role="Insurance" EntitySet="Insurance" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
           <AssociationSet Name="FK_Staff_UserCourse" Association="Self.FK_Staff_UserCourse">
             <End Role="UserCourse" EntitySet="UserCourse" />
             <End Role="Staff" EntitySet="Staff" />
@@ -387,6 +457,7 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <Property Name="ContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IDType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ContractType" Relationship="Self.FK_Contract_ContractType" FromRole="Contract" ToRole="ContractType" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Contract" FromRole="Contract" ToRole="Staff" />
         </EntityType>
         <EntityType Name="ContractType">
           <Key>
@@ -412,6 +483,7 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <Property Name="IDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Department" FromRole="Department" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Insurance">
           <Key>
@@ -422,6 +494,7 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <Property Name="IDInsuranceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Amount" Type="Int32" />
           <NavigationProperty Name="InsuranceType" Relationship="Self.FK_Insurance_InsuranceType" FromRole="Insurance" ToRole="InsuranceType" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Insurance" FromRole="Insurance" ToRole="Staff" />
         </EntityType>
         <EntityType Name="InsuranceType">
           <Key>
@@ -438,6 +511,7 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Salary">
           <Key>
@@ -464,15 +538,19 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <Property Name="IDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDContract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IDStaffCource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDStaffCoursce" Type="Int32" />
           <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Precision="0" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Staff" FromRole="Staff" ToRole="Account" />
+          <NavigationProperty Name="Contract" Relationship="Self.FK_Staff_Contract" FromRole="Staff" ToRole="Contract" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
+          <NavigationProperty Name="Insurance" Relationship="Self.FK_Staff_Insurance" FromRole="Staff" ToRole="Insurance" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="Salary" Relationship="Self.FK_Salary_Staff" FromRole="Staff" ToRole="Salary" />
           <NavigationProperty Name="UserCourse" Relationship="Self.FK_Staff_UserCourse" FromRole="Staff" ToRole="UserCourse" />
-          <NavigationProperty Name="Timekeeping" Relationship="Self.FK_Timekeeping_Staff" FromRole="Staff" ToRole="Timekeeping" />
+          <NavigationProperty Name="Timekeepings" Relationship="Self.FK_Timekeeping_Staff" FromRole="Staff" ToRole="Timekeeping" />
           <NavigationProperty Name="UserCourses" Relationship="Self.FK_UserCourse_Staff" FromRole="Staff" ToRole="UserCourse" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -487,18 +565,20 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
-            <PropertyRef Name="IDStaff" />
+            <PropertyRef Name="IDTime" />
           </Key>
+          <Property Name="IDTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Checkin" Type="DateTime" Precision="3" />
           <Property Name="Checkout" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
         </EntityType>
         <EntityType Name="UserCourse">
           <Key>
-            <PropertyRef Name="IDStaffCource" />
+            <PropertyRef Name="IDStaffCoursce" />
           </Key>
-          <Property Name="IDStaffCource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDStaffCoursce" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDCourse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Course" Relationship="Self.FK_UserCourse_Course" FromRole="UserCourse" ToRole="Course" />
@@ -558,6 +638,18 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Staff_Contract">
+          <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contract">
+              <PropertyRef Name="IDContract" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDContract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserCourse_Course">
           <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
           <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
@@ -570,6 +662,18 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Staff_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IDDepartment" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Insurance_InsuranceType">
           <End Role="InsuranceType" Type="Self.InsuranceType" Multiplicity="1" />
           <End Role="Insurance" Type="Self.Insurance" Multiplicity="*" />
@@ -579,6 +683,30 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
             </Principal>
             <Dependent Role="Insurance">
               <PropertyRef Name="IDInsuranceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Insurance">
+          <End Role="Insurance" Type="Self.Insurance" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insurance">
+              <PropertyRef Name="IDInsurance" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDInsurance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="IDPosition" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDPosition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -599,16 +727,16 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCourse">
-              <PropertyRef Name="IDStaffCource" />
+              <PropertyRef Name="IDStaffCoursce" />
             </Principal>
             <Dependent Role="Staff">
-              <PropertyRef Name="IDStaffCource" />
+              <PropertyRef Name="IDStaffCoursce" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Timekeeping_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Timekeeping" Type="Self.Timekeeping" Multiplicity="0..1" />
+          <End Role="Timekeeping" Type="Self.Timekeeping" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="IDStaff" />
@@ -655,13 +783,29 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
             <End Role="ContractType" EntitySet="ContractTypes" />
             <End Role="Contract" EntitySet="Contracts" />
           </AssociationSet>
+          <AssociationSet Name="FK_Staff_Contract" Association="Self.FK_Staff_Contract">
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserCourse_Course" Association="Self.FK_UserCourse_Course">
             <End Role="Course" EntitySet="Courses" />
             <End Role="UserCourse" EntitySet="UserCourses" />
           </AssociationSet>
+          <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
             <End Role="InsuranceType" EntitySet="InsuranceTypes" />
             <End Role="Insurance" EntitySet="Insurances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Insurance" Association="Self.FK_Staff_Insurance">
+            <End Role="Insurance" EntitySet="Insurances" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
           <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
             <End Role="Staff" EntitySet="Staffs" />
@@ -682,6 +826,10 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <FunctionImport Name="GetTimekeepingByMonth" ReturnType="Collection(HRManagementModel.GetTimekeepingByMonth_Result)">
             <Parameter Name="IDDepartment" Mode="In" Type="String" />
             <Parameter Name="Month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsExistCheckTime" ReturnType="Collection(HRManagementModel.IsExistCheckTime_Result)">
+            <Parameter Name="IDStaff" Mode="In" Type="String" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -721,6 +869,13 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Month" Nullable="true" />
           <Property Type="Int32" Name="TotalTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="IsExistCheckTime_Result">
+          <Property Type="Int32" Name="IDTime" Nullable="false" />
+          <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+          <Property Type="Time" Name="Checkin" Nullable="true" />
+          <Property Type="Time" Name="Checkout" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -835,7 +990,7 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
                 <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
                 <ScalarProperty Name="IDContract" ColumnName="IDContract" />
                 <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
-                <ScalarProperty Name="IDStaffCource" ColumnName="IDStaffCource" />
+                <ScalarProperty Name="IDStaffCoursce" ColumnName="IDStaffCoursce" />
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -857,16 +1012,18 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
           <EntitySetMapping Name="Timekeepings">
             <EntityTypeMapping TypeName="HRManagementModel.Timekeeping">
               <MappingFragment StoreEntitySet="Timekeeping">
+                <ScalarProperty Name="IDTime" ColumnName="IDTime" />
                 <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
                 <ScalarProperty Name="Checkin" ColumnName="Checkin" />
                 <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserCourses">
             <EntityTypeMapping TypeName="HRManagementModel.UserCourse">
               <MappingFragment StoreEntitySet="UserCourse">
-                <ScalarProperty Name="IDStaffCource" ColumnName="IDStaffCource" />
+                <ScalarProperty Name="IDStaffCoursce" ColumnName="IDStaffCoursce" />
                 <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
                 <ScalarProperty Name="IDCourse" ColumnName="IDCourse" />
               </MappingFragment>
@@ -913,6 +1070,17 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
                 <ScalarProperty Name="StaffName" ColumnName="StaffName" />
                 <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IsExistCheckTime" FunctionName="HRManagementModel.Store.IsExistCheckTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRManagementModel.IsExistCheckTime_Result">
+                <ScalarProperty Name="IDTime" ColumnName="IDTime" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="Checkin" ColumnName="Checkin" />
+                <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

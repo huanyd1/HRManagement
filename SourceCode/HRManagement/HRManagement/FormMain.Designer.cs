@@ -37,6 +37,8 @@
             this.btnSalary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnCourse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnTimekeeping = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnExplanation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnStaff = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
@@ -78,7 +80,8 @@
             this.btnContract,
             this.btnSalary,
             this.btnCourse,
-            this.btnTimekeeping});
+            this.btnTimekeeping,
+            this.btnStaff});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl1.Name = "accordionControl1";
@@ -125,10 +128,26 @@
             // 
             // btnTimekeeping
             // 
+            this.btnTimekeeping.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnExplanation});
             this.btnTimekeeping.ImageOptions.Image = global::HRManagement.Properties.Resources.clock;
             this.btnTimekeeping.Name = "btnTimekeeping";
             this.btnTimekeeping.Text = "Chấm công";
             this.btnTimekeeping.Click += new System.EventHandler(this.btnTimekeeping_Click);
+            // 
+            // btnExplanation
+            // 
+            this.btnExplanation.Name = "btnExplanation";
+            this.btnExplanation.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnExplanation.Text = "Quản lý giải trình";
+            this.btnExplanation.Click += new System.EventHandler(this.btnExplanation_Click);
+            // 
+            // btnStaff
+            // 
+            this.btnStaff.ImageOptions.Image = global::HRManagement.Properties.Resources.staff;
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Text = "Nhân viên";
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -363,5 +382,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnCourse;
         private System.Windows.Forms.Panel panelSelect;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnTimekeeping;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnExplanation;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnStaff;
     }
 }

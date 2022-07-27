@@ -17,6 +17,7 @@ namespace Model.EF
         public Staff()
         {
             this.Accounts = new HashSet<Account>();
+            this.Timekeepings = new HashSet<Timekeeping>();
             this.UserCourses = new HashSet<UserCourse>();
         }
     
@@ -31,16 +32,20 @@ namespace Model.EF
         public string IDDepartment { get; set; }
         public string IDContract { get; set; }
         public string IDInsurance { get; set; }
-        public string IDStaffCource { get; set; }
+        public Nullable<int> IDStaffCoursce { get; set; }
         public string IDPosition { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Status { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
+        public virtual Contract Contract { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual Insurance Insurance { get; set; }
+        public virtual Position Position { get; set; }
         public virtual Salary Salary { get; set; }
         public virtual UserCourse UserCourse { get; set; }
-        public virtual Timekeeping Timekeeping { get; set; }
+        public virtual ICollection<Timekeeping> Timekeepings { get; set; }
         public virtual ICollection<UserCourse> UserCourses { get; set; }
     }
 }
