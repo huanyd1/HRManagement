@@ -84,6 +84,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\Account\UCAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Account\UCAccount.Designer.cs">
+      <DependentUpon>UCAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Contract\ChangeContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,11 +162,41 @@
     <Compile Include="Screens\Salary\UCSalary.Designer.cs">
       <DependentUpon>UCSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\StaffCourse\FormChangeStaffCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\StaffCourse\FormChangeStaffCourse.Designer.cs">
+      <DependentUpon>FormChangeStaffCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\StaffCourse\FormInfoStaffCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\StaffCourse\FormInfoStaffCourse.Designer.cs">
+      <DependentUpon>FormInfoStaffCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\StaffCourse\UCStaffCourse.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Screens\StaffCourse\UCStaffCourse.Designer.cs">
       <DependentUpon>UCStaffCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\StaffInsurance\FormChangeStaffInsurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\StaffInsurance\FormChangeStaffInsurance.Designer.cs">
+      <DependentUpon>FormChangeStaffInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\StaffInsurance\FormInfoStaffInsurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\StaffInsurance\FormInfoStaffInsurance.Designer.cs">
+      <DependentUpon>FormInfoStaffInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\StaffInsurance\UCStaffInsurance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\StaffInsurance\UCStaffInsurance.Designer.cs">
+      <DependentUpon>UCStaffInsurance.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Staff\FormChangeStaff.cs">
       <SubType>Form</SubType>
@@ -212,6 +248,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Screens\Account\UCAccount.resx">
+      <DependentUpon>UCAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Contract\ChangeContract.resx">
       <DependentUpon>ChangeContract.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,8 +287,23 @@
     <EmbeddedResource Include="Screens\Salary\UCSalary.resx">
       <DependentUpon>UCSalary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\StaffCourse\FormChangeStaffCourse.resx">
+      <DependentUpon>FormChangeStaffCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\StaffCourse\FormInfoStaffCourse.resx">
+      <DependentUpon>FormInfoStaffCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\StaffCourse\UCStaffCourse.resx">
       <DependentUpon>UCStaffCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\StaffInsurance\FormChangeStaffInsurance.resx">
+      <DependentUpon>FormChangeStaffInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\StaffInsurance\FormInfoStaffInsurance.resx">
+      <DependentUpon>FormInfoStaffInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\StaffInsurance\UCStaffInsurance.resx">
+      <DependentUpon>UCStaffInsurance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Staff\FormChangeStaff.resx">
       <DependentUpon>FormChangeStaff.cs</DependentUpon>
@@ -288,6 +342,7 @@
   <ItemGroup>
     <None Include="Resource\Icon\clock.ico" />
     <None Include="Resources\Cover-400x514.jpg" />
+    <Content Include="Resource\Icon\account.ico" />
     <Content Include="Resource\Icon\contract.ico" />
     <Content Include="Resource\Icon\course.ico" />
     <Content Include="Resource\Icon\department.ico" />
@@ -296,8 +351,6 @@
     <Content Include="Resource\Icon\staff.ico" />
     <Content Include="Resource\Images\department.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Screens\StaffInsurance\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,13 @@ namespace Model.DAO
             return list;
         }
 
+        public List<Insurance> GetInsuranceByIDType(string idType)
+        {
+            List<Insurance> list = _db.Insurances.Where(x => x.IDInsuranceType == idType).ToList();
+
+            return list;
+        }
+
         public List<AllInfoInsurance> GetAllInfoInsurance()
         {
             List<AllInfoInsurance> list = _db.AllInfoInsurances.ToList();

@@ -102,7 +102,7 @@
     <Property Name="IDStaff" Type="varchar" MaxLength="50" />
     <Property Name="IDCourse" Type="varchar" MaxLength="50" />
     <Property Name="Point" Type="int" />
-    <Property Name="Result" Type="char" MaxLength="5" />
+    <Property Name="Result" Type="char" MaxLength="1" />
   </EntityType>
   <EntityType Name="StaffInsurance">
     <Key>

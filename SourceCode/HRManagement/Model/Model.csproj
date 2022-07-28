@@ -66,6 +66,7 @@
     <Compile Include="DAO\PositionDAO.cs" />
     <Compile Include="DAO\SalaryDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
+    <Compile Include="DAO\StaffInsuranceDAO.cs" />
     <Compile Include="DAO\TimekeepingDAO.cs" />
     <Compile Include="DAO\StaffCourseDAO.cs" />
     <Compile Include="EF\Account.cs">
@@ -201,7 +202,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="EF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

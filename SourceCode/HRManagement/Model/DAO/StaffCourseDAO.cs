@@ -9,75 +9,91 @@ namespace Model.DAO
 {
     public class StaffCourseDAO : BaseDAO
     {
-        //public List<StaffCourse> GetAll()
-        //{
-        //    List<StaffCourse> list = _db.StaffCourses.ToList();
+        public List<string> GetAllCourseByIDStaff(string idStaff)
+        {
+            List<string> list = _db.StaffCourses.Where(x => x.IDStaff == idStaff).Select(x => x.IDCourse).ToList();
 
-        //    return list;
-        //}
+            return list;
+        }
 
-        //public StaffCourse GetSingleByID(string idStaff, string idCourse)
-        //{
-        //    StaffCourse userCourse = _db.StaffCourse.Where(x => x.IDStaff == idStaff && x.IDCourse == idCourse).FirstOrDefault();
+        public List<AllInfoStaffCourse> GetAllCourseByFilter(string staffName, string idCourse)
+        {
+            List<AllInfoStaffCourse> list = _db.AllInfoStaffCourses.ToList();
 
-        //    return userCourse;
-        //}
+            if (!string.IsNullOrEmpty(staffName))
+            {
+                list = list.Where(t => t.StaffName.Contains(staffName)).ToList();
+            }
 
-        //public bool Add(UserCourse userCourse)
-        //{
-        //    try
-        //    {
-        //        _db.UserCourses.Add(userCourse);
-        //        _db.SaveChanges();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Model.NotificationCommon.Error(ex.Message);
-        //        return false;
-        //    }
-        //    return true;
-        //}
+            if (!string.IsNullOrEmpty(idCourse))
+            {
+                list = list.Where(t => t.IDCourse == idCourse).ToList();
+            }
 
-        //public bool Edit(UserCourse userCourse)
-        //{
-        //    try
-        //    {
-        //        UserCourse currentCourse = GetSingleByID(userCourse.IDStaff, userCourse.IDCourse);
+            return list;
+        }
 
-        //        currentCourse.IDCourse = userCourse.IDCourse;
-        //        currentCourse.IDStaff = userCourse.IDStaff;
-        //        _db.SaveChanges();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Model.NotificationCommon.Error(ex.Message);
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        public List<AllInfoStaffCourse> AllInfoStaffCourse()
+        {
+            List<AllInfoStaffCourse> info = _db.AllInfoStaffCourses.ToList();
 
-        //public bool Delete(string idStaff, string idCourse)
-        //{
-        //    try
-        //    {
-        //        UserCourse currentCourse = GetSingleByID(idStaff, idCourse);
+            return info;
+        }
 
-        //        _db.UserCourses.Remove(currentCourse);
-        //        _db.SaveChanges();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Model.NotificationCommon.Error(ex.Message);
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        public List<AllInfoStaffCourse> AllInfoStaffCourseByIDStaff(string idStaff)
+        {
+            List<AllInfoStaffCourse> info = _db.AllInfoStaffCourses.Where(x => x.IDStaff == idStaff).ToList();
 
-        //public bool IsExitUserCourse(string idStaff, string idCourse)
-        //{
-        //    var result = _db.UserCourses.Where(x => x.IDStaff == idStaff && x.IDCourse == idCourse).Any();
+            return info;
+        }
 
-        //    return result;
-        //}
+        public StaffCourse GetSingleByID(int id)
+        {
+            StaffCourse staffCourse = _db.StaffCourses.Where(x => x.IDStaffCourse == id).FirstOrDefault();
+
+            return staffCourse;
+        }
+
+        public bool Add(List<string> lstIDCourse, string idStaff)
+        {
+            try
+            {
+                foreach(var item in lstIDCourse)
+                {
+                    StaffCourse staffCourse = new StaffCourse();
+                    staffCourse.IDStaff = idStaff;
+                    staffCourse.IDCourse = item;
+                    staffCourse.Point = 0;
+                    staffCourse.Result = "0";
+                    _db.StaffCourses.Add(staffCourse);
+                    _db.SaveChanges();
+                }
+
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool Delete(int idStaffCourse)
+        {
+            try
+            {
+                StaffCourse currentCourse = GetSingleByID(idStaffCourse);
+
+                _db.StaffCourses.Remove(currentCourse);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
     }
 }

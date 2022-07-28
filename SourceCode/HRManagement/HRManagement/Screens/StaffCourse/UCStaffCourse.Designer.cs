@@ -31,14 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCStaffCourse));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbMonth = new System.Windows.Forms.ComboBox();
-            this.lbMonth = new System.Windows.Forms.Label();
-            this.cbDepartment = new System.Windows.Forms.ComboBox();
-            this.txtStaffName = new System.Windows.Forms.TextBox();
+            this.cbCourse = new System.Windows.Forms.ComboBox();
+            this.lbCourse = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gStaffCourse = new DevExpress.XtraGrid.GridControl();
             this.gvStaffCourse = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,6 +53,7 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,57 +83,36 @@
             // 
             // panel3
             // 
-            this.tablePanel1.SetColumn(this.panel3, 0);
-            this.panel3.Controls.Add(this.cbMonth);
-            this.panel3.Controls.Add(this.lbMonth);
-            this.panel3.Controls.Add(this.cbDepartment);
             this.panel3.Controls.Add(this.txtStaffName);
+            this.panel3.Controls.Add(this.cbCourse);
+            this.panel3.Controls.Add(this.lbCourse);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
-            this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 88);
             this.panel3.Name = "panel3";
-            this.tablePanel1.SetRow(this.panel3, 1);
             this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
-            // cbMonth
+            // cbCourse
             // 
-            this.cbMonth.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Location = new System.Drawing.Point(463, 43);
-            this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(189, 21);
-            this.cbMonth.TabIndex = 14;
+            this.cbCourse.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCourse.FormattingEnabled = true;
+            this.cbCourse.Location = new System.Drawing.Point(463, 43);
+            this.cbCourse.Name = "cbCourse";
+            this.cbCourse.Size = new System.Drawing.Size(189, 21);
+            this.cbCourse.TabIndex = 14;
             // 
-            // lbMonth
+            // lbCourse
             // 
-            this.lbMonth.AutoSize = true;
-            this.lbMonth.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonth.Location = new System.Drawing.Point(459, 15);
-            this.lbMonth.Name = "lbMonth";
-            this.lbMonth.Size = new System.Drawing.Size(48, 17);
-            this.lbMonth.TabIndex = 13;
-            this.lbMonth.Text = "Tháng";
-            // 
-            // cbDepartment
-            // 
-            this.cbDepartment.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(30, 43);
-            this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(189, 21);
-            this.cbDepartment.TabIndex = 12;
-            // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(242, 44);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(190, 20);
-            this.txtStaffName.TabIndex = 11;
+            this.lbCourse.AutoSize = true;
+            this.lbCourse.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCourse.Location = new System.Drawing.Point(459, 15);
+            this.lbCourse.Name = "lbCourse";
+            this.lbCourse.Size = new System.Drawing.Size(72, 17);
+            this.lbCourse.TabIndex = 13;
+            this.lbCourse.Text = "Khóa học";
             // 
             // label3
             // 
@@ -157,6 +134,7 @@
             this.btnSearch.Size = new System.Drawing.Size(115, 35);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnExport
             // 
@@ -169,24 +147,12 @@
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Phòng ban";
-            // 
             // panel2
             // 
-            this.tablePanel1.SetColumn(this.panel2, 0);
             this.panel2.Controls.Add(this.gStaffCourse);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 173);
             this.panel2.Name = "panel2";
-            this.tablePanel1.SetRow(this.panel2, 2);
             this.panel2.Size = new System.Drawing.Size(901, 512);
             this.panel2.TabIndex = 1;
             // 
@@ -215,6 +181,7 @@
             this.gvStaffCourse.Name = "gvStaffCourse";
             this.gvStaffCourse.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvStaffCourse.OptionsView.ShowGroupPanel = false;
+            this.gvStaffCourse.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvStaffCourse_CustomColumnDisplayText);
             // 
             // IDStaff
             // 
@@ -303,6 +270,7 @@
             this.btnInfo.Size = new System.Drawing.Size(115, 35);
             this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Xem CT";
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnDelete
             // 
@@ -314,6 +282,7 @@
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -326,6 +295,7 @@
             this.btnEdit.Size = new System.Drawing.Size(115, 35);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Chỉnh sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -337,6 +307,7 @@
             this.btnAdd.Size = new System.Drawing.Size(115, 35);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -351,6 +322,13 @@
             // gridView1
             // 
             this.gridView1.Name = "gridView1";
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Location = new System.Drawing.Point(242, 43);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(189, 21);
+            this.txtStaffName.TabIndex = 16;
             // 
             // UCStaffCourse
             // 
@@ -378,14 +356,11 @@
 
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox cbMonth;
-        private System.Windows.Forms.Label lbMonth;
-        private System.Windows.Forms.ComboBox cbDepartment;
-        private System.Windows.Forms.TextBox txtStaffName;
+        private System.Windows.Forms.ComboBox cbCourse;
+        private System.Windows.Forms.Label lbCourse;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraGrid.GridControl gStaffCourse;
         private DevExpress.XtraGrid.Views.Grid.GridView gvStaffCourse;
@@ -403,5 +378,6 @@
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.TextBox txtStaffName;
     }
 }

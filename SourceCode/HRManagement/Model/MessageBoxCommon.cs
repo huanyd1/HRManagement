@@ -33,5 +33,10 @@ namespace Model
         {
             return string.Format("Bạn có thực sự muốn xóa {0} '{1}' không?", variable, name);
         }
+
+        public static string DeleteStaffCourse(string course,  string staff)
+        {
+            return string.Format("Bạn có thực sự muốn xóa Khóa học '{0}' của Nhân viên '{1}' không?", course, staff);
+        }
     }
 }

@@ -69,5 +69,15 @@ namespace HRManagement
         {
             AddToScreen(new Screens.StaffCourse.UCStaffCourse());
         }
+
+        private void btnStaffInsurance_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.StaffInsurance.UCStaffInsurance());
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Account.UCAccount());
+        }
     }
 }

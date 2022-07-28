@@ -56,7 +56,7 @@ namespace HRManagement.Screens.Staff
             ColumnView view = sender as ColumnView;
             if (e.Column.FieldName == "Sex" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
             {
-                string currencyType = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Status").ToString();
+                string currencyType = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Sex").ToString();
                 switch (currencyType)
                 {
                     case "0": e.DisplayText = "Nữ"; break;

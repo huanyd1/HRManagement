@@ -122,7 +122,7 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IDCourse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Point" Type="Int32" />
-    <Property Name="Result" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Course" Relationship="Self.FK_UserCourse_Course" FromRole="StaffCourse" ToRole="Course" />
     <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_UserCourse" FromRole="StaffCourse" ToRole="Staff" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_UserCourse_Staff" FromRole="StaffCourse" ToRole="Staff" />

@@ -133,3 +133,9 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\es\Dev
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\ja\DevExpress.XtraScheduler.v21.2.Core.resources.dll
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\ru\DevExpress.XtraScheduler.v21.2.Core.resources.dll
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.StaffCourse.UCStaffCourse.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.StaffCourse.FormChangeStaffCourse.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.StaffCourse.FormInfoStaffCourse.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.StaffInsurance.UCStaffInsurance.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.StaffInsurance.FormInfoStaffInsurance.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.StaffInsurance.FormChangeStaffInsurance.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Account.UCAccount.resources

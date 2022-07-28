@@ -67,13 +67,6 @@ namespace Model.DAO
             return list;
         }
 
-        public List<AllInfoStaffCourse> AllInfoStaffCourse()
-        {
-            List<AllInfoStaffCourse> info = _db.AllInfoStaffCourses.ToList();
-
-            return info;
-        }
-
         public bool Add(Staff staff, Contract contract, Salary salary)
         {
             try
