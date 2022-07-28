@@ -16,13 +16,13 @@ namespace Model.EF
     {
         public Course()
         {
-            this.UserCourses = new HashSet<UserCourse>();
+            this.StaffCourses = new HashSet<StaffCourse>();
         }
     
         public string IDCourse { get; set; }
         public string CourseName { get; set; }
         public string Status { get; set; }
     
-        public virtual ICollection<UserCourse> UserCourses { get; set; }
+        public virtual ICollection<StaffCourse> StaffCourses { get; set; }
     }
 }

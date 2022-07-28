@@ -17,9 +17,9 @@ namespace HRManagement.Screens.Contract
         private bool _isSave = false;
         private bool _isAdd;
         private bool _isInfo = false;
-        private string _idContract;
+        private string _idStaff;
 
-        private readonly string idContract = "Mã hợp đồng";
+        private readonly string numberContract = "Số hợp đồng";
         private readonly string contractName = "Tên hợp đồng";
 
         public ChangeContract()
@@ -41,9 +41,9 @@ namespace HRManagement.Screens.Contract
             get { return _isInfo; }
             set { _isInfo = value; }
         }
-        public string IdContract
+        public string IdStaff
         {
-            set { _idContract = value; }
+            set { _idStaff = value; }
         }
 
         private void LoadContractType()
@@ -62,21 +62,25 @@ namespace HRManagement.Screens.Contract
             if (!_isAdd)
             {
                 this.Text = Model.ActionCommon.EditAction("Hợp đồng");
-                txtIDContract.ReadOnly = true;
+                txtIDStaff.ReadOnly = true;
+                txtStaffName.ReadOnly = true;
                 btnSave.Text = "Cập nhật";
 
                 ContractDAO dao = new ContractDAO();
-                Model.EF.Contract contract = dao.GetSingleByID(_idContract);
+                StaffDAO staff = new StaffDAO();
+                Model.EF.Contract contract = dao.GetSingleByID(_idStaff);
 
-                txtIDContract.Text = contract.IDContract.ToString();
+                txtIDStaff.Text = contract.IDStaff;
+                txtStaffName.Text = staff.GetStaffNameByID(_idStaff);
+                txtNumberContract.Text = contract.NumberContract.ToString();
                 txtContractName.Text = contract.ContractName.ToString();
                 cbContractType.SelectedValue = contract.IDType.ToString();
 
                 //Nếu info thì disable tất cả
                 if (_isInfo)
                 {
-                    txtIDContract.ReadOnly = true;
                     txtContractName.ReadOnly = true;
+                    txtNumberContract.ReadOnly = true;
                     cbContractType.Enabled = false;
 
                     btnSave.Visible = false;
@@ -94,14 +98,14 @@ namespace HRManagement.Screens.Contract
         {
             bool flag = true;
 
-            if (txtIDContract.Text == string.Empty)
+            if (txtNumberContract.Text == string.Empty)
             {
-                errorIDContract.SetError(txtIDContract, Model.CheckVariableCommon.NullVariable(idContract));
+                errorNumberContract.SetError(txtNumberContract, Model.CheckVariableCommon.NullVariable(numberContract));
                 flag = false;
             }
             else
             {
-                errorIDContract.SetError(txtIDContract, null);
+                errorNumberContract.SetError(txtIDStaff, null);
             }
 
             if (txtContractName.Text == string.Empty)
@@ -120,8 +124,9 @@ namespace HRManagement.Screens.Contract
         public Model.EF.Contract GetInfoContract()
         {
             Model.EF.Contract contract = new Model.EF.Contract();
-            contract.IDContract = txtIDContract.Text;
+            contract.IDStaff = txtIDStaff.Text;
             contract.ContractName = txtContractName.Text;
+            contract.NumberContract = txtNumberContract.Text;
             contract.IDType = cbContractType.SelectedValue.ToString();
 
             return contract;
@@ -166,7 +171,7 @@ namespace HRManagement.Screens.Contract
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if ((txtIDContract.Text != string.Empty || txtContractName.Text != string.Empty) && _isInfo == false)
+            if ((txtIDStaff.Text != string.Empty || txtNumberContract.Text != string.Empty) && _isInfo == false)
             {
                 DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.ExitForm(), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)

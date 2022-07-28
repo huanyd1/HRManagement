@@ -156,6 +156,12 @@
     <Compile Include="Screens\Salary\UCSalary.Designer.cs">
       <DependentUpon>UCSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\StaffCourse\UCStaffCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\StaffCourse\UCStaffCourse.Designer.cs">
+      <DependentUpon>UCStaffCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Staff\FormChangeStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     <EmbeddedResource Include="Screens\Salary\UCSalary.resx">
       <DependentUpon>UCSalary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\StaffCourse\UCStaffCourse.resx">
+      <DependentUpon>UCStaffCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Staff\FormChangeStaff.resx">
       <DependentUpon>FormChangeStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +296,8 @@
     <Content Include="Resource\Icon\staff.ico" />
     <Content Include="Resource\Images\department.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Screens\StaffInsurance\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

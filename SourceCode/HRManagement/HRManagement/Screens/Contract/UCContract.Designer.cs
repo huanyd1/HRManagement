@@ -33,20 +33,22 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbContractType = new System.Windows.Forms.ComboBox();
-            this.txtContractName = new System.Windows.Forms.TextBox();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIDContract = new System.Windows.Forms.TextBox();
+            this.txtIDStaff = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnInfo = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.IDType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ContractName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.IDContract = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvContract = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.StaffName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NumberContract = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TypeName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gContract = new DevExpress.XtraGrid.GridControl();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,6 +73,7 @@
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.Enabled = false;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Location = new System.Drawing.Point(541, 41);
             this.btnAdd.Name = "btnAdd";
@@ -83,12 +86,12 @@
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
             this.panel3.Controls.Add(this.cbContractType);
-            this.panel3.Controls.Add(this.txtContractName);
+            this.panel3.Controls.Add(this.txtStaffName);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtIDContract);
+            this.panel3.Controls.Add(this.txtIDStaff);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 88);
@@ -103,16 +106,16 @@
             this.cbContractType.FormattingEnabled = true;
             this.cbContractType.Location = new System.Drawing.Point(450, 44);
             this.cbContractType.Name = "cbContractType";
-            this.cbContractType.Size = new System.Drawing.Size(190, 23);
+            this.cbContractType.Size = new System.Drawing.Size(190, 20);
             this.cbContractType.TabIndex = 12;
             // 
-            // txtContractName
+            // txtStaffName
             // 
-            this.txtContractName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractName.Location = new System.Drawing.Point(240, 44);
-            this.txtContractName.Name = "txtContractName";
-            this.txtContractName.Size = new System.Drawing.Size(190, 23);
-            this.txtContractName.TabIndex = 10;
+            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffName.Location = new System.Drawing.Point(240, 44);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(190, 20);
+            this.txtStaffName.TabIndex = 10;
             // 
             // btnSearch
             // 
@@ -144,7 +147,7 @@
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(447, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 22);
+            this.label6.Size = new System.Drawing.Size(112, 17);
             this.label6.TabIndex = 6;
             this.label6.Text = "Loại hợp đồng";
             // 
@@ -154,17 +157,17 @@
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(237, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 22);
+            this.label5.Size = new System.Drawing.Size(112, 17);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Tên hợp đồng";
+            this.label5.Text = "Tên nhân viên";
             // 
-            // txtIDContract
+            // txtIDStaff
             // 
-            this.txtIDContract.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDContract.Location = new System.Drawing.Point(29, 44);
-            this.txtIDContract.Name = "txtIDContract";
-            this.txtIDContract.Size = new System.Drawing.Size(190, 23);
-            this.txtIDContract.TabIndex = 3;
+            this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDStaff.Location = new System.Drawing.Point(29, 44);
+            this.txtIDStaff.Name = "txtIDStaff";
+            this.txtIDStaff.Size = new System.Drawing.Size(190, 20);
+            this.txtIDStaff.TabIndex = 3;
             // 
             // label2
             // 
@@ -172,9 +175,9 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 22);
+            this.label2.Size = new System.Drawing.Size(104, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã hợp đồng";
+            this.label2.Text = "Mã nhân viên";
             // 
             // btnInfo
             // 
@@ -192,13 +195,13 @@
             // 
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Enabled = false;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Location = new System.Drawing.Point(783, 41);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
-            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
@@ -228,29 +231,47 @@
             this.ContractName.MinWidth = 25;
             this.ContractName.Name = "ContractName";
             this.ContractName.Visible = true;
-            this.ContractName.VisibleIndex = 1;
+            this.ContractName.VisibleIndex = 3;
             this.ContractName.Width = 94;
             // 
-            // IDContract
+            // IDStaff
             // 
-            this.IDContract.Caption = "Mã Hợp Đồng";
-            this.IDContract.FieldName = "IDContract";
-            this.IDContract.MinWidth = 25;
-            this.IDContract.Name = "IDContract";
-            this.IDContract.Visible = true;
-            this.IDContract.VisibleIndex = 0;
-            this.IDContract.Width = 94;
+            this.IDStaff.Caption = "Mã Nhân Viên";
+            this.IDStaff.FieldName = "IDStaff";
+            this.IDStaff.MinWidth = 25;
+            this.IDStaff.Name = "IDStaff";
+            this.IDStaff.Visible = true;
+            this.IDStaff.VisibleIndex = 0;
+            this.IDStaff.Width = 94;
             // 
             // gvContract
             // 
             this.gvContract.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDContract,
+            this.IDStaff,
+            this.StaffName,
+            this.NumberContract,
             this.ContractName,
             this.IDType,
             this.TypeName});
             this.gvContract.GridControl = this.gContract;
             this.gvContract.Name = "gvContract";
             this.gvContract.OptionsView.ShowGroupPanel = false;
+            // 
+            // StaffName
+            // 
+            this.StaffName.Caption = "Tên Nhân Viên";
+            this.StaffName.FieldName = "StaffName";
+            this.StaffName.Name = "StaffName";
+            this.StaffName.Visible = true;
+            this.StaffName.VisibleIndex = 1;
+            // 
+            // NumberContract
+            // 
+            this.NumberContract.Caption = "Số Hợp Đồng";
+            this.NumberContract.FieldName = "NumberContract";
+            this.NumberContract.Name = "NumberContract";
+            this.NumberContract.Visible = true;
+            this.NumberContract.VisibleIndex = 2;
             // 
             // TypeName
             // 
@@ -259,7 +280,7 @@
             this.TypeName.MinWidth = 25;
             this.TypeName.Name = "TypeName";
             this.TypeName.Visible = true;
-            this.TypeName.VisibleIndex = 2;
+            this.TypeName.VisibleIndex = 4;
             this.TypeName.Width = 94;
             // 
             // gContract
@@ -279,7 +300,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 27);
+            this.label1.Size = new System.Drawing.Size(154, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Hợp đồng";
             // 
@@ -355,7 +376,7 @@
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraGrid.GridControl gContract;
         private DevExpress.XtraGrid.Views.Grid.GridView gvContract;
-        private DevExpress.XtraGrid.Columns.GridColumn IDContract;
+        private DevExpress.XtraGrid.Columns.GridColumn IDStaff;
         private DevExpress.XtraGrid.Columns.GridColumn ContractName;
         private DevExpress.XtraGrid.Columns.GridColumn IDType;
         private System.Windows.Forms.Panel panel1;
@@ -364,13 +385,15 @@
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbContractType;
-        private System.Windows.Forms.TextBox txtContractName;
+        private System.Windows.Forms.TextBox txtStaffName;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIDContract;
+        private System.Windows.Forms.TextBox txtIDStaff;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn TypeName;
+        private DevExpress.XtraGrid.Columns.GridColumn StaffName;
+        private DevExpress.XtraGrid.Columns.GridColumn NumberContract;
     }
 }

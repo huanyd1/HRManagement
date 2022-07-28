@@ -14,16 +14,12 @@ namespace Model.EF
     
     public partial class Contract
     {
-        public Contract()
-        {
-            this.Staffs = new HashSet<Staff>();
-        }
-    
-        public string IDContract { get; set; }
+        public string IDStaff { get; set; }
         public string ContractName { get; set; }
+        public string NumberContract { get; set; }
         public string IDType { get; set; }
     
         public virtual ContractType ContractType { get; set; }
-        public virtual ICollection<Staff> Staffs { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

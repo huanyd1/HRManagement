@@ -64,5 +64,10 @@ namespace HRManagement
         {
             AddToScreen(new Screens.Staff.UCStaff());
         }
+
+        private void btnStaffCourse_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.StaffCourse.UCStaffCourse());
+        }
     }
 }

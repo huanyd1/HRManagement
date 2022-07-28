@@ -10,42 +10,30 @@
 namespace Model.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Staff
+    public partial class GetAllInfoByIDStaff_Result
     {
-        public Staff()
-        {
-            this.StaffInsurances = new HashSet<StaffInsurance>();
-            this.Timekeepings = new HashSet<Timekeeping>();
-            this.StaffCourses = new HashSet<StaffCourse>();
-        }
-    
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
         public string Sex { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
         public string Place { get; set; }
-        public string CCCD { get; set; }
-        public string Image { get; set; }
         public string Numberphone { get; set; }
         public string Email { get; set; }
+        public string CCCD { get; set; }
         public string IDDepartment { get; set; }
-        public string IDInsurance { get; set; }
-        public Nullable<int> IDStaffCoursce { get; set; }
+        public string DepartmentName { get; set; }
+        public string ContractName { get; set; }
+        public string IDType { get; set; }
+        public string NumberContract { get; set; }
+        public string TypeName { get; set; }
+        public Nullable<int> SalaryAmount { get; set; }
+        public Nullable<int> Allowance { get; set; }
+        public Nullable<int> Tax { get; set; }
         public string IDPosition { get; set; }
+        public string PositionName { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Status { get; set; }
-    
-        public virtual Account Account { get; set; }
-        public virtual Contract Contract { get; set; }
-        public virtual Department Department { get; set; }
-        public virtual Position Position { get; set; }
-        public virtual Salary Salary { get; set; }
-        public virtual StaffCourse StaffCourse { get; set; }
-        public virtual ICollection<StaffInsurance> StaffInsurances { get; set; }
-        public virtual ICollection<Timekeeping> Timekeepings { get; set; }
-        public virtual ICollection<StaffCourse> StaffCourses { get; set; }
     }
 }

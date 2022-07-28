@@ -4,33 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a0bcb66b67c44a209acbfc8376027dc5" Name="Diagram1">
-        <EntityTypeShape EntityType="HRManagementModel.Account" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Contract" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.ContractType" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Course" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Department" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Insurance" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.InsuranceType" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Position" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Salary" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Staff" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="c504e2f2d45443a68bbdcffebaad9d4d" Name="Diagram1">
+        <EntityTypeShape EntityType="HRManagementModel.Account" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Contract" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.ContractType" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Course" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Department" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Insurance" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.InsuranceType" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Position" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Salary" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Staff" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.StaffCourse" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.StaffInsurance" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="HRManagementModel.sysdiagram" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.Timekeeping" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.UserCourse" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.AllInfoContract" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.AllInfoInsurance" Width="1.5" PointX="11.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRManagementModel.AllInfoSalary" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.Timekeeping" Width="1.5" PointX="7.5" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoAccount" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoContract" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoInsurance" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoSalary" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoStaffCourse" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRManagementModel.AllInfoStaffInsurance" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="HRManagementModel.FK_Account_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Contract_ContractType" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_Contract_Staff1" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_UserCourse_Course" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Staff_Department" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Insurance_InsuranceType" ManuallyRouted="false" />
-        <AssociationConnector Association="HRManagementModel.FK_Staff_Insurance" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_StaffInsurance_Insurance" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Staff_Position" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Salary_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Staff_UserCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="HRManagementModel.FK_StaffInsurance_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_Timekeeping_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="HRManagementModel.FK_UserCourse_Staff" ManuallyRouted="false" />
       </Diagram>

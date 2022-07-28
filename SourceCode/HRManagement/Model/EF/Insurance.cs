@@ -16,7 +16,7 @@ namespace Model.EF
     {
         public Insurance()
         {
-            this.Staffs = new HashSet<Staff>();
+            this.StaffInsurances = new HashSet<StaffInsurance>();
         }
     
         public string IDInsurance { get; set; }
@@ -25,6 +25,6 @@ namespace Model.EF
         public Nullable<int> Amount { get; set; }
     
         public virtual InsuranceType InsuranceType { get; set; }
-        public virtual ICollection<Staff> Staffs { get; set; }
+        public virtual ICollection<StaffInsurance> StaffInsurances { get; set; }
     }
 }

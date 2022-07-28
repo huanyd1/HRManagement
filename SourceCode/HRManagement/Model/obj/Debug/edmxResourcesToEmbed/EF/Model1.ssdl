@@ -2,19 +2,19 @@
 <Schema Namespace="HRManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Account">
     <Key>
-      <PropertyRef Name="IDAccount" />
+      <PropertyRef Name="IDStaff" />
     </Key>
-    <Property Name="IDAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IDStaff" Type="varchar" MaxLength="50" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Contract">
     <Key>
-      <PropertyRef Name="IDContract" />
+      <PropertyRef Name="IDStaff" />
     </Key>
-    <Property Name="IDContract" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ContractName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberContract" Type="varchar" MaxLength="50" />
     <Property Name="IDType" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="ContractType">
@@ -83,16 +83,34 @@
     <Property Name="Birthday" Type="date" />
     <Property Name="Place" Type="nvarchar" MaxLength="100" />
     <Property Name="CCCD" Type="varchar" MaxLength="20" />
+    <Property Name="Image" Type="varchar(max)" />
     <Property Name="Numberphone" Type="varchar" MaxLength="12" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="IDDepartment" Type="varchar" MaxLength="50" />
-    <Property Name="IDContract" Type="varchar" MaxLength="50" />
     <Property Name="IDInsurance" Type="varchar" MaxLength="50" />
     <Property Name="IDStaffCoursce" Type="int" />
     <Property Name="IDPosition" Type="varchar" MaxLength="50" />
     <Property Name="StartDate" Type="date" />
     <Property Name="EndDate" Type="date" />
     <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="StaffCourse">
+    <Key>
+      <PropertyRef Name="IDStaffCourse" />
+    </Key>
+    <Property Name="IDStaffCourse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" />
+    <Property Name="IDCourse" Type="varchar" MaxLength="50" />
+    <Property Name="Point" Type="int" />
+    <Property Name="Result" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="StaffInsurance">
+    <Key>
+      <PropertyRef Name="IDStaffInsurance" />
+    </Key>
+    <Property Name="IDStaffInsurance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" />
+    <Property Name="IDInsurance" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -114,21 +132,26 @@
     <Property Name="Checkout" Type="datetime" />
     <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="UserCourse">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRManagement.dbo.AllInfoAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllInfoAccount">
     <Key>
-      <PropertyRef Name="IDStaffCoursce" />
+      <PropertyRef Name="IDStaff" />
     </Key>
-    <Property Name="IDStaffCoursce" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IDStaff" Type="varchar" MaxLength="50" />
-    <Property Name="IDCourse" Type="varchar" MaxLength="50" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'HRManagement.dbo.AllInfoContract' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="AllInfoContract">
     <Key>
-      <PropertyRef Name="IDContract" />
+      <PropertyRef Name="IDStaff" />
     </Key>
-    <Property Name="IDContract" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberContract" Type="varchar" MaxLength="50" />
     <Property Name="ContractName" Type="nvarchar" MaxLength="50" />
     <Property Name="IDType" Type="varchar" MaxLength="50" />
     <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
@@ -157,9 +180,42 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
     <Property Name="Allowance" Type="int" />
     <Property Name="Tax" Type="int" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffCourse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllInfoStaffCourse">
+    <Key>
+      <PropertyRef Name="IDStaffCourse" />
+      <PropertyRef Name="IDStaff" />
+      <PropertyRef Name="IDCourse" />
+    </Key>
+    <Property Name="IDStaffCourse" Type="int" Nullable="false" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDCourse" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Point" Type="int" />
+    <Property Name="Result" Type="char" MaxLength="5" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllInfoStaffInsurance">
+    <Key>
+      <PropertyRef Name="IDStaff" />
+      <PropertyRef Name="IDStaffInsurance" />
+      <PropertyRef Name="IDInsuranceType" />
+      <PropertyRef Name="IDInsurance" />
+    </Key>
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDStaffInsurance" Type="int" Nullable="false" />
+    <Property Name="IDInsuranceType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDInsurance" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsuranceName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <Association Name="FK_Account_Staff">
-    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
-    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Staff">
         <PropertyRef Name="IDStaff" />
@@ -178,6 +234,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
       </Principal>
       <Dependent Role="Contract">
         <PropertyRef Name="IDType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contract_Staff1">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IDStaff" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="IDStaff" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -205,18 +273,6 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Staff_Contract">
-    <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
-    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Contract">
-        <PropertyRef Name="IDContract" />
-      </Principal>
-      <Dependent Role="Staff">
-        <PropertyRef Name="IDContract" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Staff_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -226,18 +282,6 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
       </Principal>
       <Dependent Role="Staff">
         <PropertyRef Name="IDDepartment" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Staff_Insurance">
-    <End Role="Insurance" Type="Self.Insurance" Multiplicity="0..1" />
-    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Insurance">
-        <PropertyRef Name="IDInsurance" />
-      </Principal>
-      <Dependent Role="Staff">
-        <PropertyRef Name="IDInsurance" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -254,14 +298,38 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Staff_UserCourse">
-    <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="0..1" />
+    <End Role="StaffCourse" Type="Self.StaffCourse" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserCourse">
-        <PropertyRef Name="IDStaffCoursce" />
+      <Principal Role="StaffCourse">
+        <PropertyRef Name="IDStaffCourse" />
       </Principal>
       <Dependent Role="Staff">
         <PropertyRef Name="IDStaffCoursce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffInsurance_Insurance">
+    <End Role="Insurance" Type="Self.Insurance" Multiplicity="0..1" />
+    <End Role="StaffInsurance" Type="Self.StaffInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insurance">
+        <PropertyRef Name="IDInsurance" />
+      </Principal>
+      <Dependent Role="StaffInsurance">
+        <PropertyRef Name="IDInsurance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffInsurance_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="StaffInsurance" Type="Self.StaffInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IDStaff" />
+      </Principal>
+      <Dependent Role="StaffInsurance">
+        <PropertyRef Name="IDStaff" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -279,29 +347,32 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
   </Association>
   <Association Name="FK_UserCourse_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-    <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+    <End Role="StaffCourse" Type="Self.StaffCourse" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Course">
         <PropertyRef Name="IDCourse" />
       </Principal>
-      <Dependent Role="UserCourse">
+      <Dependent Role="StaffCourse">
         <PropertyRef Name="IDCourse" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserCourse_Staff">
     <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
-    <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+    <End Role="StaffCourse" Type="Self.StaffCourse" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Staff">
         <PropertyRef Name="IDStaff" />
       </Principal>
-      <Dependent Role="UserCourse">
+      <Dependent Role="StaffCourse">
         <PropertyRef Name="IDStaff" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetAllInfoByIDStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDStaff" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="GetTimekeepingByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
     <Parameter Name="Month" Type="int" Mode="In" />
@@ -309,6 +380,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
   <Function Name="IsExistCheckTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDStaff" Type="varchar" Mode="In" />
     <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="RemoveAllInfoStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDStaff" Type="varchar" Mode="In" />
   </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -351,12 +425,23 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
     <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffCourse" EntityType="Self.StaffCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffInsurance" EntityType="Self.StaffInsurance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Timekeeping" EntityType="Self.Timekeeping" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserCourse" EntityType="Self.UserCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllInfoAccount" EntityType="Self.AllInfoAccount" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[AllInfoAccount].[IDStaff] AS [IDStaff], 
+[AllInfoAccount].[StaffName] AS [StaffName], 
+[AllInfoAccount].[Username] AS [Username], 
+[AllInfoAccount].[Password] AS [Password]
+FROM [dbo].[AllInfoAccount] AS [AllInfoAccount]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="AllInfoContract" EntityType="Self.AllInfoContract" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-[AllInfoContract].[IDContract] AS [IDContract], 
+[AllInfoContract].[IDStaff] AS [IDStaff], 
+[AllInfoContract].[StaffName] AS [StaffName], 
+[AllInfoContract].[NumberContract] AS [NumberContract], 
 [AllInfoContract].[ContractName] AS [ContractName], 
 [AllInfoContract].[IDType] AS [IDType], 
 [AllInfoContract].[TypeName] AS [TypeName]
@@ -380,12 +465,38 @@ FROM [dbo].[AllInfoInsurance] AS [AllInfoInsurance]</DefiningQuery>
 [AllInfoSalary].[Tax] AS [Tax]
 FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="AllInfoStaffCourse" EntityType="Self.AllInfoStaffCourse" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[AllInfoStaffCourse].[IDStaffCourse] AS [IDStaffCourse], 
+[AllInfoStaffCourse].[IDStaff] AS [IDStaff], 
+[AllInfoStaffCourse].[StaffName] AS [StaffName], 
+[AllInfoStaffCourse].[IDCourse] AS [IDCourse], 
+[AllInfoStaffCourse].[CourseName] AS [CourseName], 
+[AllInfoStaffCourse].[Point] AS [Point], 
+[AllInfoStaffCourse].[Result] AS [Result]
+FROM [dbo].[AllInfoStaffCourse] AS [AllInfoStaffCourse]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllInfoStaffInsurance" EntityType="Self.AllInfoStaffInsurance" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[AllInfoStaffInsurance].[IDStaff] AS [IDStaff], 
+[AllInfoStaffInsurance].[StaffName] AS [StaffName], 
+[AllInfoStaffInsurance].[IDStaffInsurance] AS [IDStaffInsurance], 
+[AllInfoStaffInsurance].[IDInsuranceType] AS [IDInsuranceType], 
+[AllInfoStaffInsurance].[TypeName] AS [TypeName], 
+[AllInfoStaffInsurance].[IDInsurance] AS [IDInsurance], 
+[AllInfoStaffInsurance].[InsuranceName] AS [InsuranceName]
+FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Account_Staff" Association="Self.FK_Account_Staff">
       <End Role="Staff" EntitySet="Staff" />
       <End Role="Account" EntitySet="Account" />
     </AssociationSet>
     <AssociationSet Name="FK_Contract_ContractType" Association="Self.FK_Contract_ContractType">
       <End Role="ContractType" EntitySet="ContractType" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contract_Staff1" Association="Self.FK_Contract_Staff1">
+      <End Role="Staff" EntitySet="Staff" />
       <End Role="Contract" EntitySet="Contract" />
     </AssociationSet>
     <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
@@ -396,16 +507,8 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
       <End Role="Staff" EntitySet="Staff" />
       <End Role="Salary" EntitySet="Salary" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Contract" Association="Self.FK_Staff_Contract">
-      <End Role="Contract" EntitySet="Contract" />
-      <End Role="Staff" EntitySet="Staff" />
-    </AssociationSet>
     <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
       <End Role="Department" EntitySet="Department" />
-      <End Role="Staff" EntitySet="Staff" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Staff_Insurance" Association="Self.FK_Staff_Insurance">
-      <End Role="Insurance" EntitySet="Insurance" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
@@ -413,8 +516,16 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_UserCourse" Association="Self.FK_Staff_UserCourse">
-      <End Role="UserCourse" EntitySet="UserCourse" />
+      <End Role="StaffCourse" EntitySet="StaffCourse" />
       <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffInsurance_Insurance" Association="Self.FK_StaffInsurance_Insurance">
+      <End Role="Insurance" EntitySet="Insurance" />
+      <End Role="StaffInsurance" EntitySet="StaffInsurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffInsurance_Staff" Association="Self.FK_StaffInsurance_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="StaffInsurance" EntitySet="StaffInsurance" />
     </AssociationSet>
     <AssociationSet Name="FK_Timekeeping_Staff" Association="Self.FK_Timekeeping_Staff">
       <End Role="Staff" EntitySet="Staff" />
@@ -422,11 +533,11 @@ FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
     </AssociationSet>
     <AssociationSet Name="FK_UserCourse_Course" Association="Self.FK_UserCourse_Course">
       <End Role="Course" EntitySet="Course" />
-      <End Role="UserCourse" EntitySet="UserCourse" />
+      <End Role="StaffCourse" EntitySet="StaffCourse" />
     </AssociationSet>
     <AssociationSet Name="FK_UserCourse_Staff" Association="Self.FK_UserCourse_Staff">
       <End Role="Staff" EntitySet="Staff" />
-      <End Role="UserCourse" EntitySet="UserCourse" />
+      <End Role="StaffCourse" EntitySet="StaffCourse" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

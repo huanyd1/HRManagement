@@ -4,7 +4,6 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="HRManagementModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="IDAccount" ColumnName="IDAccount" />
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -14,8 +13,9 @@
     <EntitySetMapping Name="Contracts">
       <EntityTypeMapping TypeName="HRManagementModel.Contract">
         <MappingFragment StoreEntitySet="Contract">
-          <ScalarProperty Name="IDContract" ColumnName="IDContract" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="ContractName" ColumnName="ContractName" />
+          <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
           <ScalarProperty Name="IDType" ColumnName="IDType" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -92,16 +92,36 @@
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Place" ColumnName="Place" />
           <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
-          <ScalarProperty Name="IDContract" ColumnName="IDContract" />
           <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
           <ScalarProperty Name="IDStaffCoursce" ColumnName="IDStaffCoursce" />
           <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffCourses">
+      <EntityTypeMapping TypeName="HRManagementModel.StaffCourse">
+        <MappingFragment StoreEntitySet="StaffCourse">
+          <ScalarProperty Name="IDStaffCourse" ColumnName="IDStaffCourse" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="IDCourse" ColumnName="IDCourse" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffInsurances">
+      <EntityTypeMapping TypeName="HRManagementModel.StaffInsurance">
+        <MappingFragment StoreEntitySet="StaffInsurance">
+          <ScalarProperty Name="IDStaffInsurance" ColumnName="IDStaffInsurance" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -127,19 +147,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserCourses">
-      <EntityTypeMapping TypeName="HRManagementModel.UserCourse">
-        <MappingFragment StoreEntitySet="UserCourse">
-          <ScalarProperty Name="IDStaffCoursce" ColumnName="IDStaffCoursce" />
+    <EntitySetMapping Name="AllInfoAccounts">
+      <EntityTypeMapping TypeName="HRManagementModel.AllInfoAccount">
+        <MappingFragment StoreEntitySet="AllInfoAccount">
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
-          <ScalarProperty Name="IDCourse" ColumnName="IDCourse" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AllInfoContracts">
       <EntityTypeMapping TypeName="HRManagementModel.AllInfoContract">
         <MappingFragment StoreEntitySet="AllInfoContract">
-          <ScalarProperty Name="IDContract" ColumnName="IDContract" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
           <ScalarProperty Name="ContractName" ColumnName="ContractName" />
           <ScalarProperty Name="IDType" ColumnName="IDType" />
           <ScalarProperty Name="TypeName" ColumnName="TypeName" />
@@ -168,6 +191,60 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AllInfoStaffCourses">
+      <EntityTypeMapping TypeName="HRManagementModel.AllInfoStaffCourse">
+        <MappingFragment StoreEntitySet="AllInfoStaffCourse">
+          <ScalarProperty Name="IDStaffCourse" ColumnName="IDStaffCourse" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="IDCourse" ColumnName="IDCourse" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllInfoStaffInsurances">
+      <EntityTypeMapping TypeName="HRManagementModel.AllInfoStaffInsurance">
+        <MappingFragment StoreEntitySet="AllInfoStaffInsurance">
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="IDStaffInsurance" ColumnName="IDStaffInsurance" />
+          <ScalarProperty Name="IDInsuranceType" ColumnName="IDInsuranceType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="IDInsurance" ColumnName="IDInsurance" />
+          <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllInfoByIDStaff" FunctionName="HRManagementModel.Store.GetAllInfoByIDStaff">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.GetAllInfoByIDStaff_Result">
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="ContractName" ColumnName="ContractName" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+          <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GetTimekeepingByMonth" FunctionName="HRManagementModel.Store.GetTimekeepingByMonth">
       <ResultMapping>
         <ComplexTypeMapping TypeName="HRManagementModel.GetTimekeepingByMonth_Result">
@@ -191,6 +268,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RemoveAllInfoStaff" FunctionName="HRManagementModel.Store.RemoveAllInfoStaff" />
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HRManagementModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HRManagementModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HRManagementModel.Store.sp_dropdiagram" />

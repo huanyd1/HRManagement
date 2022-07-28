@@ -12,13 +12,11 @@ namespace Model.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class AllInfoContract
+    public partial class AllInfoAccount
     {
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
-        public string NumberContract { get; set; }
-        public string ContractName { get; set; }
-        public string IDType { get; set; }
-        public string TypeName { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

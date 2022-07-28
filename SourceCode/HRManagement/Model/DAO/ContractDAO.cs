@@ -21,31 +21,31 @@ namespace Model.DAO
             return list;
         }
 
-        public List<AllInfoContract> GetContractByFilter(string idContract, string contractName, string idType)
+        public List<AllInfoContract> GetContractByFilter(string idStaff, string staffName, string idType)
         {
             List<AllInfoContract> list = _db.AllInfoContracts.ToList();
 
-            if (!string.IsNullOrEmpty(idContract))
+            if (!string.IsNullOrEmpty(idStaff))
             {
-                list.Where(x => x.IDContract.Contains(idContract));
+                list = list.Where(x => x.IDStaff == idStaff).ToList();
             }
 
-            if (!string.IsNullOrEmpty(contractName))
+            if (!string.IsNullOrEmpty(staffName))
             {
-                list.Where(x => x.ContractName.Contains(contractName));
+                list = list.Where(x => x.ContractName.Contains(staffName)).ToList();
             }
 
             if (!string.IsNullOrEmpty(idType))
             {
-                list.Where(x => x.IDType == idType);
+                list = list.Where(x => x.IDType == idType).ToList();
             }
 
-            return list.ToList();
+            return list;
         }
 
         public Contract GetSingleByID(string id)
         {
-            Contract contract = _db.Contracts.Where(x => x.IDContract == id).FirstOrDefault();
+            Contract contract = _db.Contracts.Where(x => x.IDStaff == id).FirstOrDefault();
 
             return contract;
         }
@@ -76,10 +76,11 @@ namespace Model.DAO
         {
             try
             {
-                Contract currentContract = GetSingleByID(contract.IDContract);
+                Contract currentContract = GetSingleByID(contract.IDStaff);
 
                 currentContract.ContractName = contract.ContractName;
                 currentContract.ContractType = contract.ContractType;
+                currentContract.NumberContract = contract.NumberContract;
                 currentContract.IDType = contract.IDType;
                 _db.SaveChanges();
             }

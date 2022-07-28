@@ -33,6 +33,7 @@
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.btnDepartment = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnInsurance = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnStaffInsurance = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnContract = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnSalary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnCourse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -59,6 +60,7 @@
             this.repositoryItemBreadCrumbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelSelect = new System.Windows.Forms.Panel();
+            this.btnStaffCourse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -82,12 +84,12 @@
             this.btnCourse,
             this.btnTimekeeping,
             this.btnStaff});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 39);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
-            this.accordionControl1.Size = new System.Drawing.Size(362, 680);
+            this.accordionControl1.Size = new System.Drawing.Size(362, 688);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -100,10 +102,19 @@
             // 
             // btnInsurance
             // 
+            this.btnInsurance.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnStaffInsurance});
+            this.btnInsurance.Expanded = true;
             this.btnInsurance.ImageOptions.Image = global::HRManagement.Properties.Resources.insurance;
             this.btnInsurance.Name = "btnInsurance";
             this.btnInsurance.Text = "Bảo hiểm";
             this.btnInsurance.Click += new System.EventHandler(this.btnInsurance_Click);
+            // 
+            // btnStaffInsurance
+            // 
+            this.btnStaffInsurance.Name = "btnStaffInsurance";
+            this.btnStaffInsurance.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnStaffInsurance.Text = "Nhân viên - Bảo hiểm";
             // 
             // btnContract
             // 
@@ -121,6 +132,9 @@
             // 
             // btnCourse
             // 
+            this.btnCourse.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnStaffCourse});
+            this.btnCourse.Expanded = true;
             this.btnCourse.ImageOptions.Image = global::HRManagement.Properties.Resources.course;
             this.btnCourse.Name = "btnCourse";
             this.btnCourse.Text = "Khóa học";
@@ -174,7 +188,7 @@
             this.repositoryItemBreadCrumbEdit1,
             this.repositoryItemImageEdit1,
             this.repositoryItemPictureEdit1});
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1278, 39);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1278, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barSubItem2);
@@ -320,10 +334,17 @@
             // panelSelect
             // 
             this.panelSelect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSelect.Location = new System.Drawing.Point(362, 39);
+            this.panelSelect.Location = new System.Drawing.Point(362, 31);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(916, 680);
+            this.panelSelect.Size = new System.Drawing.Size(916, 688);
             this.panelSelect.TabIndex = 3;
+            // 
+            // btnStaffCourse
+            // 
+            this.btnStaffCourse.Name = "btnStaffCourse";
+            this.btnStaffCourse.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnStaffCourse.Text = "Nhân viên - Khóa học";
+            this.btnStaffCourse.Click += new System.EventHandler(this.btnStaffCourse_Click);
             // 
             // FormMain
             // 
@@ -384,5 +405,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnTimekeeping;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnExplanation;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnStaff;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnStaffInsurance;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnStaffCourse;
     }
 }

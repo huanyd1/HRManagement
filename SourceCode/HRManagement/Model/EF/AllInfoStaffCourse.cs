@@ -12,13 +12,14 @@ namespace Model.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class AllInfoContract
+    public partial class AllInfoStaffCourse
     {
+        public int IDStaffCourse { get; set; }
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
-        public string NumberContract { get; set; }
-        public string ContractName { get; set; }
-        public string IDType { get; set; }
-        public string TypeName { get; set; }
+        public string IDCourse { get; set; }
+        public string CourseName { get; set; }
+        public Nullable<int> Point { get; set; }
+        public string Result { get; set; }
     }
 }

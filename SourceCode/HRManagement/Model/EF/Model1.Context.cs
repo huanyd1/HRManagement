@@ -38,12 +38,25 @@ namespace Model.EF
         public DbSet<Position> Positions { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<StaffCourse> StaffCourses { get; set; }
+        public DbSet<StaffInsurance> StaffInsurances { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Timekeeping> Timekeepings { get; set; }
-        public DbSet<UserCourse> UserCourses { get; set; }
+        public DbSet<AllInfoAccount> AllInfoAccounts { get; set; }
         public DbSet<AllInfoContract> AllInfoContracts { get; set; }
         public DbSet<AllInfoInsurance> AllInfoInsurances { get; set; }
         public DbSet<AllInfoSalary> AllInfoSalaries { get; set; }
+        public DbSet<AllInfoStaffCourse> AllInfoStaffCourses { get; set; }
+        public DbSet<AllInfoStaffInsurance> AllInfoStaffInsurances { get; set; }
+    
+        public virtual ObjectResult<GetAllInfoByIDStaff_Result> GetAllInfoByIDStaff(string iDStaff)
+        {
+            var iDStaffParameter = iDStaff != null ?
+                new ObjectParameter("IDStaff", iDStaff) :
+                new ObjectParameter("IDStaff", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllInfoByIDStaff_Result>("GetAllInfoByIDStaff", iDStaffParameter);
+        }
     
         public virtual ObjectResult<GetTimekeepingByMonth_Result> GetTimekeepingByMonth(string iDDepartment, Nullable<int> month)
         {
@@ -69,6 +82,15 @@ namespace Model.EF
                 new ObjectParameter("date", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<IsExistCheckTime_Result>("IsExistCheckTime", iDStaffParameter, dateParameter);
+        }
+    
+        public virtual int RemoveAllInfoStaff(string iDStaff)
+        {
+            var iDStaffParameter = iDStaff != null ?
+                new ObjectParameter("IDStaff", iDStaff) :
+                new ObjectParameter("IDStaff", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RemoveAllInfoStaff", iDStaffParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

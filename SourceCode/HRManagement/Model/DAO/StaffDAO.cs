@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,35 @@ namespace Model.DAO
             return staff;
         }
 
+        public GetAllInfoByIDStaff_Result GetAllInfoByIDStaff(string idStaff)
+        {
+            GetAllInfoByIDStaff_Result staff = _db.GetAllInfoByIDStaff(idStaff).FirstOrDefault();
+
+            return staff;
+        }
+
+        public List<Staff> GetStaffByFilter(string idDepartment, string idStaff, string staffName)
+        {
+            List<Staff> list = _db.Staffs.ToList();
+
+            if (!string.IsNullOrEmpty(idDepartment))
+            {
+                list = list.Where(x => x.IDDepartment == idDepartment).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(idStaff))
+            {
+                list = list.Where(x => x.IDStaff == idStaff).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(staffName))
+            {
+                list = list.Where(x => x.StaffName.Contains(staffName)).ToList();
+            }
+
+            return list;
+        }
+
         public string GetStaffNameByID(string idStaff)
         {
             string name = _db.Staffs.Where(x => x.IDStaff == idStaff).Select(x => x.StaffName).FirstOrDefault();
@@ -37,30 +67,22 @@ namespace Model.DAO
             return list;
         }
 
-        public List<Staff> GetStaffByFilter(string idStaff, string idDepartment)
+        public List<AllInfoStaffCourse> AllInfoStaffCourse()
         {
-            List<Staff> list = GetAll();
+            List<AllInfoStaffCourse> info = _db.AllInfoStaffCourses.ToList();
 
-            //Lọc theo mã nhân viên
-            if (!string.IsNullOrEmpty(idStaff))
-            {
-                list.Where(t => t.IDStaff == idStaff);
-            }
-
-            //Lọc theo phòng ban
-            if (!string.IsNullOrEmpty(idDepartment))
-            {
-                list.Where(t => t.IDDepartment == idDepartment);
-            }
-
-            return list;
+            return info;
         }
 
-        public bool Add(Staff staff)
+        public bool Add(Staff staff, Contract contract, Salary salary)
         {
             try
             {
                 _db.Staffs.Add(staff);
+                _db.SaveChanges();
+                _db.Contracts.Add(contract);
+                _db.SaveChanges();
+                _db.Salaries.Add(salary);
                 _db.SaveChanges();
             }
             catch (Exception ex)
@@ -83,11 +105,10 @@ namespace Model.DAO
                 currentStaff.CCCD = staff.CCCD;
                 currentStaff.Numberphone = staff.Numberphone;
                 currentStaff.IDDepartment = staff.IDDepartment;
-                currentStaff.IDInsurance = staff.IDInsurance;
-                currentStaff.IDContract = staff.IDContract;
-                currentStaff.IDStaffCoursce = staff.IDStaffCoursce;
+                currentStaff.Email = staff.Email;
+                currentStaff.Sex = staff.Sex;
                 currentStaff.IDPosition = staff.IDPosition;
-                currentStaff.Status = staff.Status;
+                //currentStaff.Status = staff.Status;
                 _db.SaveChanges();
             }
             catch (Exception ex)
@@ -102,9 +123,7 @@ namespace Model.DAO
         {
             try
             {
-                Staff currentStaff = GetSingleByID(id);
-
-                _db.Staffs.Remove(currentStaff);
+                _db.RemoveAllInfoStaff(id);
                 _db.SaveChanges();
             }
             catch (Exception ex)
@@ -115,9 +134,9 @@ namespace Model.DAO
             return true;
         }
 
-        public bool IsExitStaff(string name)
+        public bool IsExitStaff(string cccd)
         {
-            var result = _db.Staffs.Where(x => x.StaffName == name).Any();
+            var result = _db.Staffs.Where(x => x.CCCD == cccd).Any();
 
             return result;
         }

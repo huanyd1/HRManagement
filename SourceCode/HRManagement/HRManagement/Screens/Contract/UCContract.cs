@@ -43,23 +43,23 @@ namespace HRManagement.Screens.Contract
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string idContract = txtIDContract.Text.ToString();
-            string contractName = txtContractName.Text.ToString();
+            string idStaff = txtIDStaff.Text.ToString();
+            string staffName = txtStaffName.Text.ToString();
             string idType = cbContractType.SelectedValue.ToString();
 
             ContractDAO dao = new ContractDAO();
-            gContract.DataSource = dao.GetContractByFilter(idContract, contractName, idType);
+            gContract.DataSource = dao.GetContractByFilter(idStaff, staffName, idType);
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
             if(gvContract.RowCount > 0)
             {
-                string idContract = gvContract.GetFocusedRowCellValue("IDContract").ToString();
+                string idStaff = gvContract.GetFocusedRowCellValue("IDStaff").ToString();
 
                 ChangeContract infoContract = new ChangeContract();
                 infoContract.IsAdd = false;
-                infoContract.IdContract = idContract;
+                infoContract.IdStaff = idStaff;
                 infoContract.IsInfo = true;
                 infoContract.Show();
             }
@@ -81,11 +81,11 @@ namespace HRManagement.Screens.Contract
         {
             if(gvContract.RowCount > 0)
             {
-                string idContract = gvContract.GetFocusedRowCellValue("IDContract").ToString();
+                string idStaff = gvContract.GetFocusedRowCellValue("IDStaff").ToString();
 
                 ChangeContract editContract = new ChangeContract();
                 editContract.IsAdd = false;
-                editContract.IdContract = idContract;
+                editContract.IdStaff = idStaff;
                 editContract.Show();
 
                 if (editContract.IsSave)

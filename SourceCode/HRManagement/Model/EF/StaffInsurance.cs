@@ -12,19 +12,13 @@ namespace Model.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class UserCourse
+    public partial class StaffInsurance
     {
-        public UserCourse()
-        {
-            this.Staffs = new HashSet<Staff>();
-        }
-    
-        public int IDStaffCoursce { get; set; }
+        public int IDStaffInsurance { get; set; }
         public string IDStaff { get; set; }
-        public string IDCourse { get; set; }
+        public string IDInsurance { get; set; }
     
-        public virtual Course Course { get; set; }
-        public virtual ICollection<Staff> Staffs { get; set; }
+        public virtual Insurance Insurance { get; set; }
         public virtual Staff Staff { get; set; }
     }
 }
