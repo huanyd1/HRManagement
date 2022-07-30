@@ -106,6 +106,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStaffInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaffInfo.Designer.cs">
+      <DependentUpon>FormStaffInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\UCLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     <Compile Include="Screens\Course\UCCourse.Designer.cs">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Course\UCStaffCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Course\UCStaffCourse.Designer.cs">
+      <DependentUpon>UCStaffCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Department\ChangeDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +179,18 @@
     </Compile>
     <Compile Include="Screens\Department\UCDepartment.Designer.cs">
       <DependentUpon>UCDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Explanation\FormChangeExplanation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Explanation\FormChangeExplanation.Designer.cs">
+      <DependentUpon>FormChangeExplanation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Explanation\UCExplanation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Explanation\UCExplanation.Designer.cs">
+      <DependentUpon>UCExplanation.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Insurance\ChangeInsurance.cs">
       <SubType>Form</SubType>
@@ -185,6 +209,18 @@
     </Compile>
     <Compile Include="Screens\Insurance\UCInsurance.Designer.cs">
       <DependentUpon>UCInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\LeaveAbsence\FormChangeLeaveAbsence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\LeaveAbsence\FormChangeLeaveAbsence.Designer.cs">
+      <DependentUpon>FormChangeLeaveAbsence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\LeaveAbsence\UCLeaveAbsence.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\LeaveAbsence\UCLeaveAbsence.Designer.cs">
+      <DependentUpon>UCLeaveAbsence.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Salary\ChangeSalary.cs">
       <SubType>Form</SubType>
@@ -270,6 +306,12 @@
     <Compile Include="Screens\Timekeeping\FormInfoTimekeeping.Designer.cs">
       <DependentUpon>FormInfoTimekeeping.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Timekeeping\UCStaffTimekeeping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Timekeeping\UCStaffTimekeeping.Designer.cs">
+      <DependentUpon>UCStaffTimekeeping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Timekeeping\UCTimekeeping.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -281,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaffInfo.resx">
+      <DependentUpon>FormStaffInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\UCLogin.resx">
       <DependentUpon>UCLogin.cs</DependentUpon>
@@ -317,11 +362,20 @@
     <EmbeddedResource Include="Screens\Course\UCCourse.resx">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Course\UCStaffCourse.resx">
+      <DependentUpon>UCStaffCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Department\ChangeDepartment.resx">
       <DependentUpon>ChangeDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Department\UCDepartment.resx">
       <DependentUpon>UCDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Explanation\FormChangeExplanation.resx">
+      <DependentUpon>FormChangeExplanation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Explanation\UCExplanation.resx">
+      <DependentUpon>UCExplanation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Insurance\ChangeInsurance.resx">
       <DependentUpon>ChangeInsurance.cs</DependentUpon>
@@ -331,6 +385,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Insurance\UCInsurance.resx">
       <DependentUpon>UCInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\LeaveAbsence\FormChangeLeaveAbsence.resx">
+      <DependentUpon>FormChangeLeaveAbsence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\LeaveAbsence\UCLeaveAbsence.resx">
+      <DependentUpon>UCLeaveAbsence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Salary\ChangeSalary.resx">
       <DependentUpon>ChangeSalary.cs</DependentUpon>
@@ -373,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Timekeeping\FormInfoTimekeeping.resx">
       <DependentUpon>FormInfoTimekeeping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Timekeeping\UCStaffTimekeeping.resx">
+      <DependentUpon>UCStaffTimekeeping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Timekeeping\UCTimekeeping.resx">
       <DependentUpon>UCTimekeeping.cs</DependentUpon>

@@ -48,6 +48,15 @@ namespace Model.DAO
             return timekeeping;
         }
 
+        public int totalTime (string idDepartment, int month, string idStaff)
+        {
+            var time = _db.GetTimekeepingByMonth(idDepartment, month).Where(x => x.IDStaff == idStaff).Select(x => x.TotalTime).FirstOrDefault();
+
+            int totalTime = int.Parse(time.ToString());
+
+            return totalTime;
+        }
+
         public bool Add(Timekeeping time)
         {
             try

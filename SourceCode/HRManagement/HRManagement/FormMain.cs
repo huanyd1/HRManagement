@@ -15,8 +15,6 @@ namespace HRManagement
         public FormMain()
         {
             InitializeComponent();
-
-            panelSelect.Controls.Add(new Login.UCLogin());
         }
 
         private void AddToScreen(Control control)

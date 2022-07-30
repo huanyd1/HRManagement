@@ -161,3 +161,10 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\System
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Account.FormChangeAccount.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Salary.UCTimeSheets.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Salary.FormInfoTimeSheets.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.FormStaffInfo.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.LeaveAbsence.UCLeaveAbsence.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.LeaveAbsence.FormChangeLeaveAbsence.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Explanation.FormChangeExplanation.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Explanation.UCExplanation.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Timekeeping.UCStaffTimekeeping.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Course.UCStaffCourse.resources

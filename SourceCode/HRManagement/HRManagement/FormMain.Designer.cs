@@ -36,6 +36,7 @@
             this.btnStaffInsurance = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnContract = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnSalary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnTimeSheets = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnCourse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnStaffCourse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnTimekeeping = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -62,7 +63,6 @@
             this.repositoryItemBreadCrumbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelSelect = new System.Windows.Forms.Panel();
-            this.btnTimeSheets = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -92,7 +92,7 @@
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
-            this.accordionControl1.Size = new System.Drawing.Size(362, 680);
+            this.accordionControl1.Size = new System.Drawing.Size(360, 680);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -136,6 +136,13 @@
             this.btnSalary.Name = "btnSalary";
             this.btnSalary.Text = "Tiền lương";
             this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
+            // 
+            // btnTimeSheets
+            // 
+            this.btnTimeSheets.Name = "btnTimeSheets";
+            this.btnTimeSheets.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnTimeSheets.Text = "Bảng lương tháng";
+            this.btnTimeSheets.Click += new System.EventHandler(this.btnTimeSheets_Click);
             // 
             // btnCourse
             // 
@@ -355,17 +362,10 @@
             // panelSelect
             // 
             this.panelSelect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSelect.Location = new System.Drawing.Point(362, 39);
+            this.panelSelect.Location = new System.Drawing.Point(360, 39);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(916, 680);
+            this.panelSelect.Size = new System.Drawing.Size(918, 680);
             this.panelSelect.TabIndex = 3;
-            // 
-            // btnTimeSheets
-            // 
-            this.btnTimeSheets.Name = "btnTimeSheets";
-            this.btnTimeSheets.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnTimeSheets.Text = "Bảng lương tháng";
-            this.btnTimeSheets.Click += new System.EventHandler(this.btnTimeSheets_Click);
             // 
             // FormMain
             // 
