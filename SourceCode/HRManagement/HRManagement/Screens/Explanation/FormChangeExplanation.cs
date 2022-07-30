@@ -17,5 +17,7 @@ namespace HRManagement.Screens.Explanation
         {
             InitializeComponent();
         }
+
+        //thêm type timekeeping 
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCStaffTimekeeping));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.gTimeInfo = new DevExpress.XtraGrid.GridControl();
@@ -45,7 +44,6 @@
             this.TotalTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -260,25 +258,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 77);
             this.panel1.TabIndex = 2;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(783, 38);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 35);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label1
             // 
@@ -296,6 +281,7 @@
             this.Controls.Add(this.tablePanel1);
             this.Name = "UCStaffTimekeeping";
             this.Size = new System.Drawing.Size(907, 688);
+            this.Load += new System.EventHandler(this.UCStaffTimekeeping_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -319,7 +305,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private DevExpress.XtraGrid.GridControl gTotalTime;

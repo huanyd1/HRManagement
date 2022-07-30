@@ -35,6 +35,7 @@ namespace Model.EF
         public DbSet<Department> Departments { get; set; }
         public DbSet<Insurance> Insurances { get; set; }
         public DbSet<InsuranceType> InsuranceTypes { get; set; }
+        public DbSet<LeaveAbsence> LeaveAbsences { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Staff> Staffs { get; set; }

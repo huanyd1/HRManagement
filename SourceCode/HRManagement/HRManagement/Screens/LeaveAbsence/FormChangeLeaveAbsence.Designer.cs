@@ -36,10 +36,9 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.dtimeFrom = new System.Windows.Forms.DateTimePicker();
             this.dtimeTo = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtDescript = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTotalDay = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalDay)).BeginInit();
+            this.txtTotalDay = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label3
@@ -93,6 +92,7 @@
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Thêm mới";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dtimeFrom
             // 
@@ -113,14 +113,14 @@
             this.dtimeTo.TabIndex = 41;
             this.dtimeTo.ValueChanged += new System.EventHandler(this.dtimeTo_ValueChanged);
             // 
-            // richTextBox1
+            // txtDescript
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(131, 171);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(244, 96);
-            this.richTextBox1.TabIndex = 42;
-            this.richTextBox1.Text = "";
+            this.txtDescript.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescript.Location = new System.Drawing.Point(136, 171);
+            this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Size = new System.Drawing.Size(239, 96);
+            this.txtDescript.TabIndex = 42;
+            this.txtDescript.Text = "";
             // 
             // label4
             // 
@@ -134,11 +134,10 @@
             // 
             // txtTotalDay
             // 
-            this.txtTotalDay.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalDay.Location = new System.Drawing.Point(129, 129);
+            this.txtTotalDay.Location = new System.Drawing.Point(136, 128);
             this.txtTotalDay.Name = "txtTotalDay";
-            this.txtTotalDay.Size = new System.Drawing.Size(244, 23);
-            this.txtTotalDay.TabIndex = 44;
+            this.txtTotalDay.Size = new System.Drawing.Size(237, 23);
+            this.txtTotalDay.TabIndex = 45;
             // 
             // FormChangeLeaveAbsence
             // 
@@ -147,7 +146,7 @@
             this.ClientSize = new System.Drawing.Size(398, 340);
             this.Controls.Add(this.txtTotalDay);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtDescript);
             this.Controls.Add(this.dtimeTo);
             this.Controls.Add(this.dtimeFrom);
             this.Controls.Add(this.label3);
@@ -159,7 +158,6 @@
             this.Name = "FormChangeLeaveAbsence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChangeLeaveAbsence";
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalDay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,10 +169,10 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtDescript;
         private System.Windows.Forms.DateTimePicker dtimeTo;
         private System.Windows.Forms.DateTimePicker dtimeFrom;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown txtTotalDay;
+        private System.Windows.Forms.TextBox txtTotalDay;
     }
 }

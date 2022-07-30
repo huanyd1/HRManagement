@@ -16,6 +16,7 @@ namespace Model.EF
     {
         public Staff()
         {
+            this.LeaveAbsences = new HashSet<LeaveAbsence>();
             this.StaffInsurances = new HashSet<StaffInsurance>();
             this.Timekeepings = new HashSet<Timekeeping>();
             this.StaffCourses = new HashSet<StaffCourse>();
@@ -36,11 +37,13 @@ namespace Model.EF
         public string IDPosition { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
+        public Nullable<int> Remain { get; set; }
         public string Status { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual Contract Contract { get; set; }
         public virtual Department Department { get; set; }
+        public virtual ICollection<LeaveAbsence> LeaveAbsences { get; set; }
         public virtual Position Position { get; set; }
         public virtual Salary Salary { get; set; }
         public virtual StaffCourse StaffCourse { get; set; }

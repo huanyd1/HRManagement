@@ -114,5 +114,12 @@ namespace Model.DAO
 
             return result;
         }
+
+        public bool IsExitExplanation(string idStaff, DateTime date)
+        {
+            var result = _db.Timekeepings.Where(x => x.IDStaff == idStaff && x.Checkin.Value.Date != date).Any();
+
+            return result;
+        }
     }
 }

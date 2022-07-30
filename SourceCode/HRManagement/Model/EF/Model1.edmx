@@ -61,6 +61,18 @@
           <Property Name="IDInsuranceType" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="LeaveAbsence">
+          <Key>
+            <PropertyRef Name="IDLeaveAbsence" />
+          </Key>
+          <Property Name="IDLeaveAbsence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="TotalDay" Type="int" />
+          <Property Name="Descript" Type="nvarchar(max)" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="IDPosition" />
@@ -97,6 +109,7 @@
           <Property Name="IDPosition" Type="varchar" MaxLength="50" />
           <Property Name="StartDate" Type="date" />
           <Property Name="EndDate" Type="date" />
+          <Property Name="Remain" Type="int" />
           <Property Name="Status" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="StaffCourse">
@@ -135,6 +148,7 @@
           <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Checkin" Type="datetime" />
           <Property Name="Checkout" Type="datetime" />
+          <Property Name="Remain" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -262,6 +276,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             </Principal>
             <Dependent Role="Insurance">
               <PropertyRef Name="IDInsuranceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LeaveAbsence_Staff1">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="LeaveAbsence" Type="Self.LeaveAbsence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IDStaff" />
+            </Principal>
+            <Dependent Role="LeaveAbsence">
+              <PropertyRef Name="IDStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -435,6 +461,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Insurance" EntityType="Self.Insurance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InsuranceType" EntityType="Self.InsuranceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveAbsence" EntityType="Self.LeaveAbsence" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
@@ -514,6 +541,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
             <End Role="InsuranceType" EntitySet="InsuranceType" />
             <End Role="Insurance" EntitySet="Insurance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeaveAbsence_Staff1" Association="Self.FK_LeaveAbsence_Staff1">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="LeaveAbsence" EntitySet="LeaveAbsence" />
           </AssociationSet>
           <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
             <End Role="Staff" EntitySet="Staff" />
@@ -622,6 +653,19 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Insurances" Relationship="Self.FK_Insurance_InsuranceType" FromRole="InsuranceType" ToRole="Insurance" />
         </EntityType>
+        <EntityType Name="LeaveAbsence">
+          <Key>
+            <PropertyRef Name="IDLeaveAbsence" />
+          </Key>
+          <Property Name="IDLeaveAbsence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="TotalDay" Type="Int32" />
+          <Property Name="Descript" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="LeaveAbsence" ToRole="Staff" />
+        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="IDPosition" />
@@ -660,10 +704,12 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Remain" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Account" Relationship="Self.FK_Account_Staff" FromRole="Staff" ToRole="Account" />
           <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Staff1" FromRole="Staff" ToRole="Contract" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
+          <NavigationProperty Name="LeaveAbsences" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="Staff" ToRole="LeaveAbsence" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="Salary" Relationship="Self.FK_Salary_Staff" FromRole="Staff" ToRole="Salary" />
           <NavigationProperty Name="StaffCourse" Relationship="Self.FK_Staff_UserCourse" FromRole="Staff" ToRole="StaffCourse" />
@@ -712,6 +758,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Checkin" Type="DateTime" Precision="3" />
           <Property Name="Checkout" Type="DateTime" Precision="3" />
+          <Property Name="Remain" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
         </EntityType>
@@ -867,6 +914,18 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LeaveAbsence_Staff1">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="LeaveAbsence" Type="Self.LeaveAbsence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IDStaff" />
+            </Principal>
+            <Dependent Role="LeaveAbsence">
+              <PropertyRef Name="IDStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_Position">
           <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -947,6 +1006,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Insurances" EntityType="Self.Insurance" />
           <EntitySet Name="InsuranceTypes" EntityType="Self.InsuranceType" />
+          <EntitySet Name="LeaveAbsences" EntityType="Self.LeaveAbsence" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
           <EntitySet Name="Salaries" EntityType="Self.Salary" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
@@ -987,6 +1047,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <AssociationSet Name="FK_StaffInsurance_Insurance" Association="Self.FK_StaffInsurance_Insurance">
             <End Role="Insurance" EntitySet="Insurances" />
             <End Role="StaffInsurance" EntitySet="StaffInsurances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeaveAbsence_Staff1" Association="Self.FK_LeaveAbsence_Staff1">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="LeaveAbsence" EntitySet="LeaveAbsences" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
             <End Role="Position" EntitySet="Positions" />
@@ -1211,6 +1275,19 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LeaveAbsences">
+            <EntityTypeMapping TypeName="HRManagementModel.LeaveAbsence">
+              <MappingFragment StoreEntitySet="LeaveAbsence">
+                <ScalarProperty Name="IDLeaveAbsence" ColumnName="IDLeaveAbsence" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="TotalDay" ColumnName="TotalDay" />
+                <ScalarProperty Name="Descript" ColumnName="Descript" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Positions">
             <EntityTypeMapping TypeName="HRManagementModel.Position">
               <MappingFragment StoreEntitySet="Position">
@@ -1248,6 +1325,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Remain" ColumnName="Remain" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1290,6 +1368,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
                 <ScalarProperty Name="Checkin" ColumnName="Checkin" />
                 <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+                <ScalarProperty Name="Remain" ColumnName="Remain" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>

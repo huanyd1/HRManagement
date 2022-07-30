@@ -65,6 +65,18 @@
     <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Insurances" Relationship="Self.FK_Insurance_InsuranceType" FromRole="InsuranceType" ToRole="Insurance" />
   </EntityType>
+  <EntityType Name="LeaveAbsence">
+    <Key>
+      <PropertyRef Name="IDLeaveAbsence" />
+    </Key>
+    <Property Name="IDLeaveAbsence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FromDate" Type="DateTime" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="Descript" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="LeaveAbsence" ToRole="Staff" />
+  </EntityType>
   <EntityType Name="Position">
     <Key>
       <PropertyRef Name="IDPosition" />
@@ -103,10 +115,12 @@
     <Property Name="IDPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="StartDate" Type="DateTime" Precision="0" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Remain" Type="Int32" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Account" Relationship="Self.FK_Account_Staff" FromRole="Staff" ToRole="Account" />
     <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Staff1" FromRole="Staff" ToRole="Contract" />
     <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
+    <NavigationProperty Name="LeaveAbsences" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="Staff" ToRole="LeaveAbsence" />
     <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
     <NavigationProperty Name="Salary" Relationship="Self.FK_Salary_Staff" FromRole="Staff" ToRole="Salary" />
     <NavigationProperty Name="StaffCourse" Relationship="Self.FK_Staff_UserCourse" FromRole="Staff" ToRole="StaffCourse" />
@@ -155,6 +169,7 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Checkin" Type="DateTime" Precision="3" />
     <Property Name="Checkout" Type="DateTime" Precision="3" />
+    <Property Name="Remain" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
   </EntityType>
@@ -310,6 +325,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LeaveAbsence_Staff1">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="LeaveAbsence" Type="Self.LeaveAbsence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IDStaff" />
+      </Principal>
+      <Dependent Role="LeaveAbsence">
+        <PropertyRef Name="IDStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Staff_Position">
     <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -390,6 +417,7 @@
     <EntitySet Name="Departments" EntityType="Self.Department" />
     <EntitySet Name="Insurances" EntityType="Self.Insurance" />
     <EntitySet Name="InsuranceTypes" EntityType="Self.InsuranceType" />
+    <EntitySet Name="LeaveAbsences" EntityType="Self.LeaveAbsence" />
     <EntitySet Name="Positions" EntityType="Self.Position" />
     <EntitySet Name="Salaries" EntityType="Self.Salary" />
     <EntitySet Name="Staffs" EntityType="Self.Staff" />
@@ -430,6 +458,10 @@
     <AssociationSet Name="FK_StaffInsurance_Insurance" Association="Self.FK_StaffInsurance_Insurance">
       <End Role="Insurance" EntitySet="Insurances" />
       <End Role="StaffInsurance" EntitySet="StaffInsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveAbsence_Staff1" Association="Self.FK_LeaveAbsence_Staff1">
+      <End Role="Staff" EntitySet="Staffs" />
+      <End Role="LeaveAbsence" EntitySet="LeaveAbsences" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
       <End Role="Position" EntitySet="Positions" />

@@ -12,14 +12,15 @@ namespace Model.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Timekeeping
+    public partial class LeaveAbsence
     {
-        public int IDTime { get; set; }
+        public int IDLeaveAbsence { get; set; }
         public string IDStaff { get; set; }
-        public Nullable<System.DateTime> Checkin { get; set; }
-        public Nullable<System.DateTime> Checkout { get; set; }
-        public Nullable<int> Remain { get; set; }
-        public string Description { get; set; }
+        public Nullable<System.DateTime> FromDate { get; set; }
+        public Nullable<System.DateTime> ToDate { get; set; }
+        public Nullable<int> TotalDay { get; set; }
+        public string Descript { get; set; }
+        public string Status { get; set; }
     
         public virtual Staff Staff { get; set; }
     }

@@ -107,7 +107,7 @@ namespace HRManagement.Screens.Timekeeping
             gTotalTime.DataSource = dt;
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void UCStaffTimekeeping_Load(object sender, EventArgs e)
         {
             LoadTableTimekeeping("VP01924", 7);
             LoadTableTotalTime();

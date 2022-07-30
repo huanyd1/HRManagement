@@ -56,6 +56,17 @@
     <Property Name="IDInsuranceType" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="LeaveAbsence">
+    <Key>
+      <PropertyRef Name="IDLeaveAbsence" />
+    </Key>
+    <Property Name="IDLeaveAbsence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+    <Property Name="Descript" Type="nvarchar(max)" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
   <EntityType Name="Position">
     <Key>
       <PropertyRef Name="IDPosition" />
@@ -92,6 +103,7 @@
     <Property Name="IDPosition" Type="varchar" MaxLength="50" />
     <Property Name="StartDate" Type="date" />
     <Property Name="EndDate" Type="date" />
+    <Property Name="Remain" Type="int" />
     <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
   <EntityType Name="StaffCourse">
@@ -130,6 +142,7 @@
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Checkin" Type="datetime" />
     <Property Name="Checkout" Type="datetime" />
+    <Property Name="Remain" Type="int" />
     <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -257,6 +270,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
       </Principal>
       <Dependent Role="Insurance">
         <PropertyRef Name="IDInsuranceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveAbsence_Staff1">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="LeaveAbsence" Type="Self.LeaveAbsence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IDStaff" />
+      </Principal>
+      <Dependent Role="LeaveAbsence">
+        <PropertyRef Name="IDStaff" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -430,6 +455,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Insurance" EntityType="Self.Insurance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InsuranceType" EntityType="Self.InsuranceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveAbsence" EntityType="Self.LeaveAbsence" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
@@ -509,6 +535,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
     <AssociationSet Name="FK_Insurance_InsuranceType" Association="Self.FK_Insurance_InsuranceType">
       <End Role="InsuranceType" EntitySet="InsuranceType" />
       <End Role="Insurance" EntitySet="Insurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveAbsence_Staff1" Association="Self.FK_LeaveAbsence_Staff1">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="LeaveAbsence" EntitySet="LeaveAbsence" />
     </AssociationSet>
     <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
       <End Role="Staff" EntitySet="Staff" />

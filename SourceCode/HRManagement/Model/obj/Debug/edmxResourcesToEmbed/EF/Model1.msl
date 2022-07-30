@@ -64,6 +64,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LeaveAbsences">
+      <EntityTypeMapping TypeName="HRManagementModel.LeaveAbsence">
+        <MappingFragment StoreEntitySet="LeaveAbsence">
+          <ScalarProperty Name="IDLeaveAbsence" ColumnName="IDLeaveAbsence" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="Descript" ColumnName="Descript" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Positions">
       <EntityTypeMapping TypeName="HRManagementModel.Position">
         <MappingFragment StoreEntitySet="Position">
@@ -101,6 +113,7 @@
           <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Remain" ColumnName="Remain" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -143,6 +156,7 @@
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="Checkin" ColumnName="Checkin" />
           <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+          <ScalarProperty Name="Remain" ColumnName="Remain" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>

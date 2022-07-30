@@ -31,25 +31,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCLeaveAbsence));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbRemain = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gInsurance = new DevExpress.XtraGrid.GridControl();
-            this.gvInsurance = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IDInsurance = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.InsuranceName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.IDInsuranceType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TypeName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Amount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gLeaveAbsence = new DevExpress.XtraGrid.GridControl();
+            this.gvLeaveAbsence = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.FromDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ToDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Descript = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.IDLeaveAbsence = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gInsurance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvInsurance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gLeaveAbsence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLeaveAbsence)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -58,6 +60,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbRemain);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
@@ -66,6 +70,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 79);
             this.panel1.TabIndex = 6;
+            // 
+            // lbRemain
+            // 
+            this.lbRemain.AutoSize = true;
+            this.lbRemain.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRemain.Location = new System.Drawing.Point(201, 55);
+            this.lbRemain.Name = "lbRemain";
+            this.lbRemain.Size = new System.Drawing.Size(16, 17);
+            this.lbRemain.TabIndex = 7;
+            this.lbRemain.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Số ngày phép còn lại:";
             // 
             // btnDelete
             // 
@@ -77,6 +101,7 @@
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -118,7 +143,7 @@
             // panel2
             // 
             this.tablePanel1.SetColumn(this.panel2, 0);
-            this.panel2.Controls.Add(this.gInsurance);
+            this.panel2.Controls.Add(this.gLeaveAbsence);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 88);
             this.panel2.Name = "panel2";
@@ -126,75 +151,76 @@
             this.panel2.Size = new System.Drawing.Size(901, 597);
             this.panel2.TabIndex = 7;
             // 
-            // gInsurance
+            // gLeaveAbsence
             // 
-            this.gInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gInsurance.Location = new System.Drawing.Point(0, 0);
-            this.gInsurance.MainView = this.gvInsurance;
-            this.gInsurance.Name = "gInsurance";
-            this.gInsurance.Size = new System.Drawing.Size(901, 597);
-            this.gInsurance.TabIndex = 6;
-            this.gInsurance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvInsurance});
+            this.gLeaveAbsence.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gLeaveAbsence.Location = new System.Drawing.Point(0, 0);
+            this.gLeaveAbsence.MainView = this.gvLeaveAbsence;
+            this.gLeaveAbsence.Name = "gLeaveAbsence";
+            this.gLeaveAbsence.Size = new System.Drawing.Size(901, 597);
+            this.gLeaveAbsence.TabIndex = 6;
+            this.gLeaveAbsence.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvLeaveAbsence});
             // 
-            // gvInsurance
+            // gvLeaveAbsence
             // 
-            this.gvInsurance.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDInsurance,
-            this.InsuranceName,
-            this.IDInsuranceType,
-            this.TypeName,
-            this.Amount});
-            this.gvInsurance.GridControl = this.gInsurance;
-            this.gvInsurance.Name = "gvInsurance";
-            this.gvInsurance.OptionsView.ShowGroupPanel = false;
+            this.gvLeaveAbsence.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.IDLeaveAbsence,
+            this.FromDate,
+            this.ToDate,
+            this.Descript,
+            this.Status});
+            this.gvLeaveAbsence.GridControl = this.gLeaveAbsence;
+            this.gvLeaveAbsence.Name = "gvLeaveAbsence";
+            this.gvLeaveAbsence.OptionsView.ShowGroupPanel = false;
             // 
-            // IDInsurance
+            // FromDate
             // 
-            this.IDInsurance.Caption = "Mã Bảo Hiểm";
-            this.IDInsurance.FieldName = "IDInsurance";
-            this.IDInsurance.MinWidth = 25;
-            this.IDInsurance.Name = "IDInsurance";
-            this.IDInsurance.Visible = true;
-            this.IDInsurance.VisibleIndex = 0;
-            this.IDInsurance.Width = 94;
+            this.FromDate.Caption = "Từ Ngày";
+            this.FromDate.FieldName = "FromDate";
+            this.FromDate.MinWidth = 25;
+            this.FromDate.Name = "FromDate";
+            this.FromDate.Visible = true;
+            this.FromDate.VisibleIndex = 0;
+            this.FromDate.Width = 94;
             // 
-            // InsuranceName
+            // ToDate
             // 
-            this.InsuranceName.Caption = "Tên Bảo Hiểm";
-            this.InsuranceName.FieldName = "InsuranceName";
-            this.InsuranceName.MinWidth = 25;
-            this.InsuranceName.Name = "InsuranceName";
-            this.InsuranceName.Visible = true;
-            this.InsuranceName.VisibleIndex = 1;
-            this.InsuranceName.Width = 94;
+            this.ToDate.Caption = "Đến Ngày";
+            this.ToDate.FieldName = "ToDate";
+            this.ToDate.MinWidth = 25;
+            this.ToDate.Name = "ToDate";
+            this.ToDate.Visible = true;
+            this.ToDate.VisibleIndex = 1;
+            this.ToDate.Width = 94;
             // 
-            // IDInsuranceType
+            // Descript
             // 
-            this.IDInsuranceType.Caption = "Loại Bảo Hiểm";
-            this.IDInsuranceType.DisplayFormat.FormatString = "fe";
-            this.IDInsuranceType.FieldName = "IDInsuranceType";
-            this.IDInsuranceType.MinWidth = 25;
-            this.IDInsuranceType.Name = "IDInsuranceType";
-            this.IDInsuranceType.Width = 94;
+            this.Descript.Caption = "Giải trình";
+            this.Descript.FieldName = "Descript";
+            this.Descript.MinWidth = 25;
+            this.Descript.Name = "Descript";
+            this.Descript.Visible = true;
+            this.Descript.VisibleIndex = 2;
+            this.Descript.Width = 94;
             // 
-            // TypeName
+            // Status
             // 
-            this.TypeName.Caption = "Loại Bảo Hiểm";
-            this.TypeName.FieldName = "TypeName";
-            this.TypeName.Name = "TypeName";
-            this.TypeName.Visible = true;
-            this.TypeName.VisibleIndex = 2;
+            this.Status.Caption = "Trạng Thái";
+            this.Status.FieldName = "Status";
+            this.Status.MinWidth = 25;
+            this.Status.Name = "Status";
+            this.Status.Visible = true;
+            this.Status.VisibleIndex = 3;
+            this.Status.Width = 94;
             // 
-            // Amount
+            // IDLeaveAbsence
             // 
-            this.Amount.Caption = "Số Tiền";
-            this.Amount.DisplayFormat.FormatString = "#,### VNĐ";
-            this.Amount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Amount.FieldName = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.Visible = true;
-            this.Amount.VisibleIndex = 3;
+            this.IDLeaveAbsence.Caption = "Mã Đơn Xin";
+            this.IDLeaveAbsence.FieldName = "IDLeaveAbsence";
+            this.IDLeaveAbsence.MinWidth = 25;
+            this.IDLeaveAbsence.Name = "IDLeaveAbsence";
+            this.IDLeaveAbsence.Width = 94;
             // 
             // UCLeaveAbsence
             // 
@@ -202,14 +228,15 @@
             this.Controls.Add(this.tablePanel1);
             this.Name = "UCLeaveAbsence";
             this.Size = new System.Drawing.Size(907, 688);
+            this.Load += new System.EventHandler(this.UCLeaveAbsence_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gInsurance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvInsurance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gLeaveAbsence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLeaveAbsence)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,12 +250,14 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel2;
-        private DevExpress.XtraGrid.GridControl gInsurance;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvInsurance;
-        private DevExpress.XtraGrid.Columns.GridColumn IDInsurance;
-        private DevExpress.XtraGrid.Columns.GridColumn InsuranceName;
-        private DevExpress.XtraGrid.Columns.GridColumn IDInsuranceType;
-        private DevExpress.XtraGrid.Columns.GridColumn TypeName;
-        private DevExpress.XtraGrid.Columns.GridColumn Amount;
+        private DevExpress.XtraGrid.GridControl gLeaveAbsence;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvLeaveAbsence;
+        private DevExpress.XtraGrid.Columns.GridColumn FromDate;
+        private DevExpress.XtraGrid.Columns.GridColumn ToDate;
+        private DevExpress.XtraGrid.Columns.GridColumn Descript;
+        private DevExpress.XtraGrid.Columns.GridColumn Status;
+        private System.Windows.Forms.Label lbRemain;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraGrid.Columns.GridColumn IDLeaveAbsence;
     }
 }
