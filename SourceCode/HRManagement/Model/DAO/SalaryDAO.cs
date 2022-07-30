@@ -30,6 +30,27 @@ namespace Model.DAO
             return list;
         }
 
+        public List<GetTimeSheetsByMonth_Result> GetTimeSheetsByMonth(string idDepartment, int month)
+        {
+            List < GetTimeSheetsByMonth_Result> list = _db.GetTimeSheetsByMonth(idDepartment, month).ToList();
+
+            return list;
+        }
+
+        public List<string> lstIDStaff (string idDepartment, int month)
+        {
+            List<string> list = _db.GetTimeSheetsByMonth(idDepartment, month).Select(x => x.IDStaff).ToList();
+
+            return list;
+        }
+
+        public List<GetTimeSheetsByMonthAndIDStaff_Result> GetTimeSheetsByMonthAndIDStaff(string idDepartment, int month, string idStaff)
+        {
+            List<GetTimeSheetsByMonthAndIDStaff_Result> list = _db.GetTimeSheetsByMonthAndIDStaff(idDepartment, month, idStaff).ToList();
+
+            return list;
+        }
+
         public bool Add(Salary salary)
         {
             try

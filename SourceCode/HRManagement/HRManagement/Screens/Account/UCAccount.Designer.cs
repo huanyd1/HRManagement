@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCAccount));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cbContractType = new System.Windows.Forms.ComboBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtIDStaff = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.gvAccount = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StaffName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Account = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Username = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnInfo = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -82,11 +82,11 @@
             // panel3
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.cbContractType);
             this.panel3.Controls.Add(this.txtStaffName);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtIDStaff);
             this.panel3.Controls.Add(this.label2);
@@ -97,30 +97,21 @@
             this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
-            // textBox1
+            // cbContractType
             // 
-            this.textBox1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(464, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(461, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 17);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Tên đăng nhập";
+            this.cbContractType.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbContractType.FormattingEnabled = true;
+            this.cbContractType.Location = new System.Drawing.Point(450, 44);
+            this.cbContractType.Name = "cbContractType";
+            this.cbContractType.Size = new System.Drawing.Size(190, 23);
+            this.cbContractType.TabIndex = 12;
             // 
             // txtStaffName
             // 
             this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaffName.Location = new System.Drawing.Point(240, 44);
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(190, 20);
+            this.txtStaffName.Size = new System.Drawing.Size(190, 23);
             this.txtStaffName.TabIndex = 10;
             // 
             // btnSearch
@@ -145,13 +136,23 @@
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(447, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 22);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Loại hợp đồng";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(237, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 17);
+            this.label5.Size = new System.Drawing.Size(140, 22);
             this.label5.TabIndex = 4;
             this.label5.Text = "Tên nhân viên";
             // 
@@ -160,7 +161,7 @@
             this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDStaff.Location = new System.Drawing.Point(29, 44);
             this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(190, 20);
+            this.txtIDStaff.Size = new System.Drawing.Size(190, 23);
             this.txtIDStaff.TabIndex = 3;
             // 
             // label2
@@ -169,7 +170,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.Size = new System.Drawing.Size(130, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã nhân viên";
             // 
@@ -200,7 +201,7 @@
             this.gvAccount.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IDStaff,
             this.StaffName,
-            this.Account});
+            this.Username});
             this.gvAccount.GridControl = this.gAccount;
             this.gvAccount.Name = "gvAccount";
             this.gvAccount.OptionsView.ShowGroupPanel = false;
@@ -223,13 +224,13 @@
             this.StaffName.Visible = true;
             this.StaffName.VisibleIndex = 1;
             // 
-            // Account
+            // Username
             // 
-            this.Account.Caption = "Tên Đăng Nhập";
-            this.Account.FieldName = "Account";
-            this.Account.Name = "Account";
-            this.Account.Visible = true;
-            this.Account.VisibleIndex = 2;
+            this.Username.Caption = "Tên Đăng Nhập";
+            this.Username.FieldName = "Username";
+            this.Username.Name = "Username";
+            this.Username.Visible = true;
+            this.Username.VisibleIndex = 2;
             // 
             // panel1
             // 
@@ -254,6 +255,7 @@
             this.btnInfo.Size = new System.Drawing.Size(115, 35);
             this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Xem CT";
+            this.btnInfo.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnDelete
             // 
@@ -277,6 +279,7 @@
             this.btnEdit.Size = new System.Drawing.Size(115, 35);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Chỉnh sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -296,7 +299,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 21);
+            this.label1.Size = new System.Drawing.Size(216, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Tài khoản";
             // 
@@ -306,9 +309,9 @@
             // 
             // UCAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tablePanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCAccount";
             this.Size = new System.Drawing.Size(907, 688);
             this.Load += new System.EventHandler(this.UCAccount_Load);
@@ -330,11 +333,11 @@
 
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbContractType;
         private System.Windows.Forms.TextBox txtStaffName;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtIDStaff;
         private System.Windows.Forms.Label label2;
@@ -343,7 +346,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvAccount;
         private DevExpress.XtraGrid.Columns.GridColumn IDStaff;
         private DevExpress.XtraGrid.Columns.GridColumn StaffName;
-        private DevExpress.XtraGrid.Columns.GridColumn Account;
+        private DevExpress.XtraGrid.Columns.GridColumn Username;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnInfo;
         private DevExpress.XtraEditors.SimpleButton btnDelete;

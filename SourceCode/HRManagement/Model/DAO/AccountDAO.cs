@@ -23,6 +23,13 @@ namespace Model.DAO
             return list;
         }
 
+        public string GetPasswordByIDStaff(string idStaff)
+        {
+            string password = _db.Accounts.Where(x => x.IDStaff == idStaff).Select(x => x.Password).FirstOrDefault();
+
+            return password;
+        }
+
         public Account GetSingleByID(string id)
         {
             Account contract = _db.Accounts.Where(x => x.IDStaff == id).FirstOrDefault();
@@ -51,6 +58,7 @@ namespace Model.DAO
             {
                 Account currentAccount = GetSingleByID(account.IDStaff);
 
+                currentAccount.IDStaff = account.IDStaff;
                 currentAccount.Username = account.Username;
                 currentAccount.Password = account.Password;
                 _db.SaveChanges();

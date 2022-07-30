@@ -153,7 +153,6 @@
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -254,6 +253,40 @@
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="Month" ColumnName="Month" />
           <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTimeSheetsByMonth" FunctionName="HRManagementModel.Store.GetTimeSheetsByMonth">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.GetTimeSheetsByMonth_Result">
+          <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTimeSheetsByMonthAndIDStaff" FunctionName="HRManagementModel.Store.GetTimeSheetsByMonthAndIDStaff">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.GetTimeSheetsByMonthAndIDStaff_Result">
+          <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

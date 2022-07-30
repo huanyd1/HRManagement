@@ -71,6 +71,36 @@ namespace Model.EF
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTimekeepingByMonth_Result>("GetTimekeepingByMonth", iDDepartmentParameter, monthParameter);
         }
     
+        public virtual ObjectResult<GetTimeSheetsByMonth_Result> GetTimeSheetsByMonth(string iDDepartment, Nullable<int> month)
+        {
+            var iDDepartmentParameter = iDDepartment != null ?
+                new ObjectParameter("IDDepartment", iDDepartment) :
+                new ObjectParameter("IDDepartment", typeof(string));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("Month", month) :
+                new ObjectParameter("Month", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTimeSheetsByMonth_Result>("GetTimeSheetsByMonth", iDDepartmentParameter, monthParameter);
+        }
+    
+        public virtual ObjectResult<GetTimeSheetsByMonthAndIDStaff_Result> GetTimeSheetsByMonthAndIDStaff(string iDDepartment, Nullable<int> month, string iDStaff)
+        {
+            var iDDepartmentParameter = iDDepartment != null ?
+                new ObjectParameter("IDDepartment", iDDepartment) :
+                new ObjectParameter("IDDepartment", typeof(string));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("Month", month) :
+                new ObjectParameter("Month", typeof(int));
+    
+            var iDStaffParameter = iDStaff != null ?
+                new ObjectParameter("IDStaff", iDStaff) :
+                new ObjectParameter("IDStaff", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTimeSheetsByMonthAndIDStaff_Result>("GetTimeSheetsByMonthAndIDStaff", iDDepartmentParameter, monthParameter, iDStaffParameter);
+        }
+    
         public virtual ObjectResult<IsExistCheckTime_Result> IsExistCheckTime(string iDStaff, Nullable<System.DateTime> date)
         {
             var iDStaffParameter = iDStaff != null ?

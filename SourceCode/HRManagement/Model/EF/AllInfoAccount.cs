@@ -17,6 +17,5 @@ namespace Model.EF
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
     }
 }

@@ -146,7 +146,6 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoAccount' does not have a p
           <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
           <Property Name="Username" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HRManagement.dbo.AllInfoContract' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -382,6 +381,15 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
           <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
           <Parameter Name="Month" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetTimeSheetsByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetTimeSheetsByMonthAndIDStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="IDStaff" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="IsExistCheckTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDStaff" Type="varchar" Mode="In" />
           <Parameter Name="date" Type="datetime" Mode="In" />
@@ -438,8 +446,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             <DefiningQuery>SELECT 
 [AllInfoAccount].[IDStaff] AS [IDStaff], 
 [AllInfoAccount].[StaffName] AS [StaffName], 
-[AllInfoAccount].[Username] AS [Username], 
-[AllInfoAccount].[Password] AS [Password]
+[AllInfoAccount].[Username] AS [Username]
 FROM [dbo].[AllInfoAccount] AS [AllInfoAccount]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="AllInfoContract" EntityType="Self.AllInfoContract" store:Type="Views" store:Schema="dbo">
@@ -715,7 +722,6 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllInfoContract">
           <Key>
@@ -1013,6 +1019,15 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             <Parameter Name="IDDepartment" Mode="In" Type="String" />
             <Parameter Name="Month" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetTimeSheetsByMonth" ReturnType="Collection(HRManagementModel.GetTimeSheetsByMonth_Result)">
+            <Parameter Name="IDDepartment" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetTimeSheetsByMonthAndIDStaff" ReturnType="Collection(HRManagementModel.GetTimeSheetsByMonthAndIDStaff_Result)">
+            <Parameter Name="IDDepartment" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="IDStaff" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="IsExistCheckTime" ReturnType="Collection(HRManagementModel.IsExistCheckTime_Result)">
             <Parameter Name="IDStaff" Mode="In" Type="String" />
             <Parameter Name="date" Mode="In" Type="DateTime" />
@@ -1082,6 +1097,32 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Month" Nullable="true" />
           <Property Type="Int32" Name="TotalTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetTimeSheetsByMonth_Result">
+          <Property Type="String" Name="IDDepartment" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Month" Nullable="true" />
+          <Property Type="Int32" Name="TotalTime" Nullable="true" />
+          <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+          <Property Type="Int32" Name="Allowance" Nullable="true" />
+          <Property Type="Int32" Name="Tax" Nullable="true" />
+          <Property Type="String" Name="InsuranceName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Amount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetTimeSheetsByMonthAndIDStaff_Result">
+          <Property Type="String" Name="IDDepartment" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Month" Nullable="true" />
+          <Property Type="Int32" Name="TotalTime" Nullable="true" />
+          <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+          <Property Type="Int32" Name="Allowance" Nullable="true" />
+          <Property Type="Int32" Name="Tax" Nullable="true" />
+          <Property Type="String" Name="InsuranceName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Amount" Nullable="true" />
         </ComplexType>
         <ComplexType Name="IsExistCheckTime_Result">
           <Property Type="Int32" Name="IDTime" Nullable="false" />
@@ -1259,7 +1300,6 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
                 <ScalarProperty Name="StaffName" ColumnName="StaffName" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1360,6 +1400,40 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="StaffName" ColumnName="StaffName" />
                 <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTimeSheetsByMonth" FunctionName="HRManagementModel.Store.GetTimeSheetsByMonth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRManagementModel.GetTimeSheetsByMonth_Result">
+                <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTimeSheetsByMonthAndIDStaff" FunctionName="HRManagementModel.Store.GetTimeSheetsByMonthAndIDStaff">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRManagementModel.GetTimeSheetsByMonthAndIDStaff_Result">
+                <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

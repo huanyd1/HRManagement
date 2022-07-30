@@ -165,7 +165,6 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="AllInfoContract">
     <Key>
@@ -463,6 +462,15 @@
       <Parameter Name="IDDepartment" Mode="In" Type="String" />
       <Parameter Name="Month" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="GetTimeSheetsByMonth" ReturnType="Collection(HRManagementModel.GetTimeSheetsByMonth_Result)">
+      <Parameter Name="IDDepartment" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetTimeSheetsByMonthAndIDStaff" ReturnType="Collection(HRManagementModel.GetTimeSheetsByMonthAndIDStaff_Result)">
+      <Parameter Name="IDDepartment" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="IDStaff" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="IsExistCheckTime" ReturnType="Collection(HRManagementModel.IsExistCheckTime_Result)">
       <Parameter Name="IDStaff" Mode="In" Type="String" />
       <Parameter Name="date" Mode="In" Type="DateTime" />
@@ -532,6 +540,32 @@
     <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="Month" Nullable="true" />
     <Property Type="Int32" Name="TotalTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetTimeSheetsByMonth_Result">
+    <Property Type="String" Name="IDDepartment" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Month" Nullable="true" />
+    <Property Type="Int32" Name="TotalTime" Nullable="true" />
+    <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+    <Property Type="Int32" Name="Allowance" Nullable="true" />
+    <Property Type="Int32" Name="Tax" Nullable="true" />
+    <Property Type="String" Name="InsuranceName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Amount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetTimeSheetsByMonthAndIDStaff_Result">
+    <Property Type="String" Name="IDDepartment" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Month" Nullable="true" />
+    <Property Type="Int32" Name="TotalTime" Nullable="true" />
+    <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+    <Property Type="Int32" Name="Allowance" Nullable="true" />
+    <Property Type="Int32" Name="Tax" Nullable="true" />
+    <Property Type="String" Name="InsuranceName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Amount" Nullable="true" />
   </ComplexType>
   <ComplexType Name="IsExistCheckTime_Result">
     <Property Type="Int32" Name="IDTime" Nullable="false" />

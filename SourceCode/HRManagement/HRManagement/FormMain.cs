@@ -79,5 +79,10 @@ namespace HRManagement
         {
             AddToScreen(new Screens.Account.UCAccount());
         }
+
+        private void btnTimeSheets_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Salary.UCTimeSheets());
+        }
     }
 }
