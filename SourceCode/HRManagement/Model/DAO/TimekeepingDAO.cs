@@ -24,6 +24,13 @@ namespace Model.DAO
             return time;
         }
 
+        public Timekeeping GetTimeByIDStaffExplanation(int idTime, string idStaff)
+        {
+            Timekeeping time = _db.Timekeepings.Where(x => x.IDTime == idTime && x.IDStaff == idStaff).FirstOrDefault();
+
+            return time;
+        }
+
         public List<Timekeeping> GetTimeByIDStaffType(string id)
         {
             List<Timekeeping> time = _db.Timekeepings.Where(x => x.IDStaff == id && x.Type == "1").ToList();
@@ -98,11 +105,52 @@ namespace Model.DAO
             return true;
         }
 
+        public bool AgreeExplanation(Timekeeping time)
+        {
+            try
+            {
+                Timekeeping currentTime = GetTimeByIDStaffExplanation(time.IDTime, time.IDStaff);
+
+                currentTime.IDTime = time.IDTime;
+                currentTime.IDStaff = time.IDStaff;
+                currentTime.Checkin = time.Checkin;
+                currentTime.Checkout = time.Checkout;
+                currentTime.Type = time.Type;
+                currentTime.Description = time.Description;
+                currentTime.Status = time.Status;
+
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool Delete(string id)
         {
             try
             {
                 Timekeeping currentTime = GetTimeByIDStaff(id);
+
+                _db.Timekeepings.Remove(currentTime);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool DeleteExplanation(int idTime, string idStaff)
+        {
+            try
+            {
+                Timekeeping currentTime = GetTimeByIDStaffExplanation(idTime, idStaff);
 
                 _db.Timekeepings.Remove(currentTime);
                 _db.SaveChanges();

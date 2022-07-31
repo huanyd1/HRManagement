@@ -17,10 +17,23 @@ namespace HRManagement
             InitializeComponent();
         }
 
+        private void ResetInfoStaff()
+        {
+            InfoStaffCommon.IDStaff = "";
+            InfoStaffCommon.StaffName = "";
+            InfoStaffCommon.Role = "";
+            InfoStaffCommon.IsAdmin = false;
+        }
+
         private void AddToScreen(Control control)
         {
             panelSelect.Controls.Clear();
             panelSelect.Controls.Add(control);
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            btnOption.Caption = "Xin chào, " + InfoStaffCommon.StaffName;
         }
 
         private void btnDepartment_Click(object sender, EventArgs e)
@@ -55,7 +68,7 @@ namespace HRManagement
 
         private void btnExplanation_Click(object sender, EventArgs e)
         {
-            //giải trình
+            AddToScreen(new Screens.Explanation.UCExplanation());
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
@@ -81,6 +94,25 @@ namespace HRManagement
         private void btnTimeSheets_Click(object sender, EventArgs e)
         {
             AddToScreen(new Screens.Salary.UCTimeSheets());
+        }
+        private void btnLeaveAbsence_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.LeaveAbsence.UCLeaveAbsence());
+        }
+
+        private void btnChangePass_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ResetInfoStaff();
+
+            FormLogin login = new FormLogin();
+            login.ShowDialog();
+            this.Hide();
+            this.Close();
         }
     }
 }

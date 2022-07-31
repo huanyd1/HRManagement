@@ -112,6 +112,13 @@
     <Compile Include="FormStaffInfo.Designer.cs">
       <DependentUpon>FormStaffInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoStaffCommon.cs" />
+    <Compile Include="Login\UCForgotPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\UCForgotPassword.Designer.cs">
+      <DependentUpon>UCForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\UCLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -326,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormStaffInfo.resx">
       <DependentUpon>FormStaffInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\UCForgotPassword.resx">
+      <DependentUpon>UCForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\UCLogin.resx">
       <DependentUpon>UCLogin.cs</DependentUpon>

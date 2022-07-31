@@ -43,9 +43,12 @@
             this.IDLeaveAbsence = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FromDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ToDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TotalDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Descript = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TotalDay = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnRefuse = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAgree = new DevExpress.XtraEditors.SimpleButton();
+            this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
@@ -61,6 +64,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRefuse);
+            this.panel1.Controls.Add(this.btnAgree);
             this.panel1.Controls.Add(this.lbRemain);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnDelete);
@@ -122,9 +127,9 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 27);
+            this.label1.Size = new System.Drawing.Size(336, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "DANH SÁCH ĐƠN NGHỈ PHÉP";
+            this.label1.Text = "Danh sách đơn xin nghỉ phép";
             // 
             // tablePanel1
             // 
@@ -167,6 +172,7 @@
             // 
             this.gvLeaveAbsence.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IDLeaveAbsence,
+            this.IDStaff,
             this.FromDate,
             this.ToDate,
             this.TotalDay,
@@ -201,8 +207,18 @@
             this.ToDate.MinWidth = 25;
             this.ToDate.Name = "ToDate";
             this.ToDate.Visible = true;
-            this.ToDate.VisibleIndex = 1;
+            this.ToDate.VisibleIndex = 2;
             this.ToDate.Width = 94;
+            // 
+            // TotalDay
+            // 
+            this.TotalDay.Caption = "Tổng Số Ngày";
+            this.TotalDay.FieldName = "TotalDay";
+            this.TotalDay.MinWidth = 25;
+            this.TotalDay.Name = "TotalDay";
+            this.TotalDay.Visible = true;
+            this.TotalDay.VisibleIndex = 4;
+            this.TotalDay.Width = 94;
             // 
             // Descript
             // 
@@ -211,7 +227,7 @@
             this.Descript.MinWidth = 25;
             this.Descript.Name = "Descript";
             this.Descript.Visible = true;
-            this.Descript.VisibleIndex = 2;
+            this.Descript.VisibleIndex = 3;
             this.Descript.Width = 94;
             // 
             // Status
@@ -221,18 +237,43 @@
             this.Status.MinWidth = 25;
             this.Status.Name = "Status";
             this.Status.Visible = true;
-            this.Status.VisibleIndex = 4;
+            this.Status.VisibleIndex = 5;
             this.Status.Width = 94;
             // 
-            // TotalDay
+            // btnRefuse
             // 
-            this.TotalDay.Caption = "Tổng Số Ngày";
-            this.TotalDay.FieldName = "TotalDay";
-            this.TotalDay.MinWidth = 25;
-            this.TotalDay.Name = "TotalDay";
-            this.TotalDay.Visible = true;
-            this.TotalDay.VisibleIndex = 3;
-            this.TotalDay.Width = 94;
+            this.btnRefuse.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefuse.Appearance.Options.UseFont = true;
+            this.btnRefuse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefuse.ImageOptions.Image")));
+            this.btnRefuse.Location = new System.Drawing.Point(783, 41);
+            this.btnRefuse.Name = "btnRefuse";
+            this.btnRefuse.Size = new System.Drawing.Size(115, 35);
+            this.btnRefuse.TabIndex = 9;
+            this.btnRefuse.Text = "Từ chối";
+            this.btnRefuse.Click += new System.EventHandler(this.btnRefuse_Click);
+            // 
+            // btnAgree
+            // 
+            this.btnAgree.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgree.Appearance.Options.UseFont = true;
+            this.btnAgree.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAgree.ImageOptions.Image")));
+            this.btnAgree.Location = new System.Drawing.Point(663, 41);
+            this.btnAgree.Name = "btnAgree";
+            this.btnAgree.Size = new System.Drawing.Size(115, 35);
+            this.btnAgree.TabIndex = 8;
+            this.btnAgree.Text = "Duyệt";
+            this.btnAgree.Visible = false;
+            this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
+            // 
+            // IDStaff
+            // 
+            this.IDStaff.Caption = "Mã Nhân Viên";
+            this.IDStaff.FieldName = "IDStaff";
+            this.IDStaff.MinWidth = 25;
+            this.IDStaff.Name = "IDStaff";
+            this.IDStaff.Visible = true;
+            this.IDStaff.VisibleIndex = 1;
+            this.IDStaff.Width = 94;
             // 
             // UCLeaveAbsence
             // 
@@ -272,5 +313,8 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn IDLeaveAbsence;
         private DevExpress.XtraGrid.Columns.GridColumn TotalDay;
+        private DevExpress.XtraEditors.SimpleButton btnRefuse;
+        private DevExpress.XtraEditors.SimpleButton btnAgree;
+        private DevExpress.XtraGrid.Columns.GridColumn IDStaff;
     }
 }

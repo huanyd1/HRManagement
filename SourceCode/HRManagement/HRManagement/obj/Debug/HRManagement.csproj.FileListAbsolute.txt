@@ -168,3 +168,4 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRMana
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Explanation.UCExplanation.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Timekeeping.UCStaffTimekeeping.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Course.UCStaffCourse.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Login.UCForgotPassword.resources

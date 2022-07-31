@@ -28,26 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCExplanation));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gExplanation = new DevExpress.XtraGrid.GridControl();
             this.gvExplanation = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Checkin = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Type = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Description = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnStudy = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefuse = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAgree = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gExplanation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvExplanation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnStudy)).BeginInit();
@@ -75,7 +79,9 @@
             // 
             this.gvExplanation.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IDTime,
+            this.IDStaff,
             this.Checkin,
+            this.Type,
             this.Description,
             this.Status});
             this.gvExplanation.GridControl = this.gExplanation;
@@ -90,6 +96,16 @@
             this.IDTime.Name = "IDTime";
             this.IDTime.Width = 94;
             // 
+            // IDStaff
+            // 
+            this.IDStaff.Caption = "Mã Nhân Viên";
+            this.IDStaff.FieldName = "IDStaff";
+            this.IDStaff.MinWidth = 25;
+            this.IDStaff.Name = "IDStaff";
+            this.IDStaff.Visible = true;
+            this.IDStaff.VisibleIndex = 1;
+            this.IDStaff.Width = 94;
+            // 
             // Checkin
             // 
             this.Checkin.Caption = "Ngày";
@@ -100,6 +116,16 @@
             this.Checkin.VisibleIndex = 0;
             this.Checkin.Width = 94;
             // 
+            // Type
+            // 
+            this.Type.Caption = "Type";
+            this.Type.FieldName = "Type";
+            this.Type.MinWidth = 25;
+            this.Type.Name = "Type";
+            this.Type.Visible = true;
+            this.Type.VisibleIndex = 3;
+            this.Type.Width = 94;
+            // 
             // Description
             // 
             this.Description.Caption = "Ghi chú/ Giải trình";
@@ -107,15 +133,25 @@
             this.Description.MinWidth = 25;
             this.Description.Name = "Description";
             this.Description.Visible = true;
-            this.Description.VisibleIndex = 1;
+            this.Description.VisibleIndex = 2;
             this.Description.Width = 94;
+            // 
+            // Status
+            // 
+            this.Status.Caption = "Trạng thái";
+            this.Status.FieldName = "Status";
+            this.Status.MinWidth = 25;
+            this.Status.Name = "Status";
+            this.Status.Visible = true;
+            this.Status.VisibleIndex = 4;
+            this.Status.Width = 94;
             // 
             // btnStudy
             // 
             this.btnStudy.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.btnStudy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnStudy.Name = "btnStudy";
             // 
             // gridView1
@@ -124,6 +160,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRefuse);
+            this.panel1.Controls.Add(this.btnAgree);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
@@ -132,6 +170,31 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 79);
             this.panel1.TabIndex = 6;
+            // 
+            // btnRefuse
+            // 
+            this.btnRefuse.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefuse.Appearance.Options.UseFont = true;
+            this.btnRefuse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefuse.ImageOptions.Image")));
+            this.btnRefuse.Location = new System.Drawing.Point(783, 41);
+            this.btnRefuse.Name = "btnRefuse";
+            this.btnRefuse.Size = new System.Drawing.Size(115, 35);
+            this.btnRefuse.TabIndex = 7;
+            this.btnRefuse.Text = "Từ chối";
+            this.btnRefuse.Click += new System.EventHandler(this.btnRefuse_Click);
+            // 
+            // btnAgree
+            // 
+            this.btnAgree.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgree.Appearance.Options.UseFont = true;
+            this.btnAgree.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAgree.ImageOptions.Image")));
+            this.btnAgree.Location = new System.Drawing.Point(663, 41);
+            this.btnAgree.Name = "btnAgree";
+            this.btnAgree.Size = new System.Drawing.Size(115, 35);
+            this.btnAgree.TabIndex = 6;
+            this.btnAgree.Text = "Duyệt";
+            this.btnAgree.Visible = false;
+            this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
             // 
             // btnDelete
             // 
@@ -143,6 +206,7 @@
             this.btnDelete.Size = new System.Drawing.Size(115, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -164,7 +228,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(252, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "DANH SÁCH GIẢI TRÌNH";
+            this.label1.Text = "Danh sách giải trình";
             // 
             // tablePanel1
             // 
@@ -191,16 +255,6 @@
             this.tablePanel1.SetRow(this.panel2, 1);
             this.panel2.Size = new System.Drawing.Size(901, 597);
             this.panel2.TabIndex = 7;
-            // 
-            // Status
-            // 
-            this.Status.Caption = "Trạng thái";
-            this.Status.FieldName = "Status";
-            this.Status.MinWidth = 25;
-            this.Status.Name = "Status";
-            this.Status.Visible = true;
-            this.Status.VisibleIndex = 2;
-            this.Status.Width = 94;
             // 
             // UCExplanation
             // 
@@ -238,5 +292,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn Checkin;
         private DevExpress.XtraGrid.Columns.GridColumn Description;
         private DevExpress.XtraGrid.Columns.GridColumn Status;
+        private DevExpress.XtraEditors.SimpleButton btnRefuse;
+        private DevExpress.XtraEditors.SimpleButton btnAgree;
+        private DevExpress.XtraGrid.Columns.GridColumn IDStaff;
+        private DevExpress.XtraGrid.Columns.GridColumn Type;
     }
 }

@@ -7,6 +7,7 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Account_Staff" FromRole="Account" ToRole="Staff" />
   </EntityType>
   <EntityType Name="Contract">

@@ -8,7 +8,6 @@ namespace HRManagement
 {
     internal static class Program
     {
-        public static string abc = "jfwef";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +16,7 @@ namespace HRManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormStaffInfo());
+            Application.Run(new FormLogin());
         }
     }
 }

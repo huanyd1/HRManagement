@@ -40,14 +40,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.errorUsername = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lbForgotPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(148, 253);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Location = new System.Drawing.Point(148, 284);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(200, 62);
             this.btnLogin.TabIndex = 11;
@@ -59,21 +60,23 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(148, 176);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.MaxLength = 15;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(422, 27);
             this.txtPassword.TabIndex = 10;
+            this.txtPassword.Text = "Jm9ff2";
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(148, 109);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(422, 27);
             this.txtUsername.TabIndex = 9;
+            this.txtUsername.Text = "huanyd1@gmail.com";
             // 
             // label3
             // 
@@ -146,12 +149,27 @@
             // 
             this.errorPassword.ContainerControl = this;
             // 
+            // lbForgotPassword
+            // 
+            this.lbForgotPassword.AutoSize = true;
+            this.lbForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbForgotPassword.Font = new System.Drawing.Font("Cascadia Code SemiBold", 10.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbForgotPassword.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbForgotPassword.Location = new System.Drawing.Point(144, 225);
+            this.lbForgotPassword.Name = "lbForgotPassword";
+            this.lbForgotPassword.Size = new System.Drawing.Size(190, 22);
+            this.lbForgotPassword.TabIndex = 15;
+            this.lbForgotPassword.Text = "Bạn quên mật khẩu?";
+            this.lbForgotPassword.Click += new System.EventHandler(this.lbForgotPassword_Click);
+            // 
             // UCLogin
             // 
             this.Appearance.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbForgotPassword);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -161,7 +179,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCLogin";
             this.Size = new System.Drawing.Size(600, 400);
             ((System.ComponentModel.ISupportInitialize)(this.errorUsername)).EndInit();
@@ -184,5 +202,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ErrorProvider errorUsername;
         private System.Windows.Forms.ErrorProvider errorPassword;
+        private System.Windows.Forms.Label lbForgotPassword;
     }
 }

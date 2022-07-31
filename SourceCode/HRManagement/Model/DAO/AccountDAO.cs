@@ -23,6 +23,25 @@ namespace Model.DAO
             return list;
         }
 
+        public string GetInfoTypeLogin(string username, string password)
+        {
+            string type = _db.Accounts.Where(x => x.Username == username && x.Password == password).Select(x => x.Type).FirstOrDefault();
+
+            if(type == null)
+            {
+                return null;
+            }
+
+            return type;
+        }
+
+        public string GetIDStaffByLogin(string username, string password)
+        {
+            string idStaff = _db.Accounts.Where(x => x.Username == username && x.Password == password).Select(x => x.IDStaff).FirstOrDefault();
+
+            return idStaff;
+        }
+
         public string GetPasswordByIDStaff(string idStaff)
         {
             string password = _db.Accounts.Where(x => x.IDStaff == idStaff).Select(x => x.Password).FirstOrDefault();

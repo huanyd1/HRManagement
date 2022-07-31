@@ -273,7 +273,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(300, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "BẢNG CÔNG CHI TIẾT THÁNG";
+            this.label1.Text = "Bảng công chi tiết tháng";
             // 
             // UCStaffTimekeeping
             // 

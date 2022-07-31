@@ -81,7 +81,7 @@ namespace HRManagement.Screens.Account
                     MessageBox.Show("Đổi mật khẩu thành công!");
                 }
 
-                string content = string.Format("Hệ thống gửi mật khẩu đăng nhập mới của tài khoản: <strong>{0}</strong> <br/> Mật khẩu mới:<strong>{1}</strong>",
+                string content = string.Format("Tài khoản:<strong>{0}</strong> <br/> Mật khẩu mới:<strong>{1}</strong>",
                 username, account.Password);
                 SendEmailForgotPass(username, "Thông tin tài khoản " + username, content);
             }

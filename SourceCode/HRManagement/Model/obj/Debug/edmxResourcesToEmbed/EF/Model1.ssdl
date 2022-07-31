@@ -7,6 +7,7 @@
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="char" MaxLength="1" />
   </EntityType>
   <EntityType Name="Contract">
     <Key>

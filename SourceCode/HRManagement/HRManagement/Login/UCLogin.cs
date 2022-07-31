@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,17 @@ namespace HRManagement.Login
             return flag;
         }
 
+        private void GetAllInfoStaff(string idStaff, string type)
+        {
+            StaffDAO dao = new StaffDAO();
+            var info = dao.GetAllInfoByIDStaff(idStaff);
+
+            InfoStaffCommon.IDStaff = idStaff;
+            InfoStaffCommon.StaffName = info.StaffName;
+            InfoStaffCommon.Role = type;
+            InfoStaffCommon.IsAdmin = type == "0" ? true : false;
+        }
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -57,7 +69,42 @@ namespace HRManagement.Login
                 return;
             }
 
+            string username = txtUsername.Text.ToString();
+            string password = txtPassword.Text.ToString();
 
+            AccountDAO dao = new AccountDAO();
+            var type = dao.GetInfoTypeLogin(username, password);
+            string idStaff = dao.GetIDStaffByLogin(username, password);
+
+            if(type == null)
+            {
+                MessageBox.Show(Model.MessageBoxCommon.AccountError(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);         
+            }
+            else if(type == "0")
+            {
+                var form = this.Parent as Form;
+
+                GetAllInfoStaff(idStaff, type);
+                FormMain main = new FormMain();
+                main.ShowDialog();
+                form.Close();
+            }
+            else
+            {
+                var form = this.Parent as Form;
+
+                GetAllInfoStaff(idStaff, type);
+                FormStaffInfo staff = new FormStaffInfo();
+                staff.Show();
+                form.Close();
+            }
+        }
+
+        private void lbForgotPassword_Click(object sender, EventArgs e)
+        {
+            Form form = ((sender as Label).Parent as UserControl).Parent as Form;
+            form.Controls.Clear();
+            form.Controls.Add(new UCForgotPassword());
         }
     }
 }

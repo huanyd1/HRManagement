@@ -49,9 +49,9 @@
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.skinPaletteDropDownButtonItem2 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
-            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOption = new DevExpress.XtraBars.BarSubItem();
+            this.btnChangePass = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
@@ -63,6 +63,7 @@
             this.repositoryItemBreadCrumbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelSelect = new System.Windows.Forms.Panel();
+            this.btnLeaveAbsence = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -164,7 +165,9 @@
             // btnTimekeeping
             // 
             this.btnTimekeeping.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.btnExplanation});
+            this.btnExplanation,
+            this.btnLeaveAbsence});
+            this.btnTimekeeping.Expanded = true;
             this.btnTimekeeping.ImageOptions.Image = global::HRManagement.Properties.Resources.clock;
             this.btnTimekeeping.Name = "btnTimekeeping";
             this.btnTimekeeping.Text = "Chấm công";
@@ -199,9 +202,9 @@
             this.skinDropDownButtonItem1,
             this.skinPaletteDropDownButtonItem1,
             this.skinPaletteDropDownButtonItem2,
-            this.barSubItem2,
-            this.barButtonItem1,
-            this.barButtonItem2,
+            this.btnOption,
+            this.btnChangePass,
+            this.btnLogout,
             this.barEditItem2,
             this.barEditItem3});
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
@@ -219,7 +222,7 @@
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1278, 39);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
-            this.fluentDesignFormControl1.TitleItemLinks.Add(this.barSubItem2);
+            this.fluentDesignFormControl1.TitleItemLinks.Add(this.btnOption);
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.skinDropDownButtonItem1);
             // 
             // barEditItem1
@@ -252,27 +255,29 @@
             this.skinPaletteDropDownButtonItem2.Id = 8;
             this.skinPaletteDropDownButtonItem2.Name = "skinPaletteDropDownButtonItem2";
             // 
-            // barSubItem2
+            // btnOption
             // 
-            this.barSubItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barSubItem2.Caption = "Xin chào, Admin";
-            this.barSubItem2.Id = 12;
-            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
-            this.barSubItem2.Name = "barSubItem2";
+            this.btnOption.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.btnOption.Caption = "Xin chào, Admin";
+            this.btnOption.Id = 12;
+            this.btnOption.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChangePass),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLogout)});
+            this.btnOption.Name = "btnOption";
             // 
-            // barButtonItem1
+            // btnChangePass
             // 
-            this.barButtonItem1.Caption = "Đổi mật khẩu";
-            this.barButtonItem1.Id = 14;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnChangePass.Caption = "Đổi mật khẩu";
+            this.btnChangePass.Id = 14;
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePass_ItemClick);
             // 
-            // barButtonItem2
+            // btnLogout
             // 
-            this.barButtonItem2.Caption = "Đăng xuất";
-            this.barButtonItem2.Id = 15;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Id = 15;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // barEditItem2
             // 
@@ -312,9 +317,9 @@
             this.skinDropDownButtonItem1,
             this.skinPaletteDropDownButtonItem1,
             this.skinPaletteDropDownButtonItem2,
-            this.barSubItem2,
-            this.barButtonItem1,
-            this.barButtonItem2,
+            this.btnOption,
+            this.btnChangePass,
+            this.btnLogout,
             this.barEditItem2,
             this.barEditItem3});
             this.fluentFormDefaultManager1.MaxItemId = 18;
@@ -367,6 +372,13 @@
             this.panelSelect.Size = new System.Drawing.Size(918, 680);
             this.panelSelect.TabIndex = 3;
             // 
+            // btnLeaveAbsence
+            // 
+            this.btnLeaveAbsence.Name = "btnLeaveAbsence";
+            this.btnLeaveAbsence.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnLeaveAbsence.Text = "Quản lý Nghỉ phép";
+            this.btnLeaveAbsence.Click += new System.EventHandler(this.btnLeaveAbsence_Click);
+            // 
             // FormMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -382,6 +394,7 @@
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý Nhân sự";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).EndInit();
@@ -410,9 +423,9 @@
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem2;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit repositoryItemBreadCrumbEdit1;
-        private DevExpress.XtraBars.BarSubItem barSubItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarSubItem btnOption;
+        private DevExpress.XtraBars.BarButtonItem btnChangePass;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarEditItem barEditItem2;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraBars.BarEditItem barEditItem3;
@@ -430,5 +443,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnStaffCourse;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnAccount;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnTimeSheets;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnLeaveAbsence;
     }
 }

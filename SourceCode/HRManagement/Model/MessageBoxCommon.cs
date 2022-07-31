@@ -43,5 +43,15 @@ namespace Model
         {
             return string.Format("Bạn có thực sự muốn xóa Khóa học '{0}' của Nhân viên '{1}' không?", course, staff);
         }
+
+        public static string DeleteExplanation()
+        {
+            return string.Format("Giải trình này chưa được duyệt, vẫn muốn xóa?");
+        }
+
+        public static string AccountError()
+        {
+            return string.Format("Tài khoản hoặc mật khẩu không đúng, vui lòng thử lại");
+        }
     }
 }
