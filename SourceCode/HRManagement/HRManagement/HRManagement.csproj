@@ -127,6 +127,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Account\UCAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -343,14 +348,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Screens\Account\FormChangeAccount.resx">
       <DependentUpon>FormChangeAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,7 +475,6 @@
     <Content Include="Template\ResetPassword.html" />
     <Content Include="Template\Salary.html" />
     <None Include="Resource\Icon\clock.ico" />
-    <None Include="Resources\Cover-400x514.jpg" />
     <Content Include="Resource\Icon\account.ico" />
     <Content Include="Resource\Icon\contract.ico" />
     <Content Include="Resource\Icon\course.ico" />
@@ -485,6 +484,8 @@
     <Content Include="Resource\Icon\staff.ico" />
     <Content Include="Resource\Images\department.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resource\Upload\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

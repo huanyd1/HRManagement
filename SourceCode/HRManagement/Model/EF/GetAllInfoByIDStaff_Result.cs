@@ -21,6 +21,7 @@ namespace Model.EF
         public string Numberphone { get; set; }
         public string Email { get; set; }
         public string CCCD { get; set; }
+        public string Image { get; set; }
         public string IDDepartment { get; set; }
         public string DepartmentName { get; set; }
         public string ContractName { get; set; }

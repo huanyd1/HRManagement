@@ -31,6 +31,7 @@ namespace HRManagement.Screens.Staff
         private readonly string salaryNumber = "Lương";
         private readonly string allowance = "Phụ cấp";
         private readonly string tax = "Thuế TN";
+        private string filename = "";
 
         public FormChangeStaff()
         {
@@ -116,6 +117,9 @@ namespace HRManagement.Screens.Staff
             txtSalaryAmount.Text = staff.SalaryAmount.ToString();
             txtAllowance.Text = staff.Allowance.ToString();
             txtTax.Text = staff.Tax.ToString();
+
+            //Avatar
+            picbAvatar.Image = Image.FromFile(Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10)) + "\\Resource\\Upload\\" + staff.Image);
         }
 
         private void FormChangeStaff_Load(object sender, EventArgs e)
@@ -318,6 +322,8 @@ namespace HRManagement.Screens.Staff
             staff.Sex = cbSex.Text == "Nam" ? "1" : "0";
             staff.Numberphone = txtPhonenumber.Text;
 
+            staff.Image = filename == "" ? "" : filename;
+
             staff.IDStaff = txtIDStaff.Text;
              
             staff.StartDate = DateTime.Parse(dtimeStartDate.Text.ToString());
@@ -350,6 +356,32 @@ namespace HRManagement.Screens.Staff
             return salary;
         }
 
+        public Model.EF.Account GetInfoAccount()
+        {
+            Model.EF.Account account = new Model.EF.Account();
+            account.IDStaff = txtIDStaff.Text;
+            account.Username = txtEmail.Text;
+            account.Password = Model.ResetPassword.RandomString(6);
+
+            return account;
+        }
+
+        private void SendEmailAddStaff(string email, string subject, string username, string password)
+        {
+            var file = string.Format("{0}\\{1}", Environment.CurrentDirectory, "../../Template/" + "AddStaff.html");
+            string contentEmail = System.IO.File.ReadAllText(file);
+
+
+            contentEmail = contentEmail.Replace("{username}", username);
+            contentEmail = contentEmail.Replace("{password}", password);
+
+
+            string emailBody = contentEmail;
+
+            EmailHelper.SendEmail(Model.AppSettings.EmailHost, Model.AppSettings.EmailPort, Model.AppSettings.FromEmail, Model.AppSettings.PasswordEmail,
+                email, subject, emailBody);
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!CheckNullVariable())
@@ -362,6 +394,7 @@ namespace HRManagement.Screens.Staff
             Model.EF.Staff staff = GetInfoStaff();
             Model.EF.Contract contract = GetInfoContract();
             Model.EF.Salary salary = GetInfoSalary();
+            Model.EF.Account account = GetInfoAccount();
 
             if (_isAdd)
             {
@@ -370,15 +403,16 @@ namespace HRManagement.Screens.Staff
                     DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(cccd), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialog == DialogResult.Yes)
                     {
-                        if (dao.Add(staff, contract, salary))
+                        if (dao.Add(staff, contract, salary, account))
                         {
+                            SendEmailAddStaff(account.Username, "Thông tin tài khoản " + account.Username,account.Username, account.Password);
                             _isSave = true;
                         }
                     }
                 }
                 else
                 {
-                    if (dao.Add(staff, contract, salary))
+                    if (dao.Add(staff, contract, salary, account))
                     {
                         _isSave = true;
                     }
@@ -416,6 +450,42 @@ namespace HRManagement.Screens.Staff
             else
             {
                 this.Close();
+            }
+        }
+
+        private void btnChangeAvatar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = "C://Desktop";
+            open.Title = "Select file to be upload.";
+            open.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *.tif; ...";
+            open.FilterIndex = 1;
+
+            try
+            {
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    if (open.CheckFileExists)
+                    {
+                        filename = System.IO.Path.GetFileName(open.FileName);
+                        //string path = System.IO.Path.GetFullPath(open.FileName);
+                        string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+                        System.IO.File.Copy(open.FileName, path + "\\Resource\\Upload\\" + filename);
+                        picbAvatar.Image = Image.FromFile(path + "\\Resource\\Upload\\" + filename);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please Upload document.");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

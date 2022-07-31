@@ -1143,6 +1143,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="String" Name="Numberphone" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="CCCD" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Image" Nullable="true" />
           <Property Type="String" Name="IDDepartment" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="ContractName" Nullable="true" MaxLength="50" />
@@ -1152,7 +1153,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
           <Property Type="Int32" Name="Allowance" Nullable="true" />
           <Property Type="Int32" Name="Tax" Nullable="true" />
-          <Property Type="String" Name="IDPosition" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IDPosition" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="PositionName" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="StartDate" Nullable="true" />
           <Property Type="DateTime" Name="EndDate" Nullable="true" />
@@ -1459,6 +1460,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="ContractName" ColumnName="ContractName" />

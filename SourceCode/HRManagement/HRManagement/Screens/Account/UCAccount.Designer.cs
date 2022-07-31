@@ -254,7 +254,7 @@
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(115, 35);
             this.btnInfo.TabIndex = 6;
-            this.btnInfo.Text = "Xem CT";
+            this.btnInfo.Text = "Reset";
             this.btnInfo.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnDelete

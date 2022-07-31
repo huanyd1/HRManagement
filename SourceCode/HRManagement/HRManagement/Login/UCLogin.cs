@@ -84,7 +84,7 @@ namespace HRManagement.Login
             {
                 var form = this.Parent as Form;
 
-                GetAllInfoStaff(idStaff, type);
+                //GetAllInfoStaff(idStaff, type);
                 FormMain main = new FormMain();
                 main.ShowDialog();
                 form.Close();
@@ -95,8 +95,8 @@ namespace HRManagement.Login
 
                 GetAllInfoStaff(idStaff, type);
                 FormStaffInfo staff = new FormStaffInfo();
-                staff.Show();
-                form.Close();
+                staff.ShowDialog();
+                form.Hide();
             }
         }
 

@@ -244,6 +244,7 @@
           <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
           <ScalarProperty Name="ContractName" ColumnName="ContractName" />

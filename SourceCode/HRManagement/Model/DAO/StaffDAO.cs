@@ -12,7 +12,7 @@ namespace Model.DAO
     {
         public List<Staff> GetAll()
         {
-            List<Staff> list = _db.Staffs.ToList();
+            List<Staff> list = _db.Accounts.Where(x => x.Type != "0").Select(x => x.Staff).ToList();
 
             return list;
         }
@@ -33,7 +33,7 @@ namespace Model.DAO
 
         public List<Staff> GetStaffByFilter(string idDepartment, string idStaff, string staffName)
         {
-            List<Staff> list = _db.Staffs.ToList();
+            List<Staff> list = _db.Accounts.Where(x => x.Type != "0").Select(x => x.Staff).ToList();
 
             if (!string.IsNullOrEmpty(idDepartment))
             {
@@ -67,7 +67,7 @@ namespace Model.DAO
             return list;
         }
 
-        public bool Add(Staff staff, Contract contract, Salary salary)
+        public bool Add(Staff staff, Contract contract, Salary salary, Account account)
         {
             try
             {
@@ -76,6 +76,8 @@ namespace Model.DAO
                 _db.Contracts.Add(contract);
                 _db.SaveChanges();
                 _db.Salaries.Add(salary);
+                _db.SaveChanges();
+                _db.Accounts.Add(account);
                 _db.SaveChanges();
             }
             catch (Exception ex)
@@ -101,6 +103,7 @@ namespace Model.DAO
                 currentStaff.Email = staff.Email;
                 currentStaff.Sex = staff.Sex;
                 currentStaff.IDPosition = staff.IDPosition;
+                currentStaff.Image = staff.Image;
                 //currentStaff.Status = staff.Status;
                 _db.SaveChanges();
             }
