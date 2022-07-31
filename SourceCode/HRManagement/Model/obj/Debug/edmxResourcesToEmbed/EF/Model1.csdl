@@ -73,6 +73,7 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="FromDate" Type="DateTime" Precision="0" />
     <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="TotalDay" Type="Int32" />
     <Property Name="Descript" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="LeaveAbsence" ToRole="Staff" />
@@ -169,8 +170,9 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Checkin" Type="DateTime" Precision="3" />
     <Property Name="Checkout" Type="DateTime" Precision="3" />
-    <Property Name="Remain" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
   </EntityType>
   <EntityType Name="AllInfoAccount">

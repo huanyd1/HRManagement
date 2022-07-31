@@ -47,6 +47,13 @@ namespace Model.DAO
             return info;
         }
 
+        public List<AllInfoStaffCourse> AllCourseCompleteByIDStaff(string idStaff)
+        {
+            List<AllInfoStaffCourse> info = _db.AllInfoStaffCourses.Where(x => x.IDStaff == idStaff && x.Point >= 80).ToList();
+
+            return info;
+        }
+
         public StaffCourse GetSingleByID(int id)
         {
             StaffCourse staffCourse = _db.StaffCourses.Where(x => x.IDStaffCourse == id).FirstOrDefault();

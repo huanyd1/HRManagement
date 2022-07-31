@@ -17,6 +17,7 @@ namespace Model.EF
         public string IDStaff { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Type { get; set; }
     
         public virtual Staff Staff { get; set; }
     }

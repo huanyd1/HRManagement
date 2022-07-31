@@ -40,11 +40,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gLeaveAbsence = new DevExpress.XtraGrid.GridControl();
             this.gvLeaveAbsence = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IDLeaveAbsence = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FromDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ToDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Descript = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.IDLeaveAbsence = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TotalDay = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
@@ -168,11 +169,20 @@
             this.IDLeaveAbsence,
             this.FromDate,
             this.ToDate,
+            this.TotalDay,
             this.Descript,
             this.Status});
             this.gvLeaveAbsence.GridControl = this.gLeaveAbsence;
             this.gvLeaveAbsence.Name = "gvLeaveAbsence";
             this.gvLeaveAbsence.OptionsView.ShowGroupPanel = false;
+            // 
+            // IDLeaveAbsence
+            // 
+            this.IDLeaveAbsence.Caption = "Mã Đơn Xin";
+            this.IDLeaveAbsence.FieldName = "IDLeaveAbsence";
+            this.IDLeaveAbsence.MinWidth = 25;
+            this.IDLeaveAbsence.Name = "IDLeaveAbsence";
+            this.IDLeaveAbsence.Width = 94;
             // 
             // FromDate
             // 
@@ -211,16 +221,18 @@
             this.Status.MinWidth = 25;
             this.Status.Name = "Status";
             this.Status.Visible = true;
-            this.Status.VisibleIndex = 3;
+            this.Status.VisibleIndex = 4;
             this.Status.Width = 94;
             // 
-            // IDLeaveAbsence
+            // TotalDay
             // 
-            this.IDLeaveAbsence.Caption = "Mã Đơn Xin";
-            this.IDLeaveAbsence.FieldName = "IDLeaveAbsence";
-            this.IDLeaveAbsence.MinWidth = 25;
-            this.IDLeaveAbsence.Name = "IDLeaveAbsence";
-            this.IDLeaveAbsence.Width = 94;
+            this.TotalDay.Caption = "Tổng Số Ngày";
+            this.TotalDay.FieldName = "TotalDay";
+            this.TotalDay.MinWidth = 25;
+            this.TotalDay.Name = "TotalDay";
+            this.TotalDay.Visible = true;
+            this.TotalDay.VisibleIndex = 3;
+            this.TotalDay.Width = 94;
             // 
             // UCLeaveAbsence
             // 
@@ -259,5 +271,6 @@
         private System.Windows.Forms.Label lbRemain;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn IDLeaveAbsence;
+        private DevExpress.XtraGrid.Columns.GridColumn TotalDay;
     }
 }

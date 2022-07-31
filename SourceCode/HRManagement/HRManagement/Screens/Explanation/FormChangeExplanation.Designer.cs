@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChangeExplanation));
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
+            this.dtimeDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // txtDescription
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(135, 73);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(244, 96);
-            this.richTextBox1.TabIndex = 52;
-            this.richTextBox1.Text = "";
+            this.txtDescription.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(135, 73);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(244, 96);
+            this.txtDescription.TabIndex = 52;
+            this.txtDescription.Text = "";
             // 
-            // dateTimePicker1
+            // dtimeDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(239, 23);
-            this.dateTimePicker1.TabIndex = 50;
+            this.dtimeDate.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtimeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtimeDate.Location = new System.Drawing.Point(140, 20);
+            this.dtimeDate.Name = "dtimeDate";
+            this.dtimeDate.Size = new System.Drawing.Size(239, 23);
+            this.dtimeDate.TabIndex = 50;
             // 
             // label3
             // 
@@ -85,6 +85,7 @@
             this.btnCancel.Size = new System.Drawing.Size(120, 45);
             this.btnCancel.TabIndex = 49;
             this.btnCancel.Text = "Thoát";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -96,14 +97,15 @@
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 48;
             this.btnSave.Text = "Thêm mới";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FormChangeExplanation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 260);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.dtimeDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
@@ -116,8 +118,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.RichTextBox txtDescription;
+        private System.Windows.Forms.DateTimePicker dtimeDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnCancel;

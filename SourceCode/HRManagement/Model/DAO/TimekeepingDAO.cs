@@ -24,6 +24,13 @@ namespace Model.DAO
             return time;
         }
 
+        public List<Timekeeping> GetTimeByIDStaffType(string id)
+        {
+            List<Timekeeping> time = _db.Timekeepings.Where(x => x.IDStaff == id && x.Type == "1").ToList();
+
+            return time;
+        }
+
         public IsExistCheckTime_Result IsExistTimekeeping(string idStaff, DateTime checkin)
         {
             return _db.IsExistCheckTime(idStaff, checkin).FirstOrDefault();

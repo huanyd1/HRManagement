@@ -71,6 +71,7 @@
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="FromDate" ColumnName="FromDate" />
           <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="TotalDay" ColumnName="TotalDay" />
           <ScalarProperty Name="Descript" ColumnName="Descript" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
@@ -156,8 +157,9 @@
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="Checkin" ColumnName="Checkin" />
           <ScalarProperty Name="Checkout" ColumnName="Checkout" />
-          <ScalarProperty Name="Remain" ColumnName="Remain" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -64,6 +64,7 @@
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FromDate" Type="date" />
     <Property Name="ToDate" Type="date" />
+    <Property Name="TotalDay" Type="int" />
     <Property Name="Descript" Type="nvarchar(max)" />
     <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
@@ -142,8 +143,9 @@
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Checkin" Type="datetime" />
     <Property Name="Checkout" Type="datetime" />
-    <Property Name="Remain" Type="int" />
+    <Property Name="Type" Type="char" MaxLength="1" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'HRManagement.dbo.AllInfoAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

@@ -34,13 +34,12 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.gInsurance = new DevExpress.XtraGrid.GridControl();
-            this.gvInsurance = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IDInsurance = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.InsuranceName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.IDInsuranceType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TypeName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Amount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gExplanation = new DevExpress.XtraGrid.GridControl();
+            this.gvExplanation = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IDTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Checkin = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Description = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnStudy = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -48,89 +47,76 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnStudy = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.gInsurance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvInsurance)).BeginInit();
+            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.gExplanation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvExplanation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStudy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnStudy)).BeginInit();
             this.SuspendLayout();
             // 
-            // gInsurance
+            // gExplanation
             // 
-            this.gInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gInsurance.Location = new System.Drawing.Point(0, 0);
-            this.gInsurance.MainView = this.gvInsurance;
-            this.gInsurance.Name = "gInsurance";
-            this.gInsurance.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gExplanation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gExplanation.Location = new System.Drawing.Point(0, 0);
+            this.gExplanation.MainView = this.gvExplanation;
+            this.gExplanation.Name = "gExplanation";
+            this.gExplanation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnStudy});
-            this.gInsurance.Size = new System.Drawing.Size(901, 597);
-            this.gInsurance.TabIndex = 6;
-            this.gInsurance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvInsurance});
+            this.gExplanation.Size = new System.Drawing.Size(901, 597);
+            this.gExplanation.TabIndex = 6;
+            this.gExplanation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvExplanation});
             // 
-            // gvInsurance
+            // gvExplanation
             // 
-            this.gvInsurance.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDInsurance,
-            this.InsuranceName,
-            this.IDInsuranceType,
-            this.TypeName,
-            this.Amount});
-            this.gvInsurance.GridControl = this.gInsurance;
-            this.gvInsurance.Name = "gvInsurance";
-            this.gvInsurance.OptionsView.ShowGroupPanel = false;
+            this.gvExplanation.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.IDTime,
+            this.Checkin,
+            this.Description,
+            this.Status});
+            this.gvExplanation.GridControl = this.gExplanation;
+            this.gvExplanation.Name = "gvExplanation";
+            this.gvExplanation.OptionsView.ShowGroupPanel = false;
             // 
-            // IDInsurance
+            // IDTime
             // 
-            this.IDInsurance.Caption = "Mã Bảo Hiểm";
-            this.IDInsurance.FieldName = "IDInsurance";
-            this.IDInsurance.MinWidth = 25;
-            this.IDInsurance.Name = "IDInsurance";
-            this.IDInsurance.Visible = true;
-            this.IDInsurance.VisibleIndex = 0;
-            this.IDInsurance.Width = 94;
+            this.IDTime.Caption = "Mã Chấm Công";
+            this.IDTime.FieldName = "IDTime";
+            this.IDTime.MinWidth = 25;
+            this.IDTime.Name = "IDTime";
+            this.IDTime.Width = 94;
             // 
-            // InsuranceName
+            // Checkin
             // 
-            this.InsuranceName.Caption = "Tên Bảo Hiểm";
-            this.InsuranceName.FieldName = "InsuranceName";
-            this.InsuranceName.MinWidth = 25;
-            this.InsuranceName.Name = "InsuranceName";
-            this.InsuranceName.Visible = true;
-            this.InsuranceName.VisibleIndex = 1;
-            this.InsuranceName.Width = 94;
+            this.Checkin.Caption = "Ngày";
+            this.Checkin.FieldName = "Checkin";
+            this.Checkin.MinWidth = 25;
+            this.Checkin.Name = "Checkin";
+            this.Checkin.Visible = true;
+            this.Checkin.VisibleIndex = 0;
+            this.Checkin.Width = 94;
             // 
-            // IDInsuranceType
+            // Description
             // 
-            this.IDInsuranceType.Caption = "Loại Bảo Hiểm";
-            this.IDInsuranceType.DisplayFormat.FormatString = "fe";
-            this.IDInsuranceType.FieldName = "IDInsuranceType";
-            this.IDInsuranceType.MinWidth = 25;
-            this.IDInsuranceType.Name = "IDInsuranceType";
-            this.IDInsuranceType.Width = 94;
+            this.Description.Caption = "Ghi chú/ Giải trình";
+            this.Description.FieldName = "Description";
+            this.Description.MinWidth = 25;
+            this.Description.Name = "Description";
+            this.Description.Visible = true;
+            this.Description.VisibleIndex = 1;
+            this.Description.Width = 94;
             // 
-            // TypeName
+            // btnStudy
             // 
-            this.TypeName.Caption = "Loại Bảo Hiểm";
-            this.TypeName.FieldName = "TypeName";
-            this.TypeName.Name = "TypeName";
-            this.TypeName.Visible = true;
-            this.TypeName.VisibleIndex = 2;
-            // 
-            // Amount
-            // 
-            this.Amount.Caption = "Số Tiền";
-            this.Amount.ColumnEdit = this.btnStudy;
-            this.Amount.DisplayFormat.FormatString = "#,### VNĐ";
-            this.Amount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Amount.FieldName = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.Visible = true;
-            this.Amount.VisibleIndex = 3;
+            this.btnStudy.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnStudy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btnStudy.Name = "btnStudy";
             // 
             // gridView1
             // 
@@ -168,6 +154,7 @@
             this.btnAdd.Size = new System.Drawing.Size(115, 35);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -197,7 +184,7 @@
             // panel2
             // 
             this.tablePanel1.SetColumn(this.panel2, 0);
-            this.panel2.Controls.Add(this.gInsurance);
+            this.panel2.Controls.Add(this.gExplanation);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 88);
             this.panel2.Name = "panel2";
@@ -205,13 +192,15 @@
             this.panel2.Size = new System.Drawing.Size(901, 597);
             this.panel2.TabIndex = 7;
             // 
-            // btnStudy
+            // Status
             // 
-            this.btnStudy.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.btnStudy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.btnStudy.Name = "btnStudy";
+            this.Status.Caption = "Trạng thái";
+            this.Status.FieldName = "Status";
+            this.Status.MinWidth = 25;
+            this.Status.Name = "Status";
+            this.Status.Visible = true;
+            this.Status.VisibleIndex = 2;
+            this.Status.Width = 94;
             // 
             // UCExplanation
             // 
@@ -219,28 +208,24 @@
             this.Controls.Add(this.tablePanel1);
             this.Name = "UCExplanation";
             this.Size = new System.Drawing.Size(907, 688);
-            ((System.ComponentModel.ISupportInitialize)(this.gInsurance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvInsurance)).EndInit();
+            this.Load += new System.EventHandler(this.UCExplanation_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gExplanation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvExplanation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStudy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnStudy)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gInsurance;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvInsurance;
-        private DevExpress.XtraGrid.Columns.GridColumn IDInsurance;
-        private DevExpress.XtraGrid.Columns.GridColumn InsuranceName;
-        private DevExpress.XtraGrid.Columns.GridColumn IDInsuranceType;
-        private DevExpress.XtraGrid.Columns.GridColumn TypeName;
-        private DevExpress.XtraGrid.Columns.GridColumn Amount;
+        private DevExpress.XtraGrid.GridControl gExplanation;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvExplanation;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
@@ -249,5 +234,9 @@
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnStudy;
+        private DevExpress.XtraGrid.Columns.GridColumn IDTime;
+        private DevExpress.XtraGrid.Columns.GridColumn Checkin;
+        private DevExpress.XtraGrid.Columns.GridColumn Description;
+        private DevExpress.XtraGrid.Columns.GridColumn Status;
     }
 }

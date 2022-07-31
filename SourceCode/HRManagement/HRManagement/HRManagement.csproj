@@ -461,7 +461,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Template\AddUserProvider.html" />
+    <Content Include="Template\AddStaff.html" />
     <Content Include="Template\ResetPassword.html" />
     <Content Include="Template\Salary.html" />
     <None Include="Resource\Icon\clock.ico" />
