@@ -41,6 +41,7 @@
             this.btnStaffCourse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnTimekeeping = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnExplanation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnLeaveAbsence = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnStaff = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnAccount = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
@@ -63,7 +64,6 @@
             this.repositoryItemBreadCrumbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelSelect = new System.Windows.Forms.Panel();
-            this.btnLeaveAbsence = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -179,6 +179,13 @@
             this.btnExplanation.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnExplanation.Text = "Quản lý giải trình";
             this.btnExplanation.Click += new System.EventHandler(this.btnExplanation_Click);
+            // 
+            // btnLeaveAbsence
+            // 
+            this.btnLeaveAbsence.Name = "btnLeaveAbsence";
+            this.btnLeaveAbsence.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnLeaveAbsence.Text = "Quản lý Nghỉ phép";
+            this.btnLeaveAbsence.Click += new System.EventHandler(this.btnLeaveAbsence_Click);
             // 
             // btnStaff
             // 
@@ -372,13 +379,6 @@
             this.panelSelect.Size = new System.Drawing.Size(918, 680);
             this.panelSelect.TabIndex = 3;
             // 
-            // btnLeaveAbsence
-            // 
-            this.btnLeaveAbsence.Name = "btnLeaveAbsence";
-            this.btnLeaveAbsence.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnLeaveAbsence.Text = "Quản lý Nghỉ phép";
-            this.btnLeaveAbsence.Click += new System.EventHandler(this.btnLeaveAbsence_Click);
-            // 
             // FormMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -394,6 +394,7 @@
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý Nhân sự";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();

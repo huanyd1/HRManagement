@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCLeaveAbsence));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefuse = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAgree = new DevExpress.XtraEditors.SimpleButton();
             this.lbRemain = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -41,14 +43,12 @@
             this.gLeaveAbsence = new DevExpress.XtraGrid.GridControl();
             this.gvLeaveAbsence = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDLeaveAbsence = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FromDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ToDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TotalDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Descript = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnRefuse = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAgree = new DevExpress.XtraEditors.SimpleButton();
-            this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
@@ -76,6 +76,31 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 79);
             this.panel1.TabIndex = 6;
+            // 
+            // btnRefuse
+            // 
+            this.btnRefuse.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefuse.Appearance.Options.UseFont = true;
+            this.btnRefuse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefuse.ImageOptions.Image")));
+            this.btnRefuse.Location = new System.Drawing.Point(783, 41);
+            this.btnRefuse.Name = "btnRefuse";
+            this.btnRefuse.Size = new System.Drawing.Size(115, 35);
+            this.btnRefuse.TabIndex = 9;
+            this.btnRefuse.Text = "Từ chối";
+            this.btnRefuse.Click += new System.EventHandler(this.btnRefuse_Click);
+            // 
+            // btnAgree
+            // 
+            this.btnAgree.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgree.Appearance.Options.UseFont = true;
+            this.btnAgree.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAgree.ImageOptions.Image")));
+            this.btnAgree.Location = new System.Drawing.Point(663, 41);
+            this.btnAgree.Name = "btnAgree";
+            this.btnAgree.Size = new System.Drawing.Size(115, 35);
+            this.btnAgree.TabIndex = 8;
+            this.btnAgree.Text = "Duyệt";
+            this.btnAgree.Visible = false;
+            this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
             // 
             // lbRemain
             // 
@@ -190,6 +215,16 @@
             this.IDLeaveAbsence.Name = "IDLeaveAbsence";
             this.IDLeaveAbsence.Width = 94;
             // 
+            // IDStaff
+            // 
+            this.IDStaff.Caption = "Mã Nhân Viên";
+            this.IDStaff.FieldName = "IDStaff";
+            this.IDStaff.MinWidth = 25;
+            this.IDStaff.Name = "IDStaff";
+            this.IDStaff.Visible = true;
+            this.IDStaff.VisibleIndex = 0;
+            this.IDStaff.Width = 94;
+            // 
             // FromDate
             // 
             this.FromDate.Caption = "Từ Ngày";
@@ -197,7 +232,7 @@
             this.FromDate.MinWidth = 25;
             this.FromDate.Name = "FromDate";
             this.FromDate.Visible = true;
-            this.FromDate.VisibleIndex = 0;
+            this.FromDate.VisibleIndex = 1;
             this.FromDate.Width = 94;
             // 
             // ToDate
@@ -217,7 +252,7 @@
             this.TotalDay.MinWidth = 25;
             this.TotalDay.Name = "TotalDay";
             this.TotalDay.Visible = true;
-            this.TotalDay.VisibleIndex = 4;
+            this.TotalDay.VisibleIndex = 3;
             this.TotalDay.Width = 94;
             // 
             // Descript
@@ -227,7 +262,7 @@
             this.Descript.MinWidth = 25;
             this.Descript.Name = "Descript";
             this.Descript.Visible = true;
-            this.Descript.VisibleIndex = 3;
+            this.Descript.VisibleIndex = 4;
             this.Descript.Width = 94;
             // 
             // Status
@@ -239,41 +274,6 @@
             this.Status.Visible = true;
             this.Status.VisibleIndex = 5;
             this.Status.Width = 94;
-            // 
-            // btnRefuse
-            // 
-            this.btnRefuse.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefuse.Appearance.Options.UseFont = true;
-            this.btnRefuse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefuse.ImageOptions.Image")));
-            this.btnRefuse.Location = new System.Drawing.Point(783, 41);
-            this.btnRefuse.Name = "btnRefuse";
-            this.btnRefuse.Size = new System.Drawing.Size(115, 35);
-            this.btnRefuse.TabIndex = 9;
-            this.btnRefuse.Text = "Từ chối";
-            this.btnRefuse.Click += new System.EventHandler(this.btnRefuse_Click);
-            // 
-            // btnAgree
-            // 
-            this.btnAgree.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgree.Appearance.Options.UseFont = true;
-            this.btnAgree.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAgree.ImageOptions.Image")));
-            this.btnAgree.Location = new System.Drawing.Point(663, 41);
-            this.btnAgree.Name = "btnAgree";
-            this.btnAgree.Size = new System.Drawing.Size(115, 35);
-            this.btnAgree.TabIndex = 8;
-            this.btnAgree.Text = "Duyệt";
-            this.btnAgree.Visible = false;
-            this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
-            // 
-            // IDStaff
-            // 
-            this.IDStaff.Caption = "Mã Nhân Viên";
-            this.IDStaff.FieldName = "IDStaff";
-            this.IDStaff.MinWidth = 25;
-            this.IDStaff.Name = "IDStaff";
-            this.IDStaff.Visible = true;
-            this.IDStaff.VisibleIndex = 1;
-            this.IDStaff.Width = 94;
             // 
             // UCLeaveAbsence
             // 

@@ -59,6 +59,8 @@ namespace HRManagement.Login
             InfoStaffCommon.StaffName = info.StaffName;
             InfoStaffCommon.Role = type;
             InfoStaffCommon.IsAdmin = type == "0" ? true : false;
+            InfoStaffCommon.Position = info.PositionName;
+            InfoStaffCommon.Avatar = info.Image;
         }
 
 
@@ -82,20 +84,27 @@ namespace HRManagement.Login
             }
             else if(type == "0")
             {
-                var form = this.Parent as Form;
+                var form = ((this.Parent) as Panel).Parent as Form;
 
-                //GetAllInfoStaff(idStaff, type);
                 FormMain main = new FormMain();
-                main.ShowDialog();
-                form.Close();
+                main.FormClosed += (sen, evt) =>
+                {
+                    form.Close();
+                };
+                main.Show();
+                form.Hide();
             }
             else
             {
-                var form = this.Parent as Form;
+                var form = ((this.Parent) as Panel).Parent as Form;
 
                 GetAllInfoStaff(idStaff, type);
                 FormStaffInfo staff = new FormStaffInfo();
-                staff.ShowDialog();
+                staff.FormClosed += (sen, evt) =>
+                {
+                    form.Close();
+                };
+                staff.Show();
                 form.Hide();
             }
         }

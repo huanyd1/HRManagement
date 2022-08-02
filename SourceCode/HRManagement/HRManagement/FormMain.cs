@@ -110,9 +110,23 @@ namespace HRManagement
             ResetInfoStaff();
 
             FormLogin login = new FormLogin();
+            
             login.ShowDialog();
             this.Hide();
-            this.Close();
+        }
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dlg = MessageBox.Show("Bạn thực sự muốn thoát?", "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlg == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                //Application.Exit();
+                
+            }
         }
     }
 }

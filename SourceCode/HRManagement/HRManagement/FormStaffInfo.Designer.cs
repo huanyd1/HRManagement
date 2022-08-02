@@ -36,16 +36,16 @@
             this.btnExplanation = new DevExpress.XtraEditors.SimpleButton();
             this.btnLeaveAbsence = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnChangeAvatar = new DevExpress.XtraEditors.SimpleButton();
+            this.lbPosition = new System.Windows.Forms.Label();
             this.lbStaffName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pboxAvatar = new System.Windows.Forms.PictureBox();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.panelSelect = new System.Windows.Forms.Panel();
-            this.btnChangeAvatar = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,44 +123,55 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnChangeAvatar);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbPosition);
             this.panel2.Controls.Add(this.lbStaffName);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pboxAvatar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(340, 385);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // btnChangeAvatar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label1.Location = new System.Drawing.Point(95, 345);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 22);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Staff Position";
+            this.btnChangeAvatar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeAvatar.ImageOptions.Image")));
+            this.btnChangeAvatar.Location = new System.Drawing.Point(312, 27);
+            this.btnChangeAvatar.Name = "btnChangeAvatar";
+            this.btnChangeAvatar.Size = new System.Drawing.Size(22, 25);
+            this.btnChangeAvatar.TabIndex = 3;
+            // 
+            // lbPosition
+            // 
+            this.lbPosition.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbPosition.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPosition.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbPosition.Location = new System.Drawing.Point(18, 345);
+            this.lbPosition.Name = "lbPosition";
+            this.lbPosition.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbPosition.Size = new System.Drawing.Size(316, 22);
+            this.lbPosition.TabIndex = 2;
+            this.lbPosition.Text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            this.lbPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbStaffName
             // 
-            this.lbStaffName.AutoSize = true;
+            this.lbStaffName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbStaffName.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStaffName.Location = new System.Drawing.Point(113, 307);
+            this.lbStaffName.Location = new System.Drawing.Point(44, 310);
             this.lbStaffName.Name = "lbStaffName";
-            this.lbStaffName.Size = new System.Drawing.Size(110, 22);
+            this.lbStaffName.Size = new System.Drawing.Size(264, 22);
             this.lbStaffName.TabIndex = 1;
-            this.lbStaffName.Text = "Staff Name";
+            this.lbStaffName.Text = "AAAAAAAAAAAAAAAAAAAAAAAAA";
+            this.lbStaffName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pboxAvatar
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(41, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(267, 267);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pboxAvatar.Location = new System.Drawing.Point(41, 27);
+            this.pboxAvatar.Name = "pboxAvatar";
+            this.pboxAvatar.Size = new System.Drawing.Size(267, 267);
+            this.pboxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxAvatar.TabIndex = 0;
+            this.pboxAvatar.TabStop = false;
             // 
             // separatorControl1
             // 
@@ -181,14 +192,6 @@
             this.panelSelect.TabIndex = 1;
             this.panelSelect.Resize += new System.EventHandler(this.panelSelect_Resize);
             // 
-            // btnChangeAvatar
-            // 
-            this.btnChangeAvatar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnChangeAvatar.Location = new System.Drawing.Point(312, 27);
-            this.btnChangeAvatar.Name = "btnChangeAvatar";
-            this.btnChangeAvatar.Size = new System.Drawing.Size(22, 25);
-            this.btnChangeAvatar.TabIndex = 3;
-            // 
             // FormStaffInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -200,11 +203,12 @@
             this.Name = "FormStaffInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStaffInfo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormStaffInfo_FormClosing);
+            this.Load += new System.EventHandler(this.FormStaffInfo_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,9 +218,9 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pboxAvatar;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbPosition;
         private System.Windows.Forms.Label lbStaffName;
         private DevExpress.XtraEditors.SimpleButton btnExplanation;
         private DevExpress.XtraEditors.SimpleButton btnLeaveAbsence;

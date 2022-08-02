@@ -20,7 +20,17 @@ namespace HRManagement
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            this.Controls.Add(new Login.UCLogin());
+            pnAccess.Controls.Add(new Login.UCLogin());
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dlg = MessageBox.Show("Bạn thực sự muốn thoát?", "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlg == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

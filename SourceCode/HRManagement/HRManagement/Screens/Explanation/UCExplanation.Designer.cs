@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCExplanation));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gExplanation = new DevExpress.XtraGrid.GridControl();
             this.gvExplanation = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDTime = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -103,7 +103,7 @@
             this.IDStaff.MinWidth = 25;
             this.IDStaff.Name = "IDStaff";
             this.IDStaff.Visible = true;
-            this.IDStaff.VisibleIndex = 1;
+            this.IDStaff.VisibleIndex = 0;
             this.IDStaff.Width = 94;
             // 
             // Checkin
@@ -113,7 +113,7 @@
             this.Checkin.MinWidth = 25;
             this.Checkin.Name = "Checkin";
             this.Checkin.Visible = true;
-            this.Checkin.VisibleIndex = 0;
+            this.Checkin.VisibleIndex = 1;
             this.Checkin.Width = 94;
             // 
             // Type
@@ -123,7 +123,7 @@
             this.Type.MinWidth = 25;
             this.Type.Name = "Type";
             this.Type.Visible = true;
-            this.Type.VisibleIndex = 3;
+            this.Type.VisibleIndex = 2;
             this.Type.Width = 94;
             // 
             // Description
@@ -133,7 +133,7 @@
             this.Description.MinWidth = 25;
             this.Description.Name = "Description";
             this.Description.Visible = true;
-            this.Description.VisibleIndex = 2;
+            this.Description.VisibleIndex = 3;
             this.Description.Width = 94;
             // 
             // Status
@@ -149,9 +149,9 @@
             // btnStudy
             // 
             this.btnStudy.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnStudy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnStudy.Name = "btnStudy";
             // 
             // gridView1

@@ -18,7 +18,6 @@ namespace HRManagement.Screens.Explanation
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            gvExplanation.Columns["Checkin"].Visible = false;
         }
 
         private void LoadAllInfoExplanation()
@@ -44,6 +43,11 @@ namespace HRManagement.Screens.Explanation
                 btnDelete.Visible = true;
                 btnAgree.Visible = false;
                 btnRefuse.Visible = false;
+            }
+
+            if (!InfoStaffCommon.IsAdmin)
+            {
+                gvExplanation.Columns["IDStaff"].Visible = false;
             }
         }
 

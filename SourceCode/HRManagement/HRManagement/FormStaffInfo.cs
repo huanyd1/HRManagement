@@ -18,6 +18,15 @@ namespace HRManagement
             InitializeComponent();
         }
 
+        private void FormStaffInfo_Load(object sender, EventArgs e)
+        {
+            lbStaffName.Text = InfoStaffCommon.StaffName;
+            lbPosition.Text = InfoStaffCommon.Position;
+
+            string enviroment = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+            pboxAvatar.Image = Image.FromFile(enviroment + "\\Resource\\Upload\\" + InfoStaffCommon.Avatar);
+        }
+
         private void AddToScreen(Control control)
         {
             panelSelect.Controls.Clear();
@@ -48,6 +57,16 @@ namespace HRManagement
         private void btnExplanation_Click(object sender, EventArgs e)
         {
             AddToScreen(new Screens.Explanation.UCExplanation());
+        }
+
+        private void FormStaffInfo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dlg = MessageBox.Show("Bạn thực sự muốn thoát?", "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlg == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

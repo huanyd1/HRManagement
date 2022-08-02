@@ -47,6 +47,8 @@ namespace HRManagement.Screens.LeaveAbsence
             {
                 btnAgree.Visible = false;
                 btnRefuse.Visible = false;
+
+                gvLeaveAbsence.Columns["IDStaff"].Visible = false;
             }
 
             LoadAllLeaveAbsenceStaff();
