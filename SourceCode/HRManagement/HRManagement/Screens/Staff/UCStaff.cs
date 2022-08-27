@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -150,6 +151,13 @@ namespace HRManagement.Screens.Staff
                     }
                 }
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string path = "output.xlsx";
+            gStaff.ExportToXlsx(path);
+            Process.Start(path);
         }
     }
 }

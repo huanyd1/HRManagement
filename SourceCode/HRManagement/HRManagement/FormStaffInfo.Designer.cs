@@ -61,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 680);
+            this.panel1.Size = new System.Drawing.Size(563, 680);
             this.panel1.TabIndex = 0;
             // 
             // separatorControl2
@@ -129,7 +129,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(340, 385);
+            this.panel2.Size = new System.Drawing.Size(543, 385);
             this.panel2.TabIndex = 1;
             // 
             // btnChangeAvatar
@@ -145,7 +145,7 @@
             this.lbPosition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbPosition.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPosition.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lbPosition.Location = new System.Drawing.Point(18, 345);
+            this.lbPosition.Location = new System.Drawing.Point(119, 345);
             this.lbPosition.Name = "lbPosition";
             this.lbPosition.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbPosition.Size = new System.Drawing.Size(316, 22);
@@ -157,7 +157,7 @@
             // 
             this.lbStaffName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbStaffName.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStaffName.Location = new System.Drawing.Point(44, 310);
+            this.lbStaffName.Location = new System.Drawing.Point(145, 310);
             this.lbStaffName.Name = "lbStaffName";
             this.lbStaffName.Size = new System.Drawing.Size(264, 22);
             this.lbStaffName.TabIndex = 1;
@@ -178,7 +178,7 @@
             this.separatorControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
             this.separatorControl1.LineThickness = 3;
-            this.separatorControl1.Location = new System.Drawing.Point(340, 0);
+            this.separatorControl1.Location = new System.Drawing.Point(543, 0);
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Size = new System.Drawing.Size(20, 680);
             this.separatorControl1.TabIndex = 0;
@@ -186,9 +186,9 @@
             // panelSelect
             // 
             this.panelSelect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSelect.Location = new System.Drawing.Point(360, 0);
+            this.panelSelect.Location = new System.Drawing.Point(563, 0);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(918, 680);
+            this.panelSelect.Size = new System.Drawing.Size(715, 680);
             this.panelSelect.TabIndex = 1;
             this.panelSelect.Resize += new System.EventHandler(this.panelSelect_Resize);
             // 

@@ -206,6 +206,7 @@
             this.gvLeaveAbsence.GridControl = this.gLeaveAbsence;
             this.gvLeaveAbsence.Name = "gvLeaveAbsence";
             this.gvLeaveAbsence.OptionsView.ShowGroupPanel = false;
+            this.gvLeaveAbsence.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvLeaveAbsence_CustomColumnDisplayText);
             // 
             // IDLeaveAbsence
             // 

@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -49,6 +51,15 @@ namespace HRManagement.Screens.Explanation
             {
                 gvExplanation.Columns["IDStaff"].Visible = false;
             }
+
+            gvExplanation.RowCellStyle += (sen, evt) =>
+            {
+                GridView view = sender as GridView;
+                if (evt.Column.FieldName == "Status")
+                {
+                    evt.Appearance.BackColor = (string)evt.CellValue == "1" ? Color.LightGreen : ((string)evt.CellValue == "0" ? Color.Yellow : Color.IndianRed);
+                }
+            };
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -155,6 +166,21 @@ namespace HRManagement.Screens.Explanation
             else
             {
                 IsAgreeExplanation(false);
+            }
+        }
+
+        private void gvExplanation_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            ColumnView view = sender as ColumnView;
+            if (e.Column.FieldName == "Status" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            {
+                string currencyType = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Status").ToString();
+                switch (currencyType)
+                {
+                    case "0": e.DisplayText = "Chờ phê duyệt"; break;
+                    case "1": e.DisplayText = "Đã phê duyệt"; break;
+                    case "2": e.DisplayText = "Đã từ chối"; break;
+                }
             }
         }
     }

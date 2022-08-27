@@ -47,7 +47,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(148, 284);
+            this.btnLogin.Location = new System.Drawing.Point(270, 450);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(200, 62);
@@ -58,23 +58,23 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(148, 176);
+            this.txtPassword.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(270, 265);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.MaxLength = 15;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(422, 27);
+            this.txtPassword.Size = new System.Drawing.Size(422, 31);
             this.txtPassword.TabIndex = 10;
             this.txtPassword.Text = "123456";
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(148, 109);
+            this.txtUsername.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(270, 190);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(422, 27);
+            this.txtUsername.Size = new System.Drawing.Size(422, 31);
             this.txtUsername.TabIndex = 9;
             this.txtUsername.Text = "quangiaotien@gmail.com";
             // 
@@ -114,30 +114,33 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 31);
+            this.label4.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(226, 38);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(190, 22);
+            this.label4.Size = new System.Drawing.Size(247, 30);
             this.label4.TabIndex = 12;
             this.label4.Text = "Đăng nhập hệ thống";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 114);
+            this.label5.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(36, 195);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 22);
+            this.label5.Size = new System.Drawing.Size(132, 27);
             this.label5.TabIndex = 13;
             this.label5.Text = "Tài khoản:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 178);
+            this.label6.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(36, 270);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 22);
+            this.label6.Size = new System.Drawing.Size(120, 27);
             this.label6.TabIndex = 14;
             this.label6.Text = "Mật khẩu:";
             // 
@@ -156,7 +159,7 @@
             this.lbForgotPassword.Font = new System.Drawing.Font("Cascadia Code SemiBold", 10.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbForgotPassword.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lbForgotPassword.Location = new System.Drawing.Point(144, 225);
+            this.lbForgotPassword.Location = new System.Drawing.Point(266, 349);
             this.lbForgotPassword.Name = "lbForgotPassword";
             this.lbForgotPassword.Size = new System.Drawing.Size(190, 22);
             this.lbForgotPassword.TabIndex = 15;
@@ -167,8 +170,7 @@
             // 
             this.Appearance.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbForgotPassword);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -181,7 +183,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCLogin";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(718, 660);
             ((System.ComponentModel.ISupportInitialize)(this.errorUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPassword)).EndInit();
             this.ResumeLayout(false);

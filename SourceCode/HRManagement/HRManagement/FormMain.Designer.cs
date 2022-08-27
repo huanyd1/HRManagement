@@ -93,7 +93,7 @@
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
-            this.accordionControl1.Size = new System.Drawing.Size(360, 680);
+            this.accordionControl1.Size = new System.Drawing.Size(364, 680);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -374,9 +374,9 @@
             // panelSelect
             // 
             this.panelSelect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSelect.Location = new System.Drawing.Point(360, 39);
+            this.panelSelect.Location = new System.Drawing.Point(364, 39);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(918, 680);
+            this.panelSelect.Size = new System.Drawing.Size(914, 680);
             this.panelSelect.TabIndex = 3;
             // 
             // FormMain

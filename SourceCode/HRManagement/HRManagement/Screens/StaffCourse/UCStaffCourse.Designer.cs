@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCStaffCourse));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.lbCourse = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtStaffName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,12 +73,13 @@
             this.tablePanel1.Controls.Add(this.panel1);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 30F)});
-            this.tablePanel1.Size = new System.Drawing.Size(907, 688);
+            this.tablePanel1.Size = new System.Drawing.Size(1058, 847);
             this.tablePanel1.TabIndex = 4;
             // 
             // panel3
@@ -90,27 +91,38 @@
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 88);
+            this.panel3.Location = new System.Drawing.Point(4, 108);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(901, 79);
+            this.panel3.Size = new System.Drawing.Size(1051, 97);
             this.panel3.TabIndex = 2;
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Location = new System.Drawing.Point(282, 53);
+            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(220, 23);
+            this.txtStaffName.TabIndex = 16;
             // 
             // cbCourse
             // 
             this.cbCourse.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCourse.FormattingEnabled = true;
-            this.cbCourse.Location = new System.Drawing.Point(463, 43);
+            this.cbCourse.Location = new System.Drawing.Point(540, 53);
+            this.cbCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCourse.Name = "cbCourse";
-            this.cbCourse.Size = new System.Drawing.Size(189, 21);
+            this.cbCourse.Size = new System.Drawing.Size(220, 24);
             this.cbCourse.TabIndex = 14;
             // 
             // lbCourse
             // 
             this.lbCourse.AutoSize = true;
             this.lbCourse.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCourse.Location = new System.Drawing.Point(459, 15);
+            this.lbCourse.Location = new System.Drawing.Point(536, 18);
+            this.lbCourse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCourse.Name = "lbCourse";
-            this.lbCourse.Size = new System.Drawing.Size(72, 17);
+            this.lbCourse.Size = new System.Drawing.Size(90, 22);
             this.lbCourse.TabIndex = 13;
             this.lbCourse.Text = "Khóa học";
             // 
@@ -118,9 +130,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(239, 15);
+            this.label3.Location = new System.Drawing.Point(279, 18);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 17);
+            this.label3.Size = new System.Drawing.Size(140, 22);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tên nhân viên";
             // 
@@ -129,9 +142,10 @@
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(662, 32);
+            this.btnSearch.Location = new System.Drawing.Point(772, 39);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(115, 35);
+            this.btnSearch.Size = new System.Drawing.Size(134, 43);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -141,28 +155,33 @@
             this.btnExport.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Appearance.Options.UseFont = true;
             this.btnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.ImageOptions.Image")));
-            this.btnExport.Location = new System.Drawing.Point(783, 32);
+            this.btnExport.Location = new System.Drawing.Point(913, 39);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(115, 35);
+            this.btnExport.Size = new System.Drawing.Size(134, 43);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.gStaffCourse);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 173);
+            this.panel2.Location = new System.Drawing.Point(4, 213);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(901, 512);
+            this.panel2.Size = new System.Drawing.Size(1051, 630);
             this.panel2.TabIndex = 1;
             // 
             // gStaffCourse
             // 
             this.gStaffCourse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gStaffCourse.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gStaffCourse.Location = new System.Drawing.Point(0, 0);
             this.gStaffCourse.MainView = this.gvStaffCourse;
+            this.gStaffCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gStaffCourse.Name = "gStaffCourse";
-            this.gStaffCourse.Size = new System.Drawing.Size(901, 512);
+            this.gStaffCourse.Size = new System.Drawing.Size(1051, 630);
             this.gStaffCourse.TabIndex = 4;
             this.gStaffCourse.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvStaffCourse});
@@ -177,6 +196,7 @@
             this.CourseName,
             this.Point,
             this.Result});
+            this.gvStaffCourse.DetailHeight = 431;
             this.gvStaffCourse.GridControl = this.gStaffCourse;
             this.gvStaffCourse.Name = "gvStaffCourse";
             this.gvStaffCourse.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -187,65 +207,71 @@
             // 
             this.IDStaff.Caption = "Mã Nhân Viên";
             this.IDStaff.FieldName = "IDStaff";
-            this.IDStaff.MinWidth = 25;
+            this.IDStaff.MinWidth = 29;
             this.IDStaff.Name = "IDStaff";
             this.IDStaff.Visible = true;
             this.IDStaff.VisibleIndex = 1;
-            this.IDStaff.Width = 94;
+            this.IDStaff.Width = 110;
             // 
             // StaffName
             // 
             this.StaffName.Caption = "Tên Nhân Viên";
             this.StaffName.FieldName = "StaffName";
-            this.StaffName.MinWidth = 25;
+            this.StaffName.MinWidth = 29;
             this.StaffName.Name = "StaffName";
             this.StaffName.Visible = true;
             this.StaffName.VisibleIndex = 2;
-            this.StaffName.Width = 94;
+            this.StaffName.Width = 110;
             // 
             // IDStaffCourse
             // 
             this.IDStaffCourse.Caption = "Mã Nhân Viên - Khóa học";
             this.IDStaffCourse.FieldName = "IDStaffCourse";
-            this.IDStaffCourse.MinWidth = 25;
+            this.IDStaffCourse.MinWidth = 29;
             this.IDStaffCourse.Name = "IDStaffCourse";
             this.IDStaffCourse.Visible = true;
             this.IDStaffCourse.VisibleIndex = 0;
-            this.IDStaffCourse.Width = 94;
+            this.IDStaffCourse.Width = 110;
             // 
             // IDCourse
             // 
             this.IDCourse.Caption = "Mã Khóa Học";
             this.IDCourse.FieldName = "IDCourse";
-            this.IDCourse.MinWidth = 25;
+            this.IDCourse.MinWidth = 29;
             this.IDCourse.Name = "IDCourse";
             this.IDCourse.Visible = true;
             this.IDCourse.VisibleIndex = 3;
-            this.IDCourse.Width = 94;
+            this.IDCourse.Width = 110;
             // 
             // CourseName
             // 
             this.CourseName.Caption = "Tên Khóa Học";
             this.CourseName.FieldName = "CourseName";
+            this.CourseName.MinWidth = 23;
             this.CourseName.Name = "CourseName";
             this.CourseName.Visible = true;
             this.CourseName.VisibleIndex = 4;
+            this.CourseName.Width = 87;
             // 
             // Point
             // 
             this.Point.Caption = "Điểm số";
             this.Point.FieldName = "Point";
+            this.Point.MinWidth = 23;
             this.Point.Name = "Point";
             this.Point.Visible = true;
             this.Point.VisibleIndex = 5;
+            this.Point.Width = 87;
             // 
             // Result
             // 
             this.Result.Caption = "Kết quả";
             this.Result.FieldName = "Result";
+            this.Result.MinWidth = 23;
             this.Result.Name = "Result";
             this.Result.Visible = true;
             this.Result.VisibleIndex = 6;
+            this.Result.Width = 87;
             // 
             // panel1
             // 
@@ -255,9 +281,10 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 79);
+            this.panel1.Size = new System.Drawing.Size(1051, 97);
             this.panel1.TabIndex = 0;
             // 
             // btnInfo
@@ -265,9 +292,10 @@
             this.btnInfo.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfo.Appearance.Options.UseFont = true;
             this.btnInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.Image")));
-            this.btnInfo.Location = new System.Drawing.Point(420, 41);
+            this.btnInfo.Location = new System.Drawing.Point(490, 50);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(115, 35);
+            this.btnInfo.Size = new System.Drawing.Size(134, 43);
             this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Xem CT";
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
@@ -277,9 +305,10 @@
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(783, 41);
+            this.btnDelete.Location = new System.Drawing.Point(913, 50);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 35);
+            this.btnDelete.Size = new System.Drawing.Size(134, 43);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -290,9 +319,10 @@
             this.btnEdit.Appearance.Options.UseFont = true;
             this.btnEdit.Enabled = false;
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
-            this.btnEdit.Location = new System.Drawing.Point(662, 41);
+            this.btnEdit.Location = new System.Drawing.Point(772, 50);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(115, 35);
+            this.btnEdit.Size = new System.Drawing.Size(134, 43);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Chỉnh sửa";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -302,9 +332,10 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(541, 41);
+            this.btnAdd.Location = new System.Drawing.Point(631, 50);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(115, 35);
+            this.btnAdd.Size = new System.Drawing.Size(134, 43);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm mới";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -313,9 +344,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 15);
+            this.label1.Location = new System.Drawing.Point(20, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 21);
+            this.label1.Size = new System.Drawing.Size(348, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Nhân viên - Khóa học";
             // 
@@ -323,20 +355,14 @@
             // 
             this.gridView1.Name = "gridView1";
             // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Location = new System.Drawing.Point(242, 43);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(189, 21);
-            this.txtStaffName.TabIndex = 16;
-            // 
             // UCStaffCourse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCStaffCourse";
-            this.Size = new System.Drawing.Size(907, 688);
+            this.Size = new System.Drawing.Size(1058, 847);
             this.Load += new System.EventHandler(this.UCStaffCourse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);

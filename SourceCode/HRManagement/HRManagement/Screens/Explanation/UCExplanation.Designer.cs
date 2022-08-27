@@ -87,6 +87,7 @@
             this.gvExplanation.GridControl = this.gExplanation;
             this.gvExplanation.Name = "gvExplanation";
             this.gvExplanation.OptionsView.ShowGroupPanel = false;
+            this.gvExplanation.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvExplanation_CustomColumnDisplayText);
             // 
             // IDTime
             // 

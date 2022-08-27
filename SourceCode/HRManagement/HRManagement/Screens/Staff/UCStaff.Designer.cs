@@ -61,10 +61,10 @@
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -146,7 +146,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 21);
+            this.label1.Size = new System.Drawing.Size(216, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Nhân viên";
             // 
@@ -349,7 +349,7 @@
             this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDStaff.Location = new System.Drawing.Point(247, 44);
             this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(190, 20);
+            this.txtIDStaff.Size = new System.Drawing.Size(190, 23);
             this.txtIDStaff.TabIndex = 11;
             // 
             // label3
@@ -358,7 +358,7 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(244, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 17);
+            this.label3.Size = new System.Drawing.Size(140, 22);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tên nhân viên";
             // 
@@ -384,6 +384,7 @@
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label2
             // 
@@ -391,7 +392,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
+            this.label2.Size = new System.Drawing.Size(100, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Phòng ban";
             // 
@@ -413,6 +414,33 @@
             this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
+            // cbDepartment
+            // 
+            this.cbDepartment.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(29, 46);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(190, 23);
+            this.cbDepartment.TabIndex = 14;
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffName.Location = new System.Drawing.Point(467, 44);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(190, 23);
+            this.txtStaffName.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(465, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 22);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Tên nhân viên";
+            // 
             // tablePanel1
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
@@ -429,33 +457,6 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 30F)});
             this.tablePanel1.Size = new System.Drawing.Size(907, 688);
             this.tablePanel1.TabIndex = 3;
-            // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(467, 44);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(190, 20);
-            this.txtStaffName.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(465, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Tên nhân viên";
-            // 
-            // cbDepartment
-            // 
-            this.cbDepartment.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(29, 46);
-            this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(190, 20);
-            this.cbDepartment.TabIndex = 14;
             // 
             // UCStaff
             // 

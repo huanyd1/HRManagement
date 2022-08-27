@@ -67,9 +67,9 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 27);
+            this.label1.Size = new System.Drawing.Size(372, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "BẢNG CÔNG CHI TIẾT THÁNG";
+            this.label1.Text = "Danh sách Nhân viên - Khóa học";
             // 
             // panel1
             // 
@@ -243,7 +243,7 @@
             this.gridColumn2.MinWidth = 23;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.VisibleIndex = 0;
             this.gridColumn2.Width = 87;
             // 
             // Point
@@ -253,7 +253,7 @@
             this.Point.MinWidth = 23;
             this.Point.Name = "Point";
             this.Point.Visible = true;
-            this.Point.VisibleIndex = 3;
+            this.Point.VisibleIndex = 1;
             this.Point.Width = 87;
             // 
             // Result
@@ -263,7 +263,7 @@
             this.Result.MinWidth = 23;
             this.Result.Name = "Result";
             this.Result.Visible = true;
-            this.Result.VisibleIndex = 4;
+            this.Result.VisibleIndex = 2;
             this.Result.Width = 87;
             // 
             // UCStaffCourse

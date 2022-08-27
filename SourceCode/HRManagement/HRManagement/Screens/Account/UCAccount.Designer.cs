@@ -135,6 +135,7 @@
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label6
             // 

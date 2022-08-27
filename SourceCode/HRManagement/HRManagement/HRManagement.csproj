@@ -473,6 +473,7 @@
   <ItemGroup>
     <None Include="Resources\hr.jpg" />
     <None Include="Resources\banner.jpg" />
+    <None Include="Resources\banner1.jpg" />
     <Content Include="Template\AddStaff.html" />
     <Content Include="Template\ResetPassword.html" />
     <Content Include="Template\Salary.html" />

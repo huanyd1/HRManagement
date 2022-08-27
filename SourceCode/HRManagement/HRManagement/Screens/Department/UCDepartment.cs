@@ -1,9 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,7 +43,15 @@ namespace HRManagement.Screens.Department
         private void UCDepartment_Load(object sender, EventArgs e)
         {
             LoadDepartmentStatus();
-            LoadAllDepartment(); 
+            LoadAllDepartment();
+            gvDepartment.RowCellStyle += (sen, evt) =>
+            {
+                GridView view = sender as GridView;
+                if (evt.Column.FieldName == "Status")
+                {
+                    evt.Appearance.BackColor = (string)evt.CellValue == "1" ? Color.LightGreen : Color.IndianRed;
+                }
+            };
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -120,6 +131,27 @@ namespace HRManagement.Screens.Department
                     }
                 }
             }
+        }
+
+        private void gvDepartment_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            ColumnView view = sender as ColumnView;
+            if (e.Column.FieldName == "Status" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            {
+                string currencyType = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Status").ToString();
+                switch (currencyType)
+                {
+                    case "0": e.DisplayText = "Không hoạt động"; break;
+                    case "1": e.DisplayText = "Hoạt động"; break;
+                }
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string path = "output.xlsx";
+            gDepartment.ExportToXlsx(path);
+            Process.Start(path);
         }
     }
 }

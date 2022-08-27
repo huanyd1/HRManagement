@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -138,6 +139,13 @@ namespace HRManagement.Screens.StaffCourse
 
             StaffCourseDAO dao = new StaffCourseDAO();
             gStaffCourse.DataSource = dao.GetAllCourseByFilter(staffName, idCourse);
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string path = "output.xlsx";
+            gStaffCourse.ExportToXlsx(path);
+            Process.Start(path);
         }
     }
 }

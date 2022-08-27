@@ -91,10 +91,10 @@
             this.panel3.Controls.Add(this.txtIDDepartment);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(2, 70);
+            this.panel3.Location = new System.Drawing.Point(3, 88);
             this.panel3.Name = "panel3";
             this.tablePanel1.SetRow(this.panel3, 1);
-            this.panel3.Size = new System.Drawing.Size(721, 63);
+            this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
             // cbStatus
@@ -103,7 +103,7 @@
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(450, 44);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(190, 20);
+            this.cbStatus.Size = new System.Drawing.Size(190, 23);
             this.cbStatus.TabIndex = 12;
             // 
             // txtDepartmentName
@@ -111,7 +111,7 @@
             this.txtDepartmentName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepartmentName.Location = new System.Drawing.Point(240, 44);
             this.txtDepartmentName.Name = "txtDepartmentName";
-            this.txtDepartmentName.Size = new System.Drawing.Size(190, 20);
+            this.txtDepartmentName.Size = new System.Drawing.Size(190, 23);
             this.txtDepartmentName.TabIndex = 10;
             // 
             // btnSearch
@@ -136,6 +136,7 @@
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label6
             // 
@@ -143,7 +144,7 @@
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(447, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 17);
+            this.label6.Size = new System.Drawing.Size(110, 22);
             this.label6.TabIndex = 6;
             this.label6.Text = "Trạng thái";
             // 
@@ -153,7 +154,7 @@
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(237, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 17);
+            this.label5.Size = new System.Drawing.Size(140, 22);
             this.label5.TabIndex = 4;
             this.label5.Text = "Tên phòng ban";
             // 
@@ -162,7 +163,7 @@
             this.txtIDDepartment.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDDepartment.Location = new System.Drawing.Point(29, 44);
             this.txtIDDepartment.Name = "txtIDDepartment";
-            this.txtIDDepartment.Size = new System.Drawing.Size(190, 20);
+            this.txtIDDepartment.Size = new System.Drawing.Size(190, 23);
             this.txtIDDepartment.TabIndex = 3;
             // 
             // label2
@@ -171,7 +172,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.Size = new System.Drawing.Size(130, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã phòng ban";
             // 
@@ -180,10 +181,10 @@
             this.tablePanel1.SetColumn(this.panel2, 0);
             this.panel2.Controls.Add(this.gDepartment);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(2, 138);
+            this.panel2.Location = new System.Drawing.Point(3, 173);
             this.panel2.Name = "panel2";
             this.tablePanel1.SetRow(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(721, 410);
+            this.panel2.Size = new System.Drawing.Size(901, 512);
             this.panel2.TabIndex = 1;
             // 
             // gDepartment
@@ -192,7 +193,7 @@
             this.gDepartment.Location = new System.Drawing.Point(0, 0);
             this.gDepartment.MainView = this.gvDepartment;
             this.gDepartment.Name = "gDepartment";
-            this.gDepartment.Size = new System.Drawing.Size(721, 410);
+            this.gDepartment.Size = new System.Drawing.Size(901, 512);
             this.gDepartment.TabIndex = 4;
             this.gDepartment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDepartment});
@@ -206,6 +207,7 @@
             this.gvDepartment.GridControl = this.gDepartment;
             this.gvDepartment.Name = "gvDepartment";
             this.gvDepartment.OptionsView.ShowGroupPanel = false;
+            this.gvDepartment.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvDepartment_CustomColumnDisplayText);
             // 
             // IDDepartment
             // 
@@ -305,7 +307,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 21);
+            this.label1.Size = new System.Drawing.Size(216, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Phòng ban";
             // 

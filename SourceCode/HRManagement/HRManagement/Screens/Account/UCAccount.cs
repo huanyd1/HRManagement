@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -99,6 +100,13 @@ namespace HRManagement.Screens.Account
                 editAccount.IdStaff = idStaff;
                 editAccount.Show();
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string path = "output.xlsx";
+            gAccount.ExportToXlsx(path);
+            Process.Start(path);
         }
     }
 }
