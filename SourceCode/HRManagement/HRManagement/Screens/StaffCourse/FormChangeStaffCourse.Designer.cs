@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChangeStaffCourse));
-            this.txtStaffName = new System.Windows.Forms.TextBox();
-            this.txtIDStaff = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.errorTax = new System.Windows.Forms.ErrorProvider(this.components);
@@ -41,37 +38,12 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.label3 = new System.Windows.Forms.Label();
             this.cbCourse = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.cbIDStaff = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorAllowance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCourse.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(138, 75);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(241, 20);
-            this.txtStaffName.TabIndex = 50;
-            // 
-            // txtIDStaff
-            // 
-            this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDStaff.Location = new System.Drawing.Point(138, 26);
-            this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(241, 20);
-            this.txtIDStaff.TabIndex = 49;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 15);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Tên nhân viên:";
             // 
             // label1
             // 
@@ -137,16 +109,22 @@
             this.cbCourse.Size = new System.Drawing.Size(241, 20);
             this.cbCourse.TabIndex = 52;
             // 
+            // cbIDStaff
+            // 
+            this.cbIDStaff.FormattingEnabled = true;
+            this.cbIDStaff.Location = new System.Drawing.Point(138, 27);
+            this.cbIDStaff.Name = "cbIDStaff";
+            this.cbIDStaff.Size = new System.Drawing.Size(241, 21);
+            this.cbIDStaff.TabIndex = 54;
+            // 
             // FormChangeStaffCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 238);
+            this.Controls.Add(this.cbIDStaff);
             this.Controls.Add(this.cbCourse);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtStaffName);
-            this.Controls.Add(this.txtIDStaff);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -163,10 +141,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtStaffName;
-        private System.Windows.Forms.TextBox txtIDStaff;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private System.Windows.Forms.ErrorProvider errorTax;
@@ -175,5 +149,6 @@
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private System.Windows.Forms.ErrorProvider errorAllowance;
         private System.Windows.Forms.ErrorProvider errorAmount;
+        private System.Windows.Forms.ComboBox cbIDStaff;
     }
 }

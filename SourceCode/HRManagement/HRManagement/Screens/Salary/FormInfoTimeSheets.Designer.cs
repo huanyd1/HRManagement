@@ -83,7 +83,7 @@
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(14, 165);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 15);
+            this.label6.Size = new System.Drawing.Size(88, 18);
             this.label6.TabIndex = 54;
             this.label6.Text = "Ngày công:";
             // 
@@ -93,7 +93,7 @@
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(300, 137);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 15);
+            this.label5.Size = new System.Drawing.Size(32, 18);
             this.label5.TabIndex = 53;
             this.label5.Text = "VNĐ";
             // 
@@ -101,9 +101,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 110);
+            this.label2.Location = new System.Drawing.Point(14, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 15);
+            this.label2.Size = new System.Drawing.Size(120, 18);
             this.label2.TabIndex = 46;
             this.label2.Text = "Thu nhập HĐTV:";
             // 
@@ -113,7 +113,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 15);
+            this.label1.Size = new System.Drawing.Size(120, 18);
             this.label1.TabIndex = 45;
             this.label1.Text = "Thu nhập HĐCT:";
             // 
@@ -123,7 +123,7 @@
             this.label4.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(14, 137);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 15);
+            this.label4.Size = new System.Drawing.Size(112, 18);
             this.label4.TabIndex = 51;
             this.label4.Text = "Lương cơ bản:";
             // 
@@ -131,9 +131,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(300, 110);
+            this.label9.Location = new System.Drawing.Point(300, 111);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 15);
+            this.label9.Size = new System.Drawing.Size(32, 18);
             this.label9.TabIndex = 60;
             this.label9.Text = "VNĐ";
             // 
@@ -141,9 +141,9 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(300, 86);
+            this.label10.Location = new System.Drawing.Point(300, 87);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(25, 15);
+            this.label10.Size = new System.Drawing.Size(32, 18);
             this.label10.TabIndex = 61;
             this.label10.Text = "VNĐ";
             // 
@@ -153,7 +153,7 @@
             this.label11.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(14, 52);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 15);
+            this.label11.Size = new System.Drawing.Size(176, 17);
             this.label11.TabIndex = 62;
             this.label11.Text = "A. Thông tin thu nhập";
             // 
@@ -163,7 +163,7 @@
             this.label12.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(14, 196);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 15);
+            this.label12.Size = new System.Drawing.Size(128, 17);
             this.label12.TabIndex = 63;
             this.label12.Text = "B. Tổng thu (I)";
             // 
@@ -171,9 +171,9 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(14, 218);
+            this.label16.Location = new System.Drawing.Point(14, 219);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(127, 15);
+            this.label16.Size = new System.Drawing.Size(168, 17);
             this.label16.TabIndex = 80;
             this.label16.Text = "I. Các khoản phụ cấp";
             // 
@@ -181,9 +181,9 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(300, 247);
+            this.label23.Location = new System.Drawing.Point(300, 248);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(25, 15);
+            this.label23.Size = new System.Drawing.Size(32, 18);
             this.label23.TabIndex = 92;
             this.label23.Text = "VNĐ";
             // 
@@ -193,7 +193,7 @@
             this.label24.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(300, 276);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(25, 15);
+            this.label24.Size = new System.Drawing.Size(32, 18);
             this.label24.TabIndex = 91;
             this.label24.Text = "VNĐ";
             // 
@@ -203,7 +203,7 @@
             this.label25.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(300, 328);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(25, 15);
+            this.label25.Size = new System.Drawing.Size(32, 18);
             this.label25.TabIndex = 90;
             this.label25.Text = "VNĐ";
             // 
@@ -213,7 +213,7 @@
             this.label26.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(14, 328);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(37, 15);
+            this.label26.Size = new System.Drawing.Size(48, 18);
             this.label26.TabIndex = 88;
             this.label26.Text = "Khác:";
             // 
@@ -221,9 +221,9 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(300, 302);
+            this.label27.Location = new System.Drawing.Point(300, 303);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(25, 15);
+            this.label27.Size = new System.Drawing.Size(32, 18);
             this.label27.TabIndex = 87;
             this.label27.Text = "VNĐ";
             // 
@@ -233,7 +233,7 @@
             this.label28.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(14, 276);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(73, 15);
+            this.label28.Size = new System.Drawing.Size(96, 18);
             this.label28.TabIndex = 82;
             this.label28.Text = "Điện thoại:";
             // 
@@ -241,9 +241,9 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(14, 247);
+            this.label29.Location = new System.Drawing.Point(14, 248);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(43, 15);
+            this.label29.Size = new System.Drawing.Size(56, 18);
             this.label29.TabIndex = 81;
             this.label29.Text = "Ăn ca:";
             // 
@@ -251,9 +251,9 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(14, 302);
+            this.label30.Location = new System.Drawing.Point(14, 303);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(55, 15);
+            this.label30.Size = new System.Drawing.Size(72, 18);
             this.label30.TabIndex = 85;
             this.label30.Text = "Xăng xe:";
             // 
@@ -263,7 +263,7 @@
             this.label31.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(14, 360);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(97, 15);
+            this.label31.Size = new System.Drawing.Size(128, 17);
             this.label31.TabIndex = 93;
             this.label31.Text = "C. Tổng chi (I)";
             // 
@@ -273,7 +273,7 @@
             this.label32.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(300, 416);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(25, 15);
+            this.label32.Size = new System.Drawing.Size(32, 18);
             this.label32.TabIndex = 105;
             this.label32.Text = "VNĐ";
             // 
@@ -281,9 +281,9 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(300, 442);
+            this.label33.Location = new System.Drawing.Point(300, 443);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(25, 15);
+            this.label33.Size = new System.Drawing.Size(32, 18);
             this.label33.TabIndex = 104;
             this.label33.Text = "VNĐ";
             // 
@@ -293,7 +293,7 @@
             this.label34.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(300, 533);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(25, 15);
+            this.label34.Size = new System.Drawing.Size(32, 18);
             this.label34.TabIndex = 103;
             this.label34.Text = "VNĐ";
             // 
@@ -303,7 +303,7 @@
             this.label35.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(14, 533);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(67, 15);
+            this.label35.Size = new System.Drawing.Size(88, 18);
             this.label35.TabIndex = 101;
             this.label35.Text = "Thực lĩnh:";
             // 
@@ -313,7 +313,7 @@
             this.label36.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(300, 469);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(25, 15);
+            this.label36.Size = new System.Drawing.Size(32, 18);
             this.label36.TabIndex = 100;
             this.label36.Text = "VNĐ";
             // 
@@ -321,9 +321,9 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(14, 442);
+            this.label37.Location = new System.Drawing.Point(14, 443);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(91, 15);
+            this.label37.Size = new System.Drawing.Size(120, 18);
             this.label37.TabIndex = 95;
             this.label37.Text = "Quỹ công đoàn:";
             // 
@@ -333,7 +333,7 @@
             this.label38.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(14, 416);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(79, 15);
+            this.label38.Size = new System.Drawing.Size(104, 18);
             this.label38.TabIndex = 94;
             this.label38.Text = "Các loại BH:";
             // 
@@ -343,7 +343,7 @@
             this.label39.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(14, 469);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(67, 15);
+            this.label39.Size = new System.Drawing.Size(88, 18);
             this.label39.TabIndex = 98;
             this.label39.Text = "Thuế TNCN:";
             // 
@@ -351,9 +351,9 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(14, 386);
+            this.label40.Location = new System.Drawing.Point(14, 387);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(133, 15);
+            this.label40.Size = new System.Drawing.Size(176, 17);
             this.label40.TabIndex = 106;
             this.label40.Text = "I. Các khoản phải nộp";
             // 
@@ -363,18 +363,18 @@
             this.label41.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.Location = new System.Drawing.Point(14, 504);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(85, 15);
+            this.label41.Size = new System.Drawing.Size(112, 17);
             this.label41.TabIndex = 107;
             this.label41.Text = "II. Thực lĩnh";
             // 
             // txtThuNhapHDCT
             // 
             this.txtThuNhapHDCT.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThuNhapHDCT.Location = new System.Drawing.Point(111, 81);
+            this.txtThuNhapHDCT.Location = new System.Drawing.Point(89, 65);
             this.txtThuNhapHDCT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThuNhapHDCT.MaxLength = 12;
             this.txtThuNhapHDCT.Name = "txtThuNhapHDCT";
-            this.txtThuNhapHDCT.Size = new System.Drawing.Size(183, 20);
+            this.txtThuNhapHDCT.Size = new System.Drawing.Size(146, 18);
             this.txtThuNhapHDCT.TabIndex = 102;
             this.txtThuNhapHDCT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtThuNhapHDCT.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -382,11 +382,11 @@
             // txtTNHDTV
             // 
             this.txtTNHDTV.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTNHDTV.Location = new System.Drawing.Point(111, 105);
+            this.txtTNHDTV.Location = new System.Drawing.Point(89, 84);
             this.txtTNHDTV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTNHDTV.MaxLength = 12;
             this.txtTNHDTV.Name = "txtTNHDTV";
-            this.txtTNHDTV.Size = new System.Drawing.Size(183, 20);
+            this.txtTNHDTV.Size = new System.Drawing.Size(146, 18);
             this.txtTNHDTV.TabIndex = 108;
             this.txtTNHDTV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTNHDTV.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -394,11 +394,11 @@
             // txtLuongCB
             // 
             this.txtLuongCB.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLuongCB.Location = new System.Drawing.Point(111, 132);
+            this.txtLuongCB.Location = new System.Drawing.Point(89, 106);
             this.txtLuongCB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLuongCB.MaxLength = 12;
             this.txtLuongCB.Name = "txtLuongCB";
-            this.txtLuongCB.Size = new System.Drawing.Size(183, 20);
+            this.txtLuongCB.Size = new System.Drawing.Size(146, 18);
             this.txtLuongCB.TabIndex = 109;
             this.txtLuongCB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtLuongCB.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -406,22 +406,22 @@
             // txtNgayCong
             // 
             this.txtNgayCong.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayCong.Location = new System.Drawing.Point(111, 162);
+            this.txtNgayCong.Location = new System.Drawing.Point(89, 130);
             this.txtNgayCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNgayCong.MaxLength = 12;
             this.txtNgayCong.Name = "txtNgayCong";
-            this.txtNgayCong.Size = new System.Drawing.Size(183, 20);
+            this.txtNgayCong.Size = new System.Drawing.Size(146, 18);
             this.txtNgayCong.TabIndex = 110;
             this.txtNgayCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtAnCa
             // 
             this.txtAnCa.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnCa.Location = new System.Drawing.Point(111, 244);
+            this.txtAnCa.Location = new System.Drawing.Point(89, 196);
             this.txtAnCa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAnCa.MaxLength = 12;
             this.txtAnCa.Name = "txtAnCa";
-            this.txtAnCa.Size = new System.Drawing.Size(183, 20);
+            this.txtAnCa.Size = new System.Drawing.Size(146, 18);
             this.txtAnCa.TabIndex = 116;
             this.txtAnCa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAnCa.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -429,11 +429,11 @@
             // txtDienThoai
             // 
             this.txtDienThoai.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDienThoai.Location = new System.Drawing.Point(111, 273);
+            this.txtDienThoai.Location = new System.Drawing.Point(89, 219);
             this.txtDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDienThoai.MaxLength = 12;
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(183, 20);
+            this.txtDienThoai.Size = new System.Drawing.Size(146, 18);
             this.txtDienThoai.TabIndex = 117;
             this.txtDienThoai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDienThoai.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -441,11 +441,11 @@
             // txtXangXe
             // 
             this.txtXangXe.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtXangXe.Location = new System.Drawing.Point(111, 299);
+            this.txtXangXe.Location = new System.Drawing.Point(89, 240);
             this.txtXangXe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtXangXe.MaxLength = 12;
             this.txtXangXe.Name = "txtXangXe";
-            this.txtXangXe.Size = new System.Drawing.Size(183, 20);
+            this.txtXangXe.Size = new System.Drawing.Size(146, 18);
             this.txtXangXe.TabIndex = 118;
             this.txtXangXe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtXangXe.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -453,11 +453,11 @@
             // txtPhuCapKhac
             // 
             this.txtPhuCapKhac.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhuCapKhac.Location = new System.Drawing.Point(111, 325);
+            this.txtPhuCapKhac.Location = new System.Drawing.Point(89, 260);
             this.txtPhuCapKhac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPhuCapKhac.MaxLength = 12;
             this.txtPhuCapKhac.Name = "txtPhuCapKhac";
-            this.txtPhuCapKhac.Size = new System.Drawing.Size(183, 20);
+            this.txtPhuCapKhac.Size = new System.Drawing.Size(146, 18);
             this.txtPhuCapKhac.TabIndex = 119;
             this.txtPhuCapKhac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPhuCapKhac.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -465,11 +465,11 @@
             // txtCacLoaiBH
             // 
             this.txtCacLoaiBH.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCacLoaiBH.Location = new System.Drawing.Point(111, 413);
+            this.txtCacLoaiBH.Location = new System.Drawing.Point(89, 331);
             this.txtCacLoaiBH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCacLoaiBH.MaxLength = 12;
             this.txtCacLoaiBH.Name = "txtCacLoaiBH";
-            this.txtCacLoaiBH.Size = new System.Drawing.Size(183, 20);
+            this.txtCacLoaiBH.Size = new System.Drawing.Size(146, 18);
             this.txtCacLoaiBH.TabIndex = 120;
             this.txtCacLoaiBH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCacLoaiBH.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -477,11 +477,11 @@
             // txtQuyCD
             // 
             this.txtQuyCD.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuyCD.Location = new System.Drawing.Point(111, 439);
+            this.txtQuyCD.Location = new System.Drawing.Point(89, 352);
             this.txtQuyCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuyCD.MaxLength = 12;
             this.txtQuyCD.Name = "txtQuyCD";
-            this.txtQuyCD.Size = new System.Drawing.Size(183, 20);
+            this.txtQuyCD.Size = new System.Drawing.Size(146, 18);
             this.txtQuyCD.TabIndex = 121;
             this.txtQuyCD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQuyCD.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -489,11 +489,11 @@
             // txtThueTNCN
             // 
             this.txtThueTNCN.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThueTNCN.Location = new System.Drawing.Point(111, 466);
+            this.txtThueTNCN.Location = new System.Drawing.Point(89, 373);
             this.txtThueTNCN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThueTNCN.MaxLength = 12;
             this.txtThueTNCN.Name = "txtThueTNCN";
-            this.txtThueTNCN.Size = new System.Drawing.Size(183, 20);
+            this.txtThueTNCN.Size = new System.Drawing.Size(146, 18);
             this.txtThueTNCN.TabIndex = 122;
             this.txtThueTNCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtThueTNCN.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -501,11 +501,11 @@
             // txtThucLinh
             // 
             this.txtThucLinh.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThucLinh.Location = new System.Drawing.Point(111, 530);
+            this.txtThucLinh.Location = new System.Drawing.Point(89, 424);
             this.txtThucLinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThucLinh.MaxLength = 12;
             this.txtThucLinh.Name = "txtThucLinh";
-            this.txtThucLinh.Size = new System.Drawing.Size(183, 20);
+            this.txtThucLinh.Size = new System.Drawing.Size(146, 18);
             this.txtThucLinh.TabIndex = 123;
             this.txtThucLinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtThucLinh.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -515,31 +515,31 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(205, 571);
+            this.btnCancel.Location = new System.Drawing.Point(164, 457);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 45);
+            this.btnCancel.Size = new System.Drawing.Size(96, 36);
             this.btnCancel.TabIndex = 124;
             this.btnCancel.Text = "Thoát";
             // 
             // txtStaffName
             // 
             this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(111, 23);
+            this.txtStaffName.Location = new System.Drawing.Point(89, 19);
             this.txtStaffName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtStaffName.MaxLength = 12;
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(214, 20);
+            this.txtStaffName.Size = new System.Drawing.Size(171, 18);
             this.txtStaffName.TabIndex = 128;
             this.txtStaffName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtIDStaff
             // 
             this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDStaff.Location = new System.Drawing.Point(111, -1);
+            this.txtIDStaff.Location = new System.Drawing.Point(89, 0);
             this.txtIDStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDStaff.MaxLength = 12;
             this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(214, 20);
+            this.txtIDStaff.Size = new System.Drawing.Size(171, 18);
             this.txtIDStaff.TabIndex = 127;
             this.txtIDStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -549,7 +549,7 @@
             this.label42.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.Location = new System.Drawing.Point(14, 28);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(85, 15);
+            this.label42.Size = new System.Drawing.Size(112, 18);
             this.label42.TabIndex = 126;
             this.label42.Text = "Tên nhân viên";
             // 
@@ -557,9 +557,9 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(14, 2);
+            this.label43.Location = new System.Drawing.Point(14, 3);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(79, 15);
+            this.label43.Size = new System.Drawing.Size(104, 18);
             this.label43.TabIndex = 125;
             this.label43.Text = "Mã nhân viên";
             // 
@@ -567,7 +567,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(338, 628);
+            this.ClientSize = new System.Drawing.Size(359, 649);
             this.Controls.Add(this.txtStaffName);
             this.Controls.Add(this.txtIDStaff);
             this.Controls.Add(this.label42);

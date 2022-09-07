@@ -12,7 +12,7 @@ namespace Model.DAO
     {
         public List<Staff> GetAll()
         {
-            List<Staff> list = _db.Accounts.Where(x => x.Type != "0").Select(x => x.Staff).ToList();
+            List<Staff> list = _db.Accounts.Where(x => x.Type != "0" && x.Type != "2").Select(x => x.Staff).ToList();
 
             return list;
         }
@@ -33,7 +33,7 @@ namespace Model.DAO
 
         public List<Staff> GetStaffByFilter(string idDepartment, string idStaff, string staffName)
         {
-            List<Staff> list = _db.Accounts.Where(x => x.Type != "0").Select(x => x.Staff).ToList();
+            List<Staff> list = _db.Accounts.Where(x => x.Type != "0" && x.Type != "2").Select(x => x.Staff).ToList();
 
             if (!string.IsNullOrEmpty(idDepartment))
             {

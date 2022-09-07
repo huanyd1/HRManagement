@@ -66,6 +66,11 @@ namespace Model.DAO
         {
             var time = _db.GetTimekeepingByMonth(idDepartment, month).Where(x => x.IDStaff == idStaff).Select(x => x.TotalTime).FirstOrDefault();
 
+            if( time == null )
+            {
+                time = 0;
+            }
+
             int totalTime = int.Parse(time.ToString());
 
             return totalTime;

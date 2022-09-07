@@ -34,6 +34,11 @@ namespace HRManagement
         private void FormMain_Load(object sender, EventArgs e)
         {
             btnOption.Caption = "Xin chào, " + InfoStaffCommon.StaffName;
+
+            if (!InfoStaffCommon.IsAdmin)
+            {
+                btnDepartment.Visible = false;
+            }
         }
 
         private void btnDepartment_Click(object sender, EventArgs e)

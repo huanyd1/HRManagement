@@ -91,10 +91,10 @@
             this.panel3.Controls.Add(this.txtIDStaff);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 88);
+            this.panel3.Location = new System.Drawing.Point(4, 110);
             this.panel3.Name = "panel3";
             this.tablePanel1.SetRow(this.panel3, 1);
-            this.panel3.Size = new System.Drawing.Size(901, 79);
+            this.panel3.Size = new System.Drawing.Size(1126, 99);
             this.panel3.TabIndex = 2;
             // 
             // cbContractType
@@ -180,10 +180,10 @@
             this.tablePanel1.SetColumn(this.panel2, 0);
             this.panel2.Controls.Add(this.gAccount);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 173);
+            this.panel2.Location = new System.Drawing.Point(4, 216);
             this.panel2.Name = "panel2";
             this.tablePanel1.SetRow(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(901, 512);
+            this.panel2.Size = new System.Drawing.Size(1126, 640);
             this.panel2.TabIndex = 1;
             // 
             // gAccount
@@ -192,7 +192,7 @@
             this.gAccount.Location = new System.Drawing.Point(0, 0);
             this.gAccount.MainView = this.gvAccount;
             this.gAccount.Name = "gAccount";
-            this.gAccount.Size = new System.Drawing.Size(901, 512);
+            this.gAccount.Size = new System.Drawing.Size(1126, 640);
             this.gAccount.TabIndex = 4;
             this.gAccount.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAccount});
@@ -241,9 +241,9 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1408, 124);
+            this.panel1.Size = new System.Drawing.Size(1126, 99);
             this.panel1.TabIndex = 0;
             // 
             // btnInfo

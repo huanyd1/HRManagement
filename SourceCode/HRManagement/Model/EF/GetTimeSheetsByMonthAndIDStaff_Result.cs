@@ -17,6 +17,7 @@ namespace Model.EF
         public string DepartmentName { get; set; }
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
+        public string Username { get; set; }
         public Nullable<int> Month { get; set; }
         public Nullable<int> TotalTime { get; set; }
         public Nullable<int> SalaryAmount { get; set; }

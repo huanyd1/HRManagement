@@ -61,6 +61,7 @@ namespace HRManagement.Login
             InfoStaffCommon.IsAdmin = type == "0" ? true : false;
             InfoStaffCommon.Position = info.PositionName;
             InfoStaffCommon.Avatar = info.Image;
+            InfoStaffCommon.IDDepartment = info.IDDepartment;
         }
 
 
@@ -82,9 +83,11 @@ namespace HRManagement.Login
             {
                 MessageBox.Show(Model.MessageBoxCommon.AccountError(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);         
             }
-            else if(type == "0")
+            else if(type == "0" || type == "2")
             {
                 var form = ((this.Parent) as Panel).Parent as Form;
+
+                GetAllInfoStaff(idStaff, type);
 
                 FormMain main = new FormMain();
                 main.FormClosed += (sen, evt) =>

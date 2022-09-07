@@ -298,6 +298,7 @@
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Month" ColumnName="Month" />
           <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
           <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />

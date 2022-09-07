@@ -36,8 +36,10 @@ namespace HRManagement.Screens.StaffCourse
         {
             StaffDAO dao = new StaffDAO();
 
-            txtIDStaff.Text = _idStaff;
-            txtStaffName.Text = dao.GetStaffNameByID(_idStaff);
+            cbIDStaff.DataSource = dao.GetAll();
+            cbIDStaff.DisplayMember = "StaffName";
+            cbIDStaff.ValueMember = "IDStaff";
+            cbIDStaff.SelectedValue = _idStaff;
         }
 
         private void LoadAllCourse()
@@ -58,7 +60,9 @@ namespace HRManagement.Screens.StaffCourse
         {
             StaffCourseDAO dao = new StaffCourseDAO();
 
-            List<string> idCourses = dao.GetAllCourseByIDStaff("VP01924");
+            string idStaff = cbIDStaff.SelectedValue.ToString();
+
+            List<string> idCourses = dao.GetAllCourseByIDStaff(idStaff);
 
             List<string> idCourseSelected = new List<string>();
 

@@ -22,40 +22,83 @@ namespace HRManagement.Screens.Salary
             InitializeComponent();
         }
 
+        private void LoadCbDepartment()
+        {
+            DepartmentDAO dao = new DepartmentDAO();
+            cbDepartment.DataSource = dao.GetAll();
+            cbDepartment.DisplayMember = "DepartmentName";
+            cbDepartment.ValueMember = "IDDepartment";
+        }
+
+        private void LoadCbMonth()
+        {
+            for(int i = 0; i <= 12; i++)
+            {
+                string month = "Tháng " + i;
+                cbMonth.Items.Add(month);
+            }
+
+            var _month = DateTime.Now.Month;
+
+            cbMonth.SelectedItem = "Tháng " + _month;
+        }
+
         private void LoadAllInfoTimeSheets()
         {
-            SalaryDAO dao = new SalaryDAO();
-            gTimeSheets.DataSource = dao.GetTimeSheetsByMonth("GTGT", 7);
+            if(cbDepartment.SelectedItem != null)
+            {
+                string idDepartment = cbDepartment.SelectedValue.ToString();
+
+                SalaryDAO dao = new SalaryDAO();
+                gTimeSheets.DataSource = dao.GetTimeSheetsByMonth(idDepartment, int.Parse(cbMonth.SelectedItem.ToString().Replace("Tháng ","")));
+            }
         }
 
         private void UCTimeSheets_Load(object sender, EventArgs e)
         {
+            LoadCbDepartment();
+            LoadCbMonth();
             LoadAllInfoTimeSheets();
             gvTimeSheets.OptionsView.AllowCellMerge = true;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (cbDepartment.SelectedItem != null)
+            {
+                string idDepartment = cbDepartment.SelectedValue.ToString();
+
+                SalaryDAO dao = new SalaryDAO();
+                gTimeSheets.DataSource = dao.GetTimeSheetsByMonth(idDepartment, int.Parse(cbMonth.SelectedItem.ToString().Replace("Tháng ", "")));
+            }
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
             FormInfoTimeSheets infoTimeSheets = new FormInfoTimeSheets();
             infoTimeSheets.Show();
+            MessageBox.Show(DateTime.Now.Year.ToString());
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string idDepartment = cbDepartment.SelectedValue.ToString();
+            int month = int.Parse(cbMonth.SelectedItem.ToString().Replace("Tháng ", ""));
+
             SalaryDAO dao = new SalaryDAO();
-            List<string> lstIDStaff = dao.lstIDStaff("GTGT", 7);
+            List<string> lstIDStaff = dao.lstIDStaff(idDepartment, month);
             int _month = 7;
 
-            var countDay = DateTime.DaysInMonth(2022, _month);
+            var countDay = DateTime.DaysInMonth(DateTime.Now.Year, _month);
             string dayInMonth = countDay.ToString();
-            var endOfMonth = Convert.ToDateTime(string.Format(_month + "/" + dayInMonth + "/" + "2022"));
-            var startOfMonth = Convert.ToDateTime(string.Format(_month + "/" + "01" + "/" + "2022"));
+            var endOfMonth = Convert.ToDateTime(string.Format(_month + "/" + dayInMonth + "/" + DateTime.Now.Year));
+            var startOfMonth = Convert.ToDateTime(string.Format(_month + "/" + "01" + "/" + DateTime.Now.Year));
             _dayInMonth = countWeekDays(startOfMonth, endOfMonth);
 
             foreach (var item in lstIDStaff)
             {
                 //viết lại trả về 1 lần  nhân viên
-                LoadInfoTimeSheets("GTGT", 7, item);
+                LoadInfoTimeSheets(idDepartment, month, item);
             }
         }
 
@@ -84,9 +127,11 @@ namespace HRManagement.Screens.Salary
             List<Model.EF.GetTimeSheetsByMonthAndIDStaff_Result> info = dao.GetTimeSheetsByMonthAndIDStaff(idDepartment, month, idStaff);
 
             int insuranceAmount = 0;
+            string email = "";
             foreach (var item in info)
             {
                 insuranceAmount += int.Parse(item.Amount.ToString());
+                email = item.Username;
             }
 
             _staffName = staff.GetStaffNameByID(idStaff);
@@ -126,7 +171,7 @@ namespace HRManagement.Screens.Salary
             string emailBody = contentEmail;
 
             EmailHelper.SendEmail(Model.AppSettings.EmailHost, Model.AppSettings.EmailPort, Model.AppSettings.FromEmail, Model.AppSettings.PasswordEmail,
-                "chivu424@gmail.com", "Chi tiết thu nhập tháng " + month, emailBody);
+                email, "Chi tiết thu nhập tháng " + month, emailBody);
         }
 
         public static int countWeekDays(DateTime d0, DateTime d1)

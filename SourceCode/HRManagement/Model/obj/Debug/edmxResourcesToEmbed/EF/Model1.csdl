@@ -595,6 +595,7 @@
     <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="Month" Nullable="true" />
     <Property Type="Int32" Name="TotalTime" Nullable="true" />
     <Property Type="Int32" Name="SalaryAmount" Nullable="true" />

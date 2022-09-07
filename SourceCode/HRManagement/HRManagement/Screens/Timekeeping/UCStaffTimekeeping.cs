@@ -92,7 +92,7 @@ namespace HRManagement.Screens.Timekeeping
             dt.Columns.Add("Month");
             dt.Columns.Add("TotalTime");
 
-            int time = dao.totalTime("GTGT", 7, "VP01924");
+            int time = dao.totalTime(InfoStaffCommon.IDDepartment, DateTime.Now.Month, InfoStaffCommon.IDStaff);
 
             DataRow dr = dt.NewRow();
             dr[0] = "Công thực tế";
@@ -109,7 +109,7 @@ namespace HRManagement.Screens.Timekeeping
 
         private void UCStaffTimekeeping_Load(object sender, EventArgs e)
         {
-            LoadTableTimekeeping("VP01924", 7);
+            LoadTableTimekeeping(InfoStaffCommon.IDStaff, DateTime.Now.Month);
             LoadTableTotalTime();
         }
     }

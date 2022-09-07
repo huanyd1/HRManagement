@@ -9,6 +9,7 @@ namespace HRManagement
     public class InfoStaffCommon
     {
         public static string IDStaff = "";
+        public static string IDDepartment = "";
         public static string StaffName = "";
         public static string Role = "";
         public static bool IsAdmin = false;

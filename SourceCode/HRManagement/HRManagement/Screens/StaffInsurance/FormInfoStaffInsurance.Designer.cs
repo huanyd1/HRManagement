@@ -62,17 +62,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(292, 19);
+            this.label3.Location = new System.Drawing.Point(341, 23);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 15);
+            this.label3.Size = new System.Drawing.Size(120, 18);
             this.label3.TabIndex = 56;
             this.label3.Text = "Tên nhân viên:";
             // 
             // txtStaffName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(389, 13);
+            this.txtStaffName.Location = new System.Drawing.Point(454, 16);
+            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(166, 21);
+            this.txtStaffName.Size = new System.Drawing.Size(193, 23);
             this.txtStaffName.TabIndex = 55;
             // 
             // btnCancel
@@ -80,26 +82,29 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(461, 11);
+            this.btnCancel.Location = new System.Drawing.Point(538, 14);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 45);
+            this.btnCancel.Size = new System.Drawing.Size(140, 55);
             this.btnCancel.TabIndex = 50;
             this.btnCancel.Text = "Thoát";
             // 
             // txtIDStaff
             // 
-            this.txtIDStaff.Location = new System.Drawing.Point(108, 13);
+            this.txtIDStaff.Location = new System.Drawing.Point(126, 16);
+            this.txtIDStaff.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(166, 21);
+            this.txtIDStaff.Size = new System.Drawing.Size(193, 23);
             this.txtIDStaff.TabIndex = 54;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 19);
+            this.label2.Location = new System.Drawing.Point(20, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 15);
+            this.label2.Size = new System.Drawing.Size(112, 18);
             this.label2.TabIndex = 53;
             this.label2.Text = "Mã nhân viên:";
             // 
@@ -107,9 +112,10 @@
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 264);
+            this.panel1.Location = new System.Drawing.Point(0, 208);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(598, 66);
+            this.panel1.Size = new System.Drawing.Size(698, 198);
             this.panel1.TabIndex = 53;
             // 
             // errorAllowance
@@ -132,17 +138,20 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(598, 53);
+            this.panel2.Size = new System.Drawing.Size(698, 158);
             this.panel2.TabIndex = 54;
             // 
             // gStaffInsurance
             // 
             this.gStaffInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gStaffInsurance.Location = new System.Drawing.Point(0, 53);
+            this.gStaffInsurance.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gStaffInsurance.Location = new System.Drawing.Point(0, 158);
             this.gStaffInsurance.MainView = this.gvStaffInsurance;
+            this.gStaffInsurance.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffInsurance.Name = "gStaffInsurance";
-            this.gStaffInsurance.Size = new System.Drawing.Size(598, 211);
+            this.gStaffInsurance.Size = new System.Drawing.Size(698, 50);
             this.gStaffInsurance.TabIndex = 55;
             this.gStaffInsurance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvStaffInsurance});
@@ -157,6 +166,7 @@
             this.InsuranceName,
             this.IDInsuranceType,
             this.TypeName});
+            this.gvStaffInsurance.DetailHeight = 431;
             this.gvStaffInsurance.GridControl = this.gStaffInsurance;
             this.gvStaffInsurance.Name = "gvStaffInsurance";
             this.gvStaffInsurance.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -166,74 +176,81 @@
             // 
             this.IDStaff.Caption = "Mã Nhân Viên";
             this.IDStaff.FieldName = "IDStaff";
-            this.IDStaff.MinWidth = 25;
+            this.IDStaff.MinWidth = 29;
             this.IDStaff.Name = "IDStaff";
             this.IDStaff.Visible = true;
             this.IDStaff.VisibleIndex = 1;
-            this.IDStaff.Width = 94;
+            this.IDStaff.Width = 110;
             // 
             // StaffName
             // 
             this.StaffName.Caption = "Tên Nhân Viên";
             this.StaffName.FieldName = "StaffName";
-            this.StaffName.MinWidth = 25;
+            this.StaffName.MinWidth = 29;
             this.StaffName.Name = "StaffName";
             this.StaffName.Visible = true;
             this.StaffName.VisibleIndex = 2;
-            this.StaffName.Width = 94;
+            this.StaffName.Width = 110;
             // 
             // IDStaffInsurance
             // 
             this.IDStaffInsurance.Caption = "Mã Nhân Viên - Bảo hiểm";
             this.IDStaffInsurance.FieldName = "IDStaffInsurance";
-            this.IDStaffInsurance.MinWidth = 25;
+            this.IDStaffInsurance.MinWidth = 29;
             this.IDStaffInsurance.Name = "IDStaffInsurance";
             this.IDStaffInsurance.Visible = true;
             this.IDStaffInsurance.VisibleIndex = 0;
-            this.IDStaffInsurance.Width = 94;
+            this.IDStaffInsurance.Width = 110;
             // 
             // IDInsurance
             // 
             this.IDInsurance.Caption = "Mã Bảo Hiểm";
             this.IDInsurance.FieldName = "IDInsurance";
-            this.IDInsurance.MinWidth = 25;
+            this.IDInsurance.MinWidth = 29;
             this.IDInsurance.Name = "IDInsurance";
             this.IDInsurance.Visible = true;
             this.IDInsurance.VisibleIndex = 3;
-            this.IDInsurance.Width = 94;
+            this.IDInsurance.Width = 110;
             // 
             // InsuranceName
             // 
             this.InsuranceName.Caption = "Tên Bảo Hiểm";
             this.InsuranceName.FieldName = "InsuranceName";
+            this.InsuranceName.MinWidth = 23;
             this.InsuranceName.Name = "InsuranceName";
             this.InsuranceName.Visible = true;
             this.InsuranceName.VisibleIndex = 4;
+            this.InsuranceName.Width = 87;
             // 
             // IDInsuranceType
             // 
             this.IDInsuranceType.Caption = "Mã Loại Bảo Hiểm";
             this.IDInsuranceType.FieldName = "IDInsuranceType";
+            this.IDInsuranceType.MinWidth = 23;
             this.IDInsuranceType.Name = "IDInsuranceType";
             this.IDInsuranceType.Visible = true;
             this.IDInsuranceType.VisibleIndex = 5;
+            this.IDInsuranceType.Width = 87;
             // 
             // TypeName
             // 
             this.TypeName.Caption = "Tên Loại Bảo Hiểm";
             this.TypeName.FieldName = "TypeName";
+            this.TypeName.MinWidth = 23;
             this.TypeName.Name = "TypeName";
             this.TypeName.Visible = true;
             this.TypeName.VisibleIndex = 6;
+            this.TypeName.Width = 87;
             // 
             // FormInfoStaffInsurance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 330);
+            this.ClientSize = new System.Drawing.Size(698, 406);
             this.Controls.Add(this.gStaffInsurance);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInfoStaffInsurance";
             this.Text = "FormInfoStaffInsurance";
             this.Load += new System.EventHandler(this.FormInfoStaffInsurance_Load);
