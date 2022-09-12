@@ -67,10 +67,14 @@ namespace HRManagement.Screens.Staff
             else if (e.Column.FieldName == "Status" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
             {
                 string currencyType = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Status").ToString();
-                switch (currencyType)
+                if(currencyType != null)
                 {
-                    case "0": e.DisplayText = "Ngừng hoạt động"; break;
-                    case "1": e.DisplayText = "Hoạt động"; break;
+                    switch (currencyType)
+                    {
+                        case "0": e.DisplayText = "Ngừng hoạt động"; break;
+                        case "1": e.DisplayText = "Hoạt động"; break;
+                        case null: e.DisplayText = ""; break;
+                    }
                 }
             }
         }

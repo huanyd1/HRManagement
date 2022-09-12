@@ -18,7 +18,14 @@ namespace Model.DAO
 
         public List<AllInfoAccount> GetAllInfoAccounts()
         {
-            List<AllInfoAccount> list = _db.AllInfoAccounts.ToList();
+            List<AllInfoAccount> list = _db.AllInfoAccounts.Where(t=>t.Type == "4").ToList();
+
+            return list;
+        }
+
+        public List<AllInfoAccount> GetInfoAccountsManager()
+        {
+            List<AllInfoAccount> list = _db.AllInfoAccounts.Where(t => t.Type != "4").ToList();
 
             return list;
         }
@@ -51,9 +58,9 @@ namespace Model.DAO
 
         public Account GetSingleByID(string id)
         {
-            Account contract = _db.Accounts.Where(x => x.IDStaff == id).FirstOrDefault();
+            Account account = _db.Accounts.Where(x => x.IDStaff == id).FirstOrDefault();
 
-            return contract;
+            return account;
         }
 
         public bool Add(Account account)
@@ -98,6 +105,30 @@ namespace Model.DAO
 
                 _db.Accounts.Remove(currentAccount);
                 _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool ChangePassword(string idStaff, string oldPass, string newPass)
+        {
+            try
+            {
+                Account currentStaff = GetSingleByID(idStaff);
+
+                if(currentStaff.Password != oldPass)
+                {
+                    return false;
+                }
+                else
+                {
+                    currentStaff.Password = newPass;
+                    _db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {

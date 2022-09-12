@@ -105,10 +105,16 @@ namespace HRManagement.Screens.Timekeeping
                 var query = dao.IsExistTimekeeping(idStaff, newDate);
                 if (query != null)
                 {
-                    if(query.Checkin.ToString() != "12:00:00")
+                    if(query.Checkin.ToString() != "12:00:00" && query.Type != "1")
                     {
                         dr[1] = query.Checkin.ToString() + " - " + query.Checkout.ToString();
                         dr[2] = "Công làm việc: 1.0";
+                    }
+
+                    if(query.Type == "1")
+                    {
+                        dr[1] = "";
+                        dr[2] = "Đã giải trình";
                     }
                 }
                 dr[3] = (query == null ? "" : query.Description);

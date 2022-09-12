@@ -169,3 +169,6 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRMana
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Timekeeping.UCStaffTimekeeping.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Course.UCStaffCourse.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Login.UCForgotPassword.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.ChangePass.FormChangePass.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Account.UCAccountManager.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Account.FormChangeManager.resources

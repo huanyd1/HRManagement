@@ -12,7 +12,7 @@ namespace Model.DAO
     {
         public List<Staff> GetAll()
         {
-            List<Staff> list = _db.Accounts.Where(x => x.Type != "0" && x.Type != "2").Select(x => x.Staff).ToList();
+            List<Staff> list = _db.Accounts.Where(x => x.Type == "4").Select(x => x.Staff).ToList();
 
             return list;
         }
@@ -88,6 +88,21 @@ namespace Model.DAO
             return true;
         }
 
+        public bool AddAdmin(Staff staff)
+        {
+            try
+            {
+                _db.Staffs.Add(staff);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool Edit(Staff staff)
         {
             try
@@ -123,6 +138,23 @@ namespace Model.DAO
                 _db.SaveChanges();
             }
             catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool ChangeAvatar(string idStaff, string filename)
+        {
+            try
+            {
+                Staff currentStaff = GetSingleByID(idStaff);
+
+                currentStaff.Image = filename;
+                _db.SaveChanges();
+            }
+            catch(Exception ex)
             {
                 Model.NotificationCommon.Error(ex.Message);
                 return false;

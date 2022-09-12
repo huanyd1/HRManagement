@@ -183,5 +183,20 @@ namespace HRManagement.Screens.Explanation
                 }
             }
         }
+
+        private void gvExplanation_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+
+            if(gvExplanation.RowCount > 0)
+            {
+                string status = gvExplanation.GetFocusedRowCellValue("Status").ToString();
+
+                if(status == "0")
+                {
+                    btnAgree.Enabled = true;
+                    btnRefuse.Enabled = true;
+                }
+            }
+        }
     }
 }

@@ -170,6 +170,7 @@
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -316,6 +317,7 @@
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="Checkin" ColumnName="Checkin" />
           <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </ComplexTypeMapping>
       </ResultMapping>

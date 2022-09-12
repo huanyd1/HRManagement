@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using HRManagement.ChangePass;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,9 +106,15 @@ namespace HRManagement
             AddToScreen(new Screens.LeaveAbsence.UCLeaveAbsence());
         }
 
+        private void btnAccountManager_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Account.UCAccountManager());
+        }
+
         private void btnChangePass_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            FormChangePass changePass = new FormChangePass();
+            changePass.Show();
         }
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
@@ -116,7 +123,7 @@ namespace HRManagement
 
             FormLogin login = new FormLogin();
             
-            login.ShowDialog();
+            login.Show();
             this.Hide();
         }
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)

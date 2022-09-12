@@ -183,6 +183,7 @@
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="AllInfoContract">
     <Key>
@@ -609,6 +610,7 @@
     <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
     <Property Type="Time" Name="Checkin" Nullable="true" />
     <Property Type="Time" Name="Checkout" Nullable="true" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="1" />
     <Property Type="String" Name="Description" Nullable="true" />
   </ComplexType>
   <ComplexType Name="sp_helpdiagramdefinition_Result">

@@ -17,6 +17,13 @@ namespace Model.DAO
             return list;
         }
 
+        public Timekeeping GetSingleByID(int id)
+        {
+            Timekeeping time = _db.Timekeepings.Where(x => x.IDTime == id).FirstOrDefault();
+
+            return time;
+        }
+
         public Timekeeping GetTimeByIDStaff(string id)
         {
             Timekeeping time = _db.Timekeepings.Where(x => x.IDStaff == id).FirstOrDefault();
@@ -81,6 +88,29 @@ namespace Model.DAO
             try
             {
                 _db.Timekeepings.Add(time);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool AddCheckout(Timekeeping time)
+        {
+            try
+            {
+                Timekeeping currentTime = GetSingleByID(time.IDTime);
+
+                //currentTime.IDTime = time.IDTime;
+                //currentTime.IDStaff = time.IDStaff;
+                //currentTime.Checkin = time.Checkin;
+                currentTime.Checkout = time.Checkout;
+                //currentTime.Type = time.Type;
+                //currentTime.Description = time.Description;
+
                 _db.SaveChanges();
             }
             catch (Exception ex)

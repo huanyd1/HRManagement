@@ -17,6 +17,7 @@ namespace Model.EF
         public string IDStaff { get; set; }
         public Nullable<System.TimeSpan> Checkin { get; set; }
         public Nullable<System.TimeSpan> Checkout { get; set; }
+        public string Type { get; set; }
         public string Description { get; set; }
     }
 }

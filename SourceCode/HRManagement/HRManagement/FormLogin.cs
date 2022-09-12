@@ -25,12 +25,12 @@ namespace HRManagement
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dlg = MessageBox.Show("Bạn thực sự muốn thoát?", "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //DialogResult dlg = MessageBox.Show("Bạn thực sự muốn thoát?", "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (dlg == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            //if (dlg == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
         }
     }
 }

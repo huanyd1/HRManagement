@@ -64,6 +64,7 @@
             this.repositoryItemBreadCrumbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelSelect = new System.Windows.Forms.Panel();
+            this.btnAccountManager = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -196,6 +197,9 @@
             // 
             // btnAccount
             // 
+            this.btnAccount.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnAccountManager});
+            this.btnAccount.Expanded = true;
             this.btnAccount.ImageOptions.Image = global::HRManagement.Properties.Resources.account;
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Text = "Tài khoản";
@@ -379,6 +383,13 @@
             this.panelSelect.Size = new System.Drawing.Size(914, 680);
             this.panelSelect.TabIndex = 3;
             // 
+            // btnAccountManager
+            // 
+            this.btnAccountManager.Name = "btnAccountManager";
+            this.btnAccountManager.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnAccountManager.Text = "Tài khoản quản trị";
+            this.btnAccountManager.Click += new System.EventHandler(this.btnAccountManager_Click);
+            // 
             // FormMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -445,5 +456,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnAccount;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnTimeSheets;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnLeaveAbsence;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnAccountManager;
     }
 }

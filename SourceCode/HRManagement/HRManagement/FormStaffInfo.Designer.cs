@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStaffInfo));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCheckout = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCheckin = new DevExpress.XtraEditors.SimpleButton();
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.btnStaffCourse = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimeSheets = new DevExpress.XtraEditors.SimpleButton();
@@ -51,6 +53,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCheckout);
+            this.panel1.Controls.Add(this.btnCheckin);
             this.panel1.Controls.Add(this.separatorControl2);
             this.panel1.Controls.Add(this.btnStaffCourse);
             this.panel1.Controls.Add(this.btnTimeSheets);
@@ -64,10 +68,34 @@
             this.panel1.Size = new System.Drawing.Size(360, 680);
             this.panel1.TabIndex = 0;
             // 
+            // btnCheckout
+            // 
+            this.btnCheckout.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.Appearance.Options.UseFont = true;
+            this.btnCheckout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.ImageOptions.Image")));
+            this.btnCheckout.Location = new System.Drawing.Point(180, 432);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(162, 35);
+            this.btnCheckout.TabIndex = 14;
+            this.btnCheckout.Text = "Chấm về";
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
+            // 
+            // btnCheckin
+            // 
+            this.btnCheckin.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckin.Appearance.Options.UseFont = true;
+            this.btnCheckin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckin.ImageOptions.Image")));
+            this.btnCheckin.Location = new System.Drawing.Point(12, 432);
+            this.btnCheckin.Name = "btnCheckin";
+            this.btnCheckin.Size = new System.Drawing.Size(162, 35);
+            this.btnCheckin.TabIndex = 13;
+            this.btnCheckin.Text = "Chấm vào";
+            this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
+            // 
             // separatorControl2
             // 
             this.separatorControl2.LineThickness = 3;
-            this.separatorControl2.Location = new System.Drawing.Point(3, 445);
+            this.separatorControl2.Location = new System.Drawing.Point(3, 478);
             this.separatorControl2.Name = "separatorControl2";
             this.separatorControl2.Size = new System.Drawing.Size(337, 23);
             this.separatorControl2.TabIndex = 12;
@@ -77,7 +105,7 @@
             this.btnStaffCourse.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStaffCourse.Appearance.Options.UseFont = true;
             this.btnStaffCourse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStaffCourse.ImageOptions.Image")));
-            this.btnStaffCourse.Location = new System.Drawing.Point(12, 516);
+            this.btnStaffCourse.Location = new System.Drawing.Point(12, 549);
             this.btnStaffCourse.Name = "btnStaffCourse";
             this.btnStaffCourse.Size = new System.Drawing.Size(328, 35);
             this.btnStaffCourse.TabIndex = 11;
@@ -89,7 +117,7 @@
             this.btnTimeSheets.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimeSheets.Appearance.Options.UseFont = true;
             this.btnTimeSheets.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimeSheets.ImageOptions.Image")));
-            this.btnTimeSheets.Location = new System.Drawing.Point(12, 475);
+            this.btnTimeSheets.Location = new System.Drawing.Point(12, 508);
             this.btnTimeSheets.Name = "btnTimeSheets";
             this.btnTimeSheets.Size = new System.Drawing.Size(328, 35);
             this.btnTimeSheets.TabIndex = 10;
@@ -139,6 +167,7 @@
             this.btnChangeAvatar.Name = "btnChangeAvatar";
             this.btnChangeAvatar.Size = new System.Drawing.Size(22, 25);
             this.btnChangeAvatar.TabIndex = 3;
+            this.btnChangeAvatar.Click += new System.EventHandler(this.btnChangeAvatar_Click);
             // 
             // lbPosition
             // 
@@ -229,5 +258,7 @@
         private DevExpress.XtraEditors.SimpleButton btnTimeSheets;
         private System.Windows.Forms.Panel panelSelect;
         private DevExpress.XtraEditors.SimpleButton btnChangeAvatar;
+        private DevExpress.XtraEditors.SimpleButton btnCheckout;
+        private DevExpress.XtraEditors.SimpleButton btnCheckin;
     }
 }

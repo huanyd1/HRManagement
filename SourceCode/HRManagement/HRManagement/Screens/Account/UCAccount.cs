@@ -86,8 +86,6 @@ namespace HRManagement.Screens.Account
                 username, account.Password);
                 SendEmailForgotPass(username, "Thông tin tài khoản " + username, content);
             }
-
-
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

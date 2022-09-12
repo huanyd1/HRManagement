@@ -157,6 +157,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoAccount' does not have a p
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
     <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="char" MaxLength="1" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'HRManagement.dbo.AllInfoContract' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -470,7 +471,8 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
       <DefiningQuery>SELECT 
 [AllInfoAccount].[IDStaff] AS [IDStaff], 
 [AllInfoAccount].[StaffName] AS [StaffName], 
-[AllInfoAccount].[Username] AS [Username]
+[AllInfoAccount].[Username] AS [Username], 
+[AllInfoAccount].[Type] AS [Type]
 FROM [dbo].[AllInfoAccount] AS [AllInfoAccount]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="AllInfoContract" EntityType="Self.AllInfoContract" store:Type="Views" store:Schema="dbo">

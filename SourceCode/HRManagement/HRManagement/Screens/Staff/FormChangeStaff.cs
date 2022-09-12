@@ -362,6 +362,7 @@ namespace HRManagement.Screens.Staff
             account.IDStaff = txtIDStaff.Text;
             account.Username = txtEmail.Text;
             account.Password = Model.ResetPassword.RandomString(6);
+            account.Type = "4";
 
             return account;
         }
