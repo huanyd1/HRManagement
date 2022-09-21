@@ -234,6 +234,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EarningsReport" FunctionName="HRManagementModel.Store.EarningsReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.EarningsReport_Result">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GetAllInfoByIDStaff" FunctionName="HRManagementModel.Store.GetAllInfoByIDStaff">
       <ResultMapping>
         <ComplexTypeMapping TypeName="HRManagementModel.GetAllInfoByIDStaff_Result">

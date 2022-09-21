@@ -44,6 +44,9 @@
             this.btnLeaveAbsence = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnStaff = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnAccount = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnAccountManager = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
@@ -64,7 +67,6 @@
             this.repositoryItemBreadCrumbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemBreadCrumbEdit();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelSelect = new System.Windows.Forms.Panel();
-            this.btnAccountManager = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -88,7 +90,9 @@
             this.btnCourse,
             this.btnTimekeeping,
             this.btnStaff,
-            this.btnAccount});
+            this.btnAccount,
+            this.accordionControlSeparator1,
+            this.btnReport});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl1.Name = "accordionControl1";
@@ -204,6 +208,24 @@
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Text = "Tài khoản";
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
+            // 
+            // btnAccountManager
+            // 
+            this.btnAccountManager.Name = "btnAccountManager";
+            this.btnAccountManager.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnAccountManager.Text = "Tài khoản quản trị";
+            this.btnAccountManager.Click += new System.EventHandler(this.btnAccountManager_Click);
+            // 
+            // accordionControlSeparator1
+            // 
+            this.accordionControlSeparator1.Name = "accordionControlSeparator1";
+            // 
+            // btnReport
+            // 
+            this.btnReport.ImageOptions.Image = global::HRManagement.Properties.Resources.report1;
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Text = "Báo cáo";
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -383,13 +405,6 @@
             this.panelSelect.Size = new System.Drawing.Size(914, 680);
             this.panelSelect.TabIndex = 3;
             // 
-            // btnAccountManager
-            // 
-            this.btnAccountManager.Name = "btnAccountManager";
-            this.btnAccountManager.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnAccountManager.Text = "Tài khoản quản trị";
-            this.btnAccountManager.Click += new System.EventHandler(this.btnAccountManager_Click);
-            // 
             // FormMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -457,5 +472,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnTimeSheets;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnLeaveAbsence;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnAccountManager;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnReport;
     }
 }

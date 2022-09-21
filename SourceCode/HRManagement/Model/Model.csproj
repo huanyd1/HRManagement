@@ -94,6 +94,7 @@
     <Compile Include="DAO\InsuranceTypeDAO.cs" />
     <Compile Include="DAO\LeaveAbsenceDAO.cs" />
     <Compile Include="DAO\PositionDAO.cs" />
+    <Compile Include="DAO\ReportDAO.cs" />
     <Compile Include="DAO\SalaryDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\StaffInsuranceDAO.cs" />
@@ -130,6 +131,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Department.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EarningsReport_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\GetAllInfoByIDStaff_Result.cs">

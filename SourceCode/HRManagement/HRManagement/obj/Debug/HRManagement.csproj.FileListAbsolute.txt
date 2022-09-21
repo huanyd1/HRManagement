@@ -172,3 +172,14 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRMana
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.ChangePass.FormChangePass.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Account.UCAccountManager.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Account.FormChangeManager.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.WinForms.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.Wpf.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.pdb
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.xml
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.WinForms.pdb
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.WinForms.xml
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.Wpf.pdb
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCharts.Wpf.xml
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCReport.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCEarningsReport.resources

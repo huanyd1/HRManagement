@@ -491,6 +491,7 @@
       <End Role="Staff" EntitySet="Staffs" />
       <End Role="StaffCourse" EntitySet="StaffCourses" />
     </AssociationSet>
+    <FunctionImport Name="EarningsReport" ReturnType="Collection(HRManagementModel.EarningsReport_Result)" />
     <FunctionImport Name="GetAllInfoByIDStaff" ReturnType="Collection(HRManagementModel.GetAllInfoByIDStaff_Result)">
       <Parameter Name="IDStaff" Mode="In" Type="String" />
     </FunctionImport>
@@ -545,6 +546,10 @@
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
+  <ComplexType Name="EarningsReport_Result">
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+  </ComplexType>
   <ComplexType Name="GetAllInfoByIDStaff_Result">
     <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />

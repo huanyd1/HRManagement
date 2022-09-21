@@ -402,6 +402,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EarningsReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="GetAllInfoByIDStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDStaff" Type="varchar" Mode="In" />
@@ -1083,6 +1084,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="StaffCourse" EntitySet="StaffCourses" />
           </AssociationSet>
+          <FunctionImport Name="EarningsReport" ReturnType="Collection(HRManagementModel.EarningsReport_Result)" />
           <FunctionImport Name="GetAllInfoByIDStaff" ReturnType="Collection(HRManagementModel.GetAllInfoByIDStaff_Result)">
             <Parameter Name="IDStaff" Mode="In" Type="String" />
           </FunctionImport>
@@ -1137,6 +1139,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <ComplexType Name="EarningsReport_Result">
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="GetAllInfoByIDStaff_Result">
           <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
@@ -1455,6 +1461,14 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EarningsReport" FunctionName="HRManagementModel.Store.EarningsReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRManagementModel.EarningsReport_Result">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetAllInfoByIDStaff" FunctionName="HRManagementModel.Store.GetAllInfoByIDStaff">
             <ResultMapping>
               <ComplexTypeMapping TypeName="HRManagementModel.GetAllInfoByIDStaff_Result">

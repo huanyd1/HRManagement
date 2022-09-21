@@ -50,6 +50,11 @@ namespace Model.EF
         public DbSet<AllInfoStaffCourse> AllInfoStaffCourses { get; set; }
         public DbSet<AllInfoStaffInsurance> AllInfoStaffInsurances { get; set; }
     
+        public virtual ObjectResult<EarningsReport_Result> EarningsReport()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<EarningsReport_Result>("EarningsReport");
+        }
+    
         public virtual ObjectResult<GetAllInfoByIDStaff_Result> GetAllInfoByIDStaff(string iDStaff)
         {
             var iDStaffParameter = iDStaff != null ?

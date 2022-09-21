@@ -111,6 +111,11 @@ namespace HRManagement
             AddToScreen(new Screens.Account.UCAccountManager());
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.Report.UCReport());
+        }
+
         private void btnChangePass_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormChangePass changePass = new FormChangePass();
