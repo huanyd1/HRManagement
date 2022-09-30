@@ -15,5 +15,12 @@ namespace Model.DAO
 
             return results;
         }
+
+        public List<StaffVolatility_Result> GetStaffVolatility(int year)
+        {
+            List<StaffVolatility_Result> results = _db.StaffVolatility(year).ToList();
+
+            return results;
+        }
     }
 }

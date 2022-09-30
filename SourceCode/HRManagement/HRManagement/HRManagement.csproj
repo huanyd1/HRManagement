@@ -278,6 +278,12 @@
     <Compile Include="Screens\Report\UCReport.Designer.cs">
       <DependentUpon>UCReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Report\UCStaffVolatility.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Report\UCStaffVolatility.Designer.cs">
+      <DependentUpon>UCStaffVolatility.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Salary\ChangeSalary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Report\UCReport.resx">
       <DependentUpon>UCReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Report\UCStaffVolatility.resx">
+      <DependentUpon>UCStaffVolatility.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Salary\ChangeSalary.resx">
       <DependentUpon>ChangeSalary.cs</DependentUpon>

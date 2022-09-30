@@ -545,6 +545,9 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="StaffVolatility" ReturnType="Collection(HRManagementModel.StaffVolatility_Result)">
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="EarningsReport_Result">
     <Property Type="Int32" Name="Total" Nullable="true" />
@@ -628,5 +631,9 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="StaffVolatility_Result">
+    <Property Type="String" Name="JOININGMONTH" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="TOTAL" Nullable="true" />
   </ComplexType>
 </Schema>

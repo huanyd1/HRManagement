@@ -231,5 +231,14 @@ namespace Model.EF
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<StaffVolatility_Result> StaffVolatility(Nullable<int> year)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StaffVolatility_Result>("StaffVolatility", yearParameter);
+        }
     }
 }

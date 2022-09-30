@@ -20,7 +20,7 @@ namespace HRManagement.Screens.Report
 
         private void UCReport_Load(object sender, EventArgs e)
         {
-            pnReport.Controls.Add(new Screens.Report.UCEarningsReport());
+            pnReport.Controls.Add(new Screens.Report.UCStaffVolatility());
         }
     }
 }

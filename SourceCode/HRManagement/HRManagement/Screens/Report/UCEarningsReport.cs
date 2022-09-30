@@ -34,7 +34,6 @@ namespace HRManagement.Screens.Report
               string.Format("{0} ({1:P})", chartPoint.X, chartPoint.Participation);
 
             ReportDAO dao = new ReportDAO();
-            ColumnSeries column = new ColumnSeries();
             var result = dao.GetEarningsReport();
 
             var value = new ChartValues<double>();
@@ -49,6 +48,8 @@ namespace HRManagement.Screens.Report
 
             foreach (var item in result)
             {
+                ColumnSeries column = new ColumnSeries();
+
                 value.Add(double.Parse(item.Total.ToString()));
                 column.Title = item.SalaryAmount.ToString();
                 column.Values = value;
