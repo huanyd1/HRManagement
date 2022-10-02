@@ -82,7 +82,7 @@ namespace HRManagement.Screens.Contract
 
             if (dao.IsExitContractType(txtTypeName.Text))
             {
-                DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(contractTypeName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExistVariable(contractTypeName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)
                 {
                     if (dao.Add(type))

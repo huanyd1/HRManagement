@@ -84,6 +84,7 @@
     <Compile Include="ActionCommon.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="CheckVariableCommon.cs" />
+    <Compile Include="DAO\AcademicDAO.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ContractDAO.cs" />
@@ -93,13 +94,18 @@
     <Compile Include="DAO\InsuranceDAO.cs" />
     <Compile Include="DAO\InsuranceTypeDAO.cs" />
     <Compile Include="DAO\LeaveAbsenceDAO.cs" />
+    <Compile Include="DAO\NationDAO.cs" />
     <Compile Include="DAO\PositionDAO.cs" />
     <Compile Include="DAO\ReportDAO.cs" />
     <Compile Include="DAO\SalaryDAO.cs" />
+    <Compile Include="DAO\SpecializeDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\StaffInsuranceDAO.cs" />
     <Compile Include="DAO\TimekeepingDAO.cs" />
     <Compile Include="DAO\StaffCourseDAO.cs" />
+    <Compile Include="EF\AcademicLevel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -175,10 +181,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EF\Nation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Position.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Salary.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Specialize.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
@@ -203,6 +215,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Timekeeping.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TotalStaffByDepartment_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">

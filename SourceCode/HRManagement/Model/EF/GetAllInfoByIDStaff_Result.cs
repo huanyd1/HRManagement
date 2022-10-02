@@ -21,6 +21,14 @@ namespace Model.EF
         public string Numberphone { get; set; }
         public string Email { get; set; }
         public string CCCD { get; set; }
+        public Nullable<System.DateTime> DateRange { get; set; }
+        public string IssueBy { get; set; }
+        public Nullable<int> IDNation { get; set; }
+        public string NationName { get; set; }
+        public Nullable<int> IDAcademic { get; set; }
+        public string AcademicName { get; set; }
+        public Nullable<int> IDSpecialize { get; set; }
+        public string SpecializeName { get; set; }
         public string Image { get; set; }
         public string IDDepartment { get; set; }
         public string DepartmentName { get; set; }
@@ -29,6 +37,7 @@ namespace Model.EF
         public string NumberContract { get; set; }
         public string TypeName { get; set; }
         public Nullable<int> SalaryAmount { get; set; }
+        public Nullable<double> Coefficient { get; set; }
         public Nullable<int> Allowance { get; set; }
         public Nullable<int> Tax { get; set; }
         public string IDPosition { get; set; }

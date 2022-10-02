@@ -143,7 +143,7 @@ namespace HRManagement.Screens.Department
             {
                 if (dao.IsExitDepartment(txtDepartmentName.Text))
                 {
-                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(departmentName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExistVariable(departmentName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if(dialog == DialogResult.Yes)
                     {
                         if (dao.Add(department))

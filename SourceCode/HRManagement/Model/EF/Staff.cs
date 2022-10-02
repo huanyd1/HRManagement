@@ -28,6 +28,11 @@ namespace Model.EF
         public Nullable<System.DateTime> Birthday { get; set; }
         public string Place { get; set; }
         public string CCCD { get; set; }
+        public Nullable<System.DateTime> DateRange { get; set; }
+        public string IssueBy { get; set; }
+        public Nullable<int> IDNation { get; set; }
+        public Nullable<int> IDAcademic { get; set; }
+        public Nullable<int> IDSpecialize { get; set; }
         public string Image { get; set; }
         public string Numberphone { get; set; }
         public string Email { get; set; }
@@ -40,12 +45,15 @@ namespace Model.EF
         public Nullable<int> Remain { get; set; }
         public string Status { get; set; }
     
+        public virtual AcademicLevel AcademicLevel { get; set; }
         public virtual Account Account { get; set; }
         public virtual Contract Contract { get; set; }
         public virtual Department Department { get; set; }
         public virtual ICollection<LeaveAbsence> LeaveAbsences { get; set; }
+        public virtual Nation Nation { get; set; }
         public virtual Position Position { get; set; }
         public virtual Salary Salary { get; set; }
+        public virtual Specialize Specialize { get; set; }
         public virtual StaffCourse StaffCourse { get; set; }
         public virtual ICollection<StaffInsurance> StaffInsurances { get; set; }
         public virtual ICollection<Timekeeping> Timekeepings { get; set; }

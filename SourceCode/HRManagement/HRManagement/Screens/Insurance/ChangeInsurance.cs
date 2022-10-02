@@ -158,7 +158,7 @@ namespace HRManagement.Screens.Insurance
             {
                 if (dao.IsExitInsurance(txtInsuranceName.Text))
                 {
-                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(insuranceName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExistVariable(insuranceName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialog == DialogResult.Yes)
                     {
                         if (dao.Add(insurance))

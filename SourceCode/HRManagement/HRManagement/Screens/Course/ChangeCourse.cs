@@ -142,7 +142,7 @@ namespace HRManagement.Screens.Course
             {
                 if (dao.IsExitCourse(txtCourseName.Text))
                 {
-                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(courseName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExistVariable(courseName), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialog == DialogResult.Yes)
                     {
                         if (dao.Add(course))

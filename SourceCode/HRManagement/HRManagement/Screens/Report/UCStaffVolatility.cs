@@ -37,7 +37,6 @@ namespace HRManagement.Screens.Report
 
             foreach (var item in results)
             {
-
                 pieChart1.Series.Add(new PieSeries
                 {
                     Title = item.JOININGMONTH.ToString(),
@@ -45,7 +44,6 @@ namespace HRManagement.Screens.Report
                     DataLabels = true,
                     LabelPoint = labelPoint,
                 });
-
             }
 
             pieChart1.LegendLocation = LegendLocation.Bottom;
@@ -54,14 +52,6 @@ namespace HRManagement.Screens.Report
         private void UCStaffVolatility_Load(object sender, EventArgs e)
         {
             LoadStaffVolatility();
-        }
-
-        public bool CheckIfAlphabet(string salDesc)
-        {
-            Regex objAlphaPattern = new Regex(@"^[0-9.]*$");
-
-            return objAlphaPattern.IsMatch(salDesc);
-
         }
     }
 }

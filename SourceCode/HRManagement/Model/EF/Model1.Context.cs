@@ -28,6 +28,7 @@ namespace Model.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<AcademicLevel> AcademicLevels { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<ContractType> ContractTypes { get; set; }
@@ -36,8 +37,10 @@ namespace Model.EF
         public DbSet<Insurance> Insurances { get; set; }
         public DbSet<InsuranceType> InsuranceTypes { get; set; }
         public DbSet<LeaveAbsence> LeaveAbsences { get; set; }
+        public DbSet<Nation> Nations { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Salary> Salaries { get; set; }
+        public DbSet<Specialize> Specializes { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<StaffCourse> StaffCourses { get; set; }
         public DbSet<StaffInsurance> StaffInsurances { get; set; }
@@ -239,6 +242,11 @@ namespace Model.EF
                 new ObjectParameter("Year", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StaffVolatility_Result>("StaffVolatility", yearParameter);
+        }
+    
+        public virtual ObjectResult<TotalStaffByDepartment_Result> TotalStaffByDepartment()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TotalStaffByDepartment_Result>("TotalStaffByDepartment");
         }
     }
 }

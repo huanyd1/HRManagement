@@ -22,5 +22,13 @@ namespace Model.DAO
 
             return results;
         }
+
+        public List<TotalStaffByDepartment_Result> GetTotalStaffByDepartment()
+        {
+            List<TotalStaffByDepartment_Result> results = _db.TotalStaffByDepartment().ToList();
+
+            return results;
+        }
+
     }
 }

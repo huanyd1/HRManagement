@@ -93,14 +93,13 @@ namespace HRManagement.Screens.Report
                 Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("IndianRed"),
             });
 
-            //cartesianChart1.AxisY.Add(new Axis
-            //{
-            //    Separator = new LiveCharts.Wpf.Separator { Step = 1 },
-            //    Title = "Số lượng",
-            //});
+            cartesianChart1.AxisY.Add(new Axis
+            {
+                Separator = new LiveCharts.Wpf.Separator { Step = 1 },
+                Title = "Số lượng",
+            });
 
             cartesianChart1.DataTooltip = null;
-            //cartesianChart1.DataTooltip.selec = LiveCharts.TooltipSelectionMode.OnlySender;
 
             cartesianChart1.Series = series ;
         }

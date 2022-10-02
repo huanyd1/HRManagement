@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="HRManagementModelStoreContainer" CdmEntityContainer="HRManagementEntities">
+    <EntitySetMapping Name="AcademicLevels">
+      <EntityTypeMapping TypeName="HRManagementModel.AcademicLevel">
+        <MappingFragment StoreEntitySet="AcademicLevel">
+          <ScalarProperty Name="IDAcademic" ColumnName="IDAcademic" />
+          <ScalarProperty Name="AcademicName" ColumnName="AcademicName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="HRManagementModel.Account">
         <MappingFragment StoreEntitySet="Account">
@@ -78,6 +86,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Nations">
+      <EntityTypeMapping TypeName="HRManagementModel.Nation">
+        <MappingFragment StoreEntitySet="Nation">
+          <ScalarProperty Name="IDNation" ColumnName="IDNation" />
+          <ScalarProperty Name="NationName" ColumnName="NationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Positions">
       <EntityTypeMapping TypeName="HRManagementModel.Position">
         <MappingFragment StoreEntitySet="Position">
@@ -92,8 +108,17 @@
         <MappingFragment StoreEntitySet="Salary">
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
           <ScalarProperty Name="Allowance" ColumnName="Allowance" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specializes">
+      <EntityTypeMapping TypeName="HRManagementModel.Specialize">
+        <MappingFragment StoreEntitySet="Specialize">
+          <ScalarProperty Name="IDSpecialize" ColumnName="IDSpecialize" />
+          <ScalarProperty Name="SpecializeName" ColumnName="SpecializeName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -106,6 +131,11 @@
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Place" ColumnName="Place" />
           <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="DateRange" ColumnName="DateRange" />
+          <ScalarProperty Name="IssueBy" ColumnName="IssueBy" />
+          <ScalarProperty Name="IDNation" ColumnName="IDNation" />
+          <ScalarProperty Name="IDAcademic" ColumnName="IDAcademic" />
+          <ScalarProperty Name="IDSpecialize" ColumnName="IDSpecialize" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -253,6 +283,14 @@
           <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="DateRange" ColumnName="DateRange" />
+          <ScalarProperty Name="IssueBy" ColumnName="IssueBy" />
+          <ScalarProperty Name="IDNation" ColumnName="IDNation" />
+          <ScalarProperty Name="NationName" ColumnName="NationName" />
+          <ScalarProperty Name="IDAcademic" ColumnName="IDAcademic" />
+          <ScalarProperty Name="AcademicName" ColumnName="AcademicName" />
+          <ScalarProperty Name="IDSpecialize" ColumnName="IDSpecialize" />
+          <ScalarProperty Name="SpecializeName" ColumnName="SpecializeName" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
@@ -261,6 +299,7 @@
           <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
           <ScalarProperty Name="TypeName" ColumnName="TypeName" />
           <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
           <ScalarProperty Name="Allowance" ColumnName="Allowance" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
           <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
@@ -360,6 +399,16 @@
         <ComplexTypeMapping TypeName="HRManagementModel.StaffVolatility_Result">
           <ScalarProperty Name="JOININGMONTH" ColumnName="JOININGMONTH" />
           <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TotalStaffByDepartment" FunctionName="HRManagementModel.Store.TotalStaffByDepartment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.TotalStaffByDepartment_Result">
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+          <ScalarProperty Name="Nữ" ColumnName="Nữ" />
+          <ScalarProperty Name="Tổng" ColumnName="Tổng" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -31,10 +31,10 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnReport = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbContractType = new System.Windows.Forms.ComboBox();
+            this.cbReport = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnReport = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -53,7 +53,7 @@
             this.tablePanel1.Controls.Add(this.pnReport);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85F),
@@ -64,7 +64,7 @@
             // panel1
             // 
             this.tablePanel1.SetColumn(this.panel1, 0);
-            this.panel1.Controls.Add(this.cbContractType);
+            this.panel1.Controls.Add(this.cbReport);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,6 +73,36 @@
             this.tablePanel1.SetRow(this.panel1, 0);
             this.panel1.Size = new System.Drawing.Size(901, 79);
             this.panel1.TabIndex = 2;
+            // 
+            // cbReport
+            // 
+            this.cbReport.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbReport.FormattingEnabled = true;
+            this.cbReport.Location = new System.Drawing.Point(541, 41);
+            this.cbReport.Name = "cbReport";
+            this.cbReport.Size = new System.Drawing.Size(190, 20);
+            this.cbReport.TabIndex = 14;
+            this.cbReport.SelectedValueChanged += new System.EventHandler(this.cbReport_SelectedValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(380, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Loại hợp đồng";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = " Báo cáo";
             // 
             // pnReport
             // 
@@ -83,35 +113,6 @@
             this.tablePanel1.SetRow(this.pnReport, 1);
             this.pnReport.Size = new System.Drawing.Size(901, 597);
             this.pnReport.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = " Báo cáo";
-            // 
-            // cbContractType
-            // 
-            this.cbContractType.Font = new System.Drawing.Font("Cascadia Code", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbContractType.FormattingEnabled = true;
-            this.cbContractType.Location = new System.Drawing.Point(541, 41);
-            this.cbContractType.Name = "cbContractType";
-            this.cbContractType.Size = new System.Drawing.Size(190, 23);
-            this.cbContractType.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(380, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 22);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Loại hợp đồng";
             // 
             // UCReport
             // 
@@ -138,7 +139,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnReport;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbContractType;
+        private System.Windows.Forms.ComboBox cbReport;
         private System.Windows.Forms.Label label6;
     }
 }

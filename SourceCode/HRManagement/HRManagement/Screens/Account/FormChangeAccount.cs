@@ -109,7 +109,7 @@ namespace HRManagement.Screens.Account
 
             if (dao.IsExitAccount(txtEmail.Text))
             {
-                DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(email), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExistVariable(email), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)
                 {
                     if (dao.Edit(account))

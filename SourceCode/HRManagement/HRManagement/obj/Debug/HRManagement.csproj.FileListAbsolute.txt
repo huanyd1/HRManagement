@@ -184,3 +184,4 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\LiveCh
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCReport.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCEarningsReport.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCStaffVolatility.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCTotalStaff.resources

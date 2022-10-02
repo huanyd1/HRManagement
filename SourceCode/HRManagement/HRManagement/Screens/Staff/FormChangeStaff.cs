@@ -31,6 +31,7 @@ namespace HRManagement.Screens.Staff
         private readonly string salaryNumber = "Lương";
         private readonly string allowance = "Phụ cấp";
         private readonly string tax = "Thuế TN";
+        private readonly string coefficient = "Hệ số lương";
         private string filename = "";
 
         public FormChangeStaff()
@@ -87,6 +88,32 @@ namespace HRManagement.Screens.Staff
             cbSex.Items.Add("Nữ");
         }
 
+        private void LoadAllAcademicLevel()
+        {
+            AcademicDAO dao = new AcademicDAO();
+
+            cbAcademic.DataSource = dao.GetAll();
+            cbAcademic.DisplayMember = "AcademicName";
+            cbAcademic.ValueMember = "IDAcademic";
+        }
+
+        private void LoadAllSpecialize()
+        {
+            SpecializeDAO dao = new SpecializeDAO();
+
+            cbSpecialize.DataSource = dao.GetAll();
+            cbSpecialize.DisplayMember = "SpecializeName";
+            cbSpecialize.ValueMember = "IDSpecialize";
+        }
+
+        private void LoadAllNation()
+        {
+            NationDAO dao = new NationDAO();    
+            cbNation.DataSource = dao.GetAll();
+            cbNation.DisplayMember = "NationName";
+            cbNation.ValueMember = "IDNation";
+        }
+
         private void LoadAllInfoStaff()
         {
             StaffDAO dao = new StaffDAO();
@@ -99,10 +126,14 @@ namespace HRManagement.Screens.Staff
             cbPosition.SelectedValue = staff.IDPosition;
             dtimeBirthday.Text = staff.Birthday.ToString();
             txtPlace.Text = staff.Place;
+            cbAcademic.SelectedValue = staff.IDAcademic;
+            cbSpecialize.SelectedValue = staff.IDSpecialize;
 
             //Thông tin Chi tiết
             txtEmail.Text = staff.Email;
             txtCCCD.Text = staff.CCCD;
+            dtimeDateRange.Text = staff.DateRange.ToString();
+            txtIssueBy.Text = staff.IssueBy.ToString();
             cbSex.SelectedText = staff.Sex == "1" ? "Nam" : "Nữ";
             txtPhonenumber.Text = staff.Numberphone;
 
@@ -116,10 +147,16 @@ namespace HRManagement.Screens.Staff
             //Thông tin Lương
             txtSalaryAmount.Text = staff.SalaryAmount.ToString();
             txtAllowance.Text = staff.Allowance.ToString();
+            txtCoefficient.Text = staff.Coefficient.Value.ToString();
             txtTax.Text = staff.Tax.ToString();
 
             //Avatar
-            picbAvatar.Image = Image.FromFile(Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10)) + "\\Resource\\Upload\\" + staff.Image);
+            try
+            {
+                picbAvatar.Image = Image.FromFile(Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10)) + "\\Resource\\Upload\\" + staff.Image);
+
+            }
+            catch(Exception ex) { picbAvatar.Image = null;}
         }
 
         private void FormChangeStaff_Load(object sender, EventArgs e)
@@ -128,6 +165,7 @@ namespace HRManagement.Screens.Staff
             txtIDStaff.Focus();
 
             dtimeBirthday.Properties.Mask.UseMaskAsDisplayFormat = true;
+            dtimeDateRange.Properties.Mask.UseMaskAsDisplayFormat = true;
             dtimeStartDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             dtimeEndDate.Properties.Mask.UseMaskAsDisplayFormat = true;
 
@@ -135,6 +173,9 @@ namespace HRManagement.Screens.Staff
             LoadAllPosition();
             LoadAllSex();
             LoadAllContractType();
+            LoadAllAcademicLevel();
+            LoadAllSpecialize();
+            LoadAllNation();
 
             if (!_isAdd)
             {
@@ -181,6 +222,7 @@ namespace HRManagement.Screens.Staff
 
                 cbSex.SelectedText = "Nam";
                 dtimeBirthday.Text = DateTime.Now.ToString();
+                dtimeDateRange.Text = DateTime.Now.ToString();
                 dtimeStartDate.Text = DateTime.Now.ToString();
                 dtimeEndDate.Text = DateTime.Now.ToString();
             }
@@ -319,6 +361,13 @@ namespace HRManagement.Screens.Staff
 
             staff.Email = txtEmail.Text;
             staff.CCCD = txtCCCD.Text;
+            staff.DateRange = DateTime.Parse(dtimeDateRange.Text.ToString());
+            staff.IssueBy = txtIssueBy.Text;
+
+            staff.IDNation = int.Parse(cbNation.SelectedValue.ToString());
+            staff.IDAcademic = int.Parse(cbAcademic.SelectedValue.ToString());
+            staff.IDSpecialize = int.Parse(cbSpecialize.SelectedValue.ToString());
+
             staff.Sex = cbSex.Text == "Nam" ? "1" : "0";
             staff.Numberphone = txtPhonenumber.Text;
 
@@ -352,6 +401,17 @@ namespace HRManagement.Screens.Staff
             salary.SalaryAmount = int.Parse(txtSalaryAmount.Text);
             salary.Allowance = int.Parse(txtAllowance.Text);
             salary.Tax = int.Parse(txtTax.Text);
+
+            try
+            {
+                salary.Coefficient = double.Parse(txtCoefficient.Text.ToString());
+                errorCoefficient.SetError(txtCoefficient, null);
+            }
+            catch (Exception ex)
+            {
+                errorCoefficient.SetError(txtCoefficient, Model.CheckVariableCommon.NullVariable(coefficient));
+                return null;
+            }
 
             return salary;
         }
@@ -401,7 +461,7 @@ namespace HRManagement.Screens.Staff
             {
                 if (dao.IsExitStaff(txtCCCD.Text))
                 {
-                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExitVariable(cccd), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialog = MessageBox.Show(Model.MessageBoxCommon.IsExistVariable(cccd), "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialog == DialogResult.Yes)
                     {
                         if (dao.Add(staff, contract, salary, account))
@@ -489,5 +549,6 @@ namespace HRManagement.Screens.Staff
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

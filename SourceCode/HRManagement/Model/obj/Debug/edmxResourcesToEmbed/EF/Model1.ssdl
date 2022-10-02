@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HRManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AcademicLevel">
+    <Key>
+      <PropertyRef Name="IDAcademic" />
+    </Key>
+    <Property Name="IDAcademic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AcademicName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Account">
     <Key>
       <PropertyRef Name="IDStaff" />
@@ -69,6 +76,13 @@
     <Property Name="Descript" Type="nvarchar(max)" />
     <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
+  <EntityType Name="Nation">
+    <Key>
+      <PropertyRef Name="IDNation" />
+    </Key>
+    <Property Name="IDNation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NationName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Position">
     <Key>
       <PropertyRef Name="IDPosition" />
@@ -83,8 +97,16 @@
     </Key>
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="SalaryAmount" Type="int" />
+    <Property Name="Coefficient" Type="float" />
     <Property Name="Allowance" Type="int" />
     <Property Name="Tax" Type="int" />
+  </EntityType>
+  <EntityType Name="Specialize">
+    <Key>
+      <PropertyRef Name="IDSpecialize" />
+    </Key>
+    <Property Name="IDSpecialize" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpecializeName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Staff">
     <Key>
@@ -96,6 +118,11 @@
     <Property Name="Birthday" Type="date" />
     <Property Name="Place" Type="nvarchar" MaxLength="100" />
     <Property Name="CCCD" Type="varchar" MaxLength="20" />
+    <Property Name="DateRange" Type="date" />
+    <Property Name="IssueBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDNation" Type="int" />
+    <Property Name="IDAcademic" Type="int" />
+    <Property Name="IDSpecialize" Type="int" />
     <Property Name="Image" Type="varchar(max)" />
     <Property Name="Numberphone" Type="varchar" MaxLength="12" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
@@ -301,6 +328,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Staff_AcademicLevel">
+    <End Role="AcademicLevel" Type="Self.AcademicLevel" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AcademicLevel">
+        <PropertyRef Name="IDAcademic" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDAcademic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Staff_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -313,6 +352,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Staff_Nation">
+    <End Role="Nation" Type="Self.Nation" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nation">
+        <PropertyRef Name="IDNation" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDNation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Staff_Position">
     <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -322,6 +373,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
       </Principal>
       <Dependent Role="Staff">
         <PropertyRef Name="IDPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Specialize">
+    <End Role="Specialize" Type="Self.Specialize" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialize">
+        <PropertyRef Name="IDSpecialize" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IDSpecialize" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -455,7 +518,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
   <Function Name="StaffVolatility" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Year" Type="int" Mode="In" />
   </Function>
+  <Function Name="TotalStaffByDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="HRManagementModelStoreContainer">
+    <EntitySet Name="AcademicLevel" EntityType="Self.AcademicLevel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContractType" EntityType="Self.ContractType" Schema="dbo" store:Type="Tables" />
@@ -464,8 +529,10 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
     <EntitySet Name="Insurance" EntityType="Self.Insurance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InsuranceType" EntityType="Self.InsuranceType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveAbsence" EntityType="Self.LeaveAbsence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specialize" EntityType="Self.Specialize" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StaffCourse" EntityType="Self.StaffCourse" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StaffInsurance" EntityType="Self.StaffInsurance" Schema="dbo" store:Type="Tables" />
@@ -553,12 +620,24 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
       <End Role="Staff" EntitySet="Staff" />
       <End Role="Salary" EntitySet="Salary" />
     </AssociationSet>
+    <AssociationSet Name="FK_Staff_AcademicLevel" Association="Self.FK_Staff_AcademicLevel">
+      <End Role="AcademicLevel" EntitySet="AcademicLevel" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
     <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
+    <AssociationSet Name="FK_Staff_Nation" Association="Self.FK_Staff_Nation">
+      <End Role="Nation" EntitySet="Nation" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
     <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
       <End Role="Position" EntitySet="Position" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Specialize" Association="Self.FK_Staff_Specialize">
+      <End Role="Specialize" EntitySet="Specialize" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_UserCourse" Association="Self.FK_Staff_UserCourse">

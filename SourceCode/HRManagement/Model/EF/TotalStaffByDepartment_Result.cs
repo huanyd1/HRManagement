@@ -10,16 +10,12 @@
 namespace Model.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Salary
+    public partial class TotalStaffByDepartment_Result
     {
-        public string IDStaff { get; set; }
-        public Nullable<int> SalaryAmount { get; set; }
-        public Nullable<double> Coefficient { get; set; }
-        public Nullable<int> Allowance { get; set; }
-        public Nullable<int> Tax { get; set; }
-    
-        public virtual Staff Staff { get; set; }
+        public string DepartmentName { get; set; }
+        public Nullable<int> Nam { get; set; }
+        public Nullable<int> Nữ { get; set; }
+        public Nullable<int> Tổng { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace Model
 {
     public class MessageBoxCommon
     {
-        public static string IsExitVariable(string variable)
+        public static string IsExistVariable(string variable)
         {
             return string.Format("{0} đã có trong Cơ sở dữ liệu, vẫn muốn thêm?", variable);
         }
@@ -52,6 +52,11 @@ namespace Model
         public static string AccountError()
         {
             return string.Format("Tài khoản hoặc mật khẩu không đúng, vui lòng thử lại");
+        }
+
+        public static string IsNotExistReport()
+        {
+            return string.Format("Không thể tìm thấy Báo cáo này hiện tại, Vui lòng thử lại!");
         }
     }
 }

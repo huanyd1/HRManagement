@@ -12,14 +12,16 @@ namespace Model.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Salary
+    public partial class Specialize
     {
-        public string IDStaff { get; set; }
-        public Nullable<int> SalaryAmount { get; set; }
-        public Nullable<double> Coefficient { get; set; }
-        public Nullable<int> Allowance { get; set; }
-        public Nullable<int> Tax { get; set; }
+        public Specialize()
+        {
+            this.Staffs = new HashSet<Staff>();
+        }
     
-        public virtual Staff Staff { get; set; }
+        public int IDSpecialize { get; set; }
+        public string SpecializeName { get; set; }
+    
+        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

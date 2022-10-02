@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="HRManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AcademicLevel">
+          <Key>
+            <PropertyRef Name="IDAcademic" />
+          </Key>
+          <Property Name="IDAcademic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AcademicName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="IDStaff" />
@@ -74,6 +81,13 @@
           <Property Name="Descript" Type="nvarchar(max)" />
           <Property Name="Status" Type="char" MaxLength="1" />
         </EntityType>
+        <EntityType Name="Nation">
+          <Key>
+            <PropertyRef Name="IDNation" />
+          </Key>
+          <Property Name="IDNation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NationName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="IDPosition" />
@@ -88,8 +102,16 @@
           </Key>
           <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="SalaryAmount" Type="int" />
+          <Property Name="Coefficient" Type="float" />
           <Property Name="Allowance" Type="int" />
           <Property Name="Tax" Type="int" />
+        </EntityType>
+        <EntityType Name="Specialize">
+          <Key>
+            <PropertyRef Name="IDSpecialize" />
+          </Key>
+          <Property Name="IDSpecialize" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecializeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -101,6 +123,11 @@
           <Property Name="Birthday" Type="date" />
           <Property Name="Place" Type="nvarchar" MaxLength="100" />
           <Property Name="CCCD" Type="varchar" MaxLength="20" />
+          <Property Name="DateRange" Type="date" />
+          <Property Name="IssueBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDNation" Type="int" />
+          <Property Name="IDAcademic" Type="int" />
+          <Property Name="IDSpecialize" Type="int" />
           <Property Name="Image" Type="varchar(max)" />
           <Property Name="Numberphone" Type="varchar" MaxLength="12" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
@@ -306,6 +333,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Staff_AcademicLevel">
+          <End Role="AcademicLevel" Type="Self.AcademicLevel" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicLevel">
+              <PropertyRef Name="IDAcademic" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDAcademic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -318,6 +357,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Staff_Nation">
+          <End Role="Nation" Type="Self.Nation" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nation">
+              <PropertyRef Name="IDNation" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDNation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_Position">
           <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -327,6 +378,18 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             </Principal>
             <Dependent Role="Staff">
               <PropertyRef Name="IDPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Specialize">
+          <End Role="Specialize" Type="Self.Specialize" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialize">
+              <PropertyRef Name="IDSpecialize" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDSpecialize" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -460,7 +523,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
         <Function Name="StaffVolatility" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Year" Type="int" Mode="In" />
         </Function>
+        <Function Name="TotalStaffByDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HRManagementModelStoreContainer">
+          <EntitySet Name="AcademicLevel" EntityType="Self.AcademicLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContractType" EntityType="Self.ContractType" Schema="dbo" store:Type="Tables" />
@@ -469,8 +534,10 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
           <EntitySet Name="Insurance" EntityType="Self.Insurance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InsuranceType" EntityType="Self.InsuranceType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveAbsence" EntityType="Self.LeaveAbsence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specialize" EntityType="Self.Specialize" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StaffCourse" EntityType="Self.StaffCourse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StaffInsurance" EntityType="Self.StaffInsurance" Schema="dbo" store:Type="Tables" />
@@ -558,12 +625,24 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             <End Role="Staff" EntitySet="Staff" />
             <End Role="Salary" EntitySet="Salary" />
           </AssociationSet>
+          <AssociationSet Name="FK_Staff_AcademicLevel" Association="Self.FK_Staff_AcademicLevel">
+            <End Role="AcademicLevel" EntitySet="AcademicLevel" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
           <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
             <End Role="Department" EntitySet="Department" />
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
+          <AssociationSet Name="FK_Staff_Nation" Association="Self.FK_Staff_Nation">
+            <End Role="Nation" EntitySet="Nation" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
           <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
             <End Role="Position" EntitySet="Position" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Specialize" Association="Self.FK_Staff_Specialize">
+            <End Role="Specialize" EntitySet="Specialize" />
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_UserCourse" Association="Self.FK_Staff_UserCourse">
@@ -596,6 +675,14 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AcademicLevel">
+          <Key>
+            <PropertyRef Name="IDAcademic" />
+          </Key>
+          <Property Name="IDAcademic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AcademicName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_AcademicLevel" FromRole="AcademicLevel" ToRole="Staff" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="IDStaff" />
@@ -675,6 +762,14 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="LeaveAbsence" ToRole="Staff" />
         </EntityType>
+        <EntityType Name="Nation">
+          <Key>
+            <PropertyRef Name="IDNation" />
+          </Key>
+          <Property Name="IDNation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Nation" FromRole="Nation" ToRole="Staff" />
+        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="IDPosition" />
@@ -690,9 +785,18 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           </Key>
           <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SalaryAmount" Type="Int32" />
+          <Property Name="Coefficient" Type="Double" />
           <Property Name="Allowance" Type="Int32" />
           <Property Name="Tax" Type="Int32" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Salary_Staff" FromRole="Salary" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Specialize">
+          <Key>
+            <PropertyRef Name="IDSpecialize" />
+          </Key>
+          <Property Name="IDSpecialize" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecializeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Specialize" FromRole="Specialize" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -704,6 +808,11 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="Birthday" Type="DateTime" Precision="0" />
           <Property Name="Place" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CCCD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateRange" Type="DateTime" Precision="0" />
+          <Property Name="IssueBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDNation" Type="Int32" />
+          <Property Name="IDAcademic" Type="Int32" />
+          <Property Name="IDSpecialize" Type="Int32" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Numberphone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -715,12 +824,15 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="EndDate" Type="DateTime" Precision="0" />
           <Property Name="Remain" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="AcademicLevel" Relationship="Self.FK_Staff_AcademicLevel" FromRole="Staff" ToRole="AcademicLevel" />
           <NavigationProperty Name="Account" Relationship="Self.FK_Account_Staff" FromRole="Staff" ToRole="Account" />
           <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Staff1" FromRole="Staff" ToRole="Contract" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
           <NavigationProperty Name="LeaveAbsences" Relationship="Self.FK_LeaveAbsence_Staff1" FromRole="Staff" ToRole="LeaveAbsence" />
+          <NavigationProperty Name="Nation" Relationship="Self.FK_Staff_Nation" FromRole="Staff" ToRole="Nation" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="Salary" Relationship="Self.FK_Salary_Staff" FromRole="Staff" ToRole="Salary" />
+          <NavigationProperty Name="Specialize" Relationship="Self.FK_Staff_Specialize" FromRole="Staff" ToRole="Specialize" />
           <NavigationProperty Name="StaffCourse" Relationship="Self.FK_Staff_UserCourse" FromRole="Staff" ToRole="StaffCourse" />
           <NavigationProperty Name="StaffInsurances" Relationship="Self.FK_StaffInsurance_Staff" FromRole="Staff" ToRole="StaffInsurance" />
           <NavigationProperty Name="Timekeepings" Relationship="Self.FK_Timekeeping_Staff" FromRole="Staff" ToRole="Timekeeping" />
@@ -841,6 +953,18 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="IDInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="InsuranceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK_Staff_AcademicLevel">
+          <End Role="AcademicLevel" Type="Self.AcademicLevel" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicLevel">
+              <PropertyRef Name="IDAcademic" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDAcademic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Account_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
@@ -937,6 +1061,18 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Staff_Nation">
+          <End Role="Nation" Type="Self.Nation" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nation">
+              <PropertyRef Name="IDNation" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDNation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_Position">
           <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -958,6 +1094,18 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             </Principal>
             <Dependent Role="Salary">
               <PropertyRef Name="IDStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Specialize">
+          <End Role="Specialize" Type="Self.Specialize" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialize">
+              <PropertyRef Name="IDSpecialize" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IDSpecialize" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1010,6 +1158,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HRManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AcademicLevels" EntityType="Self.AcademicLevel" />
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Contracts" EntityType="Self.Contract" />
           <EntitySet Name="ContractTypes" EntityType="Self.ContractType" />
@@ -1018,8 +1167,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <EntitySet Name="Insurances" EntityType="Self.Insurance" />
           <EntitySet Name="InsuranceTypes" EntityType="Self.InsuranceType" />
           <EntitySet Name="LeaveAbsences" EntityType="Self.LeaveAbsence" />
+          <EntitySet Name="Nations" EntityType="Self.Nation" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
           <EntitySet Name="Salaries" EntityType="Self.Salary" />
+          <EntitySet Name="Specializes" EntityType="Self.Specialize" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
           <EntitySet Name="StaffCourses" EntityType="Self.StaffCourse" />
           <EntitySet Name="StaffInsurances" EntityType="Self.StaffInsurance" />
@@ -1031,6 +1182,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <EntitySet Name="AllInfoSalaries" EntityType="Self.AllInfoSalary" />
           <EntitySet Name="AllInfoStaffCourses" EntityType="Self.AllInfoStaffCourse" />
           <EntitySet Name="AllInfoStaffInsurances" EntityType="Self.AllInfoStaffInsurance" />
+          <AssociationSet Name="FK_Staff_AcademicLevel" Association="Self.FK_Staff_AcademicLevel">
+            <End Role="AcademicLevel" EntitySet="AcademicLevels" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Account_Staff" Association="Self.FK_Account_Staff">
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="Account" EntitySet="Accounts" />
@@ -1063,6 +1218,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="LeaveAbsence" EntitySet="LeaveAbsences" />
           </AssociationSet>
+          <AssociationSet Name="FK_Staff_Nation" Association="Self.FK_Staff_Nation">
+            <End Role="Nation" EntitySet="Nations" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
             <End Role="Position" EntitySet="Positions" />
             <End Role="Staff" EntitySet="Staffs" />
@@ -1070,6 +1229,10 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <AssociationSet Name="FK_Salary_Staff" Association="Self.FK_Salary_Staff">
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="Salary" EntitySet="Salaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Specialize" Association="Self.FK_Staff_Specialize">
+            <End Role="Specialize" EntitySet="Specializes" />
+            <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_UserCourse" Association="Self.FK_Staff_UserCourse">
             <End Role="StaffCourse" EntitySet="StaffCourses" />
@@ -1144,6 +1307,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <FunctionImport Name="StaffVolatility" ReturnType="Collection(HRManagementModel.StaffVolatility_Result)">
             <Parameter Name="Year" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="TotalStaffByDepartment" ReturnType="Collection(HRManagementModel.TotalStaffByDepartment_Result)" />
         </EntityContainer>
         <ComplexType Name="EarningsReport_Result">
           <Property Type="Int32" Name="Total" Nullable="true" />
@@ -1158,6 +1322,14 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="String" Name="Numberphone" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="CCCD" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="DateRange" Nullable="true" />
+          <Property Type="String" Name="IssueBy" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDNation" Nullable="true" />
+          <Property Type="String" Name="NationName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDAcademic" Nullable="true" />
+          <Property Type="String" Name="AcademicName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDSpecialize" Nullable="true" />
+          <Property Type="String" Name="SpecializeName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Image" Nullable="true" />
           <Property Type="String" Name="IDDepartment" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
@@ -1166,6 +1338,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="String" Name="NumberContract" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="TypeName" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+          <Property Type="Double" Name="Coefficient" Nullable="true" />
           <Property Type="Int32" Name="Allowance" Nullable="true" />
           <Property Type="Int32" Name="Tax" Nullable="true" />
           <Property Type="String" Name="IDPosition" Nullable="true" MaxLength="50" />
@@ -1232,12 +1405,26 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="String" Name="JOININGMONTH" Nullable="true" MaxLength="30" />
           <Property Type="Int32" Name="TOTAL" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="TotalStaffByDepartment_Result">
+          <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Nam" Nullable="true" />
+          <Property Type="Int32" Name="Nữ" Nullable="true" />
+          <Property Type="Int32" Name="Tổng" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HRManagementModelStoreContainer" CdmEntityContainer="HRManagementEntities">
+          <EntitySetMapping Name="AcademicLevels">
+            <EntityTypeMapping TypeName="HRManagementModel.AcademicLevel">
+              <MappingFragment StoreEntitySet="AcademicLevel">
+                <ScalarProperty Name="IDAcademic" ColumnName="IDAcademic" />
+                <ScalarProperty Name="AcademicName" ColumnName="AcademicName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="HRManagementModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -1315,6 +1502,14 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Nations">
+            <EntityTypeMapping TypeName="HRManagementModel.Nation">
+              <MappingFragment StoreEntitySet="Nation">
+                <ScalarProperty Name="IDNation" ColumnName="IDNation" />
+                <ScalarProperty Name="NationName" ColumnName="NationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Positions">
             <EntityTypeMapping TypeName="HRManagementModel.Position">
               <MappingFragment StoreEntitySet="Position">
@@ -1329,8 +1524,17 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               <MappingFragment StoreEntitySet="Salary">
                 <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
                 <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
                 <ScalarProperty Name="Allowance" ColumnName="Allowance" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializes">
+            <EntityTypeMapping TypeName="HRManagementModel.Specialize">
+              <MappingFragment StoreEntitySet="Specialize">
+                <ScalarProperty Name="IDSpecialize" ColumnName="IDSpecialize" />
+                <ScalarProperty Name="SpecializeName" ColumnName="SpecializeName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1343,6 +1547,11 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Place" ColumnName="Place" />
                 <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="DateRange" ColumnName="DateRange" />
+                <ScalarProperty Name="IssueBy" ColumnName="IssueBy" />
+                <ScalarProperty Name="IDNation" ColumnName="IDNation" />
+                <ScalarProperty Name="IDAcademic" ColumnName="IDAcademic" />
+                <ScalarProperty Name="IDSpecialize" ColumnName="IDSpecialize" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -1490,6 +1699,14 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="DateRange" ColumnName="DateRange" />
+                <ScalarProperty Name="IssueBy" ColumnName="IssueBy" />
+                <ScalarProperty Name="IDNation" ColumnName="IDNation" />
+                <ScalarProperty Name="NationName" ColumnName="NationName" />
+                <ScalarProperty Name="IDAcademic" ColumnName="IDAcademic" />
+                <ScalarProperty Name="AcademicName" ColumnName="AcademicName" />
+                <ScalarProperty Name="IDSpecialize" ColumnName="IDSpecialize" />
+                <ScalarProperty Name="SpecializeName" ColumnName="SpecializeName" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
@@ -1498,6 +1715,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
                 <ScalarProperty Name="Allowance" ColumnName="Allowance" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
@@ -1597,6 +1815,16 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               <ComplexTypeMapping TypeName="HRManagementModel.StaffVolatility_Result">
                 <ScalarProperty Name="JOININGMONTH" ColumnName="JOININGMONTH" />
                 <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TotalStaffByDepartment" FunctionName="HRManagementModel.Store.TotalStaffByDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRManagementModel.TotalStaffByDepartment_Result">
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Nam" ColumnName="Nam" />
+                <ScalarProperty Name="Nữ" ColumnName="Nữ" />
+                <ScalarProperty Name="Tổng" ColumnName="Tổng" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
