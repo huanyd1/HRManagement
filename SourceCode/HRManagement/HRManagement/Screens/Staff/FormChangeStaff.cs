@@ -19,6 +19,9 @@ namespace HRManagement.Screens.Staff
         private bool _isAdd;
         private bool _isInfo = false;
         private string _idStaff;
+        private bool _isCorrectFormat = false;
+
+        private readonly int numberStringID = 5;
 
         private readonly string idStaff = "Mã nhân viên";
         private readonly string staffName = "Tên nhân viên";
@@ -55,6 +58,7 @@ namespace HRManagement.Screens.Staff
         }
         public string IdStaff
         {
+            get { return _idStaff; }
             set { _idStaff = value; }
         }
 
@@ -217,14 +221,41 @@ namespace HRManagement.Screens.Staff
             }
             else
             {
+                ContractDAO dao = new ContractDAO();
+                var contract = dao.GetSingleByID(IdStaff);
+
+                string numberContractStaff = contract.NumberContract.Replace("CT/", "").Replace("TV/", "").Replace("TTS/", "");
+                int numberZeroContract = numberStringID - int.Parse(numberContractStaff);
+                string stringZeroContract = "";
+                for (int i = 0; i < numberZeroContract; i++)
+                {
+                    stringZeroContract = stringZeroContract + "0";
+                }
+                txtNumberContract.Text = stringZeroContract + (int.Parse(numberContractStaff) + 1).ToString();
+
+                int numberZero = numberStringID - IdStaff.Replace("VP", "").Length;
+                string stringZero = "";
+
+                for(int i = 0; i < numberZero; i++)
+                {
+                    stringZero = stringZero + "0";
+                }
+
+                IdStaff = "VP" + stringZero + (int.Parse(IdStaff.Replace("VP", "") + 1).ToString());              
+                txtIDStaff.Text = IdStaff.ToString();
                 this.Text = Model.ActionCommon.AddAction("Nhân viên");
                 btnSave.Text = "Thêm mới";
+                txtIDStaff.ReadOnly = true;
+                txtNumberContract.ReadOnly = true;
+                txtContractName.ReadOnly = true;
 
                 cbSex.SelectedText = "Nam";
                 dtimeBirthday.Text = DateTime.Now.ToString();
                 dtimeDateRange.Text = DateTime.Now.ToString();
                 dtimeStartDate.Text = DateTime.Now.ToString();
-                dtimeEndDate.Text = DateTime.Now.ToString();
+                DateTime dt = DateTime.Now;
+                DateTime newDt = new DateTime(DateTime.Now.Year + 1, dt.Month, dt.Day);
+                dtimeEndDate.Text = newDt.ToString();
             }
         }
 
@@ -359,7 +390,7 @@ namespace HRManagement.Screens.Staff
             staff.Birthday = DateTime.Parse(dtimeBirthday.Text.ToString());
             staff.Place = txtPlace.Text;
 
-            staff.Email = txtEmail.Text;
+            staff.Email = txtEmail.Text + lbEmail.Text;
             staff.CCCD = txtCCCD.Text;
             staff.DateRange = DateTime.Parse(dtimeDateRange.Text.ToString());
             staff.IssueBy = txtIssueBy.Text;
@@ -387,7 +418,7 @@ namespace HRManagement.Screens.Staff
         {
             Model.EF.Contract contract = new Model.EF.Contract();
             contract.IDStaff = txtIDStaff.Text;
-            contract.NumberContract = txtNumberContract.Text;
+            contract.NumberContract = lbNumberContract.Text + txtNumberContract.Text;
             contract.ContractName = txtContractName.Text;
             contract.IDType = cbContractType.SelectedValue.ToString();
 
@@ -406,11 +437,12 @@ namespace HRManagement.Screens.Staff
             {
                 salary.Coefficient = double.Parse(txtCoefficient.Text.ToString());
                 errorCoefficient.SetError(txtCoefficient, null);
+                _isCorrectFormat = true;
             }
             catch (Exception ex)
             {
                 errorCoefficient.SetError(txtCoefficient, Model.CheckVariableCommon.NullVariable(coefficient));
-                return null;
+                _isCorrectFormat = false;
             }
 
             return salary;
@@ -445,7 +477,7 @@ namespace HRManagement.Screens.Staff
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!CheckNullVariable())
+            if (!CheckNullVariable() && !_isCorrectFormat)
             {
                 return;
             }
@@ -550,5 +582,28 @@ namespace HRManagement.Screens.Staff
             }
         }
 
+        private void cbContractType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(cbContractType.SelectedValue.ToString() != "")
+            {
+                string value = cbContractType.Text.ToString();
+
+                if (value == "Chính thức")
+                {
+                    lbNumberContract.Text = "CT/";
+                    txtContractName.Text = "Hợp đồng chính thức";
+                }
+                else if(value == "Thử việc")
+                {
+                    lbNumberContract.Text = "TV/";
+                    txtContractName.Text = "Hợp đồng thử việc";
+                }
+                else if(value == "Thực tập sinh")
+                {
+                    lbNumberContract.Text = "TTS/";
+                    txtContractName.Text = "Hợp đồng thực tập";
+                }
+            }
+        }
     }
 }

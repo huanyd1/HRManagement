@@ -21,6 +21,7 @@ namespace HRManagement.Screens.Staff
         public UCStaff()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
         }
 
         private void LoadAllInfoStaff()
@@ -104,8 +105,11 @@ namespace HRManagement.Screens.Staff
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            var idStaff = gvStaff.GetRowCellValue(gvStaff.DataRowCount - 1, "IDStaff").ToString();
+
             FormChangeStaff addStaff = new FormChangeStaff();
             addStaff.IsAdd = true;
+            addStaff.IdStaff = idStaff;
             addStaff.Show();
 
             if (addStaff.IsSave)
