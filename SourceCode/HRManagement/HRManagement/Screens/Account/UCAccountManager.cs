@@ -33,14 +33,35 @@ namespace HRManagement.Screens.Account
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FormChangeManager manager = new FormChangeManager();
+            manager.IsAdd = true;
             manager.ShowDialog();
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            FormChangeManager manager = new FormChangeManager();
-            manager.IsAdd = false;
-            manager.ShowDialog();
+            if(gvAccount.RowCount > 0)
+            {
+                string idManager = gvAccount.GetFocusedRowCellValue("IDStaff").ToString();
+
+                FormChangeManager manager = new FormChangeManager();
+                manager.IsAdd = false;
+                manager.IsInfo = true;
+                manager.IdStaff = idManager;
+                manager.ShowDialog();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (gvAccount.RowCount > 0)
+            {
+                string idManager = gvAccount.GetFocusedRowCellValue("IDStaff").ToString();
+
+                FormChangeManager manager = new FormChangeManager();
+                manager.IsAdd = false;
+                manager.IdStaff = idManager;
+                manager.ShowDialog();
+            }
         }
     }
 }

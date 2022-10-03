@@ -36,7 +36,7 @@ namespace HRManagement
         {
             btnOption.Caption = "Xin chào, " + InfoStaffCommon.StaffName;
 
-            if (!InfoStaffCommon.IsAdmin)
+            if (InfoStaffCommon.AdminView)
             {
                 btnDepartment.Visible = false;
             }
@@ -141,8 +141,7 @@ namespace HRManagement
             }
             else
             {
-                //Application.Exit();
-                
+                //Application.Exit(); 
             }
         }
     }

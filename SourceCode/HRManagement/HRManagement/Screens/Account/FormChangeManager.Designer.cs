@@ -103,6 +103,7 @@
             this.btnCancel.Size = new System.Drawing.Size(140, 55);
             this.btnCancel.TabIndex = 47;
             this.btnCancel.Text = "Thoát";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 

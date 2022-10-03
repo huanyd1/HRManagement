@@ -42,7 +42,14 @@ namespace HRManagement
             lbPosition.Text = InfoStaffCommon.Position;
 
             string enviroment = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-            pboxAvatar.Image = Image.FromFile(enviroment + "\\Resource\\Upload\\" + InfoStaffCommon.Avatar);
+            try
+            {
+                pboxAvatar.Image = Image.FromFile(enviroment + "\\Resource\\Upload\\" + InfoStaffCommon.Avatar);
+            }
+            catch(Exception)
+            {
+
+            }
 
             LoadButtonCheckTime();
         }

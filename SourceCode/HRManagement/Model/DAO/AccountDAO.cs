@@ -25,7 +25,7 @@ namespace Model.DAO
 
         public List<AllInfoAccount> GetInfoAccountsManager()
         {
-            List<AllInfoAccount> list = _db.AllInfoAccounts.Where(t => t.Type != "4").ToList();
+            List<AllInfoAccount> list = _db.AllInfoAccounts.Where(t => t.Type != "4" && t.Type != "0").ToList();
 
             return list;
         }

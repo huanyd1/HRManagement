@@ -130,6 +130,25 @@ namespace Model.DAO
             return true;
         }
 
+        public bool EditAdmin(Staff staff)
+        {
+            try
+            {
+                Staff currentStaff = GetSingleByID(staff.IDStaff);
+
+                currentStaff.StaffName = staff.StaffName;
+                currentStaff.Email = staff.Email;
+                //currentStaff.Status = staff.Status;
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool Delete(string id)
         {
             try

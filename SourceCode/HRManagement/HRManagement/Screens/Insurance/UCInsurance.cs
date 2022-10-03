@@ -65,14 +65,7 @@ namespace HRManagement.Screens.Insurance
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ChangeInsurance addInsurance = new ChangeInsurance();
-            addInsurance.IsAdd = true;
-            addInsurance.Show();
 
-            if (addInsurance.IsSave)
-            {
-                LoadAllInsurance();
-            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

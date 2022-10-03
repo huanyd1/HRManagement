@@ -65,14 +65,14 @@ namespace HRManagement.Screens.Account
 
         private void LoadRole()
         {
-            const int Buyer_Create = 1;
-            const int Buyer_View = 2;
-            const int Buyer_Approve = 3;
+            const int Admin_Create = 1;
+            const int Admin_View = 2;
+            const int Admin_Approve = 3;
 
             Role[] role = new Role[] {
-                new Role(Buyer_Create, "Admin Tạo"),
-                new Role(Buyer_View, "Admin Xem"),
-                new Role(Buyer_Approve, "Admin Duyệt"),
+                new Role(Admin_Create, "Admin Tạo"),
+                new Role(Admin_View, "Admin Xem"),
+                new Role(Admin_Approve, "Admin Duyệt"),
             };
 
             cbRole.DataSource = role;
@@ -87,30 +87,32 @@ namespace HRManagement.Screens.Account
             {
                 this.Text = Model.ActionCommon.EditAction("Tài khoản");
                 cbRole.Enabled = false;
-                txtStaffName.ReadOnly = true;
                 btnSave.Text = "Cập nhật";
 
-                //ContractDAO dao = new ContractDAO();
-                //StaffDAO staff = new StaffDAO();
-                //Model.EF.Contract contract = dao.GetSingleByID(_idStaff);
+                AccountDAO dao = new AccountDAO();
+                StaffDAO staffDAO = new StaffDAO();
+                Model.EF.Account account = dao.GetSingleByID(_idStaff);
+                Model.EF.Staff staff = staffDAO.GetSingleByID(_idStaff);
 
-                //txtIDStaff.Text = contract.IDStaff;
-                //txtStaffName.Text = staff.GetStaffNameByID(_idStaff);
-                //txtNumberContract.Text = contract.NumberContract.ToString();
-                //txtContractName.Text = contract.ContractName.ToString();
-                //cbContractType.SelectedValue = contract.IDType.ToString();
+                txtStaffName.Text = staffDAO.GetStaffNameByID(_idStaff);
+                txtEmail.Text = staff.Email;
+                txtUsername.Text = account.Username;
+
+                cbRole.SelectedValue = int.Parse(account.Type);
+                cbRole.Enabled = false;
 
                 //Nếu info thì disable tất cả
                 if (_isInfo)
                 {
-                    //txtContractName.ReadOnly = true;
-                    //txtNumberContract.ReadOnly = true;
-                    //cbContractType.Enabled = false;
+                    txtStaffName.ReadOnly = true;
+                    txtEmail.ReadOnly = true;
+                    txtUsername.ReadOnly = true;
 
-                    //btnSave.Visible = false;
-                    //this.Text = Model.ActionCommon.InfoAction("Hợp đồng");
+                    btnSave.Visible = false;
+                    this.Text = Model.ActionCommon.InfoAction("Tài khoản");
                 }
             }
+            //else { }
         }
 
         public bool CheckNullVariable()
@@ -162,6 +164,26 @@ namespace HRManagement.Screens.Account
             return staff;
         }
 
+        private Model.EF.Staff GetInfoAdmin()
+        {
+            Model.EF.Staff staff = new Model.EF.Staff();
+            staff.IDStaff = _idStaff;
+            idAdmin = _idStaff;
+            staff.StaffName = txtStaffName.Text.ToString();
+            staff.Email = txtEmail.Text.ToString();
+
+            return staff;
+        }
+
+        private Model.EF.Account GetInfoAccount(string idStaff)
+        {
+            Model.EF.Account account = new Model.EF.Account();
+            account.IDStaff = _idStaff;
+            account.Username = txtUsername.Text.ToString();
+
+            return account;
+        }
+
         private Model.EF.Account GetInfoNewAccount(string idStaff)
         {
             Model.EF.Account account = new Model.EF.Account();
@@ -183,20 +205,27 @@ namespace HRManagement.Screens.Account
             StaffDAO dao = new StaffDAO();
             AccountDAO account = new AccountDAO();
 
-            Model.EF.Staff staff = GetInfoNewAdmin();
-
-            var success = dao.AddAdmin(staff);
-
-            if (success)
+            if (_isAdd)
             {
-                Model.EF.Account admin = GetInfoNewAccount(idAdmin);
+                Model.EF.Staff staff = GetInfoNewAdmin();
 
-                var result = account.Add(admin);
+                var success = dao.AddAdmin(staff);
 
-                if (result)
+                if (success)
                 {
-                    NotificationCommon.Success("Thêm tài khoản thành công");
-                    this.Close();
+                    Model.EF.Account admin = GetInfoNewAccount(idAdmin);
+
+                    var result = account.Add(admin);
+
+                    if (result)
+                    {
+                        NotificationCommon.Success("Thêm tài khoản thành công");
+                        this.Close();
+                    }
+                    else
+                    {
+                        NotificationCommon.Error("Thêm tài khoản thất bại");
+                    }
                 }
                 else
                 {
@@ -205,8 +234,36 @@ namespace HRManagement.Screens.Account
             }
             else
             {
-                NotificationCommon.Error("Thêm tài khoản thất bại");
+                Model.EF.Staff staff = GetInfoAdmin();
+
+                var success = dao.EditAdmin(staff);
+
+                if (success)
+                {
+                    Model.EF.Account admin = GetInfoAccount(idAdmin);
+
+                    var result = account.Edit(admin);
+
+                    if (result)
+                    {
+                        NotificationCommon.Success("Chỉnh sửa tài khoản thành công");
+                        this.Close();
+                    }
+                    else
+                    {
+                        NotificationCommon.Error("Chỉnh sửa tài khoản thất bại");
+                    }
+                }
+                else
+                {
+                    NotificationCommon.Error("Chỉnh sửa tài khoản thất bại");
+                }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

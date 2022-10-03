@@ -20,9 +20,9 @@ namespace HRManagement.Login
 
         private void lbLogin_Click(object sender, EventArgs e)
         {
-            Form form = ((sender as Label).Parent as UserControl).Parent as Form;
-            form.Controls.Clear();
-            form.Controls.Add(new UCLogin());
+            Panel panel = ((sender as Label).Parent as UserControl).Parent as Panel;
+            panel.Controls.Clear();
+            panel.Controls.Add(new UCLogin());
         }
     }
 }

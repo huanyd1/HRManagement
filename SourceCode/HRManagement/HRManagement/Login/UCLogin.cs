@@ -59,6 +59,10 @@ namespace HRManagement.Login
             InfoStaffCommon.StaffName = info.StaffName;
             InfoStaffCommon.Role = type;
             InfoStaffCommon.IsAdmin = type == "0" ? true : false;
+            InfoStaffCommon.AdminCreate = type == "1" ? true : false;
+            InfoStaffCommon.AdminView = type == "2" ? true : false;
+            InfoStaffCommon.AdminApprove = type == "3" ? true : false;
+
             InfoStaffCommon.Position = info.PositionName;
             InfoStaffCommon.Avatar = info.Image;
             InfoStaffCommon.IDDepartment = info.IDDepartment;
@@ -83,7 +87,7 @@ namespace HRManagement.Login
             {
                 MessageBox.Show(Model.MessageBoxCommon.AccountError(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);         
             }
-            else if(type == "0" || type == "2")
+            else if(type != "4")
             {
                 var form = ((this.Parent) as Panel).Parent as Form;
 
@@ -114,9 +118,9 @@ namespace HRManagement.Login
 
         private void lbForgotPassword_Click(object sender, EventArgs e)
         {
-            Form form = ((sender as Label).Parent as UserControl).Parent as Form;
-            form.Controls.Clear();
-            form.Controls.Add(new UCForgotPassword());
+            Panel panel = ((sender as Label).Parent as UserControl).Parent as Panel;
+            panel.Controls.Clear();
+            panel.Controls.Add(new UCForgotPassword());
         }
     }
 }
