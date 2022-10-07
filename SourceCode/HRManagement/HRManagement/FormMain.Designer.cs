@@ -47,6 +47,7 @@
             this.btnAccountManager = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.btnReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnBackup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
@@ -92,7 +93,8 @@
             this.btnStaff,
             this.btnAccount,
             this.accordionControlSeparator1,
-            this.btnReport});
+            this.btnReport,
+            this.btnBackup});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl1.Name = "accordionControl1";
@@ -226,6 +228,12 @@
             this.btnReport.Name = "btnReport";
             this.btnReport.Text = "Báo cáo";
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Text = "Lưu trữ - Khôi phục";
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -474,5 +482,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnAccountManager;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnReport;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnBackup;
     }
 }

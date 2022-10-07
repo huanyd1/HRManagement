@@ -176,6 +176,12 @@
     <Compile Include="Screens\Account\UCAccountManager.Designer.cs">
       <DependentUpon>UCAccountManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\BackUp\UCBackUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\BackUp\UCBackUp.Designer.cs">
+      <DependentUpon>UCBackUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Contract\ChangeContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Account\UCAccountManager.resx">
       <DependentUpon>UCAccountManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\BackUp\UCBackUp.resx">
+      <DependentUpon>UCBackUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Contract\ChangeContract.resx">
       <DependentUpon>ChangeContract.cs</DependentUpon>

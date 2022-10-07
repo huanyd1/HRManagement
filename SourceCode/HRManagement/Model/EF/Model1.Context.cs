@@ -53,6 +53,15 @@ namespace Model.EF
         public DbSet<AllInfoStaffCourse> AllInfoStaffCourses { get; set; }
         public DbSet<AllInfoStaffInsurance> AllInfoStaffInsurances { get; set; }
     
+        public virtual int BackUpDatabase(string path)
+        {
+            var pathParameter = path != null ?
+                new ObjectParameter("Path", path) :
+                new ObjectParameter("Path", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("BackUpDatabase", pathParameter);
+        }
+    
         public virtual ObjectResult<EarningsReport_Result> EarningsReport()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<EarningsReport_Result>("EarningsReport");
@@ -130,6 +139,15 @@ namespace Model.EF
                 new ObjectParameter("IDStaff", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RemoveAllInfoStaff", iDStaffParameter);
+        }
+    
+        public virtual int RestoreDatabase(string path)
+        {
+            var pathParameter = path != null ?
+                new ObjectParameter("Path", path) :
+                new ObjectParameter("Path", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RestoreDatabase", pathParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

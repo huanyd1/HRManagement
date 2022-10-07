@@ -36,9 +36,69 @@ namespace HRManagement
         {
             btnOption.Caption = "Xin chào, " + InfoStaffCommon.StaffName;
 
+            Decentralization();
+        }
+
+        private void Decentralization()
+        {
             if (InfoStaffCommon.AdminView)
             {
+                //1
+                //a5@BHC
+                btnAccount.Visible = true;
+                btnReport.Visible = true;
+
+                btnDepartment.Visible = false; 
+                btnAccountManager.Visible = false;
+                btnContract.Visible = false;
+                btnCourse.Visible = false;
+                btnExplanation.Visible = false;
+                btnInsurance.Visible = false;
+                btnLeaveAbsence.Visible = false;
+                btnSalary.Visible = false;
+                btnStaffCourse.Visible = false;
+                btnTimekeeping.Visible = false;
+                btnStaff.Visible = false;
+            }
+            else if (InfoStaffCommon.AdminCreate)
+            {
+
+                btnAccount.Visible = true;
+                btnReport.Visible = true;
+                btnAccountManager.Visible = true;
+                btnSalary.Visible = true;
+                btnTimekeeping.Visible = true;
+
+                btnDepartment.Visible = true;
+                btnInsurance.Visible = true;
+                btnContract.Visible = false;
+                btnCourse.Visible = false;
+                btnExplanation.Visible = false;
+                btnLeaveAbsence.Visible = false;
+                btnStaffCourse.Visible = false;
+                btnStaff.Visible = false;
+            }
+            else if (InfoStaffCommon.AdminApprove)
+            {
+                btnSalary.Visible = true;
+                btnTimeSheets.Visible = true;
+                btnTimekeeping.Visible = true;
+                btnExplanation.Visible = true;
+                btnLeaveAbsence.Visible = true;
+
+                btnAccount.Visible = false;
+                btnReport.Visible = false;
+                btnAccountManager.Visible = false;
                 btnDepartment.Visible = false;
+                btnInsurance.Visible = false;
+                btnContract.Visible = false;
+                btnCourse.Visible = false;
+                btnStaffCourse.Visible = false;
+                btnStaff.Visible = false;
+            }
+            else
+            {
+
             }
         }
 
@@ -114,6 +174,11 @@ namespace HRManagement
         private void btnReport_Click(object sender, EventArgs e)
         {
             AddToScreen(new Screens.Report.UCReport());
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            AddToScreen(new Screens.BackUp.UCBackUp());
         }
 
         private void btnChangePass_ItemClick(object sender, ItemClickEventArgs e)

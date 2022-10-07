@@ -575,6 +575,9 @@
       <End Role="Staff" EntitySet="Staffs" />
       <End Role="StaffCourse" EntitySet="StaffCourses" />
     </AssociationSet>
+    <FunctionImport Name="BackUpDatabase">
+      <Parameter Name="Path" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="EarningsReport" ReturnType="Collection(HRManagementModel.EarningsReport_Result)" />
     <FunctionImport Name="GetAllInfoByIDStaff" ReturnType="Collection(HRManagementModel.GetAllInfoByIDStaff_Result)">
       <Parameter Name="IDStaff" Mode="In" Type="String" />
@@ -598,6 +601,9 @@
     </FunctionImport>
     <FunctionImport Name="RemoveAllInfoStaff">
       <Parameter Name="IDStaff" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreDatabase">
+      <Parameter Name="Path" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />

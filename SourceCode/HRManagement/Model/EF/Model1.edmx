@@ -465,6 +465,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="BackUpDatabase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="EarningsReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="GetAllInfoByIDStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -489,6 +492,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
         </Function>
         <Function Name="RemoveAllInfoStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDStaff" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RestoreDatabase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -1250,6 +1256,9 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="StaffCourse" EntitySet="StaffCourses" />
           </AssociationSet>
+          <FunctionImport Name="BackUpDatabase">
+            <Parameter Name="Path" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="EarningsReport" ReturnType="Collection(HRManagementModel.EarningsReport_Result)" />
           <FunctionImport Name="GetAllInfoByIDStaff" ReturnType="Collection(HRManagementModel.GetAllInfoByIDStaff_Result)">
             <Parameter Name="IDStaff" Mode="In" Type="String" />
@@ -1273,6 +1282,9 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="RemoveAllInfoStaff">
             <Parameter Name="IDStaff" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RestoreDatabase">
+            <Parameter Name="Path" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1680,6 +1692,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="BackUpDatabase" FunctionName="HRManagementModel.Store.BackUpDatabase" />
           <FunctionImportMapping FunctionImportName="EarningsReport" FunctionName="HRManagementModel.Store.EarningsReport">
             <ResultMapping>
               <ComplexTypeMapping TypeName="HRManagementModel.EarningsReport_Result">
@@ -1786,6 +1799,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="RemoveAllInfoStaff" FunctionName="HRManagementModel.Store.RemoveAllInfoStaff" />
+          <FunctionImportMapping FunctionImportName="RestoreDatabase" FunctionName="HRManagementModel.Store.RestoreDatabase" />
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HRManagementModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HRManagementModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HRManagementModel.Store.sp_dropdiagram" />

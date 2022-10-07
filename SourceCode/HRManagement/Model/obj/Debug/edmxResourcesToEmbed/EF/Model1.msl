@@ -264,6 +264,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="BackUpDatabase" FunctionName="HRManagementModel.Store.BackUpDatabase" />
     <FunctionImportMapping FunctionImportName="EarningsReport" FunctionName="HRManagementModel.Store.EarningsReport">
       <ResultMapping>
         <ComplexTypeMapping TypeName="HRManagementModel.EarningsReport_Result">
@@ -370,6 +371,7 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="RemoveAllInfoStaff" FunctionName="HRManagementModel.Store.RemoveAllInfoStaff" />
+    <FunctionImportMapping FunctionImportName="RestoreDatabase" FunctionName="HRManagementModel.Store.RestoreDatabase" />
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HRManagementModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HRManagementModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HRManagementModel.Store.sp_dropdiagram" />
