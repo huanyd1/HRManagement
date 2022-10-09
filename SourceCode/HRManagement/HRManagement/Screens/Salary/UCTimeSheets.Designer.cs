@@ -234,7 +234,7 @@
             this.Tháng.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tháng.Location = new System.Drawing.Point(261, 15);
             this.Tháng.Name = "Tháng";
-            this.Tháng.Size = new System.Drawing.Size(112, 17);
+            this.Tháng.Size = new System.Drawing.Size(140, 22);
             this.Tháng.TabIndex = 10;
             this.Tháng.Text = "Tên nhân viên";
             // 
@@ -260,6 +260,7 @@
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label2
             // 
@@ -267,7 +268,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
+            this.label2.Size = new System.Drawing.Size(100, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Phòng ban";
             // 
@@ -291,7 +292,7 @@
             this.cbMonth.FormattingEnabled = true;
             this.cbMonth.Location = new System.Drawing.Point(265, 44);
             this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(190, 20);
+            this.cbMonth.Size = new System.Drawing.Size(190, 23);
             this.cbMonth.TabIndex = 14;
             // 
             // cbDepartment
@@ -300,7 +301,7 @@
             this.cbDepartment.FormattingEnabled = true;
             this.cbDepartment.Location = new System.Drawing.Point(30, 44);
             this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(190, 20);
+            this.cbDepartment.Size = new System.Drawing.Size(190, 23);
             this.cbDepartment.TabIndex = 13;
             // 
             // tablePanel1
@@ -354,6 +355,7 @@
             this.btnInfo.Size = new System.Drawing.Size(115, 35);
             this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Xem CT";
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnDelete
             // 
@@ -398,7 +400,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 21);
+            this.label1.Size = new System.Drawing.Size(228, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Bảng lương";
             // 

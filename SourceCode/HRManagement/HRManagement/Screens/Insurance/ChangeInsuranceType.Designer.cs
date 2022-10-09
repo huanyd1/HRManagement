@@ -45,26 +45,29 @@
             // txtTypeName
             // 
             this.txtTypeName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeName.Location = new System.Drawing.Point(138, 80);
+            this.txtTypeName.Location = new System.Drawing.Point(183, 98);
+            this.txtTypeName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(241, 20);
+            this.txtTypeName.Size = new System.Drawing.Size(258, 23);
             this.txtTypeName.TabIndex = 34;
             // 
             // txtIDInsuranceType
             // 
             this.txtIDInsuranceType.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDInsuranceType.Location = new System.Drawing.Point(138, 31);
+            this.txtIDInsuranceType.Location = new System.Drawing.Point(183, 38);
+            this.txtIDInsuranceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIDInsuranceType.Name = "txtIDInsuranceType";
-            this.txtIDInsuranceType.Size = new System.Drawing.Size(241, 20);
+            this.txtIDInsuranceType.Size = new System.Drawing.Size(258, 23);
             this.txtIDInsuranceType.TabIndex = 33;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 83);
+            this.label2.Location = new System.Drawing.Point(23, 102);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 15);
+            this.label2.Size = new System.Drawing.Size(152, 18);
             this.label2.TabIndex = 29;
             this.label2.Text = "Tên loại bảo hiểm:";
             // 
@@ -72,9 +75,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 34);
+            this.label1.Location = new System.Drawing.Point(23, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 15);
+            this.label1.Size = new System.Drawing.Size(144, 18);
             this.label1.TabIndex = 28;
             this.label1.Text = "Mã loại bảo hiểm:";
             // 
@@ -91,9 +95,10 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(244, 132);
+            this.btnCancel.Location = new System.Drawing.Point(285, 162);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 45);
+            this.btnCancel.Size = new System.Drawing.Size(140, 55);
             this.btnCancel.TabIndex = 32;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -103,24 +108,25 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(87, 132);
+            this.btnSave.Location = new System.Drawing.Point(102, 162);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 45);
+            this.btnSave.Size = new System.Drawing.Size(140, 55);
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Thêm mới";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // ChangeInsuranceType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 193);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(464, 238);
             this.Controls.Add(this.txtTypeName);
             this.Controls.Add(this.txtIDInsuranceType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChangeInsuranceType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangeInsuranceType";

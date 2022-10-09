@@ -72,9 +72,10 @@
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 264);
+            this.panel1.Location = new System.Drawing.Point(0, 196);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(598, 66);
+            this.panel1.Size = new System.Drawing.Size(698, 104);
             this.panel1.TabIndex = 50;
             // 
             // btnCancel
@@ -82,11 +83,13 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(461, 11);
+            this.btnCancel.Location = new System.Drawing.Point(538, 14);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 45);
+            this.btnCancel.Size = new System.Drawing.Size(140, 55);
             this.btnCancel.TabIndex = 50;
             this.btnCancel.Text = "Thoát";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel2
             // 
@@ -96,51 +99,58 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(598, 53);
+            this.panel2.Size = new System.Drawing.Size(698, 65);
             this.panel2.TabIndex = 51;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(292, 19);
+            this.label3.Location = new System.Drawing.Point(341, 23);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 15);
+            this.label3.Size = new System.Drawing.Size(120, 18);
             this.label3.TabIndex = 56;
             this.label3.Text = "Tên nhân viên:";
             // 
             // txtStaffName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(389, 13);
+            this.txtStaffName.Location = new System.Drawing.Point(470, 22);
+            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(166, 21);
+            this.txtStaffName.Size = new System.Drawing.Size(193, 23);
             this.txtStaffName.TabIndex = 55;
             // 
             // txtIDStaff
             // 
-            this.txtIDStaff.Location = new System.Drawing.Point(108, 13);
+            this.txtIDStaff.Location = new System.Drawing.Point(140, 22);
+            this.txtIDStaff.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(166, 21);
+            this.txtIDStaff.Size = new System.Drawing.Size(193, 23);
             this.txtIDStaff.TabIndex = 54;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 19);
+            this.label2.Location = new System.Drawing.Point(20, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 15);
+            this.label2.Size = new System.Drawing.Size(112, 18);
             this.label2.TabIndex = 53;
             this.label2.Text = "Mã nhân viên:";
             // 
             // gStaffCourse
             // 
             this.gStaffCourse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gStaffCourse.Location = new System.Drawing.Point(0, 53);
+            this.gStaffCourse.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gStaffCourse.Location = new System.Drawing.Point(0, 65);
             this.gStaffCourse.MainView = this.gvStaffCourse;
+            this.gStaffCourse.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffCourse.Name = "gStaffCourse";
-            this.gStaffCourse.Size = new System.Drawing.Size(598, 211);
+            this.gStaffCourse.Size = new System.Drawing.Size(698, 131);
             this.gStaffCourse.TabIndex = 52;
             this.gStaffCourse.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvStaffCourse});
@@ -153,64 +163,73 @@
             this.CourseName,
             this.Point,
             this.Result});
+            this.gvStaffCourse.DetailHeight = 431;
             this.gvStaffCourse.GridControl = this.gStaffCourse;
             this.gvStaffCourse.Name = "gvStaffCourse";
             this.gvStaffCourse.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvStaffCourse.OptionsView.ShowGroupPanel = false;
+            this.gvStaffCourse.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvStaffCourse_CustomColumnDisplayText);
             // 
             // IDStaffCourse
             // 
             this.IDStaffCourse.Caption = "Mã Nhân Viên - Khóa học";
             this.IDStaffCourse.FieldName = "IDStaffCourse";
-            this.IDStaffCourse.MinWidth = 25;
+            this.IDStaffCourse.MinWidth = 29;
             this.IDStaffCourse.Name = "IDStaffCourse";
             this.IDStaffCourse.Visible = true;
             this.IDStaffCourse.VisibleIndex = 0;
-            this.IDStaffCourse.Width = 94;
+            this.IDStaffCourse.Width = 110;
             // 
             // IDCourse
             // 
             this.IDCourse.Caption = "Mã Khóa Học";
             this.IDCourse.FieldName = "IDCourse";
-            this.IDCourse.MinWidth = 25;
+            this.IDCourse.MinWidth = 29;
             this.IDCourse.Name = "IDCourse";
             this.IDCourse.Visible = true;
             this.IDCourse.VisibleIndex = 1;
-            this.IDCourse.Width = 94;
+            this.IDCourse.Width = 110;
             // 
             // CourseName
             // 
             this.CourseName.Caption = "Tên Khóa Học";
             this.CourseName.FieldName = "CourseName";
+            this.CourseName.MinWidth = 23;
             this.CourseName.Name = "CourseName";
             this.CourseName.Visible = true;
             this.CourseName.VisibleIndex = 2;
+            this.CourseName.Width = 87;
             // 
             // Point
             // 
             this.Point.Caption = "Điểm số";
             this.Point.FieldName = "Point";
+            this.Point.MinWidth = 23;
             this.Point.Name = "Point";
             this.Point.Visible = true;
             this.Point.VisibleIndex = 3;
+            this.Point.Width = 87;
             // 
             // Result
             // 
             this.Result.Caption = "Kết quả";
             this.Result.FieldName = "Result";
+            this.Result.MinWidth = 23;
             this.Result.Name = "Result";
             this.Result.Visible = true;
             this.Result.VisibleIndex = 4;
+            this.Result.Width = 87;
             // 
-            // FormChangeStaffCourse
+            // FormInfoStaffCourse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 330);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(698, 300);
             this.Controls.Add(this.gStaffCourse);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FormChangeStaffCourse";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FormInfoStaffCourse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChangeStaffCourse";
             this.Load += new System.EventHandler(this.FormChangeStaffCourse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorAmount)).EndInit();

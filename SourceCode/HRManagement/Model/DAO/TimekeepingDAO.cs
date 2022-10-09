@@ -38,9 +38,10 @@ namespace Model.DAO
             return time;
         }
 
-        public List<Timekeeping> GetTimeByIDStaffType(string id)
+        public List<Timekeeping> GetTimeByIDStaffType()
         {
-            List<Timekeeping> time = _db.Timekeepings.Where(x => x.IDStaff == id && x.Type == "1").ToList();
+
+            List<Timekeeping> time = _db.Timekeepings.Where(x => x.Type == "1").ToList();
 
             return time;
         }

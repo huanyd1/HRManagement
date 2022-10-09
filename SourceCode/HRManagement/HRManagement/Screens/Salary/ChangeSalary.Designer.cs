@@ -48,6 +48,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtTax = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtCoefficient = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorAllowance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorAmount)).BeginInit();
@@ -138,7 +140,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(240, 284);
+            this.btnCancel.Location = new System.Drawing.Point(240, 348);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 45);
             this.btnCancel.TabIndex = 32;
@@ -150,7 +152,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(83, 284);
+            this.btnSave.Location = new System.Drawing.Point(83, 348);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 31;
@@ -221,10 +223,30 @@
             this.label8.TabIndex = 42;
             this.label8.Text = "Thuế TNCN:";
             // 
+            // txtCoefficient
+            // 
+            this.txtCoefficient.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCoefficient.Location = new System.Drawing.Point(134, 298);
+            this.txtCoefficient.Name = "txtCoefficient";
+            this.txtCoefficient.Size = new System.Drawing.Size(241, 23);
+            this.txtCoefficient.TabIndex = 46;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(16, 301);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 18);
+            this.label9.TabIndex = 45;
+            this.label9.Text = "Hệ số lương:";
+            // 
             // ChangeSalary
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(398, 350);
+            this.ClientSize = new System.Drawing.Size(398, 416);
+            this.Controls.Add(this.txtCoefficient);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtTax);
             this.Controls.Add(this.label8);
@@ -273,5 +295,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAllowance;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCoefficient;
+        private System.Windows.Forms.Label label9;
     }
 }

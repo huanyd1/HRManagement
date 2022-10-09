@@ -24,12 +24,48 @@ namespace HRManagement.Screens.Explanation
 
         private void LoadAllInfoExplanation()
         {
-            TimekeepingDAO dao = new TimekeepingDAO();
-            gExplanation.DataSource = dao.GetTimeByIDStaffType("VP01924");
+            if (!string.IsNullOrEmpty(cbMonth.Text.ToString()))
+            {
+                int month = int.Parse(cbMonth.Text.Replace("Tháng ", ""));
+
+                TimekeepingDAO dao = new TimekeepingDAO();
+                var data = dao.GetTimeByIDStaffType();
+
+                List<Model.EF.Timekeeping> lstExplanation = new List<Model.EF.Timekeeping>();
+
+                foreach (var item in data)
+                {
+                    var currentMonth = int.Parse(DateTime.Parse(item.Checkin.ToString()).ToString("MM")).ToString();
+                    if (currentMonth == month.ToString())
+                    {
+                        lstExplanation.Add(item);
+                    }
+                }
+                gExplanation.DataSource = lstExplanation;
+            }
+        }
+
+        private void LoadAllMonth()
+        {
+            cbMonth.Items.Add("Tháng 1");
+            cbMonth.Items.Add("Tháng 2");
+            cbMonth.Items.Add("Tháng 3");
+            cbMonth.Items.Add("Tháng 4");
+            cbMonth.Items.Add("Tháng 5");
+            cbMonth.Items.Add("Tháng 6");
+            cbMonth.Items.Add("Tháng 7");
+            cbMonth.Items.Add("Tháng 8");
+            cbMonth.Items.Add("Tháng 9");
+            cbMonth.Items.Add("Tháng 10");
+            cbMonth.Items.Add("Tháng 11");
+            cbMonth.Items.Add("Tháng 12");
+
+            cbMonth.SelectedText = "Tháng " + DateTime.Now.Month.ToString();
         }
 
         private void UCExplanation_Load(object sender, EventArgs e)
         {
+            LoadAllMonth();
             LoadAllInfoExplanation();
 
             if (InfoStaffCommon.IsAdmin)
@@ -91,7 +127,7 @@ namespace HRManagement.Screens.Explanation
 
                         if (dao.DeleteExplanation(idTime, idStaff))
                         {
-                            Model.NotificationCommon.DeleteFaild("Giải trình");
+                            Model.NotificationCommon.DeleteSuccess("Giải trình");
                             LoadAllInfoExplanation();
                         }
                         else
@@ -197,6 +233,11 @@ namespace HRManagement.Screens.Explanation
                     btnRefuse.Enabled = true;
                 }
             }
+        }
+
+        private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAllInfoExplanation();
         }
     }
 }

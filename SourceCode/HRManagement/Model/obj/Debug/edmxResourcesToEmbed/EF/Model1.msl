@@ -232,9 +232,12 @@
         <MappingFragment StoreEntitySet="AllInfoSalary">
           <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="IDDepartment" ColumnName="IDDepartment" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
           <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
           <ScalarProperty Name="Allowance" ColumnName="Allowance" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

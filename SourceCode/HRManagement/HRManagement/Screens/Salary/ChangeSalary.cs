@@ -60,6 +60,7 @@ namespace HRManagement.Screens.Salary
             txtStaffName.Text = Sdao.GetStaffNameByID(_idStaff);
             txtAllowance.Text = salary.Allowance.ToString();
             txtTax.Text = salary.Tax.ToString();
+            txtCoefficient.Text = salary.Coefficient.ToString();
 
             //Nếu info thì disable tất cả
             if (_isInfo)
@@ -67,6 +68,7 @@ namespace HRManagement.Screens.Salary
                 txtAmount.ReadOnly = true;
                 txtAllowance.ReadOnly = true;
                 txtTax.ReadOnly = true;
+                txtCoefficient.ReadOnly = true;
 
                 btnSave.Visible = false;
                 this.Text = Model.ActionCommon.InfoAction("Tiền lương");
@@ -132,6 +134,7 @@ namespace HRManagement.Screens.Salary
             salary.SalaryAmount = int.Parse(txtAmount.Text.Replace(",", ""));
             salary.Allowance = int.Parse(txtAllowance.Text.Replace(",", ""));
             salary.Tax = int.Parse(txtTax.Text.Replace(",", ""));
+            salary.Coefficient = double.Parse(txtCoefficient.Text.ToString());
 
             return salary;
         }

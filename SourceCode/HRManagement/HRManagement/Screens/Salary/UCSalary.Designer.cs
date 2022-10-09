@@ -49,10 +49,13 @@
             this.gvSalary = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StaffName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.IDDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SalaryAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Allowance = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Tax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Coefficient = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -159,7 +162,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 21);
+            this.label1.Size = new System.Drawing.Size(168, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản lý Lương";
             // 
@@ -184,7 +187,7 @@
             this.textBox1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(264, 44);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
+            this.textBox1.Size = new System.Drawing.Size(190, 23);
             this.textBox1.TabIndex = 11;
             // 
             // label3
@@ -193,7 +196,7 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(261, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 17);
+            this.label3.Size = new System.Drawing.Size(140, 22);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tên nhân viên";
             // 
@@ -225,7 +228,7 @@
             this.txtIDInsurance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDInsurance.Location = new System.Drawing.Point(29, 44);
             this.txtIDInsurance.Name = "txtIDInsurance";
-            this.txtIDInsurance.Size = new System.Drawing.Size(190, 20);
+            this.txtIDInsurance.Size = new System.Drawing.Size(190, 23);
             this.txtIDInsurance.TabIndex = 3;
             // 
             // label2
@@ -234,7 +237,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.Size = new System.Drawing.Size(130, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã nhân viên";
             // 
@@ -265,7 +268,10 @@
             this.gvSalary.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IDStaff,
             this.StaffName,
+            this.IDDepartment,
+            this.DepartmentName,
             this.SalaryAmount,
+            this.Coefficient,
             this.Allowance,
             this.Tax});
             this.gvSalary.GridControl = this.gSalary;
@@ -292,6 +298,24 @@
             this.StaffName.VisibleIndex = 1;
             this.StaffName.Width = 94;
             // 
+            // IDDepartment
+            // 
+            this.IDDepartment.Caption = "Mã Phòng Ban";
+            this.IDDepartment.FieldName = "IDDepartment";
+            this.IDDepartment.MinWidth = 25;
+            this.IDDepartment.Name = "IDDepartment";
+            this.IDDepartment.Width = 94;
+            // 
+            // DepartmentName
+            // 
+            this.DepartmentName.Caption = "Tên Phòng Ban";
+            this.DepartmentName.FieldName = "DepartmentName";
+            this.DepartmentName.MinWidth = 25;
+            this.DepartmentName.Name = "DepartmentName";
+            this.DepartmentName.Visible = true;
+            this.DepartmentName.VisibleIndex = 2;
+            this.DepartmentName.Width = 94;
+            // 
             // SalaryAmount
             // 
             this.SalaryAmount.Caption = "Số tiền";
@@ -301,7 +325,7 @@
             this.SalaryAmount.MinWidth = 25;
             this.SalaryAmount.Name = "SalaryAmount";
             this.SalaryAmount.Visible = true;
-            this.SalaryAmount.VisibleIndex = 2;
+            this.SalaryAmount.VisibleIndex = 3;
             this.SalaryAmount.Width = 94;
             // 
             // Allowance
@@ -313,7 +337,7 @@
             this.Allowance.MinWidth = 25;
             this.Allowance.Name = "Allowance";
             this.Allowance.Visible = true;
-            this.Allowance.VisibleIndex = 3;
+            this.Allowance.VisibleIndex = 4;
             this.Allowance.Width = 94;
             // 
             // Tax
@@ -324,11 +348,21 @@
             this.Tax.FieldName = "Tax";
             this.Tax.Name = "Tax";
             this.Tax.Visible = true;
-            this.Tax.VisibleIndex = 4;
+            this.Tax.VisibleIndex = 6;
             // 
             // gridView1
             // 
             this.gridView1.Name = "gridView1";
+            // 
+            // Coefficient
+            // 
+            this.Coefficient.Caption = "Hệ số lương";
+            this.Coefficient.FieldName = "Coefficient";
+            this.Coefficient.MinWidth = 25;
+            this.Coefficient.Name = "Coefficient";
+            this.Coefficient.Visible = true;
+            this.Coefficient.VisibleIndex = 5;
+            this.Coefficient.Width = 94;
             // 
             // UCSalary
             // 
@@ -378,5 +412,8 @@
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraGrid.Columns.GridColumn IDDepartment;
+        private DevExpress.XtraGrid.Columns.GridColumn DepartmentName;
+        private DevExpress.XtraGrid.Columns.GridColumn Coefficient;
     }
 }

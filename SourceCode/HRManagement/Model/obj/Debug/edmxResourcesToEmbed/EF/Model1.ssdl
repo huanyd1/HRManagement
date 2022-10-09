@@ -216,12 +216,16 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoSalary' does not have a pr
   <EntityType Name="AllInfoSalary">
     <Key>
       <PropertyRef Name="IDStaff" />
+      <PropertyRef Name="IDDepartment" />
     </Key>
     <Property Name="IDStaff" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDDepartment" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
     <Property Name="SalaryAmount" Type="int" />
     <Property Name="Allowance" Type="int" />
     <Property Name="Tax" Type="int" />
+    <Property Name="Coefficient" Type="float" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffCourse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -575,9 +579,12 @@ FROM [dbo].[AllInfoInsurance] AS [AllInfoInsurance]</DefiningQuery>
       <DefiningQuery>SELECT 
 [AllInfoSalary].[IDStaff] AS [IDStaff], 
 [AllInfoSalary].[StaffName] AS [StaffName], 
+[AllInfoSalary].[IDDepartment] AS [IDDepartment], 
+[AllInfoSalary].[DepartmentName] AS [DepartmentName], 
 [AllInfoSalary].[SalaryAmount] AS [SalaryAmount], 
 [AllInfoSalary].[Allowance] AS [Allowance], 
-[AllInfoSalary].[Tax] AS [Tax]
+[AllInfoSalary].[Tax] AS [Tax], 
+[AllInfoSalary].[Coefficient] AS [Coefficient]
 FROM [dbo].[AllInfoSalary] AS [AllInfoSalary]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="AllInfoStaffCourse" EntityType="Self.AllInfoStaffCourse" store:Type="Views" store:Schema="dbo">

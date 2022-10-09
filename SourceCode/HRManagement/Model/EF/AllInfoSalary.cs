@@ -16,8 +16,11 @@ namespace Model.EF
     {
         public string IDStaff { get; set; }
         public string StaffName { get; set; }
+        public string IDDepartment { get; set; }
+        public string DepartmentName { get; set; }
         public Nullable<int> SalaryAmount { get; set; }
         public Nullable<int> Allowance { get; set; }
         public Nullable<int> Tax { get; set; }
+        public Nullable<double> Coefficient { get; set; }
     }
 }

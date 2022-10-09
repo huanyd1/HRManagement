@@ -242,12 +242,16 @@
   <EntityType Name="AllInfoSalary">
     <Key>
       <PropertyRef Name="IDStaff" />
+      <PropertyRef Name="IDDepartment" />
     </Key>
     <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SalaryAmount" Type="Int32" />
     <Property Name="Allowance" Type="Int32" />
     <Property Name="Tax" Type="Int32" />
+    <Property Name="Coefficient" Type="Double" />
   </EntityType>
   <EntityType Name="AllInfoStaffCourse">
     <Key>

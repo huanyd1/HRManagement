@@ -40,7 +40,7 @@ namespace HRManagement.Screens.Salary
         }
         public string IdDepartment
         {
-            set { _idStaff = value; }
+            set { _idDepartment = value; }
         }
 
         private void LoadInfoTimeSheets()
@@ -124,6 +124,11 @@ namespace HRManagement.Screens.Salary
             return ndays - 2 * nsaturdays
                    - (d0.DayOfWeek == DayOfWeek.Sunday ? 1 : 0)
                    + (d1.DayOfWeek == DayOfWeek.Saturday ? 1 : 0);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

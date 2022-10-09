@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace HRManagement.Screens.Course
@@ -30,6 +31,15 @@ namespace HRManagement.Screens.Course
         private void UCCourse_Load(object sender, EventArgs e)
         {
             LoadAllCourse();
+
+            gvCourse.RowCellStyle += (sen, evt) =>
+            {
+                GridView view = sender as GridView;
+                if (evt.Column.FieldName == "Status")
+                {
+                    evt.Appearance.BackColor = (string)evt.CellValue == "1" ? Color.LightGreen : Color.IndianRed;
+                }
+            };
         }
 
         private void btnInfo_Click(object sender, EventArgs e)

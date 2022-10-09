@@ -370,11 +370,11 @@
             // txtThuNhapHDCT
             // 
             this.txtThuNhapHDCT.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThuNhapHDCT.Location = new System.Drawing.Point(89, 65);
+            this.txtThuNhapHDCT.Location = new System.Drawing.Point(148, 82);
             this.txtThuNhapHDCT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThuNhapHDCT.MaxLength = 12;
             this.txtThuNhapHDCT.Name = "txtThuNhapHDCT";
-            this.txtThuNhapHDCT.Size = new System.Drawing.Size(146, 18);
+            this.txtThuNhapHDCT.Size = new System.Drawing.Size(146, 23);
             this.txtThuNhapHDCT.TabIndex = 102;
             this.txtThuNhapHDCT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtThuNhapHDCT.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -382,11 +382,11 @@
             // txtTNHDTV
             // 
             this.txtTNHDTV.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTNHDTV.Location = new System.Drawing.Point(89, 84);
+            this.txtTNHDTV.Location = new System.Drawing.Point(148, 108);
             this.txtTNHDTV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTNHDTV.MaxLength = 12;
             this.txtTNHDTV.Name = "txtTNHDTV";
-            this.txtTNHDTV.Size = new System.Drawing.Size(146, 18);
+            this.txtTNHDTV.Size = new System.Drawing.Size(146, 23);
             this.txtTNHDTV.TabIndex = 108;
             this.txtTNHDTV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTNHDTV.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -394,11 +394,11 @@
             // txtLuongCB
             // 
             this.txtLuongCB.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLuongCB.Location = new System.Drawing.Point(89, 106);
+            this.txtLuongCB.Location = new System.Drawing.Point(148, 137);
             this.txtLuongCB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLuongCB.MaxLength = 12;
             this.txtLuongCB.Name = "txtLuongCB";
-            this.txtLuongCB.Size = new System.Drawing.Size(146, 18);
+            this.txtLuongCB.Size = new System.Drawing.Size(146, 23);
             this.txtLuongCB.TabIndex = 109;
             this.txtLuongCB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtLuongCB.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -406,22 +406,22 @@
             // txtNgayCong
             // 
             this.txtNgayCong.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayCong.Location = new System.Drawing.Point(89, 130);
+            this.txtNgayCong.Location = new System.Drawing.Point(148, 169);
             this.txtNgayCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNgayCong.MaxLength = 12;
             this.txtNgayCong.Name = "txtNgayCong";
-            this.txtNgayCong.Size = new System.Drawing.Size(146, 18);
+            this.txtNgayCong.Size = new System.Drawing.Size(146, 23);
             this.txtNgayCong.TabIndex = 110;
             this.txtNgayCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtAnCa
             // 
             this.txtAnCa.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnCa.Location = new System.Drawing.Point(89, 196);
+            this.txtAnCa.Location = new System.Drawing.Point(148, 245);
             this.txtAnCa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAnCa.MaxLength = 12;
             this.txtAnCa.Name = "txtAnCa";
-            this.txtAnCa.Size = new System.Drawing.Size(146, 18);
+            this.txtAnCa.Size = new System.Drawing.Size(146, 23);
             this.txtAnCa.TabIndex = 116;
             this.txtAnCa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAnCa.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -429,11 +429,11 @@
             // txtDienThoai
             // 
             this.txtDienThoai.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDienThoai.Location = new System.Drawing.Point(89, 219);
+            this.txtDienThoai.Location = new System.Drawing.Point(148, 273);
             this.txtDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDienThoai.MaxLength = 12;
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(146, 18);
+            this.txtDienThoai.Size = new System.Drawing.Size(146, 23);
             this.txtDienThoai.TabIndex = 117;
             this.txtDienThoai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDienThoai.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -441,11 +441,11 @@
             // txtXangXe
             // 
             this.txtXangXe.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtXangXe.Location = new System.Drawing.Point(89, 240);
+            this.txtXangXe.Location = new System.Drawing.Point(148, 300);
             this.txtXangXe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtXangXe.MaxLength = 12;
             this.txtXangXe.Name = "txtXangXe";
-            this.txtXangXe.Size = new System.Drawing.Size(146, 18);
+            this.txtXangXe.Size = new System.Drawing.Size(146, 23);
             this.txtXangXe.TabIndex = 118;
             this.txtXangXe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtXangXe.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -453,11 +453,11 @@
             // txtPhuCapKhac
             // 
             this.txtPhuCapKhac.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhuCapKhac.Location = new System.Drawing.Point(89, 260);
+            this.txtPhuCapKhac.Location = new System.Drawing.Point(148, 325);
             this.txtPhuCapKhac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPhuCapKhac.MaxLength = 12;
             this.txtPhuCapKhac.Name = "txtPhuCapKhac";
-            this.txtPhuCapKhac.Size = new System.Drawing.Size(146, 18);
+            this.txtPhuCapKhac.Size = new System.Drawing.Size(146, 23);
             this.txtPhuCapKhac.TabIndex = 119;
             this.txtPhuCapKhac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPhuCapKhac.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -465,11 +465,11 @@
             // txtCacLoaiBH
             // 
             this.txtCacLoaiBH.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCacLoaiBH.Location = new System.Drawing.Point(89, 331);
+            this.txtCacLoaiBH.Location = new System.Drawing.Point(148, 413);
             this.txtCacLoaiBH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCacLoaiBH.MaxLength = 12;
             this.txtCacLoaiBH.Name = "txtCacLoaiBH";
-            this.txtCacLoaiBH.Size = new System.Drawing.Size(146, 18);
+            this.txtCacLoaiBH.Size = new System.Drawing.Size(146, 23);
             this.txtCacLoaiBH.TabIndex = 120;
             this.txtCacLoaiBH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCacLoaiBH.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -477,11 +477,11 @@
             // txtQuyCD
             // 
             this.txtQuyCD.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuyCD.Location = new System.Drawing.Point(89, 352);
+            this.txtQuyCD.Location = new System.Drawing.Point(148, 440);
             this.txtQuyCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuyCD.MaxLength = 12;
             this.txtQuyCD.Name = "txtQuyCD";
-            this.txtQuyCD.Size = new System.Drawing.Size(146, 18);
+            this.txtQuyCD.Size = new System.Drawing.Size(146, 23);
             this.txtQuyCD.TabIndex = 121;
             this.txtQuyCD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQuyCD.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -489,11 +489,11 @@
             // txtThueTNCN
             // 
             this.txtThueTNCN.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThueTNCN.Location = new System.Drawing.Point(89, 373);
+            this.txtThueTNCN.Location = new System.Drawing.Point(148, 466);
             this.txtThueTNCN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThueTNCN.MaxLength = 12;
             this.txtThueTNCN.Name = "txtThueTNCN";
-            this.txtThueTNCN.Size = new System.Drawing.Size(146, 18);
+            this.txtThueTNCN.Size = new System.Drawing.Size(146, 23);
             this.txtThueTNCN.TabIndex = 122;
             this.txtThueTNCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtThueTNCN.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -501,11 +501,11 @@
             // txtThucLinh
             // 
             this.txtThucLinh.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThucLinh.Location = new System.Drawing.Point(89, 424);
+            this.txtThucLinh.Location = new System.Drawing.Point(148, 530);
             this.txtThucLinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThucLinh.MaxLength = 12;
             this.txtThucLinh.Name = "txtThucLinh";
-            this.txtThucLinh.Size = new System.Drawing.Size(146, 18);
+            this.txtThucLinh.Size = new System.Drawing.Size(146, 23);
             this.txtThucLinh.TabIndex = 123;
             this.txtThucLinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtThucLinh.TextChanged += new System.EventHandler(this.txt_TextChanged);
@@ -515,31 +515,32 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(164, 457);
+            this.btnCancel.Location = new System.Drawing.Point(236, 601);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 36);
             this.btnCancel.TabIndex = 124;
             this.btnCancel.Text = "Thoát";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtStaffName
             // 
             this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(89, 19);
+            this.txtStaffName.Location = new System.Drawing.Point(161, 25);
             this.txtStaffName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtStaffName.MaxLength = 12;
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(171, 18);
+            this.txtStaffName.Size = new System.Drawing.Size(171, 23);
             this.txtStaffName.TabIndex = 128;
             this.txtStaffName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtIDStaff
             // 
             this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDStaff.Location = new System.Drawing.Point(89, 0);
+            this.txtIDStaff.Location = new System.Drawing.Point(161, -2);
             this.txtIDStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDStaff.MaxLength = 12;
             this.txtIDStaff.Name = "txtIDStaff";
-            this.txtIDStaff.Size = new System.Drawing.Size(171, 18);
+            this.txtIDStaff.Size = new System.Drawing.Size(171, 23);
             this.txtIDStaff.TabIndex = 127;
             this.txtIDStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 

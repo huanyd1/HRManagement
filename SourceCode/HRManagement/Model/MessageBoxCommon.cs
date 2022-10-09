@@ -58,5 +58,15 @@ namespace Model
         {
             return string.Format("Không thể tìm thấy Báo cáo này hiện tại, Vui lòng thử lại!");
         }
+
+        public static string SendMailSuccess()
+        {
+            return string.Format("Hệ thống đã gửi thông tin Email thành công!");
+        }
+
+        public static string SendMainError()
+        {
+            return string.Format("Đã có lỗi trong quá trình xử lý, Vui lòng kiểm tra lại!");
+        }
     }
 }
