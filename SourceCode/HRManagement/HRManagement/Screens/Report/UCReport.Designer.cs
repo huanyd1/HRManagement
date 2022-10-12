@@ -80,7 +80,7 @@
             this.cbReport.FormattingEnabled = true;
             this.cbReport.Location = new System.Drawing.Point(541, 41);
             this.cbReport.Name = "cbReport";
-            this.cbReport.Size = new System.Drawing.Size(190, 20);
+            this.cbReport.Size = new System.Drawing.Size(190, 23);
             this.cbReport.TabIndex = 14;
             this.cbReport.SelectedValueChanged += new System.EventHandler(this.cbReport_SelectedValueChanged);
             // 
@@ -90,9 +90,9 @@
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(380, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 17);
+            this.label6.Size = new System.Drawing.Size(140, 22);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Loại hợp đồng";
+            this.label6.Text = "Chọn báo cáo:";
             // 
             // label1
             // 
@@ -100,7 +100,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 21);
+            this.label1.Size = new System.Drawing.Size(108, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = " Báo cáo";
             // 
