@@ -50,17 +50,18 @@ namespace HRManagement.Screens.BackUp
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.DefaultExt = "bak";
-            openFileDialog.Filter = "Backup File |*.bak";
-            openFileDialog.AddExtension = true;
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.Title = "Where do you want to save the file?";
-            openFileDialog.InitialDirectory = @"C:/";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            string ext = "bak";
+            string filter = "Backup File |*.bak";
+
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            OpenFileCommon open = new OpenFileCommon();
+            open.OpenFileDialogCommon(ext, filter, out openFile);
+
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
                 BackUpDAO dao = new BackUpDAO();
-                if (dao.Restore(openFileDialog.FileName))
+                if (dao.Restore(openFile.FileName))
                 {
                     MessageBox.Show("Sao lưu dữ liệu thành công!");
                 }
@@ -73,8 +74,8 @@ namespace HRManagement.Screens.BackUp
             {
                 //MessageBox.Show("You hit cancel or closed the dialog.");
             }
-            openFileDialog.Dispose();
-            openFileDialog = null;
+            openFile.Dispose();
+            openFile = null;
         }
     }
 }

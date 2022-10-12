@@ -47,6 +47,8 @@
             this.StaffName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.IDStaff = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvAccount = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Type = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gAccount = new DevExpress.XtraGrid.GridControl();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -135,6 +137,7 @@
             this.btnExport.Size = new System.Drawing.Size(115, 35);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Xuất DL";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label6
             // 
@@ -215,7 +218,7 @@
             this.Username.FieldName = "Username";
             this.Username.Name = "Username";
             this.Username.Visible = true;
-            this.Username.VisibleIndex = 2;
+            this.Username.VisibleIndex = 1;
             // 
             // StaffName
             // 
@@ -223,7 +226,7 @@
             this.StaffName.FieldName = "StaffName";
             this.StaffName.Name = "StaffName";
             this.StaffName.Visible = true;
-            this.StaffName.VisibleIndex = 1;
+            this.StaffName.VisibleIndex = 0;
             // 
             // IDStaff
             // 
@@ -231,8 +234,6 @@
             this.IDStaff.FieldName = "IDStaff";
             this.IDStaff.MinWidth = 25;
             this.IDStaff.Name = "IDStaff";
-            this.IDStaff.Visible = true;
-            this.IDStaff.VisibleIndex = 0;
             this.IDStaff.Width = 94;
             // 
             // gvAccount
@@ -240,10 +241,33 @@
             this.gvAccount.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IDStaff,
             this.StaffName,
-            this.Username});
+            this.Username,
+            this.Type,
+            this.Status});
             this.gvAccount.GridControl = this.gAccount;
             this.gvAccount.Name = "gvAccount";
             this.gvAccount.OptionsView.ShowGroupPanel = false;
+            this.gvAccount.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvAccount_CustomColumnDisplayText);
+            // 
+            // Type
+            // 
+            this.Type.Caption = "Phân quyền";
+            this.Type.FieldName = "Type";
+            this.Type.MinWidth = 25;
+            this.Type.Name = "Type";
+            this.Type.Visible = true;
+            this.Type.VisibleIndex = 2;
+            this.Type.Width = 94;
+            // 
+            // Status
+            // 
+            this.Status.Caption = "Trạng thái";
+            this.Status.FieldName = "Status";
+            this.Status.MinWidth = 25;
+            this.Status.Name = "Status";
+            this.Status.Visible = true;
+            this.Status.VisibleIndex = 3;
+            this.Status.Width = 94;
             // 
             // gAccount
             // 
@@ -367,5 +391,7 @@
         private System.Windows.Forms.TextBox txtIDStaff;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.SimpleButton btnInfo;
+        private DevExpress.XtraGrid.Columns.GridColumn Type;
+        private DevExpress.XtraGrid.Columns.GridColumn Status;
     }
 }

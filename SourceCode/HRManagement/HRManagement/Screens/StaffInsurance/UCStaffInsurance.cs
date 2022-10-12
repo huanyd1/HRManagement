@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -89,6 +90,33 @@ namespace HRManagement.Screens.StaffInsurance
 
             StaffInsuranceDAO dao = new StaffInsuranceDAO();
             gStaffInsurance.DataSource = dao.GetAllInsuranceByFilter(staffName, idInsurance);
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string ext = "xlsx";
+            string filter = "XLSX File |*.xlsx";
+
+            SaveFileDialog save = new SaveFileDialog();
+
+            SaveFileCommon saveFile = new SaveFileCommon();
+            saveFile.SaveFileDialogCommon(ext, filter, out save);
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string path = save.FileName;
+                    gStaffInsurance.ExportToXlsx(path);
+                    Process.Start(path);
+                }
+                catch { System.Windows.MessageBox.Show("Có lỗi trong quá trình sao lưu, Vui lòng thử lại!"); }
+            }
+            else
+            {
+                //MessageBox.Show("You hit cancel or closed the dialog.");
+            }
+            save.Dispose();
         }
     }
 }

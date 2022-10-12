@@ -33,8 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefuse = new DevExpress.XtraEditors.SimpleButton();
             this.btnAgree = new DevExpress.XtraEditors.SimpleButton();
-            this.lbRemain = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +47,8 @@
             this.TotalDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Descript = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbMonth = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
@@ -64,10 +64,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbMonth);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnRefuse);
             this.panel1.Controls.Add(this.btnAgree);
-            this.panel1.Controls.Add(this.lbRemain);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
@@ -101,26 +101,6 @@
             this.btnAgree.Text = "Duyệt";
             this.btnAgree.Visible = false;
             this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
-            // 
-            // lbRemain
-            // 
-            this.lbRemain.AutoSize = true;
-            this.lbRemain.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRemain.Location = new System.Drawing.Point(201, 55);
-            this.lbRemain.Name = "lbRemain";
-            this.lbRemain.Size = new System.Drawing.Size(16, 17);
-            this.lbRemain.TabIndex = 7;
-            this.lbRemain.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Số ngày phép còn lại:";
             // 
             // btnDelete
             // 
@@ -276,6 +256,26 @@
             this.Status.VisibleIndex = 5;
             this.Status.Width = 94;
             // 
+            // cbMonth
+            // 
+            this.cbMonth.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Location = new System.Drawing.Point(196, 51);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(198, 25);
+            this.cbMonth.TabIndex = 11;
+            this.cbMonth.SelectedIndexChanged += new System.EventHandler(this.cbMonth_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Tìm kiếm theo tháng:";
+            // 
             // UCLeaveAbsence
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -310,12 +310,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn ToDate;
         private DevExpress.XtraGrid.Columns.GridColumn Descript;
         private DevExpress.XtraGrid.Columns.GridColumn Status;
-        private System.Windows.Forms.Label lbRemain;
-        private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn IDLeaveAbsence;
         private DevExpress.XtraGrid.Columns.GridColumn TotalDay;
         private DevExpress.XtraEditors.SimpleButton btnRefuse;
         private DevExpress.XtraEditors.SimpleButton btnAgree;
         private DevExpress.XtraGrid.Columns.GridColumn IDStaff;
+        private System.Windows.Forms.ComboBox cbMonth;
+        private System.Windows.Forms.Label label3;
     }
 }

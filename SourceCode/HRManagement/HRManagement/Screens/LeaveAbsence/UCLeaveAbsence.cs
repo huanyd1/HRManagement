@@ -24,22 +24,58 @@ namespace HRManagement.Screens.LeaveAbsence
         
         private void LoadAllLeaveAbsenceStaff()
         {
-            LeaveAbsenceDAO dao = new LeaveAbsenceDAO();
-            gLeaveAbsence.DataSource = dao.GetListLeaveAbsenceByID("VP01924");
+            //LeaveAbsenceDAO dao = new LeaveAbsenceDAO();
+            //gLeaveAbsence.DataSource = dao.GetAll();
+
+            if (!string.IsNullOrEmpty(cbMonth.Text.ToString()))
+            {
+                int month = int.Parse(cbMonth.Text.Replace("Tháng ", ""));
+
+                LeaveAbsenceDAO dao = new LeaveAbsenceDAO();
+                var data = dao.GetAll();
+
+                List<Model.EF.LeaveAbsence> lstLeaveAbsences = new List<Model.EF.LeaveAbsence>();
+
+                foreach (var item in data)
+                {
+                    var currentMonth = int.Parse(DateTime.Parse(item.FromDate.ToString()).ToString("MM")).ToString();
+                    if (currentMonth == month.ToString())
+                    {
+                        lstLeaveAbsences.Add(item);
+                    }
+                }
+                gLeaveAbsence.DataSource = lstLeaveAbsences;
+            }
         }
 
-        private void LoadRemainStaff()
+        private void LoadAllMonth()
         {
-            LeaveAbsenceDAO dao = new LeaveAbsenceDAO();
-            lbRemain.Text = dao.GetRemainByIDStaff("VP01924").ToString();
+            cbMonth.Items.Add("Tháng 1");
+            cbMonth.Items.Add("Tháng 2");
+            cbMonth.Items.Add("Tháng 3");
+            cbMonth.Items.Add("Tháng 4");
+            cbMonth.Items.Add("Tháng 5");
+            cbMonth.Items.Add("Tháng 6");
+            cbMonth.Items.Add("Tháng 7");
+            cbMonth.Items.Add("Tháng 8");
+            cbMonth.Items.Add("Tháng 9");
+            cbMonth.Items.Add("Tháng 10");
+            cbMonth.Items.Add("Tháng 11");
+            cbMonth.Items.Add("Tháng 12");
+
+            cbMonth.SelectedText = "Tháng " + DateTime.Now.Month.ToString();
         }
+
+        //private void LoadRemainStaff()
+        //{
+        //    LeaveAbsenceDAO dao = new LeaveAbsenceDAO();
+        //    lbRemain.Text = dao.GetRemainByIDStaff("VP01924").ToString();
+        //}
 
         private void UCLeaveAbsence_Load(object sender, EventArgs e)
         {
             if (InfoStaffCommon.IsAdmin)
             {
-                lbRemain.Visible = false;
-                label2.Visible = false;
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;
                 btnAgree.Visible = true;
@@ -54,7 +90,8 @@ namespace HRManagement.Screens.LeaveAbsence
             }
 
             LoadAllLeaveAbsenceStaff();
-            LoadRemainStaff();
+            LoadAllMonth();
+            //LoadRemainStaff();
 
             gvLeaveAbsence.RowCellStyle += (sen, evt) =>
             {
@@ -171,6 +208,11 @@ namespace HRManagement.Screens.LeaveAbsence
                     case "2": e.DisplayText = "Đã từ chối"; break;
                 }
             }
+        }
+
+        private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAllLeaveAbsenceStaff();
         }
     }
 }

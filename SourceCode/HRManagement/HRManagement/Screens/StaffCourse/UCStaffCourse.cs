@@ -143,9 +143,29 @@ namespace HRManagement.Screens.StaffCourse
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            string path = "output.xlsx";
-            gStaffCourse.ExportToXlsx(path);
-            Process.Start(path);
+            string ext = "xlsx";
+            string filter = "XLSX File |*.xlsx";
+
+            SaveFileDialog save = new SaveFileDialog();
+
+            SaveFileCommon saveFile = new SaveFileCommon();
+            saveFile.SaveFileDialogCommon(ext, filter, out save);
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string path = save.FileName;
+                    gStaffCourse.ExportToXlsx(path);
+                    Process.Start(path);
+                }
+                catch { System.Windows.MessageBox.Show("Có lỗi trong quá trình sao lưu, Vui lòng thử lại!"); }
+            }
+            else
+            {
+                //MessageBox.Show("You hit cancel or closed the dialog.");
+            }
+            save.Dispose();
         }
     }
 }

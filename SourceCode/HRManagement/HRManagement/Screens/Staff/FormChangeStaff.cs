@@ -213,6 +213,13 @@ namespace HRManagement.Screens.Staff
                     cbSex.Enabled = false;
                     txtPhonenumber.ReadOnly = true;
 
+                    cbNation.Enabled = false;
+                    cbSpecialize.Enabled = false;
+                    cbAcademic.Enabled = false;
+                    dtimeDateRange.Enabled = false;
+                    txtIssueBy.ReadOnly = true;
+                    txtCoefficient.ReadOnly = true;
+
                     btnSave.Visible = false;
                     btnChangeAvatar.Visible = false;
                     this.Text = Model.ActionCommon.InfoAction("Nhân viên");
@@ -548,22 +555,24 @@ namespace HRManagement.Screens.Staff
 
         private void btnChangeAvatar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.InitialDirectory = "C://Desktop";
-            open.Title = "Select file to be upload.";
-            open.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *.tif; ...";
-            open.FilterIndex = 1;
+            string ext = "png";
+            string filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *.tif; ...";
+
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            OpenFileCommon open = new OpenFileCommon();
+            open.OpenFileDialogCommon(ext, filter, out openFile);
 
             try
             {
-                if (open.ShowDialog() == DialogResult.OK)
+                if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    if (open.CheckFileExists)
+                    if (openFile.CheckFileExists)
                     {
-                        filename = System.IO.Path.GetFileName(open.FileName);
+                        filename = System.IO.Path.GetFileName(openFile.FileName);
                         //string path = System.IO.Path.GetFullPath(open.FileName);
                         string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-                        System.IO.File.Copy(open.FileName, path + "\\Resource\\Upload\\" + filename);
+                        System.IO.File.Copy(openFile.FileName, path + "\\Resource\\Upload\\" + filename);
                         picbAvatar.Image = Image.FromFile(path + "\\Resource\\Upload\\" + filename);
                     }
                     else

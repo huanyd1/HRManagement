@@ -201,6 +201,7 @@
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

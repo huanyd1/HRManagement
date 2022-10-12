@@ -190,6 +190,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoAccount' does not have a p
           <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
           <Property Name="Username" Type="varchar" MaxLength="50" />
           <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="Status" Type="char" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HRManagement.dbo.AllInfoContract' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -558,7 +559,8 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
 [AllInfoAccount].[IDStaff] AS [IDStaff], 
 [AllInfoAccount].[StaffName] AS [StaffName], 
 [AllInfoAccount].[Username] AS [Username], 
-[AllInfoAccount].[Type] AS [Type]
+[AllInfoAccount].[Type] AS [Type], 
+[AllInfoAccount].[Status] AS [Status]
 FROM [dbo].[AllInfoAccount] AS [AllInfoAccount]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="AllInfoContract" EntityType="Self.AllInfoContract" store:Type="Views" store:Schema="dbo">
@@ -905,6 +907,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="AllInfoContract">
           <Key>
@@ -1640,6 +1643,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="StaffName" ColumnName="StaffName" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
