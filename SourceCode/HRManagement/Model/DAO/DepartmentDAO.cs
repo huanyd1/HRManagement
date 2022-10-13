@@ -54,6 +54,27 @@ namespace Model.DAO
             return departmentName;
         }
 
+        public bool AddListDepartment(List<Model.EF.Department> lstDepartment)
+        {
+            foreach(var department in lstDepartment)
+            {
+                try
+                {
+                    if (!IsExistIDDepartment(department.IDDepartment))
+                    {
+                        _db.Departments.Add(department);
+                        _db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Model.NotificationCommon.Error(ex.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool Add(Department department)
         {
             try
@@ -107,6 +128,13 @@ namespace Model.DAO
         public bool IsExitDepartment(string name)
         {
             var result = _db.Departments.Where(x => x.DepartmentName == name).Any();
+
+            return result;
+        }
+
+        public bool IsExistIDDepartment(string id)
+        {
+            var result = _db.Departments.Where(x => x.IDDepartment == id).Any();
 
             return result;
         }

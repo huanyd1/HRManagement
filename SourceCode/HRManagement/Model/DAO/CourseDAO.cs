@@ -23,6 +23,27 @@ namespace Model.DAO
             return course;
         }
 
+        public bool AddListCourse(List<Model.EF.Course> lstCourse)
+        {
+            foreach (var course in lstCourse)
+            {
+                try
+                {
+                    if (!IsExistIDCourse(course.IDCourse))
+                    {
+                        _db.Courses.Add(course);
+                        _db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Model.NotificationCommon.Error(ex.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool Add(Course course)
         {
             try
@@ -76,6 +97,13 @@ namespace Model.DAO
         public bool IsExitCourse(string name)
         {
             var result = _db.Courses.Where(x => x.CourseName == name).Any();
+
+            return result;
+        }
+
+        public bool IsExistIDCourse(string id)
+        {
+            var result = _db.Courses.Where(x => x.IDCourse == id).Any();
 
             return result;
         }

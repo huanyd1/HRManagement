@@ -38,6 +38,13 @@ namespace Model.DAO
             return true;
         }
 
+        public string GetIDByNameType(string nameType)
+        {
+            string type = _db.InsuranceTypes.Where(t => t.TypeName == nameType).Select(t=>t.IDInsuranceType).FirstOrDefault();
+
+            return type;
+        }
+
         public bool IsExitInsuranceType(string name)
         {
             var result = _db.InsuranceTypes.Where(x => x.TypeName == name).Any();

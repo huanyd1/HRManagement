@@ -186,3 +186,10 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRMana
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCStaffVolatility.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.Report.UCTotalStaff.resources
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.BackUp.UCBackUp.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\EPPlus.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\EPPlus.Interfaces.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\EPPlus.System.Drawing.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\EPPlus.xml
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.BackUp.FormErrorImport.resources

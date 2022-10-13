@@ -59,6 +59,27 @@ namespace Model.DAO
             return list.ToList();
         }
 
+        public bool AddListInsurance(List<Model.EF.Insurance> lstInsurance)
+        {
+            foreach (var insurance in lstInsurance)
+            {
+                try
+                {
+                    if (!IsExistIDInsurance(insurance.IDInsurance))
+                    {
+                        _db.Insurances.Add(insurance);
+                        _db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Model.NotificationCommon.Error(ex.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool Add(Insurance insurance)
         {
             try
@@ -112,6 +133,13 @@ namespace Model.DAO
         public bool IsExitInsurance(string name)
         {
             var result = _db.Insurances.Where(x => x.InsuranceName == name).Any();
+
+            return result;
+        }
+
+        public bool IsExistIDInsurance(string id)
+        {
+            var result = _db.Insurances.Where(x => x.IDInsurance == id).Any();
 
             return result;
         }
