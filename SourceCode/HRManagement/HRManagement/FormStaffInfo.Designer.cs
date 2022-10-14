@@ -44,11 +44,20 @@
             this.pboxAvatar = new System.Windows.Forms.PictureBox();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.panelSelect = new System.Windows.Forms.Panel();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.btnOption = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChangePass = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,9 +72,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.separatorControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 680);
+            this.panel1.Size = new System.Drawing.Size(360, 579);
             this.panel1.TabIndex = 0;
             // 
             // btnCheckout
@@ -209,17 +218,84 @@
             this.separatorControl1.LineThickness = 3;
             this.separatorControl1.Location = new System.Drawing.Point(340, 0);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(20, 680);
+            this.separatorControl1.Size = new System.Drawing.Size(20, 579);
             this.separatorControl1.TabIndex = 0;
             // 
             // panelSelect
             // 
             this.panelSelect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSelect.Location = new System.Drawing.Point(360, 0);
+            this.panelSelect.Location = new System.Drawing.Point(360, 71);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(918, 680);
+            this.panelSelect.Size = new System.Drawing.Size(918, 579);
             this.panelSelect.TabIndex = 1;
             this.panelSelect.Resize += new System.EventHandler(this.panelSelect_Resize);
+            // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 650);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1278, 30);
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.CaptionBarItemLinks.Add(this.barSubItem1);
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
+            this.barSubItem1,
+            this.btnInfo,
+            this.btnChangePass,
+            this.btnLogout});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Size = new System.Drawing.Size(1278, 71);
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // btnOption
+            // 
+            this.btnOption.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.btnOption.Caption = "Xin chào, Admin";
+            this.btnOption.Id = 12;
+            this.btnOption.Name = "btnOption";
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "barSubItem1";
+            this.barSubItem1.Id = 1;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnInfo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChangePass),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLogout)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.Caption = "Thông tin";
+            this.btnInfo.Id = 2;
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfo_ItemClick);
+            // 
+            // btnChangePass
+            // 
+            this.btnChangePass.Caption = "Đổi mật khẩu";
+            this.btnChangePass.Id = 3;
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePass_ItemClick);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Id = 4;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // FormStaffInfo
             // 
@@ -227,10 +303,14 @@
             this.ClientSize = new System.Drawing.Size(1278, 680);
             this.Controls.Add(this.panelSelect);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ribbonStatusBar1);
+            this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "FormStaffInfo";
+            this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StatusBar = this.ribbonStatusBar1;
             this.Text = "FormStaffInfo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormStaffInfo_FormClosing);
             this.Load += new System.EventHandler(this.FormStaffInfo_Load);
@@ -239,7 +319,9 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -260,5 +342,13 @@
         private DevExpress.XtraEditors.SimpleButton btnChangeAvatar;
         private DevExpress.XtraEditors.SimpleButton btnCheckout;
         private DevExpress.XtraEditors.SimpleButton btnCheckin;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.BarSubItem btnOption;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem btnInfo;
+        private DevExpress.XtraBars.BarButtonItem btnChangePass;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
     }
 }

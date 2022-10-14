@@ -22,5 +22,12 @@ namespace Model.DAO
 
             return specialize;
         }
+
+        public int GetIDSpecializeByName(string name)
+        {
+            int idSpecialize = _db.Specializes.Where(t => t.SpecializeName == name).Select(t => t.IDSpecialize).FirstOrDefault();
+
+            return idSpecialize;
+        }
     }
 }

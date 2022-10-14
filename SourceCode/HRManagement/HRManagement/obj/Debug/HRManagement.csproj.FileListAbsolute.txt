@@ -193,3 +193,4 @@ D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\Micros
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\EPPlus.xml
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.BackUp.FormErrorImport.resources
+D:\SourceCode\HRManagement\SourceCode\HRManagement\HRManagement\obj\Debug\HRManagement.Screens.InfoStaff.UCInfoStaff.resources

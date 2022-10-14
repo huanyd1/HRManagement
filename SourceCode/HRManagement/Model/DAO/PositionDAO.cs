@@ -23,6 +23,13 @@ namespace Model.DAO
             return position;
         }
 
+        public string GetPositionIDByName(string name)
+        {
+            string positionName = _db.Positions.Where(t => t.PositionName == name).Select(t => t.IDPosition).FirstOrDefault();
+
+            return positionName;
+        }
+
         public bool Add(Position position)
         {
             try

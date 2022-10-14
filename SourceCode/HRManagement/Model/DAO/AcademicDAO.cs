@@ -22,5 +22,12 @@ namespace Model.DAO
 
             return academic;
         }
+
+        public int GetIDAcademicByName(string name)
+        {
+            int idAcademic = _db.AcademicLevels.Where(t => t.AcademicName == name).Select(t => t.IDAcademic).FirstOrDefault();
+
+            return idAcademic;
+        }
     }
 }

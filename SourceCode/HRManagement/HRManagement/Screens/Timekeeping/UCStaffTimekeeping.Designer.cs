@@ -136,6 +136,7 @@
             // gTimeInfo
             // 
             this.gTimeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gTimeInfo.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gTimeInfo.Location = new System.Drawing.Point(0, 0);
             this.gTimeInfo.MainView = this.gvTimeInfo;
             this.gTimeInfo.Name = "gTimeInfo";

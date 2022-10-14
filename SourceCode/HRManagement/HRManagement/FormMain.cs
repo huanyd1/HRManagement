@@ -59,10 +59,12 @@ namespace HRManagement
                 btnStaffCourse.Visible = false;
                 btnTimekeeping.Visible = false;
                 btnStaff.Visible = false;
+                btnBackup.Visible = false;
             }
             else if (InfoStaffCommon.AdminCreate)
             {
-
+                //test
+                //nm6TBX
                 btnAccount.Visible = true;
                 btnReport.Visible = true;
                 btnAccountManager.Visible = true;
@@ -71,15 +73,24 @@ namespace HRManagement
 
                 btnDepartment.Visible = true;
                 btnInsurance.Visible = true;
-                btnContract.Visible = false;
-                btnCourse.Visible = false;
-                btnExplanation.Visible = false;
-                btnLeaveAbsence.Visible = false;
-                btnStaffCourse.Visible = false;
-                btnStaff.Visible = false;
+                btnContract.Visible = true;
+
+                btnCourse.Visible = true;
+                btnExplanation.Visible = true;
+                btnLeaveAbsence.Visible = true;
+                btnStaffCourse.Visible = true;
+                btnStaff.Visible = true;
+
+                btnTimekeeping.Enabled = false;
+                btnSalary.Visible = false;
+                btnAccount.Visible = false;
+                btnReport.Visible = false;
+                btnBackup.Visible = false;
             }
             else if (InfoStaffCommon.AdminApprove)
             {
+                //ketoan1
+                //o*QoEg
                 btnSalary.Visible = true;
                 btnTimeSheets.Visible = true;
                 btnTimekeeping.Visible = true;
@@ -95,6 +106,7 @@ namespace HRManagement
                 btnCourse.Visible = false;
                 btnStaffCourse.Visible = false;
                 btnStaff.Visible = false;
+                btnBackup.Visible = false;
             }
             else
             {

@@ -54,6 +54,7 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnImport = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,7 +74,7 @@
             this.tablePanel1.Controls.Add(this.panel1);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85F),
@@ -84,6 +85,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnImport);
             this.panel3.Controls.Add(this.txtStaffName);
             this.panel3.Controls.Add(this.cbCourse);
             this.panel3.Controls.Add(this.lbCourse);
@@ -92,15 +94,15 @@
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(4, 108);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1051, 97);
             this.panel3.TabIndex = 2;
             // 
             // txtStaffName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(282, 53);
-            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStaffName.Location = new System.Drawing.Point(81, 53);
+            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.Size = new System.Drawing.Size(220, 23);
             this.txtStaffName.TabIndex = 16;
@@ -109,8 +111,8 @@
             // 
             this.cbCourse.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCourse.FormattingEnabled = true;
-            this.cbCourse.Location = new System.Drawing.Point(540, 53);
-            this.cbCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCourse.Location = new System.Drawing.Point(339, 53);
+            this.cbCourse.Margin = new System.Windows.Forms.Padding(4);
             this.cbCourse.Name = "cbCourse";
             this.cbCourse.Size = new System.Drawing.Size(220, 24);
             this.cbCourse.TabIndex = 14;
@@ -119,7 +121,7 @@
             // 
             this.lbCourse.AutoSize = true;
             this.lbCourse.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCourse.Location = new System.Drawing.Point(536, 18);
+            this.lbCourse.Location = new System.Drawing.Point(335, 18);
             this.lbCourse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCourse.Name = "lbCourse";
             this.lbCourse.Size = new System.Drawing.Size(90, 22);
@@ -130,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(279, 18);
+            this.label3.Location = new System.Drawing.Point(78, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 22);
@@ -142,8 +144,8 @@
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(772, 39);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(630, 42);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(134, 43);
             this.btnSearch.TabIndex = 9;
@@ -155,8 +157,8 @@
             this.btnExport.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Appearance.Options.UseFont = true;
             this.btnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.ImageOptions.Image")));
-            this.btnExport.Location = new System.Drawing.Point(913, 39);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExport.Location = new System.Drawing.Point(771, 42);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(134, 43);
             this.btnExport.TabIndex = 8;
@@ -168,7 +170,7 @@
             this.panel2.Controls.Add(this.gStaffCourse);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 213);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1051, 630);
             this.panel2.TabIndex = 1;
@@ -176,10 +178,10 @@
             // gStaffCourse
             // 
             this.gStaffCourse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gStaffCourse.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gStaffCourse.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffCourse.Location = new System.Drawing.Point(0, 0);
             this.gStaffCourse.MainView = this.gvStaffCourse;
-            this.gStaffCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gStaffCourse.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffCourse.Name = "gStaffCourse";
             this.gStaffCourse.Size = new System.Drawing.Size(1051, 630);
             this.gStaffCourse.TabIndex = 4;
@@ -282,7 +284,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 97);
             this.panel1.TabIndex = 0;
@@ -293,7 +295,7 @@
             this.btnInfo.Appearance.Options.UseFont = true;
             this.btnInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.Image")));
             this.btnInfo.Location = new System.Drawing.Point(490, 50);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(134, 43);
             this.btnInfo.TabIndex = 6;
@@ -306,7 +308,7 @@
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Location = new System.Drawing.Point(913, 50);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(134, 43);
             this.btnDelete.TabIndex = 5;
@@ -320,7 +322,7 @@
             this.btnEdit.Enabled = false;
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
             this.btnEdit.Location = new System.Drawing.Point(772, 50);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(134, 43);
             this.btnEdit.TabIndex = 4;
@@ -333,7 +335,7 @@
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Location = new System.Drawing.Point(631, 50);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(134, 43);
             this.btnAdd.TabIndex = 3;
@@ -355,12 +357,25 @@
             // 
             this.gridView1.Name = "gridView1";
             // 
+            // btnImport
+            // 
+            this.btnImport.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Appearance.Options.UseFont = true;
+            this.btnImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnImport.Location = new System.Drawing.Point(913, 42);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(134, 43);
+            this.btnImport.TabIndex = 17;
+            this.btnImport.Text = "Nhập DL";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // UCStaffCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCStaffCourse";
             this.Size = new System.Drawing.Size(1058, 847);
             this.Load += new System.EventHandler(this.UCStaffCourse_Load);
@@ -405,5 +420,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.TextBox txtStaffName;
+        private DevExpress.XtraEditors.SimpleButton btnImport;
     }
 }

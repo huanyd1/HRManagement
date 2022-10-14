@@ -154,6 +154,7 @@
             this.gvCourse.GridControl = this.gCourse;
             this.gvCourse.Name = "gvCourse";
             this.gvCourse.OptionsView.ShowGroupPanel = false;
+            this.gvCourse.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvCourse_CustomColumnDisplayText);
             // 
             // IDCourse
             // 
@@ -161,8 +162,6 @@
             this.IDCourse.FieldName = "IDCourse";
             this.IDCourse.MinWidth = 25;
             this.IDCourse.Name = "IDCourse";
-            this.IDCourse.Visible = true;
-            this.IDCourse.VisibleIndex = 0;
             this.IDCourse.Width = 440;
             // 
             // CourseName
@@ -172,7 +171,7 @@
             this.CourseName.MinWidth = 25;
             this.CourseName.Name = "CourseName";
             this.CourseName.Visible = true;
-            this.CourseName.VisibleIndex = 1;
+            this.CourseName.VisibleIndex = 0;
             this.CourseName.Width = 251;
             // 
             // Status
@@ -183,7 +182,7 @@
             this.Status.MinWidth = 25;
             this.Status.Name = "Status";
             this.Status.Visible = true;
-            this.Status.VisibleIndex = 2;
+            this.Status.VisibleIndex = 1;
             this.Status.Width = 94;
             // 
             // tabNavigationPage2
@@ -219,6 +218,7 @@
             this.gvStaffCourse.Name = "gvStaffCourse";
             this.gvStaffCourse.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvStaffCourse.OptionsView.ShowGroupPanel = false;
+            this.gvStaffCourse.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvStaffCourse_CustomColumnDisplayText);
             // 
             // IDStaffCourse
             // 

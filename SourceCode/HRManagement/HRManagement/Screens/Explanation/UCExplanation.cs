@@ -68,20 +68,37 @@ namespace HRManagement.Screens.Explanation
             LoadAllMonth();
             LoadAllInfoExplanation();
 
-            if (InfoStaffCommon.IsAdmin)
-            {
-                btnAdd.Visible = false;
-                btnDelete.Visible = false;
-                btnAgree.Visible = true;
-                btnRefuse.Visible = true;
-            }
-            else
+
+            if (InfoStaffCommon.AdminCreate)
             {
                 btnAdd.Visible = true;
                 btnDelete.Visible = true;
                 btnAgree.Visible = false;
                 btnRefuse.Visible = false;
             }
+            else if (InfoStaffCommon.AdminApprove)
+            {
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
+                btnAgree.Visible = true;
+                btnRefuse.Visible = true;
+
+                //gvLeaveAbsence.Columns["IDStaff"].Visible = false;
+            }
+            else if (InfoStaffCommon.IsAdmin)
+            {
+                btnAdd.Visible = true;
+                btnDelete.Visible = true;
+                btnAgree.Visible = true;
+                btnRefuse.Visible = true;
+            }
+            else
+            {
+                //ignore
+            }
+
+
+
 
             if (!InfoStaffCommon.IsAdmin)
             {

@@ -22,5 +22,12 @@ namespace Model.DAO
 
             return nation;
         }
+
+        public int GetIDNationByName(string name)
+        {
+            int idNation = _db.Nations.Where(t => t.NationName == name).Select(t => t.IDNation).FirstOrDefault();
+
+            return idNation;
+        }
     }
 }

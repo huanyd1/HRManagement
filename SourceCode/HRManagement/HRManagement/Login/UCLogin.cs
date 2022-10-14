@@ -68,7 +68,6 @@ namespace HRManagement.Login
             InfoStaffCommon.IDDepartment = info.IDDepartment;
         }
 
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (!CheckNullVariable())

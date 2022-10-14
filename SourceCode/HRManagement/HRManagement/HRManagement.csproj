@@ -146,6 +146,7 @@
     <Compile Include="FormStaffInfo.Designer.cs">
       <DependentUpon>FormStaffInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportData\ImportStaffCourse.cs" />
     <Compile Include="ImportData\ImportStaff.cs" />
     <Compile Include="ImportData\ImportCourse.cs" />
     <Compile Include="ImportData\ImportInsurance.cs" />
@@ -267,6 +268,12 @@
     </Compile>
     <Compile Include="Screens\Explanation\UCExplanation.Designer.cs">
       <DependentUpon>UCExplanation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\InfoStaff\UCInfoStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\InfoStaff\UCInfoStaff.Designer.cs">
+      <DependentUpon>UCInfoStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Insurance\ChangeInsurance.cs">
       <SubType>Form</SubType>
@@ -490,6 +497,9 @@
     <EmbeddedResource Include="Screens\Explanation\UCExplanation.resx">
       <DependentUpon>UCExplanation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\InfoStaff\UCInfoStaff.resx">
+      <DependentUpon>UCInfoStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Insurance\ChangeInsurance.resx">
       <DependentUpon>ChangeInsurance.cs</DependentUpon>
     </EmbeddedResource>
@@ -579,6 +589,7 @@
     <None Include="Template\TemplateDepartment.xlsx" />
     <None Include="Template\TemplateInsurance.xlsx" />
     <None Include="Template\TemplateStaff.xlsx" />
+    <None Include="Template\TemplateStaffCourse.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

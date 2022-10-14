@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using HRManagement.ChangePass;
 using Model;
 using Model.DAO;
 using System;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace HRManagement
 {
-    public partial class FormStaffInfo : DevExpress.XtraEditors.XtraForm
+    public partial class FormStaffInfo : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private string filename = "";
         public FormStaffInfo()
@@ -38,6 +39,8 @@ namespace HRManagement
 
         private void FormStaffInfo_Load(object sender, EventArgs e)
         {
+            this.Text = "Thông tin Nhân viên";
+
             lbStaffName.Text = InfoStaffCommon.StaffName;
             lbPosition.Text = InfoStaffCommon.Position;
 
@@ -46,10 +49,7 @@ namespace HRManagement
             {
                 pboxAvatar.Image = Image.FromFile(enviroment + "\\Resource\\Upload\\" + InfoStaffCommon.Avatar);
             }
-            catch(Exception)
-            {
-
-            }
+            catch(Exception){ }
 
             LoadButtonCheckTime();
         }
@@ -230,6 +230,38 @@ namespace HRManagement
             {
                 MessageBox.Show("Bạn đã thực hiện chấm về cho hôm nay rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AddToScreen(new Screens.InfoStaff.UCInfoStaff());
+        }
+
+        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormChangePass changePass = new FormChangePass();
+            changePass.Show();
+        }
+
+        private void ResetInfoStaff()
+        {
+            InfoStaffCommon.IDStaff = "";
+            InfoStaffCommon.StaffName = "";
+            InfoStaffCommon.Role = "";
+            InfoStaffCommon.IsAdmin = false;
+
+            InfoStaffCommon.IDDepartment = "";
+            InfoStaffCommon.Position = "";
+        }
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ResetInfoStaff();
+
+            FormLogin login = new FormLogin();
+
+            login.Show();
+            this.Hide();
         }
     }
 }

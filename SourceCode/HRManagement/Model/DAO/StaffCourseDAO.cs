@@ -61,6 +61,41 @@ namespace Model.DAO
             return staffCourse;
         }
 
+        public int GetIDByStaffCourse(string idStaff, string idCourse)
+        {
+            int idStaffCourse = _db.StaffCourses.Where(t => t.IDStaff == idStaff && t.IDCourse == idCourse).Select(t=>t.IDStaffCourse).FirstOrDefault();
+
+            return idStaffCourse;
+        }
+
+        public bool AddListStaffCourse(List<Model.EF.StaffCourse> lstStaffCourse)
+        {
+            foreach (var staffCourse in lstStaffCourse)
+            {
+                try
+                {
+                    if (!IsExistStaffCourse(staffCourse.IDStaff, staffCourse.IDCourse))
+                    {
+                        _db.StaffCourses.Add(staffCourse);
+                        _db.SaveChanges();
+                    }
+                    else
+                    {
+                        if(Edit(staffCourse, staffCourse.IDStaff, staffCourse.IDCourse))
+                        {
+                            _db.SaveChanges();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Model.NotificationCommon.Error(ex.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool Add(List<string> lstIDCourse, string idStaff)
         {
             try
@@ -86,6 +121,27 @@ namespace Model.DAO
             return true;
         }
 
+        public bool Edit(StaffCourse course, string idStaff, string idCourse)
+        {
+            try
+            {
+                int idStaffCourse = GetIDByStaffCourse(idStaff, idCourse);
+                StaffCourse currentStaffCourse = GetSingleByID(idStaffCourse);
+
+                currentStaffCourse.IDStaff = course.IDStaff;
+                currentStaffCourse.IDCourse = course.IDCourse;
+                currentStaffCourse.Point = course.Point;
+                currentStaffCourse.Result = course.Result;
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool Delete(int idStaffCourse)
         {
             try
@@ -101,6 +157,13 @@ namespace Model.DAO
                 return false;
             }
             return true;
+        }
+
+        public bool IsExistStaffCourse(string idStaff, string idCourse)
+        {
+            var result = _db.StaffCourses.Where(x => x.IDStaff == idStaff && x.IDCourse == idCourse).Any();
+
+            return result;
         }
     }
 }

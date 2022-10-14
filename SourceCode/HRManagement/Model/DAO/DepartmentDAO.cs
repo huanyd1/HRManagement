@@ -54,6 +54,13 @@ namespace Model.DAO
             return departmentName;
         }
 
+        public string GetDepartmentIDByName(string name)
+        {
+            string departmentName = _db.Departments.Where(t => t.DepartmentName == name).Select(t => t.IDDepartment).FirstOrDefault();
+
+            return departmentName;
+        }
+
         public bool AddListDepartment(List<Model.EF.Department> lstDepartment)
         {
             foreach(var department in lstDepartment)

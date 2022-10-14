@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace HRManagement.ImportData
 {
     public class ImportStaff
-    {//phòng ban, khóa học, bảo hiểm, nhân viên
+    {
         public bool ImportDataStaff(string fileName, out List<string> lstError)
         {
             lstError = new List<string>();
@@ -53,10 +53,11 @@ namespace HRManagement.ImportData
                         string allowance = worksheet.Cells[row, 23].Value != null ? worksheet.Cells[row, 23].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                         string tax = worksheet.Cells[row, 24].Value != null ? worksheet.Cells[row, 24].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                         string coefficient = worksheet.Cells[row, 25].Value != null ? worksheet.Cells[row, 25].Value.ToString().Trim() : string.Empty; // ten khoa hoc
+                        string username = worksheet.Cells[row, 26].Value != null ? worksheet.Cells[row, 26].Value.ToString().Trim() : string.Empty; // ten khoa hoc
 
                         string errorHeader = ValidateHeader(rowNoheader, idStaff, staffName, departmentName, position, birthday, address, nationName, academicName, 
                             specializeName, email, cccd, dateIssue, issueBy, sex, numberPhone, typeContractName, contractNumber, contractName, startDate, endDate, 
-                            salary, allowance, tax, coefficient);
+                            salary, allowance, tax, coefficient, username);
                         if (!string.IsNullOrEmpty(errorHeader))
                         {
                             string dataError = RemoveLastCharacter(errorHeader);
@@ -99,11 +100,12 @@ namespace HRManagement.ImportData
                         string allowances = worksheet.Cells[row, 23].Value != null ? worksheet.Cells[row, 23].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                         string taxs = worksheet.Cells[row, 24].Value != null ? worksheet.Cells[row, 24].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                         string coefficients = worksheet.Cells[row, 25].Value != null ? worksheet.Cells[row, 25].Value.ToString().Trim() : string.Empty; // ten khoa hoc
+                        string usernames = worksheet.Cells[row, 26].Value != null ? worksheet.Cells[row, 26].Value.ToString().Trim() : string.Empty; // ten khoa hoc
 
                         bool errorDataBeforeCheck = ValidateBeforeFileEmpty(rowNoheaders, idStaffs, staffNames, departmentNames, positions,
                                                                             birthdays, addresses, nationNames, academicNames, specializeNames,
                                                                             emails, cccds, dateIssues, issueByes, sexs, numberPhones, typeContractNames,
-                                                                            contractNumbers, contractNames, startDates, endDates, salarys, allowances, taxs, coefficients);
+                                                                            contractNumbers, contractNames, startDates, endDates, salarys, allowances, taxs, coefficients, usernames);
 
                         if (errorDataBeforeCheck)
                         {
@@ -127,19 +129,21 @@ namespace HRManagement.ImportData
                             string contractName = worksheet.Cells[row, 19].Value != null ? worksheet.Cells[row, 19].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                             string startDate = worksheet.Cells[row, 20].Value != null ? worksheet.Cells[row, 20].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                             string endDate = worksheet.Cells[row, 21].Value != null ? worksheet.Cells[row, 21].Value.ToString().Trim() : string.Empty; // ten khoa hoc
-                            string salary = worksheet.Cells[row, 22].Value != null ? worksheet.Cells[row, 22].Value.ToString().Trim() : string.Empty; // ten khoa hoc
+                            string salaryAmount = worksheet.Cells[row, 22].Value != null ? worksheet.Cells[row, 22].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                             string allowance = worksheet.Cells[row, 23].Value != null ? worksheet.Cells[row, 23].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                             string tax = worksheet.Cells[row, 24].Value != null ? worksheet.Cells[row, 24].Value.ToString().Trim() : string.Empty; // ten khoa hoc
                             string coefficient = worksheet.Cells[row, 25].Value != null ? worksheet.Cells[row, 25].Value.ToString().Trim() : string.Empty; // ten khoa hoc
+                            string username = worksheet.Cells[row, 26].Value != null ? worksheet.Cells[row, 26].Value.ToString().Trim() : string.Empty; // ten khoa hoc
+
                             bool errorDataEmpty = ValidateFileEmpty(idStaff, staffName, departmentName, position, birthday, address, nationName, academicName,
                                 specializeName, email, cccd, dateIssue, issueBy, sex, numberPhone, typeContractName, contractNumber, contractName, startDate, 
-                                endDate, salary, allowance, tax, coefficient);
+                                endDate, salaryAmount, allowance, tax, coefficient, username);
 
                             if (!errorDataEmpty)
                             {
                                 string errorData = ValidateImportData(idStaff, staffName, departmentName, position, birthday, address, nationName, academicName,
                                 specializeName, email, cccd, dateIssue, issueBy, sex, numberPhone, typeContractName, contractNumber, contractName, startDate,
-                                endDate, salary, allowance, tax, coefficient);
+                                endDate, salaryAmount, allowance, tax, coefficient, username);
                                 if (!string.IsNullOrEmpty(errorData))
                                 {
                                     string dataError = RemoveLastCharacter(errorData);
@@ -155,12 +159,73 @@ namespace HRManagement.ImportData
                             }
                             else
                             {
-                                Model.EF.Staff staff = new Model.EF.Staff();
-                                staff.IDStaff = idStaff;
-                                //staff.StaffName = staffnam;
-                                //department.Status = "1";
+                                StaffDAO staffDAO = new StaffDAO();
+                                var isExist = staffDAO.IsExitStaff(idStaff);
 
-                                lstStaff.Add(staff);
+                                DepartmentDAO departmentDAO = new DepartmentDAO();
+                                string idDepartment = departmentDAO.GetDepartmentIDByName(departmentName);
+
+                                PositionDAO positionDAO = new PositionDAO();
+                                string idPosition = positionDAO.GetPositionIDByName(position);
+
+                                NationDAO nationDAO = new NationDAO();
+                                int idNation = nationDAO.GetIDNationByName(nationName);
+
+                                AcademicDAO academicDAO = new AcademicDAO();
+                                int idAcademic = academicDAO.GetIDAcademicByName(academicName);
+
+                                SpecializeDAO specializeDAO = new SpecializeDAO();
+                                int idSpecialize = specializeDAO.GetIDSpecializeByName(specializeName);
+
+                                ContractTypeDAO contractTypeDAO = new ContractTypeDAO();
+                                string idType = contractTypeDAO.GetIDContractTypeByName(typeContractName);
+
+                                if (!isExist && string.IsNullOrEmpty(idDepartment) && string.IsNullOrEmpty(idPosition)
+                                    && string.IsNullOrEmpty(idNation.ToString()) && string.IsNullOrEmpty(idAcademic.ToString())
+                                    && string.IsNullOrEmpty(idSpecialize.ToString()))
+                                {
+                                    Model.EF.Staff staff = new Model.EF.Staff();
+                                    staff.IDStaff = idStaff;
+                                    staff.StaffName = staffName;
+                                    staff.Sex = sex == "Nam" ? "1" : "0";
+                                    staff.Birthday = DateTime.Parse(birthday.ToString());
+                                    staff.Place = address;
+                                    staff.CCCD = cccd;
+                                    staff.DateRange = DateTime.Parse(dateIssue.ToString());
+                                    staff.IssueBy = issueBy;
+                                    staff.IDNation = idNation;
+                                    staff.IDAcademic = idAcademic;
+                                    staff.IDSpecialize = idSpecialize;
+                                    staff.Numberphone = numberPhone;
+                                    staff.Email = email;
+                                    staff.IDDepartment = idDepartment;
+                                    staff.IDPosition = position;
+                                    staff.StartDate = DateTime.Parse(startDate);
+                                    staff.EndDate = DateTime.Parse(endDate);
+                                    staff.Status = "1";
+
+                                    Model.EF.Contract contract = new Model.EF.Contract();
+                                    contract.IDStaff = idStaff;
+                                    contract.NumberContract = contractNumber;
+                                    contract.ContractName = contractName;
+                                    contract.IDType = idType;
+
+                                    Model.EF.Salary salary = new Model.EF.Salary();
+                                    salary.IDStaff = idStaff;
+                                    salary.SalaryAmount = int.Parse(salaryAmount);
+                                    salary.Allowance = int.Parse(allowance);
+                                    salary.Tax = int.Parse(tax);
+                                    salary.Coefficient = int.Parse(coefficient);
+
+                                    Model.EF.Account account = new Model.EF.Account();
+                                    account.IDStaff = idStaff;
+                                    account.Username = username;
+                                    account.Password = Model.ResetPassword.RandomString(6);
+                                    account.Type = "4";
+
+                                    StaffDAO staffDao = new StaffDAO();
+                                    staffDao.Add(staff, contract, salary, account);
+                                }
                             }
                         }
                         else
@@ -173,12 +238,6 @@ namespace HRManagement.ImportData
                     {
                         return false;
                     }
-
-                    CourseDAO dao = new CourseDAO();
-                    //if (dao.AddListCourse(lstCourse))
-                    //{
-                    //    return true;
-                    //}
                 }
                 else
                 {
@@ -191,7 +250,7 @@ namespace HRManagement.ImportData
 
         private string ValidateHeader(string stt, string idStaff, string staffName, string departmentName, string position, string birthday, string address, string nationName, string academicName,
                            string specializeName, string email, string cccd, string dateIssue, string issueBy, string sex, string numberPhone, string typeContractName, string contractNumber, 
-                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient)
+                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient, string username)
         {
             string result = string.Empty;
 
@@ -295,20 +354,24 @@ namespace HRManagement.ImportData
             {
                 result += "25,";
             }
+            if (!username.Equals("Tài khoản*"))
+            {
+                result += "26,";
+            }
 
             return result;
         }
 
         private bool ValidateBeforeFileEmpty(string stt, string idStaff, string staffName, string departmentName, string position, string birthday, string address, string nationName, string academicName,
                            string specializeName, string email, string cccd, string dateIssue, string issueBy, string sex, string numberPhone, string typeContractName, string contractNumber,
-                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient)
+                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient, string username)
         {
             bool result = true;
             if (string.IsNullOrEmpty(stt) && string.IsNullOrEmpty(idStaff) && string.IsNullOrEmpty(staffName) && string.IsNullOrEmpty(departmentName) && string.IsNullOrEmpty(position)
                 && string.IsNullOrEmpty(birthday) && string.IsNullOrEmpty(address) && string.IsNullOrEmpty(nationName) && string.IsNullOrEmpty(academicName) && string.IsNullOrEmpty(specializeName)
                 && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(cccd) && string.IsNullOrEmpty(dateIssue) && string.IsNullOrEmpty(issueBy) && string.IsNullOrEmpty(sex)
                 && string.IsNullOrEmpty(numberPhone) && string.IsNullOrEmpty(typeContractName) && string.IsNullOrEmpty(contractNumber) && string.IsNullOrEmpty(contractName) && string.IsNullOrEmpty(startDate)
-                && string.IsNullOrEmpty(endDate) && string.IsNullOrEmpty(salary) && string.IsNullOrEmpty(allowance) && string.IsNullOrEmpty(tax) && string.IsNullOrEmpty(coefficient))
+                && string.IsNullOrEmpty(endDate) && string.IsNullOrEmpty(salary) && string.IsNullOrEmpty(allowance) && string.IsNullOrEmpty(tax) && string.IsNullOrEmpty(coefficient) && string.IsNullOrEmpty(username))
             {
                 result = false;
             }
@@ -318,7 +381,7 @@ namespace HRManagement.ImportData
 
         private string ValidateImportData(string idStaff, string staffName, string departmentName, string position, string birthday, string address, string nationName, string academicName,
                            string specializeName, string email, string cccd, string dateIssue, string issueBy, string sex, string numberPhone, string typeContractName, string contractNumber,
-                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient)
+                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient, string username)
         {
             string result = string.Empty;
             if (string.IsNullOrEmpty(idStaff))
@@ -417,20 +480,24 @@ namespace HRManagement.ImportData
             {
                 result += "25,";
             }
+            if (string.IsNullOrEmpty(username))
+            {
+                result += "26,";
+            }
 
             return result;
         }
 
         private bool ValidateFileEmpty(string idStaff, string staffName, string departmentName, string position, string birthday, string address, string nationName, string academicName,
                            string specializeName, string email, string cccd, string dateIssue, string issueBy, string sex, string numberPhone, string typeContractName, string contractNumber,
-                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient)
+                           string contractName, string startDate, string endDate, string salary, string allowance, string tax, string coefficient, string username)
         {
             bool result = true;
             if (string.IsNullOrEmpty(idStaff) || string.IsNullOrEmpty(staffName) || string.IsNullOrEmpty(departmentName) || string.IsNullOrEmpty(position) || string.IsNullOrEmpty(birthday) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(staffName)
                 || string.IsNullOrEmpty(nationName) || string.IsNullOrEmpty(academicName) || string.IsNullOrEmpty(specializeName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(cccd)
                 || string.IsNullOrEmpty(dateIssue) || string.IsNullOrEmpty(issueBy) || string.IsNullOrEmpty(sex) || string.IsNullOrEmpty(numberPhone) || string.IsNullOrEmpty(typeContractName)
                 || string.IsNullOrEmpty(contractNumber) || string.IsNullOrEmpty(contractName) || string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) || string.IsNullOrEmpty(salary)
-                || string.IsNullOrEmpty(allowance) || string.IsNullOrEmpty(tax) || string.IsNullOrEmpty(coefficient))
+                || string.IsNullOrEmpty(allowance) || string.IsNullOrEmpty(tax) || string.IsNullOrEmpty(coefficient) || string.IsNullOrEmpty(username))
             {
                 result = false;
             }
@@ -469,6 +536,7 @@ namespace HRManagement.ImportData
             public const string allowance = "Sai định dạng tiêu đề phụ cấp";
             public const string tax = "Sai định dạng tiêu đề thuế thu nhập";
             public const string coefficient = "Sai định dạng tiêu đề hệ số lương";
+            public const string username = "Sai định dạng tiêu đề tài khoản";
 
 
             public static Dictionary<int, string> dctImportData = new Dictionary<int, string>()
@@ -498,6 +566,7 @@ namespace HRManagement.ImportData
                 { 23, allowance },
                 { 24, tax },
                 { 25, coefficient },
+                { 26, username },
             };
         }
 
@@ -529,6 +598,7 @@ namespace HRManagement.ImportData
             public const string allowance = "Phụ cấp bắt buộc không được để trống";
             public const string tax = "Thuế thu nhập bắt buộc không được để trống";
             public const string coefficient = "Hệ số lương bắt buộc không được để trống";
+            public const string username = "Tài khoản bắt buộc không được để trống";
 
 
             public static Dictionary<int, string> dctImportData = new Dictionary<int, string>()
@@ -557,6 +627,7 @@ namespace HRManagement.ImportData
                 { 23, allowance },
                 { 24, tax },
                 { 25, coefficient },
+                { 26, username },
             };
         }
     }

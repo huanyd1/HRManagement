@@ -144,5 +144,12 @@ namespace Model.DAO
 
             return result;
         }
+
+        public Account GetAccountByInfo(string email, string cccd)
+        {
+            var result = _db.Staffs.Where(t => t.Email == email && t.CCCD == cccd).Select(t=>t.Account).FirstOrDefault();
+
+            return result;
+        }
     }
 }

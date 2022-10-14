@@ -113,13 +113,18 @@ namespace Model.DAO
                 currentStaff.Birthday = staff.Birthday;
                 currentStaff.Place = staff.Place;
                 currentStaff.CCCD = staff.CCCD;
+                currentStaff.DateRange = staff.DateRange;
+                currentStaff.IssueBy = staff.IssueBy;
+                currentStaff.IDNation = staff.IDNation;
+                currentStaff.IDAcademic = staff.IDAcademic;
+                currentStaff.IDSpecialize = staff.IDSpecialize;
+
                 currentStaff.Numberphone = staff.Numberphone;
                 currentStaff.IDDepartment = staff.IDDepartment;
                 currentStaff.Email = staff.Email;
                 currentStaff.Sex = staff.Sex;
                 currentStaff.IDPosition = staff.IDPosition;
-                currentStaff.Image = staff.Image;
-                //currentStaff.Status = staff.Status;
+
                 _db.SaveChanges();
             }
             catch (Exception ex)
@@ -184,6 +189,13 @@ namespace Model.DAO
         public bool IsExitStaff(string cccd)
         {
             var result = _db.Staffs.Where(x => x.CCCD == cccd).Any();
+
+            return result;
+        }
+
+        public bool IsExistStaff(string id)
+        {
+            var result = _db.Staffs.Where(x => x.IDStaff == id).Any();
 
             return result;
         }

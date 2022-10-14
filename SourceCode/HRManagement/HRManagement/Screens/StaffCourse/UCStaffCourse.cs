@@ -2,6 +2,8 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using HRManagement.ImportData;
+using HRManagement.Screens.BackUp;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -39,6 +41,15 @@ namespace HRManagement.Screens.StaffCourse
 
         private void UCStaffCourse_Load(object sender, EventArgs e)
         {
+            if(InfoStaffCommon.IsAdmin || InfoStaffCommon.AdminApprove)
+            {
+                btnImport.Visible = true;
+            }
+            else
+            {
+                btnImport.Visible = false;
+            }
+
             LoadInfoCourse();
             gvStaffCourse.RowCellStyle += (sen, evt) =>
             {
@@ -166,6 +177,38 @@ namespace HRManagement.Screens.StaffCourse
                 //MessageBox.Show("You hit cancel or closed the dialog.");
             }
             save.Dispose();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            string ext = "xlsx";
+            string filter = "XLSX File |*.xlsx";
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            OpenFileCommon open = new OpenFileCommon();
+            open.OpenFileDialogCommon(ext, filter, out openFile);
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                List<string> lstError = new List<string>();
+                ImportStaffCourse import = new ImportStaffCourse();
+                if (import.ImportDataStaffCourse(openFile.FileName, out lstError))
+                {
+                    if (lstError.Count > 0)
+                    {
+                        FormErrorImport form = new FormErrorImport(lstError);
+                        form.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhập dữ liệu thành công");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Upload document.");
+            }
         }
     }
 }

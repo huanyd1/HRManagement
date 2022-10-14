@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace HRManagement.ImportData
 {
     public class ImportInsurance
-    {//phòng ban, khóa học, bảo hiểm, nhân viên
+    {
         public bool ImportDataInsurance(string fileName, out List<string> lstError)
         {
             lstError = new List<string>();

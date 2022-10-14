@@ -76,5 +76,12 @@ namespace Model.DAO
 
             return result;
         }
+
+        public string GetIDContractTypeByName(string name)
+        {
+            string idAcademic = _db.ContractTypes.Where(t => t.TypeName == name).Select(t => t.IDType).FirstOrDefault();
+
+            return idAcademic;
+        }
     }
 }

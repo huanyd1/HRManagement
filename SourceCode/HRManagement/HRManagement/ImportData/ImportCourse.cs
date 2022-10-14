@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace HRManagement.ImportData
 {
     public class ImportCourse
-    {//phòng ban, khóa học, bảo hiểm, nhân viên
+    {
         public bool ImportDataCourse(string fileName, out List<string> lstError)
         {
             lstError = new List<string>();
