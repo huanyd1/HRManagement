@@ -231,6 +231,7 @@
             // 
             // btnBackup
             // 
+            this.btnBackup.ImageOptions.Image = global::HRManagement.Properties.Resources.gear1;
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Text = "Lưu trữ - Khôi phục";
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);

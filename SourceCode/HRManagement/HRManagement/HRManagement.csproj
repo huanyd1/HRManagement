@@ -606,6 +606,8 @@
     <None Include="Resources\banner1.jpg" />
     <None Include="Resources\report.png" />
     <None Include="Resources\report.ico" />
+    <None Include="Resources\gear.png" />
+    <None Include="Resources\gear.ico" />
     <Content Include="Template\AddStaff.html" />
     <Content Include="Template\ResetPassword.html" />
     <Content Include="Template\Salary.html" />
