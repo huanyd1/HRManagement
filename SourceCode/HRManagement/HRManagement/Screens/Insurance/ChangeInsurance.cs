@@ -233,5 +233,15 @@ namespace HRManagement.Screens.Insurance
                 LoadInsuranceType();
             }
         }
+
+        private void txtAmount_TextChanged_1(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+            decimal value = decimal.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
+            txt.Text = String.Format(culture, "{0:N0}", value);
+            txt.Select(txt.Text.Length, 0);
+        }
     }
 }

@@ -21,6 +21,13 @@ namespace Model.DAO
             return list;
         }
 
+        public GetAllInfoContract_Result GetAllInfoContract(string idStaff)
+        {
+            GetAllInfoContract_Result info = _db.GetAllInfoContract(idStaff).FirstOrDefault();
+
+            return info;
+        }
+
         public List<AllInfoContract> GetContractByFilter(string idStaff, string staffName, string idType)
         {
             List<AllInfoContract> list = _db.AllInfoContracts.ToList();
@@ -72,7 +79,7 @@ namespace Model.DAO
             return true;
         }
 
-        public bool Edit(Contract contract)
+        public bool Edit(Contract contract, Staff staff)
         {
             try
             {
@@ -83,6 +90,14 @@ namespace Model.DAO
                 currentContract.NumberContract = contract.NumberContract;
                 currentContract.IDType = contract.IDType;
                 _db.SaveChanges();
+
+                StaffDAO staffDAO = new StaffDAO();
+
+                Staff currentStaff = staffDAO.GetSingleByID(contract.IDStaff);
+                currentStaff.StartDate = staff.StartDate;
+                currentStaff.EndDate = staff.EndDate;
+                _db.SaveChanges();
+
             }
             catch (Exception ex)
             {

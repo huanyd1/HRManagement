@@ -57,7 +57,7 @@
             this.btnInfo = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSendMail = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -337,7 +337,7 @@
             this.panel4.Controls.Add(this.btnInfo);
             this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Controls.Add(this.btnEdit);
-            this.panel4.Controls.Add(this.btnAdd);
+            this.panel4.Controls.Add(this.btnSendMail);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -373,26 +373,26 @@
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Enabled = false;
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
             this.btnEdit.Location = new System.Drawing.Point(662, 41);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(115, 35);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Chỉnh sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnAdd
+            // btnSendMail
             // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(541, 41);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(115, 35);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Gửi CT";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnSendMail.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendMail.Appearance.Options.UseFont = true;
+            this.btnSendMail.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.btnSendMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnSendMail.Location = new System.Drawing.Point(541, 41);
+            this.btnSendMail.Name = "btnSendMail";
+            this.btnSendMail.Size = new System.Drawing.Size(115, 35);
+            this.btnSendMail.TabIndex = 3;
+            this.btnSendMail.Text = "Gửi CT";
+            this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
             // 
             // label1
             // 
@@ -456,7 +456,7 @@
         private DevExpress.XtraEditors.SimpleButton btnInfo;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.SimpleButton btnSendMail;
         private System.Windows.Forms.Label label1;
     }
 }

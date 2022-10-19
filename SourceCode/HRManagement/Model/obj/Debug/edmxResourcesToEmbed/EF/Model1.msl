@@ -103,6 +103,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ReportSalaryDailies">
+      <EntityTypeMapping TypeName="HRManagementModel.ReportSalaryDaily">
+        <MappingFragment StoreEntitySet="ReportSalaryDaily">
+          <ScalarProperty Name="IDReport" ColumnName="IDReport" />
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Salaries">
       <EntityTypeMapping TypeName="HRManagementModel.Salary">
         <MappingFragment StoreEntitySet="Salary">
@@ -190,6 +200,7 @@
           <ScalarProperty Name="Checkout" ColumnName="Checkout" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -315,6 +326,19 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllInfoContract" FunctionName="HRManagementModel.Store.GetAllInfoContract">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRManagementModel.GetAllInfoContract_Result">
+          <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="ContractName" ColumnName="ContractName" />
+          <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GetTimekeepingByMonth" FunctionName="HRManagementModel.Store.GetTimekeepingByMonth">
       <ResultMapping>
         <ComplexTypeMapping TypeName="HRManagementModel.GetTimekeepingByMonth_Result">
@@ -354,7 +378,9 @@
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Month" ColumnName="Month" />
           <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
           <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+          <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
           <ScalarProperty Name="Allowance" ColumnName="Allowance" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
           <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />

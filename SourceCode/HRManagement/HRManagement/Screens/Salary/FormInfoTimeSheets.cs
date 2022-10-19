@@ -15,10 +15,11 @@ namespace HRManagement.Screens.Salary
 {
     public partial class FormInfoTimeSheets : DevExpress.XtraEditors.XtraForm
     {
-        private string _idStaff = "VP01924";
-        private int _month = 7;
-        private string _idDepartment = "GTGT";
+        private string _idStaff;
+        private int _month;
+        private string _idDepartment;
         private int _dayInMonth = 0;
+        private bool _isEdit = false;
 
         private int anCa = 800000;
         private int xangXe = 200000;
@@ -43,11 +44,25 @@ namespace HRManagement.Screens.Salary
             set { _idDepartment = value; }
         }
 
+        public bool IsEdit
+        {
+            set { _isEdit = value; }
+        }
+
         private void LoadInfoTimeSheets()
         {
+            if (_isEdit)
+            {
+                txtBonus.ReadOnly = false;
+                btnSave.Visible = true;
+            }
+
             SalaryDAO dao = new SalaryDAO();
             StaffDAO staff = new StaffDAO();
             List<Model.EF.GetTimeSheetsByMonthAndIDStaff_Result> info = dao.GetTimeSheetsByMonthAndIDStaff(_idDepartment, _month, _idStaff);
+
+            var coefficient = info[0].Coefficient == null ? 1 : info[0].Coefficient;
+            var bonus = info[0].Bonus == null ? 0 : info[0].Bonus;
 
             int insuranceAmount = 0;
             foreach(var item in info)
@@ -62,6 +77,7 @@ namespace HRManagement.Screens.Salary
             txtTNHDTV.Text = ((info[0].SalaryAmount / 100) * 80).ToString();
             txtLuongCB.Text = luongCB.ToString();
             txtNgayCong.Text = info[0].TotalTime.ToString();
+            txtBonus.Text = info[0].Bonus == null ? "0" : info[0].Bonus.ToString();
             txtAnCa.Text = anCa.ToString();
             txtDienThoai.Text = "0";
             txtXangXe.Text = xangXe.ToString();
@@ -70,7 +86,7 @@ namespace HRManagement.Screens.Salary
             txtCacLoaiBH.Text = insuranceAmount.ToString();
             txtQuyCD.Text = quyCD.ToString();
             txtThueTNCN.Text = info[0].Tax.ToString();
-            txtThucLinh.Text = ((((info[0].SalaryAmount / _dayInMonth) * info[0].TotalTime) + anCa + xangXe + info[0].Allowance) - (insuranceAmount + quyCD + info[0].Tax)).ToString();
+            txtThucLinh.Text = (((((info[0].SalaryAmount / _dayInMonth) * info[0].TotalTime) + anCa + xangXe + info[0].Allowance) - (insuranceAmount + quyCD + info[0].Tax) * coefficient) + bonus).ToString();
         }
 
         private void EnableAllText()
@@ -82,6 +98,7 @@ namespace HRManagement.Screens.Salary
             txtTNHDTV.ReadOnly = true;
             txtLuongCB.ReadOnly = true;
             txtNgayCong.ReadOnly = true;
+            txtBonus.ReadOnly = true;
             txtAnCa.ReadOnly = true;
             txtDienThoai.ReadOnly = true;
             txtXangXe.ReadOnly = true;
@@ -96,15 +113,14 @@ namespace HRManagement.Screens.Salary
         private void FormInfoTimeSheets_Load(object sender, EventArgs e)
         {
             this.Text = Model.ActionCommon.InfoAction("Bảng lương");
-            var countDay = DateTime.DaysInMonth(2022, _month);
+            var countDay = DateTime.DaysInMonth(DateTime.Now.Year, _month);
             string dayInMonth = countDay.ToString();
-            var endOfMonth = Convert.ToDateTime(string.Format(_month + "/" + dayInMonth + "/" + "2022"));
-            var startOfMonth = Convert.ToDateTime(string.Format(_month + "/" + "01" + "/" + "2022"));
+            var endOfMonth = Convert.ToDateTime(string.Format(_month + "/" + dayInMonth + "/" + DateTime.Now.Year.ToString()));
+            var startOfMonth = Convert.ToDateTime(string.Format(_month + "/" + "01" + "/" + DateTime.Now.Year.ToString()));
             _dayInMonth = countWeekDays(startOfMonth, endOfMonth);
 
-
-            LoadInfoTimeSheets();
             EnableAllText();
+            LoadInfoTimeSheets();
         }
 
         private void txt_TextChanged(object sender, EventArgs e)
@@ -124,6 +140,17 @@ namespace HRManagement.Screens.Salary
             return ndays - 2 * nsaturdays
                    - (d0.DayOfWeek == DayOfWeek.Sunday ? 1 : 0)
                    + (d1.DayOfWeek == DayOfWeek.Saturday ? 1 : 0);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            int bonus = int.Parse(txtBonus.Text.ToString());
+            TimekeepingDAO dao = new TimekeepingDAO();
+            bool result = dao.AddBonus(_idStaff, _month, bonus);
+            if (result)
+            {
+                MessageBox.Show("Thêm mới thưởng lương thành công");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

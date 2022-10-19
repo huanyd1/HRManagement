@@ -145,22 +145,22 @@
             this.tablePanel1.SetColumn(this.panel2, 0);
             this.panel2.Controls.Add(this.gStaffInsurance);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(4, 214);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(4, 174);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.tablePanel1.SetRow(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(1050, 629);
+            this.panel2.Size = new System.Drawing.Size(1050, 669);
             this.panel2.TabIndex = 1;
             // 
             // gStaffInsurance
             // 
             this.gStaffInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gStaffInsurance.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gStaffInsurance.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffInsurance.Location = new System.Drawing.Point(0, 0);
             this.gStaffInsurance.MainView = this.gvStaffInsurance;
-            this.gStaffInsurance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gStaffInsurance.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffInsurance.Name = "gStaffInsurance";
-            this.gStaffInsurance.Size = new System.Drawing.Size(1050, 629);
+            this.gStaffInsurance.Size = new System.Drawing.Size(1050, 669);
             this.gStaffInsurance.TabIndex = 4;
             this.gStaffInsurance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvStaffInsurance});
@@ -185,17 +185,17 @@
             // 
             this.cbInsurance.Font = new System.Drawing.Font("Cascadia Code", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbInsurance.FormattingEnabled = true;
-            this.cbInsurance.Location = new System.Drawing.Point(540, 41);
-            this.cbInsurance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbInsurance.Location = new System.Drawing.Point(392, 41);
+            this.cbInsurance.Margin = new System.Windows.Forms.Padding(4);
             this.cbInsurance.Name = "cbInsurance";
-            this.cbInsurance.Size = new System.Drawing.Size(220, 24);
+            this.cbInsurance.Size = new System.Drawing.Size(317, 24);
             this.cbInsurance.TabIndex = 14;
             // 
             // lbMonth
             // 
             this.lbMonth.AutoSize = true;
             this.lbMonth.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonth.Location = new System.Drawing.Point(536, 6);
+            this.lbMonth.Location = new System.Drawing.Point(388, 6);
             this.lbMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMonth.Name = "lbMonth";
             this.lbMonth.Size = new System.Drawing.Size(90, 22);
@@ -205,17 +205,17 @@
             // txtStaffName
             // 
             this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(282, 42);
-            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStaffName.Location = new System.Drawing.Point(31, 42);
+            this.txtStaffName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(221, 23);
+            this.txtStaffName.Size = new System.Drawing.Size(294, 23);
             this.txtStaffName.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(279, 6);
+            this.label3.Location = new System.Drawing.Point(28, 6);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 22);
@@ -228,7 +228,7 @@
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
             this.btnSearch.Location = new System.Drawing.Point(772, 27);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(134, 43);
             this.btnSearch.TabIndex = 9;
@@ -241,7 +241,7 @@
             this.btnExport.Appearance.Options.UseFont = true;
             this.btnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.ImageOptions.Image")));
             this.btnExport.Location = new System.Drawing.Point(913, 27);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(134, 43);
             this.btnExport.TabIndex = 8;
@@ -258,11 +258,11 @@
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(4, 109);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(4, 89);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.tablePanel1.SetRow(this.panel3, 1);
-            this.panel3.Size = new System.Drawing.Size(1050, 97);
+            this.panel3.Size = new System.Drawing.Size(1050, 77);
             this.panel3.TabIndex = 2;
             // 
             // tablePanel1
@@ -274,7 +274,7 @@
             this.tablePanel1.Controls.Add(this.panel2);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tablePanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85F),
@@ -289,10 +289,10 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.tablePanel1.SetRow(this.panel1, 0);
-            this.panel1.Size = new System.Drawing.Size(1050, 97);
+            this.panel1.Size = new System.Drawing.Size(1050, 77);
             this.panel1.TabIndex = 3;
             // 
             // panel4
@@ -304,9 +304,9 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1050, 97);
+            this.panel4.Size = new System.Drawing.Size(1050, 77);
             this.panel4.TabIndex = 1;
             // 
             // btnInfo
@@ -315,7 +315,7 @@
             this.btnInfo.Appearance.Options.UseFont = true;
             this.btnInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.Image")));
             this.btnInfo.Location = new System.Drawing.Point(490, 27);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(134, 43);
             this.btnInfo.TabIndex = 6;
@@ -328,7 +328,7 @@
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Location = new System.Drawing.Point(913, 27);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(134, 43);
             this.btnDelete.TabIndex = 5;
@@ -342,7 +342,7 @@
             this.btnEdit.Enabled = false;
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
             this.btnEdit.Location = new System.Drawing.Point(772, 27);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(134, 43);
             this.btnEdit.TabIndex = 4;
@@ -355,7 +355,7 @@
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Location = new System.Drawing.Point(631, 27);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(134, 43);
             this.btnAdd.TabIndex = 3;
@@ -378,7 +378,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCStaffInsurance";
             this.Size = new System.Drawing.Size(1058, 847);
             this.Load += new System.EventHandler(this.UCStaffInsurance_Load);

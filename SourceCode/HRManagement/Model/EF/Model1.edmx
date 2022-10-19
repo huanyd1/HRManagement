@@ -96,6 +96,15 @@
           <Property Name="PositionName" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="char" MaxLength="1" />
         </EntityType>
+        <EntityType Name="ReportSalaryDaily">
+          <Key>
+            <PropertyRef Name="IDReport" />
+          </Key>
+          <Property Name="IDReport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDStaff" Type="nvarchar" MaxLength="50" />
+          <Property Name="Month" Type="date" />
+          <Property Name="SalaryAmount" Type="int" />
+        </EntityType>
         <EntityType Name="Salary">
           <Key>
             <PropertyRef Name="IDStaff" />
@@ -178,6 +187,7 @@
           <Property Name="Checkout" Type="datetime" />
           <Property Name="Type" Type="char" MaxLength="1" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Bonus" Type="int" />
           <Property Name="Status" Type="char" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -478,6 +488,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
         <Function Name="GetAllInfoByIDStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDStaff" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetAllInfoContract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDStaff" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="GetTimekeepingByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
           <Parameter Name="Month" Type="int" Mode="In" />
@@ -547,6 +560,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
           <EntitySet Name="LeaveAbsence" EntityType="Self.LeaveAbsence" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportSalaryDaily" EntityType="Self.ReportSalaryDaily" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialize" EntityType="Self.Specialize" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
@@ -794,6 +808,15 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
         </EntityType>
+        <EntityType Name="ReportSalaryDaily">
+          <Key>
+            <PropertyRef Name="IDReport" />
+          </Key>
+          <Property Name="IDReport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="DateTime" Precision="0" />
+          <Property Name="SalaryAmount" Type="Int32" />
+        </EntityType>
         <EntityType Name="Salary">
           <Key>
             <PropertyRef Name="IDStaff" />
@@ -896,6 +919,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Name="Checkout" Type="DateTime" Precision="3" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bonus" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
         </EntityType>
@@ -1189,6 +1213,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <EntitySet Name="LeaveAbsences" EntityType="Self.LeaveAbsence" />
           <EntitySet Name="Nations" EntityType="Self.Nation" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="ReportSalaryDailies" EntityType="Self.ReportSalaryDaily" />
           <EntitySet Name="Salaries" EntityType="Self.Salary" />
           <EntitySet Name="Specializes" EntityType="Self.Specialize" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
@@ -1275,6 +1300,9 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="EarningsReport" ReturnType="Collection(HRManagementModel.EarningsReport_Result)" />
           <FunctionImport Name="GetAllInfoByIDStaff" ReturnType="Collection(HRManagementModel.GetAllInfoByIDStaff_Result)">
+            <Parameter Name="IDStaff" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllInfoContract" ReturnType="Collection(HRManagementModel.GetAllInfoContract_Result)">
             <Parameter Name="IDStaff" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetTimekeepingByMonth" ReturnType="Collection(HRManagementModel.GetTimekeepingByMonth_Result)">
@@ -1373,6 +1401,15 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="DateTime" Name="EndDate" Nullable="true" />
           <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
         </ComplexType>
+        <ComplexType Name="GetAllInfoContract_Result">
+          <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ContractName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NumberContract" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IDType" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="GetTimekeepingByMonth_Result">
           <Property Type="String" Name="IDDepartment" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
@@ -1402,7 +1439,9 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
           <Property Type="String" Name="Username" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Month" Nullable="true" />
           <Property Type="Int32" Name="TotalTime" Nullable="true" />
+          <Property Type="Int32" Name="Bonus" Nullable="true" />
           <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+          <Property Type="Double" Name="Coefficient" Nullable="true" />
           <Property Type="Int32" Name="Allowance" Nullable="true" />
           <Property Type="Int32" Name="Tax" Nullable="true" />
           <Property Type="String" Name="InsuranceName" Nullable="true" MaxLength="50" />
@@ -1545,6 +1584,16 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ReportSalaryDailies">
+            <EntityTypeMapping TypeName="HRManagementModel.ReportSalaryDaily">
+              <MappingFragment StoreEntitySet="ReportSalaryDaily">
+                <ScalarProperty Name="IDReport" ColumnName="IDReport" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Salaries">
             <EntityTypeMapping TypeName="HRManagementModel.Salary">
               <MappingFragment StoreEntitySet="Salary">
@@ -1632,6 +1681,7 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="Checkout" ColumnName="Checkout" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1757,6 +1807,19 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllInfoContract" FunctionName="HRManagementModel.Store.GetAllInfoContract">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRManagementModel.GetAllInfoContract_Result">
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="ContractName" ColumnName="ContractName" />
+                <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetTimekeepingByMonth" FunctionName="HRManagementModel.Store.GetTimekeepingByMonth">
             <ResultMapping>
               <ComplexTypeMapping TypeName="HRManagementModel.GetTimekeepingByMonth_Result">
@@ -1796,7 +1859,9 @@ FROM [dbo].[AllInfoStaffInsurance] AS [AllInfoStaffInsurance]</DefiningQuery>
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
                 <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
                 <ScalarProperty Name="Allowance" ColumnName="Allowance" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
                 <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />

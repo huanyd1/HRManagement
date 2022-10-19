@@ -26,9 +26,18 @@ namespace HRManagement.Screens.StaffInsurance
             gStaffInsurance.DataSource = dao.AllInfoStaffInsurance();
         }
 
+        private void LoadAllInsurance()
+        {
+            InsuranceDAO dao = new InsuranceDAO();
+            cbInsurance.DataSource = dao.GetAll();
+            cbInsurance.DisplayMember = "InsuranceName";
+            cbInsurance.ValueMember = "IDInsurance";
+        }
+
         private void UCStaffInsurance_Load(object sender, EventArgs e)
         {
             LoadAllStaffInsurance();
+            LoadAllInsurance();
             gvStaffInsurance.OptionsView.AllowCellMerge = true;
         }
 
@@ -86,7 +95,7 @@ namespace HRManagement.Screens.StaffInsurance
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string staffName = txtStaffName.Text.ToString();
-            string idInsurance = cbInsurance.SelectedValue.ToString();
+            string idInsurance = cbInsurance.Text.ToString();
 
             StaffInsuranceDAO dao = new StaffInsuranceDAO();
             gStaffInsurance.DataSource = dao.GetAllInsuranceByFilter(staffName, idInsurance);

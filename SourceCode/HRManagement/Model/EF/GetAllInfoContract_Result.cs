@@ -10,19 +10,15 @@
 namespace Model.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Timekeeping
+    public partial class GetAllInfoContract_Result
     {
-        public int IDTime { get; set; }
         public string IDStaff { get; set; }
-        public Nullable<System.DateTime> Checkin { get; set; }
-        public Nullable<System.DateTime> Checkout { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> Bonus { get; set; }
-        public string Status { get; set; }
-    
-        public virtual Staff Staff { get; set; }
+        public string StaffName { get; set; }
+        public string ContractName { get; set; }
+        public string NumberContract { get; set; }
+        public string IDType { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
     }
 }

@@ -12,17 +12,11 @@ namespace Model.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Timekeeping
+    public partial class ReportSalaryDaily
     {
-        public int IDTime { get; set; }
+        public int IDReport { get; set; }
         public string IDStaff { get; set; }
-        public Nullable<System.DateTime> Checkin { get; set; }
-        public Nullable<System.DateTime> Checkout { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> Bonus { get; set; }
-        public string Status { get; set; }
-    
-        public virtual Staff Staff { get; set; }
+        public Nullable<System.DateTime> Month { get; set; }
+        public Nullable<int> SalaryAmount { get; set; }
     }
 }

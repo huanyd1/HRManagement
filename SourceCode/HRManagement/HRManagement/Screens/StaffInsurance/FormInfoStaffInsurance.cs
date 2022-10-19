@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Model;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,9 @@ namespace HRManagement.Screens.StaffInsurance
             StaffDAO staff = new StaffDAO();
             StaffInsuranceDAO dao = new StaffInsuranceDAO();
 
+            txtIDStaff.ReadOnly = true;
+            txtStaffName.ReadOnly = true;
+
             txtIDStaff.Text = _idStaff;
             txtStaffName.Text = staff.GetStaffNameByID(_idStaff);
             gStaffInsurance.DataSource = dao.AllInfoStaffInsuranceByIDStaff(_idStaff);
@@ -37,8 +41,14 @@ namespace HRManagement.Screens.StaffInsurance
 
         private void FormInfoStaffInsurance_Load(object sender, EventArgs e)
         {
+            this.Text = ActionCommon.InfoAction("Nhân viên - Bảo hiểm");
             LoadInfoStaffCourse();
             gvStaffInsurance.OptionsView.AllowCellMerge = true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

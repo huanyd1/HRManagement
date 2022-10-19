@@ -71,7 +71,7 @@
             // 
             // txtStaffName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(454, 16);
+            this.txtStaffName.Location = new System.Drawing.Point(466, 21);
             this.txtStaffName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.Size = new System.Drawing.Size(193, 23);
@@ -88,10 +88,11 @@
             this.btnCancel.Size = new System.Drawing.Size(140, 55);
             this.btnCancel.TabIndex = 50;
             this.btnCancel.Text = "Thoát";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtIDStaff
             // 
-            this.txtIDStaff.Location = new System.Drawing.Point(126, 16);
+            this.txtIDStaff.Location = new System.Drawing.Point(135, 23);
             this.txtIDStaff.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDStaff.Name = "txtIDStaff";
             this.txtIDStaff.Size = new System.Drawing.Size(193, 23);
@@ -112,10 +113,10 @@
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 208);
+            this.panel1.Location = new System.Drawing.Point(0, 198);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(698, 198);
+            this.panel1.Size = new System.Drawing.Size(698, 84);
             this.panel1.TabIndex = 53;
             // 
             // errorAllowance
@@ -140,18 +141,18 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(698, 158);
+            this.panel2.Size = new System.Drawing.Size(698, 74);
             this.panel2.TabIndex = 54;
             // 
             // gStaffInsurance
             // 
             this.gStaffInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gStaffInsurance.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gStaffInsurance.Location = new System.Drawing.Point(0, 158);
+            this.gStaffInsurance.Location = new System.Drawing.Point(0, 74);
             this.gStaffInsurance.MainView = this.gvStaffInsurance;
             this.gStaffInsurance.Margin = new System.Windows.Forms.Padding(4);
             this.gStaffInsurance.Name = "gStaffInsurance";
-            this.gStaffInsurance.Size = new System.Drawing.Size(698, 50);
+            this.gStaffInsurance.Size = new System.Drawing.Size(698, 124);
             this.gStaffInsurance.TabIndex = 55;
             this.gStaffInsurance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvStaffInsurance});
@@ -244,14 +245,14 @@
             // 
             // FormInfoStaffInsurance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 406);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(698, 282);
             this.Controls.Add(this.gStaffInsurance);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInfoStaffInsurance";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormInfoStaffInsurance";
             this.Load += new System.EventHandler(this.FormInfoStaffInsurance_Load);
             this.panel1.ResumeLayout(false);

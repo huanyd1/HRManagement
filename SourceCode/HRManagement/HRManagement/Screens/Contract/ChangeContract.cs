@@ -57,6 +57,9 @@ namespace HRManagement.Screens.Contract
 
         private void ChangeContract_Load(object sender, EventArgs e)
         {
+            dtimeStartDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+            dtimeEndDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+
             LoadContractType();
 
             if (!_isAdd)
@@ -68,13 +71,16 @@ namespace HRManagement.Screens.Contract
 
                 ContractDAO dao = new ContractDAO();
                 StaffDAO staff = new StaffDAO();
-                Model.EF.Contract contract = dao.GetSingleByID(_idStaff);
+                Model.EF.GetAllInfoContract_Result contract = dao.GetAllInfoContract(_idStaff);
 
                 txtIDStaff.Text = contract.IDStaff;
                 txtStaffName.Text = staff.GetStaffNameByID(_idStaff);
                 txtNumberContract.Text = contract.NumberContract.ToString();
                 txtContractName.Text = contract.ContractName.ToString();
                 cbContractType.SelectedValue = contract.IDType.ToString();
+
+                dtimeStartDate.Text = contract.StartDate.ToString();
+                dtimeEndDate.Text = contract.EndDate.ToString();
 
                 //Nếu info thì disable tất cả
                 if (_isInfo)
@@ -132,6 +138,15 @@ namespace HRManagement.Screens.Contract
             return contract;
         }
 
+        public Model.EF.Staff GetInfoStaff()
+        {
+            Model.EF.Staff staff = new Model.EF.Staff();
+            staff.StartDate = DateTime.Parse(dtimeStartDate.Text.ToString());
+            staff.EndDate = DateTime.Parse(dtimeEndDate.Text.ToString());
+
+            return staff;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!CheckNullVariable())
@@ -142,6 +157,7 @@ namespace HRManagement.Screens.Contract
             ContractDAO dao = new ContractDAO();
 
             Model.EF.Contract contract = GetInfoContract();
+            Model.EF.Staff staff = GetInfoStaff();
 
             if (_isAdd)
             {
@@ -152,7 +168,7 @@ namespace HRManagement.Screens.Contract
             }
             else
             {
-                if (dao.Edit(contract))
+                if (dao.Edit(contract, staff))
                 {
                     _isSave = true;
                 }

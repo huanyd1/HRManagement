@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Model;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,7 @@ namespace HRManagement.Screens.StaffInsurance
 
         private void FormChangeStaffInsurance_Load(object sender, EventArgs e)
         {
+            this.Text = ActionCommon.AddAction("Nhân viên - Bảo hiểm");
             LoadInfoStaff();
             LoadAllInsuranceType();
         }
@@ -98,6 +100,11 @@ namespace HRManagement.Screens.StaffInsurance
             {
                 Model.NotificationCommon.AddFaild("Thêm mới", "Khóa học cho Nhân viên");
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -91,7 +91,7 @@ namespace HRManagement.Screens.Salary
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSendMail_Click(object sender, EventArgs e)
         {
             if(gvTimeSheets.RowCount > 0)
             {
@@ -237,6 +237,23 @@ namespace HRManagement.Screens.Salary
                 //MessageBox.Show("You hit cancel or closed the dialog.");
             }
             save.Dispose();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (gvTimeSheets.RowCount > 0)
+            {
+                string idStaff = gvTimeSheets.GetFocusedRowCellValue("IDStaff").ToString();
+                string idDepartment = gvTimeSheets.GetFocusedRowCellValue("IDDepartment").ToString();
+                int month = int.Parse(cbMonth.SelectedItem.ToString().Replace("Tháng ", ""));
+
+                FormInfoTimeSheets infoTimeSheets = new FormInfoTimeSheets();
+                infoTimeSheets.IsEdit = true;
+                infoTimeSheets.IdStaff = idStaff;
+                infoTimeSheets.IdDepartment = idDepartment;
+                infoTimeSheets.Month = month;
+                infoTimeSheets.Show();
+            }
         }
     }
 }

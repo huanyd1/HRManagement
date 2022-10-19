@@ -99,6 +99,44 @@ namespace Model.DAO
             return true;
         }
 
+        public bool AddBonus(string idStaff, int month, int bonus)
+        {
+            try
+            {
+                List<Timekeeping> lstTime = _db.Timekeepings.Where(t => t.IDStaff == idStaff).ToList();
+                List<Timekeeping> lstChange = new List<Timekeeping>();
+                foreach(var item in lstTime)
+                {
+                    var info = DateTime.Parse(item.Checkin.ToString());
+                    if(info.Month == month)
+                    {
+                        lstChange.Add(item);
+                    }
+                }
+
+                foreach(var item in lstChange)
+                {
+                    Timekeeping currentTime = GetSingleByID(item.IDTime);
+
+                    currentTime.IDTime = currentTime.IDTime;
+                    currentTime.IDStaff = currentTime.IDStaff;
+                    currentTime.Checkin = currentTime.Checkin;
+                    currentTime.Checkout = currentTime.Checkout;
+                    currentTime.Type = currentTime.Type;
+                    currentTime.Description = currentTime.Description;
+                    currentTime.Bonus = bonus;
+                    currentTime.Status = currentTime.Status;
+                    _db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Model.NotificationCommon.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool AddCheckout(Timekeeping time)
         {
             try

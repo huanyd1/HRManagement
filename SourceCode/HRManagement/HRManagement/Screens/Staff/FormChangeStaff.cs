@@ -21,7 +21,7 @@ namespace HRManagement.Screens.Staff
         private string _idStaff;
         private bool _isCorrectFormat = false;
 
-        private readonly int numberStringID = 5;
+        private readonly int numberStringID = 6;
 
         private readonly string idStaff = "Mã nhân viên";
         private readonly string staffName = "Tên nhân viên";
@@ -240,15 +240,16 @@ namespace HRManagement.Screens.Staff
                 }
                 txtNumberContract.Text = stringZeroContract + (int.Parse(numberContractStaff) + 1).ToString();
 
-                int numberZero = numberStringID - IdStaff.Replace("VP", "").Length;
+                IdStaff = IdStaff.Replace("VP", "");
+                int numberZero = numberStringID - (IdStaff.Length);
                 string stringZero = "";
 
                 for(int i = 0; i < numberZero; i++)
                 {
                     stringZero = stringZero + "0";
                 }
-
-                IdStaff = "VP" + stringZero + (int.Parse(IdStaff.Replace("VP", "") + 1).ToString());              
+                var newId = int.Parse(IdStaff) + 1;
+                IdStaff = "VP" + stringZero + newId.ToString();              
                 txtIDStaff.Text = IdStaff.ToString();
                 this.Text = Model.ActionCommon.AddAction("Nhân viên");
                 btnSave.Text = "Thêm mới";

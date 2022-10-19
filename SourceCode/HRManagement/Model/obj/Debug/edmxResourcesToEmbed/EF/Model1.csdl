@@ -104,6 +104,15 @@
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
   </EntityType>
+  <EntityType Name="ReportSalaryDaily">
+    <Key>
+      <PropertyRef Name="IDReport" />
+    </Key>
+    <Property Name="IDReport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Month" Type="DateTime" Precision="0" />
+    <Property Name="SalaryAmount" Type="Int32" />
+  </EntityType>
   <EntityType Name="Salary">
     <Key>
       <PropertyRef Name="IDStaff" />
@@ -206,6 +215,7 @@
     <Property Name="Checkout" Type="DateTime" Precision="3" />
     <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bonus" Type="Int32" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Timekeeping_Staff" FromRole="Timekeeping" ToRole="Staff" />
   </EntityType>
@@ -499,6 +509,7 @@
     <EntitySet Name="LeaveAbsences" EntityType="Self.LeaveAbsence" />
     <EntitySet Name="Nations" EntityType="Self.Nation" />
     <EntitySet Name="Positions" EntityType="Self.Position" />
+    <EntitySet Name="ReportSalaryDailies" EntityType="Self.ReportSalaryDaily" />
     <EntitySet Name="Salaries" EntityType="Self.Salary" />
     <EntitySet Name="Specializes" EntityType="Self.Specialize" />
     <EntitySet Name="Staffs" EntityType="Self.Staff" />
@@ -585,6 +596,9 @@
     </FunctionImport>
     <FunctionImport Name="EarningsReport" ReturnType="Collection(HRManagementModel.EarningsReport_Result)" />
     <FunctionImport Name="GetAllInfoByIDStaff" ReturnType="Collection(HRManagementModel.GetAllInfoByIDStaff_Result)">
+      <Parameter Name="IDStaff" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllInfoContract" ReturnType="Collection(HRManagementModel.GetAllInfoContract_Result)">
       <Parameter Name="IDStaff" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="GetTimekeepingByMonth" ReturnType="Collection(HRManagementModel.GetTimekeepingByMonth_Result)">
@@ -683,6 +697,15 @@
     <Property Type="DateTime" Name="EndDate" Nullable="true" />
     <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
   </ComplexType>
+  <ComplexType Name="GetAllInfoContract_Result">
+    <Property Type="String" Name="IDStaff" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContractName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumberContract" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IDType" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" />
+    <Property Type="DateTime" Name="EndDate" Nullable="true" />
+  </ComplexType>
   <ComplexType Name="GetTimekeepingByMonth_Result">
     <Property Type="String" Name="IDDepartment" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
@@ -712,7 +735,9 @@
     <Property Type="String" Name="Username" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="Month" Nullable="true" />
     <Property Type="Int32" Name="TotalTime" Nullable="true" />
+    <Property Type="Int32" Name="Bonus" Nullable="true" />
     <Property Type="Int32" Name="SalaryAmount" Nullable="true" />
+    <Property Type="Double" Name="Coefficient" Nullable="true" />
     <Property Type="Int32" Name="Allowance" Nullable="true" />
     <Property Type="Int32" Name="Tax" Nullable="true" />
     <Property Type="String" Name="InsuranceName" Nullable="true" MaxLength="50" />

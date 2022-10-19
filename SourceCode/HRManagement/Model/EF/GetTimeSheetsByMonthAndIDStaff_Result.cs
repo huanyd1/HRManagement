@@ -20,7 +20,9 @@ namespace Model.EF
         public string Username { get; set; }
         public Nullable<int> Month { get; set; }
         public Nullable<int> TotalTime { get; set; }
+        public Nullable<int> Bonus { get; set; }
         public Nullable<int> SalaryAmount { get; set; }
+        public Nullable<double> Coefficient { get; set; }
         public Nullable<int> Allowance { get; set; }
         public Nullable<int> Tax { get; set; }
         public string InsuranceName { get; set; }

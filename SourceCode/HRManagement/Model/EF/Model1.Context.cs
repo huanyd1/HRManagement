@@ -39,6 +39,7 @@ namespace Model.EF
         public DbSet<LeaveAbsence> LeaveAbsences { get; set; }
         public DbSet<Nation> Nations { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<ReportSalaryDaily> ReportSalaryDailies { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Specialize> Specializes { get; set; }
         public DbSet<Staff> Staffs { get; set; }
@@ -74,6 +75,15 @@ namespace Model.EF
                 new ObjectParameter("IDStaff", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllInfoByIDStaff_Result>("GetAllInfoByIDStaff", iDStaffParameter);
+        }
+    
+        public virtual ObjectResult<GetAllInfoContract_Result> GetAllInfoContract(string iDStaff)
+        {
+            var iDStaffParameter = iDStaff != null ?
+                new ObjectParameter("IDStaff", iDStaff) :
+                new ObjectParameter("IDStaff", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllInfoContract_Result>("GetAllInfoContract", iDStaffParameter);
         }
     
         public virtual ObjectResult<GetTimekeepingByMonth_Result> GetTimekeepingByMonth(string iDDepartment, Nullable<int> month)

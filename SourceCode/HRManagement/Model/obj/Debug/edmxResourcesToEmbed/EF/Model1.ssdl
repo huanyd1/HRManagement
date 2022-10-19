@@ -91,6 +91,15 @@
     <Property Name="PositionName" Type="nvarchar" MaxLength="50" />
     <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
+  <EntityType Name="ReportSalaryDaily">
+    <Key>
+      <PropertyRef Name="IDReport" />
+    </Key>
+    <Property Name="IDReport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDStaff" Type="nvarchar" MaxLength="50" />
+    <Property Name="Month" Type="date" />
+    <Property Name="SalaryAmount" Type="int" />
+  </EntityType>
   <EntityType Name="Salary">
     <Key>
       <PropertyRef Name="IDStaff" />
@@ -173,6 +182,7 @@
     <Property Name="Checkout" Type="datetime" />
     <Property Name="Type" Type="char" MaxLength="1" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Bonus" Type="int" />
     <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -473,6 +483,9 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
   <Function Name="GetAllInfoByIDStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDStaff" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="GetAllInfoContract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDStaff" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="GetTimekeepingByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDepartment" Type="varchar" Mode="In" />
     <Parameter Name="Month" Type="int" Mode="In" />
@@ -542,6 +555,7 @@ warning 6002: The table/view 'HRManagement.dbo.AllInfoStaffInsurance' does not h
     <EntitySet Name="LeaveAbsence" EntityType="Self.LeaveAbsence" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportSalaryDaily" EntityType="Self.ReportSalaryDaily" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Specialize" EntityType="Self.Specialize" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
