@@ -62,6 +62,7 @@ namespace HRManagement.Login
             InfoStaffCommon.AdminCreate = type == "1" ? true : false;
             InfoStaffCommon.AdminView = type == "2" ? true : false;
             InfoStaffCommon.AdminApprove = type == "3" ? true : false;
+            InfoStaffCommon.Staff = type == "4" ? true : false;
 
             InfoStaffCommon.Position = info.PositionName;
             InfoStaffCommon.Avatar = info.Image;

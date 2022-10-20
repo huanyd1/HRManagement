@@ -107,6 +107,7 @@
             this.btnRefuse.Size = new System.Drawing.Size(115, 35);
             this.btnRefuse.TabIndex = 9;
             this.btnRefuse.Text = "Từ chối";
+            this.btnRefuse.Visible = false;
             this.btnRefuse.Click += new System.EventHandler(this.btnRefuse_Click);
             // 
             // btnAgree

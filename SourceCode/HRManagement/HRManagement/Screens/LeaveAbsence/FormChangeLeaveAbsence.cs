@@ -16,6 +16,7 @@ namespace HRManagement.Screens.LeaveAbsence
     public partial class FormChangeLeaveAbsence : DevExpress.XtraEditors.XtraForm
     {
         private bool _isSave = false;
+        private string _idStaff;
 
         public FormChangeLeaveAbsence()
         {
@@ -26,10 +27,37 @@ namespace HRManagement.Screens.LeaveAbsence
             dtimeTo.MinDate = DateTime.Now;
             txtTotalDay.ReadOnly = true;
         }
+        public string IdStaff
+        {
+            set { _idStaff = value; }
+        }
 
         public bool IsSave
         {
             get { return _isSave; }
+        }
+
+        private void LoadAllStaff()
+        {
+            StaffDAO dao = new StaffDAO();
+            cbStaffName.DataSource = dao.GetAll();
+            cbStaffName.DisplayMember = "StaffName";
+            cbStaffName.ValueMember = "IDStaff";
+        }
+
+        private void FormChangeLeaveAbsence_Load(object sender, EventArgs e)
+        {
+            LoadAllStaff();
+
+            if (_idStaff != null)
+            {
+                cbStaffName.Enabled = false;
+                cbStaffName.SelectedValue = _idStaff;
+            }
+            else
+            {
+                cbStaffName.Enabled = true;
+            }
         }
 
         private void dtimeTo_ValueChanged(object sender, EventArgs e)
@@ -41,7 +69,7 @@ namespace HRManagement.Screens.LeaveAbsence
         public Model.EF.LeaveAbsence GetInfoLeaveAbsence()
         {
             Model.EF.LeaveAbsence leave = new Model.EF.LeaveAbsence();
-            leave.IDStaff = "VP01924";
+            leave.IDStaff = txtIDStaff.Text.ToString();
             leave.FromDate = dtimeFrom.Value;
             leave.ToDate = dtimeTo.Value;
             leave.TotalDay = int.Parse(txtTotalDay.Text);
@@ -71,6 +99,11 @@ namespace HRManagement.Screens.LeaveAbsence
             {
                 Model.NotificationCommon.AddFaild("Thêm thông tin", "Nghỉ phép");
             }
+        }
+
+        private void cbStaffName_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtIDStaff.Text = cbStaffName.SelectedValue.ToString();
         }
     }
 }

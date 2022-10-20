@@ -16,6 +16,7 @@ namespace HRManagement
         public static bool AdminCreate = false;
         public static bool AdminView = false;
         public static bool AdminApprove = false;
+        public static bool Staff = false;
         public static string Position = "";
         public static string Avatar = "";
     }

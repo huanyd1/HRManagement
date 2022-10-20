@@ -41,6 +41,11 @@ namespace HRManagement.Screens.Explanation
                         lstExplanation.Add(item);
                     }
                 }
+
+                if (InfoStaffCommon.Staff)
+                {
+                    lstExplanation = lstExplanation.Where(t => t.IDStaff == InfoStaffCommon.IDStaff).ToList();
+                }
                 gExplanation.DataSource = lstExplanation;
             }
         }
@@ -118,6 +123,10 @@ namespace HRManagement.Screens.Explanation
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FormChangeExplanation addExplanation = new FormChangeExplanation();
+            if (InfoStaffCommon.Staff)
+            {
+                addExplanation.IdStaff = InfoStaffCommon.IDStaff;
+            }
             addExplanation.ShowDialog();
 
             if (addExplanation.IsSave)

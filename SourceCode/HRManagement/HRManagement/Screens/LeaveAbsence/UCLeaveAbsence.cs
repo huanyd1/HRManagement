@@ -119,6 +119,10 @@ namespace HRManagement.Screens.LeaveAbsence
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FormChangeLeaveAbsence addLeaveAbsence = new FormChangeLeaveAbsence();
+            if (InfoStaffCommon.Staff)
+            {
+                addLeaveAbsence.IdStaff = InfoStaffCommon.IDStaff;
+            }
             addLeaveAbsence.Show();
 
             if (addLeaveAbsence.IsSave)
