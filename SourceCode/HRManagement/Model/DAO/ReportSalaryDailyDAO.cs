@@ -23,5 +23,13 @@ namespace Model.DAO
             }
             return true;
         }
+
+        public bool IsExistReport(string idStaff, int month)
+        {
+            var date = Convert.ToDateTime(string.Format(month + "/" + 15 + "/" + DateTime.Now.Year));
+            var result = _db.ReportSalaryDailies.Where(t => t.IDStaff == idStaff && t.Month == date).Any();
+
+            return result;
+        }
     }
 }

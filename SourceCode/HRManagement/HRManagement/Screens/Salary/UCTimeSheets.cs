@@ -105,6 +105,8 @@ namespace HRManagement.Screens.Salary
         {
             if(gvTimeSheets.RowCount > 0)
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 string idDepartment = cbDepartment.SelectedValue.ToString();
                 int month = int.Parse(cbMonth.SelectedItem.ToString().Replace("Tháng ", ""));
 
@@ -129,6 +131,8 @@ namespace HRManagement.Screens.Salary
                         MessageBox.Show(MessageBoxCommon.SendMainError(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -152,11 +156,15 @@ namespace HRManagement.Screens.Salary
                 string _quyCD = "50000";
                 string _thueTNCN = "";
                 string _thucLinh = "";
+                string _thuong = "";
 
 
                 SalaryDAO dao = new SalaryDAO();
                 StaffDAO staff = new StaffDAO();
                 List<Model.EF.GetTimeSheetsByMonthAndIDStaff_Result> info = dao.GetTimeSheetsByMonthAndIDStaff(idDepartment, month, idStaff);
+
+                var coefficient = info[0].Coefficient == null ? 1 : info[0].Coefficient;
+                var bonus = info[0].Bonus == null ? 0 : info[0].Bonus;
 
                 int insuranceAmount = 0;
                 string email = "";
@@ -167,7 +175,7 @@ namespace HRManagement.Screens.Salary
                 }
 
                 _staffName = staff.GetStaffNameByID(idStaff);
-                _thucLinh = ((((info[0].SalaryAmount / _dayInMonth) * info[0].TotalTime) + int.Parse(_anCa) + int.Parse(_xangXe) + info[0].Allowance) - (insuranceAmount + int.Parse(_quyCD) + info[0].Tax)).ToString();
+                _thucLinh = (((((info[0].SalaryAmount / _dayInMonth) * info[0].TotalTime) + int.Parse(_anCa) + int.Parse(_xangXe) + info[0].Allowance) - (insuranceAmount + int.Parse(_quyCD) + info[0].Tax) * coefficient) + bonus).ToString();
                 _thuNhapHDCT = double.Parse(info[0].SalaryAmount.ToString()).ToString("#,###", cul.NumberFormat);
                 _thuNhapHDTV = double.Parse(((info[0].SalaryAmount / 100) * 80).ToString()).ToString("#,###", cul.NumberFormat);
                 _luongCB = double.Parse(_luongCB.ToString()).ToString("#,###", cul.NumberFormat);
@@ -181,6 +189,7 @@ namespace HRManagement.Screens.Salary
                 _quyCD = double.Parse(_quyCD.ToString()).ToString("#,###", cul.NumberFormat);
                 _thueTNCN = double.Parse(info[0].Tax.ToString()).ToString("#,###", cul.NumberFormat);
                 _thucLinh = double.Parse(_thucLinh).ToString("#,###", cul.NumberFormat);
+                _thuong = double.Parse(bonus.ToString()).ToString("#,###", cul.NumberFormat);
                 var file = string.Format("{0}\\{1}", Environment.CurrentDirectory, "../../Template/" + "Salary.html");
                 string contentEmail = System.IO.File.ReadAllText(file);
 
@@ -199,6 +208,7 @@ namespace HRManagement.Screens.Salary
                 contentEmail = contentEmail.Replace("{Quỹ công đoàn}", _quyCD);
                 contentEmail = contentEmail.Replace("{Thuế TNCN}", _thueTNCN);
                 contentEmail = contentEmail.Replace("{Thực lĩnh}", _thucLinh);
+                contentEmail = contentEmail.Replace("{Thưởng}", _thuong);
 
                 string emailBody = contentEmail;
 
@@ -210,7 +220,10 @@ namespace HRManagement.Screens.Salary
                 try
                 {
                     ReportSalaryDailyDAO daily = new ReportSalaryDailyDAO();
-                    daily.Add(report);
+                    if(!daily.IsExistReport(idStaff, month))
+                    {
+                        daily.Add(report);
+                    }
 
                 } catch { }
 
