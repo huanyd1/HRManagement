@@ -176,6 +176,20 @@ namespace HRManagement.Screens.LeaveAbsence
             }
         }
 
+        private void SendEmailLeaveAbsence(string email, string subject, string body)
+        {
+            var file = string.Format("{0}\\{1}", Environment.CurrentDirectory, "../../Template/" + "Explanation.html");
+            string contentEmail = System.IO.File.ReadAllText(file);
+
+            contentEmail = contentEmail.Replace("{title}", subject);
+            contentEmail = contentEmail.Replace("{}", body);
+
+            string emailBody = contentEmail;
+
+            EmailHelper.SendEmail(Model.AppSettings.EmailHost, Model.AppSettings.EmailPort, Model.AppSettings.FromEmail, Model.AppSettings.PasswordEmail,
+                email, subject, emailBody);
+        }
+
         private void btnAgree_Click(object sender, EventArgs e)
         {
             if (gvLeaveAbsence.RowCount > 0)
@@ -187,7 +201,21 @@ namespace HRManagement.Screens.LeaveAbsence
                 }
                 else
                 {
+                    string title = "Đơn xin nghỉ phép của bạn đã được duyệt";
+                    string idStaff = gvLeaveAbsence.GetFocusedRowCellValue("IDStaff").ToString();
+                    string descript = gvLeaveAbsence.GetFocusedRowCellValue("Descript").ToString();
+                    StaffDAO dao = new StaffDAO();
+                    var staff = dao.GetSingleByID(idStaff);
+                    string email = staff.Email;
+                    string fromDate = gvLeaveAbsence.GetFocusedRowCellValue("FromDate").ToString();
+                    string toDate = gvLeaveAbsence.GetFocusedRowCellValue("ToDate").ToString();
+                    string body = "Đơn xin nghỉ phép của bạn đã được duyệt<br>Ngày bắt đầu: " + fromDate +
+                                  "<br>Tới ngày: " + toDate + 
+                                  "<br>Lí do: " + descript + 
+                                  "<br>Ngày duyệt: " + DateTime.Now.ToString();
+
                     IsAgreeLeaveAbsence(true);
+                    SendEmailLeaveAbsence(email, title, body);
                 }
             }
         }
@@ -203,7 +231,21 @@ namespace HRManagement.Screens.LeaveAbsence
                 }
                 else
                 {
+                    string title = "Đơn xin nghỉ phép của bạn đã bị từ chối";
+                    string idStaff = gvLeaveAbsence.GetFocusedRowCellValue("IDStaff").ToString();
+                    string descript = gvLeaveAbsence.GetFocusedRowCellValue("Descript").ToString();
+                    StaffDAO dao = new StaffDAO();
+                    var staff = dao.GetSingleByID(idStaff);
+                    string email = staff.Email;
+                    string fromDate = gvLeaveAbsence.GetFocusedRowCellValue("FromDate").ToString();
+                    string toDate = gvLeaveAbsence.GetFocusedRowCellValue("ToDate").ToString();
+                    string body = "Đơn xin nghỉ phép của bạn đã bị từ chối<br>Ngày bắt đầu: " + fromDate +
+                                  "<br>Tới ngày: " + toDate +
+                                  "<br>Lí do: " + descript +
+                                  "<br>Ngày duyệt: " + DateTime.Now.ToString();
+
                     IsAgreeLeaveAbsence(false);
+                    SendEmailLeaveAbsence(email, title, body);
                 }
             }
         }

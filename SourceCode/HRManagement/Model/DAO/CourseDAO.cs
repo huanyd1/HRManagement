@@ -23,6 +23,29 @@ namespace Model.DAO
             return course;
         }
 
+        public List<Course> GetCourseByFilter(string idCourse, string courseName, string status)
+        {
+            List<Course> list = _db.Courses.ToList();
+
+            if (!string.IsNullOrEmpty(idCourse))
+            {
+                list = list.Where(x => x.IDCourse.ToLower().Contains(idCourse.ToLower())).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(courseName))
+            {
+                list = list.Where(x => x.CourseName.Contains(courseName)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(status) && status != "Tất cả")
+            {
+                list = list.Where(x => x.Status == status).ToList();
+            }
+
+            return list.ToList();
+        }
+
+
         public bool AddListCourse(List<Model.EF.Course> lstCourse)
         {
             foreach (var course in lstCourse)

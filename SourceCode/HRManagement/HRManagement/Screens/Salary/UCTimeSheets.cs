@@ -91,6 +91,16 @@ namespace HRManagement.Screens.Salary
             }
         }
 
+        private Model.EF.ReportSalaryDaily LoadAllInfoReport(string idStaff, int month, int salary)
+        {
+            Model.EF.ReportSalaryDaily daily = new Model.EF.ReportSalaryDaily();
+            daily.IDStaff = idStaff.ToString();
+            daily.Month = Convert.ToDateTime(string.Format(month + "/" + 15 + "/" + DateTime.Now.Year));
+            daily.SalaryAmount = salary;
+
+            return daily;
+        }
+
         private void btnSendMail_Click(object sender, EventArgs e)
         {
             if(gvTimeSheets.RowCount > 0)
@@ -194,6 +204,15 @@ namespace HRManagement.Screens.Salary
 
                 EmailHelper.SendEmail(Model.AppSettings.EmailHost, Model.AppSettings.EmailPort, Model.AppSettings.FromEmail, Model.AppSettings.PasswordEmail,
                     email, "Chi tiết thu nhập tháng " + month, emailBody);
+
+                Model.EF.ReportSalaryDaily report = LoadAllInfoReport(idStaff, month, int.Parse(_thucLinh.Replace(".", "")));
+
+                try
+                {
+                    ReportSalaryDailyDAO daily = new ReportSalaryDailyDAO();
+                    daily.Add(report);
+
+                } catch { }
 
                 return true;
             }

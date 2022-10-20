@@ -193,6 +193,20 @@ namespace HRManagement.Screens.Explanation
             }
         }
 
+        private void SendEmailExlanation(string email, string subject, string body)
+        {
+            var file = string.Format("{0}\\{1}", Environment.CurrentDirectory, "../../Template/" + "Explanation.html");
+            string contentEmail = System.IO.File.ReadAllText(file);
+
+            contentEmail = contentEmail.Replace("{title}", subject);
+            contentEmail = contentEmail.Replace("{}", body);
+
+            string emailBody = contentEmail;
+
+            EmailHelper.SendEmail(Model.AppSettings.EmailHost, Model.AppSettings.EmailPort, Model.AppSettings.FromEmail, Model.AppSettings.PasswordEmail,
+                email, subject, emailBody);
+        }
+
         private void btnAgree_Click(object sender, EventArgs e)
         {
             if(gvExplanation.RowCount > 0)
@@ -204,7 +218,17 @@ namespace HRManagement.Screens.Explanation
                 }
                 else
                 {
+                    string title = "Đơn giải trình của bạn đã được duyệt";
+                    string idStaff = gvExplanation.GetFocusedRowCellValue("IDStaff").ToString();
+                    StaffDAO dao = new StaffDAO();
+                    var staff = dao.GetSingleByID(idStaff);
+                    string email = staff.Email;
+                    string date = gvExplanation.GetFocusedRowCellValue("Checkin").ToString();
+                    string body = "Đơn giải trình của bạn đã được duyệt<br>Ngày giải trình: " + date+
+                        "<br>Ngày duyệt: " + DateTime.Now.ToString();
+
                     IsAgreeExplanation(true);
+                    SendEmailExlanation(email, title, body);
                 }
             }
         }
@@ -218,7 +242,17 @@ namespace HRManagement.Screens.Explanation
             }
             else
             {
+                string title = "Đơn giải trình của bạn đã bị từ chối";
+                string idStaff = gvExplanation.GetFocusedRowCellValue("IDStaff").ToString();
+                StaffDAO dao = new StaffDAO();
+                var staff = dao.GetSingleByID(idStaff);
+                string email = staff.Email;
+                string date = gvExplanation.GetFocusedRowCellValue("Checkin").ToString();
+                string body = "Đơn giải trình của bạn đã bị từ chối<br>Ngày giải trình: " + date +
+                    "<br>Ngày từ chối: " + DateTime.Now.ToString();
+
                 IsAgreeExplanation(false);
+                SendEmailExlanation(email, title, body);
             }
         }
 

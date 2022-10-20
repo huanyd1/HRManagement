@@ -47,9 +47,9 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 18);
+            this.label3.Size = new System.Drawing.Size(56, 18);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Giải trình:";
+            this.label3.Text = "Lí do:";
             // 
             // label2
             // 
@@ -76,7 +76,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(253, 285);
+            this.btnCancel.Location = new System.Drawing.Point(454, 285);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 45);
             this.btnCancel.TabIndex = 32;
@@ -87,7 +87,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(96, 285);
+            this.btnSave.Location = new System.Drawing.Point(297, 285);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 31;
@@ -100,7 +100,7 @@
             this.dtimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtimeFrom.Location = new System.Drawing.Point(136, 30);
             this.dtimeFrom.Name = "dtimeFrom";
-            this.dtimeFrom.Size = new System.Drawing.Size(239, 23);
+            this.dtimeFrom.Size = new System.Drawing.Size(438, 23);
             this.dtimeFrom.TabIndex = 40;
             // 
             // dtimeTo
@@ -109,7 +109,7 @@
             this.dtimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtimeTo.Location = new System.Drawing.Point(136, 79);
             this.dtimeTo.Name = "dtimeTo";
-            this.dtimeTo.Size = new System.Drawing.Size(239, 23);
+            this.dtimeTo.Size = new System.Drawing.Size(438, 23);
             this.dtimeTo.TabIndex = 41;
             this.dtimeTo.ValueChanged += new System.EventHandler(this.dtimeTo_ValueChanged);
             // 
@@ -118,7 +118,7 @@
             this.txtDescript.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Location = new System.Drawing.Point(136, 171);
             this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Size = new System.Drawing.Size(239, 96);
+            this.txtDescript.Size = new System.Drawing.Size(438, 96);
             this.txtDescript.TabIndex = 42;
             this.txtDescript.Text = "";
             // 
@@ -136,14 +136,14 @@
             // 
             this.txtTotalDay.Location = new System.Drawing.Point(136, 128);
             this.txtTotalDay.Name = "txtTotalDay";
-            this.txtTotalDay.Size = new System.Drawing.Size(237, 23);
+            this.txtTotalDay.Size = new System.Drawing.Size(436, 23);
             this.txtTotalDay.TabIndex = 45;
             // 
             // FormChangeLeaveAbsence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 340);
+            this.ClientSize = new System.Drawing.Size(604, 340);
             this.Controls.Add(this.txtTotalDay);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDescript);

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Model;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace HRManagement.Screens.LeaveAbsence
         public FormChangeLeaveAbsence()
         {
             InitializeComponent();
+            this.Text = ActionCommon.AddAction("Nghỉ phép");
+
             dtimeFrom.MinDate = DateTime.Now;
             dtimeTo.MinDate = DateTime.Now;
             txtTotalDay.ReadOnly = true;

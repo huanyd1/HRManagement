@@ -42,7 +42,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(135, 73);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(244, 96);
+            this.txtDescription.Size = new System.Drawing.Size(374, 96);
             this.txtDescription.TabIndex = 52;
             this.txtDescription.Text = "";
             // 
@@ -52,7 +52,7 @@
             this.dtimeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtimeDate.Location = new System.Drawing.Point(140, 20);
             this.dtimeDate.Name = "dtimeDate";
-            this.dtimeDate.Size = new System.Drawing.Size(239, 23);
+            this.dtimeDate.Size = new System.Drawing.Size(369, 23);
             this.dtimeDate.TabIndex = 50;
             // 
             // label3
@@ -61,9 +61,9 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 18);
+            this.label3.Size = new System.Drawing.Size(88, 18);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Lý do:";
+            this.label3.Text = "Giải trình";
             // 
             // label1
             // 
@@ -80,7 +80,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(257, 194);
+            this.btnCancel.Location = new System.Drawing.Point(386, 194);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 45);
             this.btnCancel.TabIndex = 49;
@@ -92,7 +92,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(100, 194);
+            this.btnSave.Location = new System.Drawing.Point(229, 194);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 48;
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 260);
+            this.ClientSize = new System.Drawing.Size(545, 260);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.dtimeDate);
             this.Controls.Add(this.label3);
@@ -111,6 +111,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Name = "FormChangeExplanation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChangeExplanation";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -85,5 +85,14 @@ namespace HRManagement.Screens.Salary
             }
             save.Dispose();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string idStaff = txtIDStaff.Text.ToString();
+            string staffName = txtStaffName.Text.ToString();
+
+            SalaryDAO dao = new SalaryDAO();
+            gSalary.DataSource = dao.GetSalaryByFilter(idStaff, staffName);
+        }
     }
 }

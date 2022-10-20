@@ -32,12 +32,12 @@
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.txtDepartmentName = new System.Windows.Forms.TextBox();
+            this.txtCourseName = new System.Windows.Forms.TextBox();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIDDepartment = new System.Windows.Forms.TextBox();
+            this.txtIDCourse = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gCourse = new DevExpress.XtraGrid.GridControl();
@@ -83,12 +83,12 @@
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
             this.panel3.Controls.Add(this.cbStatus);
-            this.panel3.Controls.Add(this.txtDepartmentName);
+            this.panel3.Controls.Add(this.txtCourseName);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtIDDepartment);
+            this.panel3.Controls.Add(this.txtIDCourse);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 88);
@@ -106,13 +106,13 @@
             this.cbStatus.Size = new System.Drawing.Size(190, 23);
             this.cbStatus.TabIndex = 12;
             // 
-            // txtDepartmentName
+            // txtCourseName
             // 
-            this.txtDepartmentName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartmentName.Location = new System.Drawing.Point(240, 44);
-            this.txtDepartmentName.Name = "txtDepartmentName";
-            this.txtDepartmentName.Size = new System.Drawing.Size(190, 23);
-            this.txtDepartmentName.TabIndex = 10;
+            this.txtCourseName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseName.Location = new System.Drawing.Point(240, 44);
+            this.txtCourseName.Name = "txtCourseName";
+            this.txtCourseName.Size = new System.Drawing.Size(190, 23);
+            this.txtCourseName.TabIndex = 10;
             // 
             // btnSearch
             // 
@@ -124,6 +124,7 @@
             this.btnSearch.Size = new System.Drawing.Size(115, 35);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnExport
             // 
@@ -157,13 +158,13 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Tên khóa học";
             // 
-            // txtIDDepartment
+            // txtIDCourse
             // 
-            this.txtIDDepartment.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDDepartment.Location = new System.Drawing.Point(29, 44);
-            this.txtIDDepartment.Name = "txtIDDepartment";
-            this.txtIDDepartment.Size = new System.Drawing.Size(190, 23);
-            this.txtIDDepartment.TabIndex = 3;
+            this.txtIDCourse.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCourse.Location = new System.Drawing.Point(29, 44);
+            this.txtIDCourse.Name = "txtIDCourse";
+            this.txtIDCourse.Size = new System.Drawing.Size(190, 23);
+            this.txtIDCourse.TabIndex = 3;
             // 
             // label2
             // 
@@ -344,12 +345,12 @@
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.TextBox txtDepartmentName;
+        private System.Windows.Forms.TextBox txtCourseName;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIDDepartment;
+        private System.Windows.Forms.TextBox txtIDCourse;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraGrid.GridControl gCourse;

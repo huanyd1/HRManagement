@@ -30,6 +30,24 @@ namespace Model.DAO
             return list;
         }
 
+        public List<AllInfoSalary> GetSalaryByFilter(string idStaff, string staffName)
+        {
+            List<AllInfoSalary> list = _db.AllInfoSalaries.ToList();
+
+            if (!string.IsNullOrEmpty(idStaff))
+            {
+                list = list.Where(x => x.IDStaff.Contains(idStaff)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(staffName))
+            {
+                list = list.Where(x => x.StaffName.Contains(staffName)).ToList();
+            }
+
+            return list.ToList();
+        }
+
+
         public List<GetTimeSheetsByMonth_Result> GetTimeSheetsByMonth(string idDepartment, int month)
         {
             List < GetTimeSheetsByMonth_Result> list = _db.GetTimeSheetsByMonth(idDepartment, month).ToList();

@@ -38,11 +38,11 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
-            this.txtIDInsurance = new System.Windows.Forms.TextBox();
+            this.txtIDStaff = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gSalary = new DevExpress.XtraGrid.GridControl();
@@ -52,10 +52,10 @@
             this.IDDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SalaryAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Coefficient = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Allowance = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Tax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Coefficient = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -169,11 +169,11 @@
             // panel3
             // 
             this.tablePanel1.SetColumn(this.panel3, 0);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtStaffName);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.btnExport);
-            this.panel3.Controls.Add(this.txtIDInsurance);
+            this.panel3.Controls.Add(this.txtIDStaff);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 88);
@@ -182,13 +182,13 @@
             this.panel3.Size = new System.Drawing.Size(901, 79);
             this.panel3.TabIndex = 2;
             // 
-            // textBox1
+            // txtStaffName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(264, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 23);
-            this.textBox1.TabIndex = 11;
+            this.txtStaffName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffName.Location = new System.Drawing.Point(264, 44);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(190, 23);
+            this.txtStaffName.TabIndex = 11;
             // 
             // label3
             // 
@@ -210,6 +210,7 @@
             this.btnSearch.Size = new System.Drawing.Size(115, 35);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnExport
             // 
@@ -223,13 +224,13 @@
             this.btnExport.Text = "Xuất DL";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // txtIDInsurance
+            // txtIDStaff
             // 
-            this.txtIDInsurance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDInsurance.Location = new System.Drawing.Point(29, 44);
-            this.txtIDInsurance.Name = "txtIDInsurance";
-            this.txtIDInsurance.Size = new System.Drawing.Size(190, 23);
-            this.txtIDInsurance.TabIndex = 3;
+            this.txtIDStaff.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDStaff.Location = new System.Drawing.Point(29, 44);
+            this.txtIDStaff.Name = "txtIDStaff";
+            this.txtIDStaff.Size = new System.Drawing.Size(190, 23);
+            this.txtIDStaff.TabIndex = 3;
             // 
             // label2
             // 
@@ -328,6 +329,16 @@
             this.SalaryAmount.VisibleIndex = 3;
             this.SalaryAmount.Width = 94;
             // 
+            // Coefficient
+            // 
+            this.Coefficient.Caption = "Hệ số lương";
+            this.Coefficient.FieldName = "Coefficient";
+            this.Coefficient.MinWidth = 25;
+            this.Coefficient.Name = "Coefficient";
+            this.Coefficient.Visible = true;
+            this.Coefficient.VisibleIndex = 5;
+            this.Coefficient.Width = 94;
+            // 
             // Allowance
             // 
             this.Allowance.Caption = "Phụ cấp";
@@ -353,16 +364,6 @@
             // gridView1
             // 
             this.gridView1.Name = "gridView1";
-            // 
-            // Coefficient
-            // 
-            this.Coefficient.Caption = "Hệ số lương";
-            this.Coefficient.FieldName = "Coefficient";
-            this.Coefficient.MinWidth = 25;
-            this.Coefficient.Name = "Coefficient";
-            this.Coefficient.Visible = true;
-            this.Coefficient.VisibleIndex = 5;
-            this.Coefficient.Width = 94;
             // 
             // UCSalary
             // 
@@ -392,7 +393,7 @@
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnExport;
-        private System.Windows.Forms.TextBox txtIDInsurance;
+        private System.Windows.Forms.TextBox txtIDStaff;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraGrid.GridControl gSalary;
@@ -401,7 +402,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn Allowance;
         private DevExpress.XtraGrid.Columns.GridColumn Tax;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStaffName;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraGrid.Columns.GridColumn IDStaff;
         private DevExpress.XtraGrid.Columns.GridColumn StaffName;

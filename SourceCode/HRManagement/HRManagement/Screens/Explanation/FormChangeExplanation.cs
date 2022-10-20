@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Model;
 using Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace HRManagement.Screens.Explanation
         public FormChangeExplanation()
         {
             InitializeComponent();
+            this.Text = ActionCommon.AddAction("Giải trình");
+
             dtimeDate.MaxDate = DateTime.Now;
         }
 

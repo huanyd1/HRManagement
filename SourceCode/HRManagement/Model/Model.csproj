@@ -98,6 +98,7 @@
     <Compile Include="DAO\NationDAO.cs" />
     <Compile Include="DAO\PositionDAO.cs" />
     <Compile Include="DAO\ReportDAO.cs" />
+    <Compile Include="DAO\ReportSalaryDailyDAO.cs" />
     <Compile Include="DAO\SalaryDAO.cs" />
     <Compile Include="DAO\SpecializeDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />

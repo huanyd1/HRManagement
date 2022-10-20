@@ -28,9 +28,21 @@ namespace HRManagement.Screens.Course
             gCourse.DataSource = dao.GetAll();
         }
 
+        private void LoadCourseStatus()
+        {
+            cbStatus.Items.Clear();
+
+            cbStatus.Items.Add("Tất cả");
+            cbStatus.Items.Add("Hoạt động");
+            cbStatus.Items.Add("Ngừng hoạt động");
+
+            cbStatus.SelectedText = "Tất cả";
+        }
+
         private void UCCourse_Load(object sender, EventArgs e)
         {
             LoadAllCourse();
+            LoadCourseStatus();
 
             gvCourse.RowCellStyle += (sen, evt) =>
             {
@@ -150,6 +162,16 @@ namespace HRManagement.Screens.Course
                 //MessageBox.Show("You hit cancel or closed the dialog.");
             }
             save.Dispose();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string idCourse = txtIDCourse.Text.ToString();
+            string courseName = txtCourseName.Text.ToString();
+            string status = cbStatus.Text.ToString();
+            
+            CourseDAO dao = new CourseDAO();
+            gCourse.DataSource = dao.GetCourseByFilter(idCourse, courseName, status);
         }
     }
 }

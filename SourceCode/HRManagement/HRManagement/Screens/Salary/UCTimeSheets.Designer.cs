@@ -385,8 +385,8 @@
             // 
             this.btnSendMail.Appearance.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendMail.Appearance.Options.UseFont = true;
-            this.btnSendMail.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.btnSendMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnSendMail.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnSendMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSendMail.ImageOptions.Image")));
             this.btnSendMail.Location = new System.Drawing.Point(541, 41);
             this.btnSendMail.Name = "btnSendMail";
             this.btnSendMail.Size = new System.Drawing.Size(115, 35);

@@ -45,19 +45,19 @@
             // txtTypeName
             // 
             this.txtTypeName.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeName.Location = new System.Drawing.Point(161, 90);
+            this.txtTypeName.Location = new System.Drawing.Point(176, 90);
             this.txtTypeName.Margin = new System.Windows.Forms.Padding(4);
             this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(280, 23);
+            this.txtTypeName.Size = new System.Drawing.Size(265, 23);
             this.txtTypeName.TabIndex = 40;
             // 
             // txtIDContractType
             // 
             this.txtIDContractType.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDContractType.Location = new System.Drawing.Point(161, 30);
+            this.txtIDContractType.Location = new System.Drawing.Point(176, 30);
             this.txtIDContractType.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDContractType.Name = "txtIDContractType";
-            this.txtIDContractType.Size = new System.Drawing.Size(280, 23);
+            this.txtIDContractType.Size = new System.Drawing.Size(265, 23);
             this.txtIDContractType.TabIndex = 39;
             // 
             // label2
@@ -95,7 +95,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(285, 154);
+            this.btnCancel.Location = new System.Drawing.Point(285, 149);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 55);
@@ -108,7 +108,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Cascadia Code", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(102, 154);
+            this.btnSave.Location = new System.Drawing.Point(102, 149);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(140, 55);
@@ -118,9 +118,8 @@
             // 
             // ChangeContractType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 238);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(464, 223);
             this.Controls.Add(this.txtTypeName);
             this.Controls.Add(this.txtIDContractType);
             this.Controls.Add(this.label2);

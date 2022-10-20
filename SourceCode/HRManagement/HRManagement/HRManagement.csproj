@@ -609,6 +609,7 @@
     <None Include="Resources\gear.png" />
     <None Include="Resources\gear.ico" />
     <Content Include="Template\AddStaff.html" />
+    <Content Include="Template\Explanation.html" />
     <Content Include="Template\ResetPassword.html" />
     <Content Include="Template\Salary.html" />
     <None Include="Resource\Icon\clock.ico" />
